@@ -1,5 +1,9 @@
 import Foundation
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 public final class HTTPBodyJSONEncoder: HTTPBodyEncoder {
 
     // MARK: - Type Properties
@@ -23,8 +27,10 @@ public final class HTTPBodyJSONEncoder: HTTPBodyEncoder {
 
         request.httpBody = try jsonEncoder.encode(parameters)
 
-        if !request.httpBody.isEmptyOrNil, request.value(forHTTPHeaderField: Constants.contentTypeHeaderField) == nil {
-            request.setValue(Constants.contentTypeHeaderValue, forHTTPHeaderField: Constants.contentTypeHeaderField)
+        if !request.httpBody.isEmptyOrNil {
+            if request.value(forHTTPHeaderField: Constants.contentTypeHeaderField) == nil {
+                request.setValue(Constants.contentTypeHeaderValue, forHTTPHeaderField: Constants.contentTypeHeaderField)
+            }
         }
 
         return request

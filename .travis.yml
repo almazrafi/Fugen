@@ -3,7 +3,7 @@ os:
 - osx
 
 osx_image: xcode11
-language: swift
+language: generic
 dist: trusty
 
 rvm: 2.6.3
@@ -11,15 +11,12 @@ gemfile: Gemfile
 
 cache:
   - bundler
-  - cocoapods
 
 env:
   global:
     - LC_CTYPE=en_US.UTF-8
     - LANG=en_US.UTF-8
     - SKIP_SWIFT_LINT=TRUE
-    - SWIFT_BUILD_VERSION=5
-    - SWIFT_VERSION=5.0
 
 install:
   - gem update bundler
@@ -28,12 +25,11 @@ install:
 
 script:
   - set -o pipefail
-
   - swift --version
-  - swift test -Xswiftc -swift-version -Xswiftc $SWIFT_BUILD_VERSION
+  - swift test
 
-  - bundle exec pod lib lint --skip-tests --allow-warnings
-  - bundle exec danger --remove-previous-comments
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then bundle exec pod lib lint --skip-tests --allow-warnings; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then bundle exec danger --remove-previous-comments; fi
 
 branches:
   only:

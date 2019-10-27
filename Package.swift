@@ -3,6 +3,9 @@ import PackageDescription
 
 let package = Package(
     name: "Fugen",
+    platforms: [
+       .macOS(.v10_12)
+    ],
     products: [
         .executable(name: "fugen", targets: ["Fugen"]),
         .library(name: "FugenTools", targets: ["FugenTools"]),

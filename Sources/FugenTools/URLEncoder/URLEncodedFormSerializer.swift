@@ -22,76 +22,87 @@ internal final class URLEncodedFormSerializer {
     private func escapeString(_ string: String) -> String {
         var allowedCharacters = CharacterSet.urlQueryAllowed
 
-        allowedCharacters.remove(charactersIn: Constants.delimiters)
-        allowedCharacters.insert(charactersIn: Constants.space)
+        allowedCharacters.remove(charactersIn: .urlDelimiters)
+        allowedCharacters.insert(charactersIn: .urlUnescapedSpace)
 
         let escapedString = string.addingPercentEncoding(withAllowedCharacters: allowedCharacters) ?? string
 
         switch spaceEncodingStrategy {
         case .percentEscaped:
-            return escapedString.replacingOccurrences(of: Constants.space, with: Constants.percentEscapedSpace)
+            return escapedString.replacingOccurrences(
+                of: String.urlUnescapedSpace,
+                with: String.urlPercentEscapedSpace
+            )
 
         case .plusReplaced:
-            return escapedString.replacingOccurrences(of: Constants.space, with: Constants.plusReplacedSpace)
+            return escapedString.replacingOccurrences(
+                of: String.urlUnescapedSpace,
+                with: String.urlPlusReplacedSpace
+            )
         }
     }
 
     private func serializeComponent(_ component: URLEncodedFormComponent, key: String) -> String {
         switch component {
         case let .string(value):
-            return String(format: Constants.stringComponentFormat, escapeString(key), escapeString(value))
+            return .urlStringComponent(key: escapeString(key), value: escapeString(value))
 
         case let .array(value):
-            return value.map { element in
-                switch arrayEncodingStrategy {
-                case .brackets:
-                    return serializeComponent(
-                        element,
-                        key: String(format: Constants.bracketsArrayComponentKeyFormat, key)
-                    )
+            return value
+                .map { element in
+                    switch arrayEncodingStrategy {
+                    case .brackets:
+                        return serializeComponent(element, key: .urlBracketsArrayComponentKey(key))
 
-                case .noBrackets:
-                    return serializeComponent(
-                        element,
-                        key: String(format: Constants.noBracketsArrayComponentKeyFormat, key)
-                    )
+                    case .noBrackets:
+                        return serializeComponent(element, key: .urlNoBracketsArrayComponentKey(key))
+                    }
                 }
-            }.joined(separator: Constants.ampersand)
+                .joined(separator: .urlComponentSeparator)
 
         case let .dictionary(value):
-            return value.map { element in
-                return serializeComponent(
-                    element.value,
-                    key: String(format: Constants.dictionaryComponentKeyFormat, key, element.key)
-                )
-            }.joined(separator: Constants.ampersand)
+            return value
+                .map { serializeComponent($0.value, key: .urlDictionaryComponentKey(key, elementKey: $0.key)) }
+                .joined(separator: .urlComponentSeparator)
         }
     }
 
     // MARK: -
 
     internal func serialize(_ form: URLEncodedForm) -> String {
-        return form.map { element in
-            return serializeComponent(element.value, key: element.key)
-        }.joined(separator: Constants.ampersand)
+        return form
+            .map { serializeComponent($0.value, key: $0.key) }
+            .joined(separator: .urlComponentSeparator)
     }
 }
 
-private enum Constants {
+private extension String {
 
     // MARK: - Type Properties
 
-    static let delimiters = ":#[]@!$&'()*+,;="
-    static let ampersand = "&"
-    static let space = " "
+    static let urlDelimiters = ":#[]@!$&'()*+,;="
+    static let urlUnescapedSpace = " "
 
-    static let percentEscapedSpace = "%20"
-    static let plusReplacedSpace = "+"
+    static let urlPercentEscapedSpace = "%20"
+    static let urlPlusReplacedSpace = "+"
 
-    static let stringComponentFormat = "%@=%@"
+    static let urlComponentSeparator = "&"
 
-    static let bracketsArrayComponentKeyFormat = "%@[]"
-    static let noBracketsArrayComponentKeyFormat = "%@"
+    // MARK: - Type Methods
 
-    static let dictionaryComponentKeyFormat = "%@[%@]"
+    static func urlStringComponent(key: String, value: String) -> String {
+        return "\(key)=\(value)"
+    }
+
+    static func urlBracketsArrayComponentKey(_ key: String) -> String {
+        return "\(key)[]"
+    }
+
+    static func urlNoBracketsArrayComponentKey(_ key: String) -> String {
+        return key
+    }
+
+    static func urlDictionaryComponentKey(_ key: String, elementKey: String) -> String {
+        return "\(key)[\(elementKey)]"
+    }
 }
