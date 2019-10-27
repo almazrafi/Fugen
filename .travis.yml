@@ -19,7 +19,7 @@ env:
     - LANG=en_US.UTF-8
     - SKIP_SWIFT_LINT=TRUE
     - SWIFT_BUILD_VERSION=5
-    - SWIFT_VERSION=5.1
+    - SWIFT_VERSION=5.0
 
 install:
   - gem update bundler
