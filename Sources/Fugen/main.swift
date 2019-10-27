@@ -1,6 +1,6 @@
 import Foundation
 import SwiftCLI
-import PromiseKit
+import FugenTools
 
 let fugen = CLI(
     name: "fugen",
@@ -8,4 +8,4 @@ let fugen = CLI(
     description: "A tool to automate resources using the Figma API."
 )
 
-fugen.goAndExit()
+fugen.goAndExitOnError()
