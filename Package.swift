@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.0
 import PackageDescription
 
 let package = Package(
@@ -50,5 +50,6 @@ let package = Package(
             dependencies: ["FugenTools"],
             path: "Tests/FugenToolsTests"
         )
-    ]
+    ],
+    swiftLanguageVersions: [.v5]
 )
