@@ -36,7 +36,7 @@ public final class HTTPStringResponseSerializer: HTTPResponseSerializer {
 
 extension String: HTTPEmptyResponse {
 
-    // MARK: - Type Properties
+    // MARK: - Type Methods
 
     public static func emptyResponseInstance() -> String {
         return ""
