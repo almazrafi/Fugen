@@ -33,6 +33,60 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		C021DBA02365D64500401855 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB3A2365D5E200401855 /* Bundle+Extensions.swift */; };
+		C021DBA12365D64500401855 /* CLI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB332365D5E200401855 /* CLI+Extensions.swift */; };
+		C021DBA22365D64500401855 /* KeyedDecodingContainerProtocol+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB302365D5E200401855 /* KeyedDecodingContainerProtocol+Extensions.swift */; };
+		C021DBA32365D64500401855 /* OperatingSystemVersion+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB2F2365D5E200401855 /* OperatingSystemVersion+Extensions.swift */; };
+		C021DBA42365D64500401855 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB382365D5E200401855 /* Optional+Extensions.swift */; };
+		C021DBA52365D64500401855 /* Path+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB312365D5E200401855 /* Path+Extensions.swift */; };
+		C021DBA62365D64500401855 /* ProcessInfo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB372365D5E200401855 /* ProcessInfo+Extensions.swift */; };
+		C021DBA72365D64500401855 /* Promise+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB2E2365D5E200401855 /* Promise+Extensions.swift */; };
+		C021DBA82365D64500401855 /* RangeReplaceableCollection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB342365D5E200401855 /* RangeReplaceableCollection+Extensions.swift */; };
+		C021DBA92365D64500401855 /* Routable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB362365D5E200401855 /* Routable+Extensions.swift */; };
+		C021DBAA2365D64500401855 /* Sequence+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB352365D5E200401855 /* Sequence+Extensions.swift */; };
+		C021DBAB2365D64500401855 /* SingleValueDecodingContainer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB322365D5E200401855 /* SingleValueDecodingContainer+Extensions.swift */; };
+		C021DBAC2365D64500401855 /* UnkeyedDecodingContainer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB392365D5E200401855 /* UnkeyedDecodingContainer+Extensions.swift */; };
+		C021DBAD2365D65500401855 /* HTTPBodyEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB562365D5E200401855 /* HTTPBodyEncoder.swift */; };
+		C021DBAE2365D65500401855 /* HTTPBodyJSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB542365D5E200401855 /* HTTPBodyJSONEncoder.swift */; };
+		C021DBAF2365D65500401855 /* HTTPBodyURLEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB552365D5E200401855 /* HTTPBodyURLEncoder.swift */; };
+		C021DBB02365D65B00401855 /* HTTPQueryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB4D2365D5E200401855 /* HTTPQueryEncoder.swift */; };
+		C021DBB12365D65B00401855 /* HTTPQueryURLEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB4C2365D5E200401855 /* HTTPQueryURLEncoder.swift */; };
+		C021DBB22365D65F00401855 /* HTTPDataResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB5E2365D5E200401855 /* HTTPDataResponseSerializer.swift */; };
+		C021DBB32365D65F00401855 /* HTTPDecodableResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB5F2365D5E200401855 /* HTTPDecodableResponseSerializer.swift */; };
+		C021DBB42365D65F00401855 /* HTTPEmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB622365D5E200401855 /* HTTPEmptyResponse.swift */; };
+		C021DBB52365D65F00401855 /* HTTPJSONResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB632365D5E200401855 /* HTTPJSONResponseSerializer.swift */; };
+		C021DBB62365D65F00401855 /* HTTPResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB612365D5E200401855 /* HTTPResponseDecoder.swift */; };
+		C021DBB72365D65F00401855 /* HTTPResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB602365D5E200401855 /* HTTPResponseSerializer.swift */; };
+		C021DBB82365D65F00401855 /* HTTPStringResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB5D2365D5E200401855 /* HTTPStringResponseSerializer.swift */; };
+		C021DBB92365D66400401855 /* HTTPActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB4F2365D5E200401855 /* HTTPActivityIndicator.swift */; };
+		C021DBBA2365D66400401855 /* HTTPAnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB4E2365D5E200401855 /* HTTPAnyEncodable.swift */; };
+		C021DBBB2365D66400401855 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB5B2365D5E200401855 /* HTTPError.swift */; };
+		C021DBBC2365D66400401855 /* HTTPErrorStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB582365D5E200401855 /* HTTPErrorStringConvertible.swift */; };
+		C021DBBD2365D66400401855 /* HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB5A2365D5E200401855 /* HTTPHeader.swift */; };
+		C021DBBE2365D66400401855 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB592365D5E200401855 /* HTTPMethod.swift */; };
+		C021DBBF2365D66400401855 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB572365D5E200401855 /* HTTPResponse.swift */; };
+		C021DBC02365D66400401855 /* HTTPRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB512365D5E200401855 /* HTTPRoute.swift */; };
+		C021DBC12365D66400401855 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB652365D5E200401855 /* HTTPService.swift */; };
+		C021DBC22365D66400401855 /* HTTPServiceTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB4A2365D5E200401855 /* HTTPServiceTask.swift */; };
+		C021DBC32365D66400401855 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB642365D5E200401855 /* HTTPStatusCode.swift */; };
+		C021DBC42365D66400401855 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB502365D5E200401855 /* HTTPTask.swift */; };
+		C021DBC52365D66400401855 /* HTTPUIActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB522365D5E200401855 /* HTTPUIActivityIndicator.swift */; };
+		C021DBC62365D67000401855 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB692365D5E200401855 /* AnyCodable.swift */; };
+		C021DBC72365D67000401855 /* AnyCodingKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB682365D5E200401855 /* AnyCodingKey.swift */; };
+		C021DBC82365D67000401855 /* MessageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB672365D5E200401855 /* MessageError.swift */; };
+		C021DBC92365D67600401855 /* URLArrayEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB412365D5E200401855 /* URLArrayEncodingStrategy.swift */; };
+		C021DBCA2365D67600401855 /* URLBoolEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB462365D5E200401855 /* URLBoolEncodingStrategy.swift */; };
+		C021DBCB2365D67600401855 /* URLDateEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB472365D5E200401855 /* URLDateEncodingStrategy.swift */; };
+		C021DBCC2365D67600401855 /* URLEncodedForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB3D2365D5E200401855 /* URLEncodedForm.swift */; };
+		C021DBCD2365D67600401855 /* URLEncodedFormComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB442365D5E200401855 /* URLEncodedFormComponent.swift */; };
+		C021DBCE2365D67600401855 /* URLEncodedFormContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB3F2365D5E200401855 /* URLEncodedFormContext.swift */; };
+		C021DBCF2365D67600401855 /* URLEncodedFormEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB3E2365D5E200401855 /* URLEncodedFormEncoder.swift */; };
+		C021DBD02365D67600401855 /* URLEncodedFormKeyedEncodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB402365D5E200401855 /* URLEncodedFormKeyedEncodingContainer.swift */; };
+		C021DBD12365D67600401855 /* URLEncodedFormSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB482365D5E200401855 /* URLEncodedFormSerializer.swift */; };
+		C021DBD22365D67600401855 /* URLEncodedFormSingleValueEncodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB3C2365D5E200401855 /* URLEncodedFormSingleValueEncodingContainer.swift */; };
+		C021DBD32365D67600401855 /* URLEncodedFormUnkeyedEncodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB452365D5E200401855 /* URLEncodedFormUnkeyedEncodingContainer.swift */; };
+		C021DBD42365D67600401855 /* URLEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB432365D5E200401855 /* URLEncoder.swift */; };
+		C021DBD52365D67600401855 /* URLSpaceEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB422365D5E200401855 /* URLSpaceEncodingStrategy.swift */; };
 		OBJ_172 /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* api.c */; };
 		OBJ_173 /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* emitter.c */; };
 		OBJ_174 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* parser.c */; };
@@ -62,7 +116,6 @@
 		OBJ_241 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "PromiseKit::PromiseKit::Product" /* PromiseKit.framework */; };
 		OBJ_242 /* PathKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "PathKit::PathKit::Product" /* PathKit.framework */; };
 		OBJ_243 /* SwiftCLI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */; };
-		OBJ_258 /* Blank.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Blank.swift */; };
 		OBJ_260 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "PromiseKit::PromiseKit::Product" /* PromiseKit.framework */; };
 		OBJ_261 /* PathKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "PathKit::PathKit::Product" /* PathKit.framework */; };
 		OBJ_262 /* SwiftCLI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */; };
@@ -420,10 +473,64 @@
 		C021DB292365D4E700401855 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C021DB2A2365D4E700401855 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C021DB2B2365D4E700401855 /* .ruby-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".ruby-version"; sourceTree = "<group>"; };
+		C021DB2E2365D5E200401855 /* Promise+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Extensions.swift"; sourceTree = "<group>"; };
+		C021DB2F2365D5E200401855 /* OperatingSystemVersion+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OperatingSystemVersion+Extensions.swift"; sourceTree = "<group>"; };
+		C021DB302365D5E200401855 /* KeyedDecodingContainerProtocol+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyedDecodingContainerProtocol+Extensions.swift"; sourceTree = "<group>"; };
+		C021DB312365D5E200401855 /* Path+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Path+Extensions.swift"; sourceTree = "<group>"; };
+		C021DB322365D5E200401855 /* SingleValueDecodingContainer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SingleValueDecodingContainer+Extensions.swift"; sourceTree = "<group>"; };
+		C021DB332365D5E200401855 /* CLI+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLI+Extensions.swift"; sourceTree = "<group>"; };
+		C021DB342365D5E200401855 /* RangeReplaceableCollection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+Extensions.swift"; sourceTree = "<group>"; };
+		C021DB352365D5E200401855 /* Sequence+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+Extensions.swift"; sourceTree = "<group>"; };
+		C021DB362365D5E200401855 /* Routable+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Routable+Extensions.swift"; sourceTree = "<group>"; };
+		C021DB372365D5E200401855 /* ProcessInfo+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+Extensions.swift"; sourceTree = "<group>"; };
+		C021DB382365D5E200401855 /* Optional+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
+		C021DB392365D5E200401855 /* UnkeyedDecodingContainer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnkeyedDecodingContainer+Extensions.swift"; sourceTree = "<group>"; };
+		C021DB3A2365D5E200401855 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		C021DB3C2365D5E200401855 /* URLEncodedFormSingleValueEncodingContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLEncodedFormSingleValueEncodingContainer.swift; sourceTree = "<group>"; };
+		C021DB3D2365D5E200401855 /* URLEncodedForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLEncodedForm.swift; sourceTree = "<group>"; };
+		C021DB3E2365D5E200401855 /* URLEncodedFormEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLEncodedFormEncoder.swift; sourceTree = "<group>"; };
+		C021DB3F2365D5E200401855 /* URLEncodedFormContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLEncodedFormContext.swift; sourceTree = "<group>"; };
+		C021DB402365D5E200401855 /* URLEncodedFormKeyedEncodingContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLEncodedFormKeyedEncodingContainer.swift; sourceTree = "<group>"; };
+		C021DB412365D5E200401855 /* URLArrayEncodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLArrayEncodingStrategy.swift; sourceTree = "<group>"; };
+		C021DB422365D5E200401855 /* URLSpaceEncodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSpaceEncodingStrategy.swift; sourceTree = "<group>"; };
+		C021DB432365D5E200401855 /* URLEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLEncoder.swift; sourceTree = "<group>"; };
+		C021DB442365D5E200401855 /* URLEncodedFormComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLEncodedFormComponent.swift; sourceTree = "<group>"; };
+		C021DB452365D5E200401855 /* URLEncodedFormUnkeyedEncodingContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLEncodedFormUnkeyedEncodingContainer.swift; sourceTree = "<group>"; };
+		C021DB462365D5E200401855 /* URLBoolEncodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLBoolEncodingStrategy.swift; sourceTree = "<group>"; };
+		C021DB472365D5E200401855 /* URLDateEncodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLDateEncodingStrategy.swift; sourceTree = "<group>"; };
+		C021DB482365D5E200401855 /* URLEncodedFormSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLEncodedFormSerializer.swift; sourceTree = "<group>"; };
+		C021DB4A2365D5E200401855 /* HTTPServiceTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPServiceTask.swift; sourceTree = "<group>"; };
+		C021DB4C2365D5E200401855 /* HTTPQueryURLEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPQueryURLEncoder.swift; sourceTree = "<group>"; };
+		C021DB4D2365D5E200401855 /* HTTPQueryEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPQueryEncoder.swift; sourceTree = "<group>"; };
+		C021DB4E2365D5E200401855 /* HTTPAnyEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPAnyEncodable.swift; sourceTree = "<group>"; };
+		C021DB4F2365D5E200401855 /* HTTPActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPActivityIndicator.swift; sourceTree = "<group>"; };
+		C021DB502365D5E200401855 /* HTTPTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		C021DB512365D5E200401855 /* HTTPRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRoute.swift; sourceTree = "<group>"; };
+		C021DB522365D5E200401855 /* HTTPUIActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPUIActivityIndicator.swift; sourceTree = "<group>"; };
+		C021DB542365D5E200401855 /* HTTPBodyJSONEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPBodyJSONEncoder.swift; sourceTree = "<group>"; };
+		C021DB552365D5E200401855 /* HTTPBodyURLEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPBodyURLEncoder.swift; sourceTree = "<group>"; };
+		C021DB562365D5E200401855 /* HTTPBodyEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPBodyEncoder.swift; sourceTree = "<group>"; };
+		C021DB572365D5E200401855 /* HTTPResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponse.swift; sourceTree = "<group>"; };
+		C021DB582365D5E200401855 /* HTTPErrorStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPErrorStringConvertible.swift; sourceTree = "<group>"; };
+		C021DB592365D5E200401855 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		C021DB5A2365D5E200401855 /* HTTPHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
+		C021DB5B2365D5E200401855 /* HTTPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
+		C021DB5D2365D5E200401855 /* HTTPStringResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStringResponseSerializer.swift; sourceTree = "<group>"; };
+		C021DB5E2365D5E200401855 /* HTTPDataResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPDataResponseSerializer.swift; sourceTree = "<group>"; };
+		C021DB5F2365D5E200401855 /* HTTPDecodableResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPDecodableResponseSerializer.swift; sourceTree = "<group>"; };
+		C021DB602365D5E200401855 /* HTTPResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponseSerializer.swift; sourceTree = "<group>"; };
+		C021DB612365D5E200401855 /* HTTPResponseDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponseDecoder.swift; sourceTree = "<group>"; };
+		C021DB622365D5E200401855 /* HTTPEmptyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPEmptyResponse.swift; sourceTree = "<group>"; };
+		C021DB632365D5E200401855 /* HTTPJSONResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPJSONResponseSerializer.swift; sourceTree = "<group>"; };
+		C021DB642365D5E200401855 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
+		C021DB652365D5E200401855 /* HTTPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPService.swift; sourceTree = "<group>"; };
+		C021DB672365D5E200401855 /* MessageError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageError.swift; sourceTree = "<group>"; };
+		C021DB682365D5E200401855 /* AnyCodingKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCodingKey.swift; sourceTree = "<group>"; };
+		C021DB692365D5E200401855 /* AnyCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCodable.swift; sourceTree = "<group>"; };
 		"Fugen::Fugen::Product" /* Fugen */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fugen; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Fugen::FugenTests::Product" /* FugenTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = FugenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Fugen::FugenTests::Product" /* FugenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FugenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Fugen::FugenTools::Product" /* FugenTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FugenTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Fugen::FugenToolsTests::Product" /* FugenToolsTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = FugenToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Fugen::FugenToolsTests::Product" /* FugenToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FugenToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_100 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		OBJ_101 /* String+Yams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Yams.swift"; sourceTree = "<group>"; };
 		OBJ_102 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
@@ -433,7 +540,6 @@
 		OBJ_107 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = /Users/almaz/Development/Almazrafi/Fugen/.build/checkouts/Rainbow/Package.swift; sourceTree = "<group>"; };
 		OBJ_108 /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
 		OBJ_109 /* CodesParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesParser.swift; sourceTree = "<group>"; };
-		OBJ_11 /* Blank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blank.swift; sourceTree = "<group>"; };
 		OBJ_110 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		OBJ_111 /* ControlCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCode.swift; sourceTree = "<group>"; };
 		OBJ_112 /* ModesExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModesExtractor.swift; sourceTree = "<group>"; };
@@ -468,7 +574,6 @@
 		OBJ_142 /* VersionCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCommand.swift; sourceTree = "<group>"; };
 		OBJ_143 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = /Users/almaz/Development/Almazrafi/Fugen/.build/checkouts/SwiftCLI/Package.swift; sourceTree = "<group>"; };
 		OBJ_15 /* FugenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FugenTests.swift; sourceTree = "<group>"; };
-		OBJ_157 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = SOURCE_ROOT; };
 		OBJ_158 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = SOURCE_ROOT; };
 		OBJ_159 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = SOURCE_ROOT; };
 		OBJ_160 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -679,10 +784,119 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C021DB2D2365D5E200401855 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C021DB3A2365D5E200401855 /* Bundle+Extensions.swift */,
+				C021DB332365D5E200401855 /* CLI+Extensions.swift */,
+				C021DB302365D5E200401855 /* KeyedDecodingContainerProtocol+Extensions.swift */,
+				C021DB2F2365D5E200401855 /* OperatingSystemVersion+Extensions.swift */,
+				C021DB382365D5E200401855 /* Optional+Extensions.swift */,
+				C021DB312365D5E200401855 /* Path+Extensions.swift */,
+				C021DB372365D5E200401855 /* ProcessInfo+Extensions.swift */,
+				C021DB2E2365D5E200401855 /* Promise+Extensions.swift */,
+				C021DB342365D5E200401855 /* RangeReplaceableCollection+Extensions.swift */,
+				C021DB362365D5E200401855 /* Routable+Extensions.swift */,
+				C021DB352365D5E200401855 /* Sequence+Extensions.swift */,
+				C021DB322365D5E200401855 /* SingleValueDecodingContainer+Extensions.swift */,
+				C021DB392365D5E200401855 /* UnkeyedDecodingContainer+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C021DB3B2365D5E200401855 /* URLEncoder */ = {
+			isa = PBXGroup;
+			children = (
+				C021DB412365D5E200401855 /* URLArrayEncodingStrategy.swift */,
+				C021DB462365D5E200401855 /* URLBoolEncodingStrategy.swift */,
+				C021DB472365D5E200401855 /* URLDateEncodingStrategy.swift */,
+				C021DB3D2365D5E200401855 /* URLEncodedForm.swift */,
+				C021DB442365D5E200401855 /* URLEncodedFormComponent.swift */,
+				C021DB3F2365D5E200401855 /* URLEncodedFormContext.swift */,
+				C021DB3E2365D5E200401855 /* URLEncodedFormEncoder.swift */,
+				C021DB402365D5E200401855 /* URLEncodedFormKeyedEncodingContainer.swift */,
+				C021DB482365D5E200401855 /* URLEncodedFormSerializer.swift */,
+				C021DB3C2365D5E200401855 /* URLEncodedFormSingleValueEncodingContainer.swift */,
+				C021DB452365D5E200401855 /* URLEncodedFormUnkeyedEncodingContainer.swift */,
+				C021DB432365D5E200401855 /* URLEncoder.swift */,
+				C021DB422365D5E200401855 /* URLSpaceEncodingStrategy.swift */,
+			);
+			path = URLEncoder;
+			sourceTree = "<group>";
+		};
+		C021DB492365D5E200401855 /* HTTPService */ = {
+			isa = PBXGroup;
+			children = (
+				C021DB532365D5E200401855 /* BodyEncoders */,
+				C021DB4B2365D5E200401855 /* QueryEncoders */,
+				C021DB5C2365D5E200401855 /* ResponseSerializers */,
+				C021DB4F2365D5E200401855 /* HTTPActivityIndicator.swift */,
+				C021DB4E2365D5E200401855 /* HTTPAnyEncodable.swift */,
+				C021DB5B2365D5E200401855 /* HTTPError.swift */,
+				C021DB582365D5E200401855 /* HTTPErrorStringConvertible.swift */,
+				C021DB5A2365D5E200401855 /* HTTPHeader.swift */,
+				C021DB592365D5E200401855 /* HTTPMethod.swift */,
+				C021DB572365D5E200401855 /* HTTPResponse.swift */,
+				C021DB512365D5E200401855 /* HTTPRoute.swift */,
+				C021DB652365D5E200401855 /* HTTPService.swift */,
+				C021DB4A2365D5E200401855 /* HTTPServiceTask.swift */,
+				C021DB642365D5E200401855 /* HTTPStatusCode.swift */,
+				C021DB502365D5E200401855 /* HTTPTask.swift */,
+				C021DB522365D5E200401855 /* HTTPUIActivityIndicator.swift */,
+			);
+			path = HTTPService;
+			sourceTree = "<group>";
+		};
+		C021DB4B2365D5E200401855 /* QueryEncoders */ = {
+			isa = PBXGroup;
+			children = (
+				C021DB4D2365D5E200401855 /* HTTPQueryEncoder.swift */,
+				C021DB4C2365D5E200401855 /* HTTPQueryURLEncoder.swift */,
+			);
+			path = QueryEncoders;
+			sourceTree = "<group>";
+		};
+		C021DB532365D5E200401855 /* BodyEncoders */ = {
+			isa = PBXGroup;
+			children = (
+				C021DB562365D5E200401855 /* HTTPBodyEncoder.swift */,
+				C021DB542365D5E200401855 /* HTTPBodyJSONEncoder.swift */,
+				C021DB552365D5E200401855 /* HTTPBodyURLEncoder.swift */,
+			);
+			path = BodyEncoders;
+			sourceTree = "<group>";
+		};
+		C021DB5C2365D5E200401855 /* ResponseSerializers */ = {
+			isa = PBXGroup;
+			children = (
+				C021DB5E2365D5E200401855 /* HTTPDataResponseSerializer.swift */,
+				C021DB5F2365D5E200401855 /* HTTPDecodableResponseSerializer.swift */,
+				C021DB622365D5E200401855 /* HTTPEmptyResponse.swift */,
+				C021DB632365D5E200401855 /* HTTPJSONResponseSerializer.swift */,
+				C021DB612365D5E200401855 /* HTTPResponseDecoder.swift */,
+				C021DB602365D5E200401855 /* HTTPResponseSerializer.swift */,
+				C021DB5D2365D5E200401855 /* HTTPStringResponseSerializer.swift */,
+			);
+			path = ResponseSerializers;
+			sourceTree = "<group>";
+		};
+		C021DB662365D5E200401855 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				C021DB692365D5E200401855 /* AnyCodable.swift */,
+				C021DB682365D5E200401855 /* AnyCodingKey.swift */,
+				C021DB672365D5E200401855 /* MessageError.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* FugenTools */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_11 /* Blank.swift */,
+				C021DB2D2365D5E200401855 /* Extensions */,
+				C021DB492365D5E200401855 /* HTTPService */,
+				C021DB662365D5E200401855 /* Shared */,
+				C021DB3B2365D5E200401855 /* URLEncoder */,
 				C021DB272365D4CC00401855 /* .swiftlint.yml */,
 			);
 			name = FugenTools;
@@ -863,14 +1077,13 @@
 			path = .build/checkouts/StencilSwiftKit/Sources/StencilSwiftKit;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_7 /* Sources */,
 				OBJ_12 /* Tests */,
 				OBJ_19 /* Dependencies */,
 				OBJ_144 /* Products */,
-				OBJ_157 /* Resources */,
 				OBJ_158 /* Scripts */,
 				OBJ_159 /* Templates */,
 				C021DB2A2365D4E700401855 /* .gitignore */,
@@ -885,7 +1098,6 @@
 				OBJ_165 /* Gemfile.lock */,
 				OBJ_166 /* Fugen.podspec */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_51 /* Stencil 0.13.1 */ = {
@@ -1378,7 +1590,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_144 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1472,7 +1684,60 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_258 /* Blank.swift in Sources */,
+				C021DBA52365D64500401855 /* Path+Extensions.swift in Sources */,
+				C021DBB62365D65F00401855 /* HTTPResponseDecoder.swift in Sources */,
+				C021DBCA2365D67600401855 /* URLBoolEncodingStrategy.swift in Sources */,
+				C021DBA12365D64500401855 /* CLI+Extensions.swift in Sources */,
+				C021DBD02365D67600401855 /* URLEncodedFormKeyedEncodingContainer.swift in Sources */,
+				C021DBAE2365D65500401855 /* HTTPBodyJSONEncoder.swift in Sources */,
+				C021DBC52365D66400401855 /* HTTPUIActivityIndicator.swift in Sources */,
+				C021DBA42365D64500401855 /* Optional+Extensions.swift in Sources */,
+				C021DBAF2365D65500401855 /* HTTPBodyURLEncoder.swift in Sources */,
+				C021DBD22365D67600401855 /* URLEncodedFormSingleValueEncodingContainer.swift in Sources */,
+				C021DBC32365D66400401855 /* HTTPStatusCode.swift in Sources */,
+				C021DBA92365D64500401855 /* Routable+Extensions.swift in Sources */,
+				C021DBC12365D66400401855 /* HTTPService.swift in Sources */,
+				C021DBC72365D67000401855 /* AnyCodingKey.swift in Sources */,
+				C021DBBC2365D66400401855 /* HTTPErrorStringConvertible.swift in Sources */,
+				C021DBA62365D64500401855 /* ProcessInfo+Extensions.swift in Sources */,
+				C021DBB72365D65F00401855 /* HTTPResponseSerializer.swift in Sources */,
+				C021DBA32365D64500401855 /* OperatingSystemVersion+Extensions.swift in Sources */,
+				C021DBB22365D65F00401855 /* HTTPDataResponseSerializer.swift in Sources */,
+				C021DBBD2365D66400401855 /* HTTPHeader.swift in Sources */,
+				C021DBAC2365D64500401855 /* UnkeyedDecodingContainer+Extensions.swift in Sources */,
+				C021DBD42365D67600401855 /* URLEncoder.swift in Sources */,
+				C021DBC82365D67000401855 /* MessageError.swift in Sources */,
+				C021DBB12365D65B00401855 /* HTTPQueryURLEncoder.swift in Sources */,
+				C021DBC42365D66400401855 /* HTTPTask.swift in Sources */,
+				C021DBB82365D65F00401855 /* HTTPStringResponseSerializer.swift in Sources */,
+				C021DBD12365D67600401855 /* URLEncodedFormSerializer.swift in Sources */,
+				C021DBC22365D66400401855 /* HTTPServiceTask.swift in Sources */,
+				C021DBC02365D66400401855 /* HTTPRoute.swift in Sources */,
+				C021DBB92365D66400401855 /* HTTPActivityIndicator.swift in Sources */,
+				C021DBBA2365D66400401855 /* HTTPAnyEncodable.swift in Sources */,
+				C021DBBB2365D66400401855 /* HTTPError.swift in Sources */,
+				C021DBA72365D64500401855 /* Promise+Extensions.swift in Sources */,
+				C021DBCE2365D67600401855 /* URLEncodedFormContext.swift in Sources */,
+				C021DBC62365D67000401855 /* AnyCodable.swift in Sources */,
+				C021DBCF2365D67600401855 /* URLEncodedFormEncoder.swift in Sources */,
+				C021DBBE2365D66400401855 /* HTTPMethod.swift in Sources */,
+				C021DBAD2365D65500401855 /* HTTPBodyEncoder.swift in Sources */,
+				C021DBCD2365D67600401855 /* URLEncodedFormComponent.swift in Sources */,
+				C021DBB02365D65B00401855 /* HTTPQueryEncoder.swift in Sources */,
+				C021DBD32365D67600401855 /* URLEncodedFormUnkeyedEncodingContainer.swift in Sources */,
+				C021DBAA2365D64500401855 /* Sequence+Extensions.swift in Sources */,
+				C021DBA22365D64500401855 /* KeyedDecodingContainerProtocol+Extensions.swift in Sources */,
+				C021DBCB2365D67600401855 /* URLDateEncodingStrategy.swift in Sources */,
+				C021DBD52365D67600401855 /* URLSpaceEncodingStrategy.swift in Sources */,
+				C021DBB52365D65F00401855 /* HTTPJSONResponseSerializer.swift in Sources */,
+				C021DBCC2365D67600401855 /* URLEncodedForm.swift in Sources */,
+				C021DBB32365D65F00401855 /* HTTPDecodableResponseSerializer.swift in Sources */,
+				C021DBA82365D64500401855 /* RangeReplaceableCollection+Extensions.swift in Sources */,
+				C021DBBF2365D66400401855 /* HTTPResponse.swift in Sources */,
+				C021DBB42365D65F00401855 /* HTTPEmptyResponse.swift in Sources */,
+				C021DBC92365D67600401855 /* URLArrayEncodingStrategy.swift in Sources */,
+				C021DBAB2365D64500401855 /* SingleValueDecodingContainer+Extensions.swift in Sources */,
+				C021DBA02365D64500401855 /* Bundle+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2121,6 +2386,7 @@
 		OBJ_267 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2146,6 +2412,7 @@
 		OBJ_268 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
