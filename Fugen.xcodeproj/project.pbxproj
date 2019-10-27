@@ -87,6 +87,62 @@
 		C021DBD32365D67600401855 /* URLEncodedFormUnkeyedEncodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB452365D5E200401855 /* URLEncodedFormUnkeyedEncodingContainer.swift */; };
 		C021DBD42365D67600401855 /* URLEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB432365D5E200401855 /* URLEncoder.swift */; };
 		C021DBD52365D67600401855 /* URLSpaceEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DB422365D5E200401855 /* URLSpaceEncodingStrategy.swift */; };
+		C021DC1E2365D85400401855 /* FigmaExportSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBD82365D85300401855 /* FigmaExportSetting.swift */; };
+		C021DC1F2365D85400401855 /* FigmaStrokeAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBD92365D85300401855 /* FigmaStrokeAlignment.swift */; };
+		C021DC202365D85400401855 /* FigmaStyleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBDA2365D85300401855 /* FigmaStyleType.swift */; };
+		C021DC212365D85400401855 /* FigmaTextVerticalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBDB2365D85300401855 /* FigmaTextVerticalAlignment.swift */; };
+		C021DC222365D85400401855 /* FigmaPaint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBDC2365D85300401855 /* FigmaPaint.swift */; };
+		C021DC232365D85400401855 /* FigmaFrameOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBDD2365D85300401855 /* FigmaFrameOffset.swift */; };
+		C021DC242365D85400401855 /* FigmaFrameNodeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBDF2365D85300401855 /* FigmaFrameNodeInfo.swift */; };
+		C021DC252365D85400401855 /* FigmaTextNodePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBE02365D85300401855 /* FigmaTextNodePayload.swift */; };
+		C021DC262365D85400401855 /* FigmaNodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBE12365D85300401855 /* FigmaNodeType.swift */; };
+		C021DC272365D85400401855 /* FigmaDocumentNodeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBE22365D85300401855 /* FigmaDocumentNodeInfo.swift */; };
+		C021DC282365D85400401855 /* FigmaFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBE32365D85300401855 /* FigmaFile.swift */; };
+		C021DC292365D85400401855 /* FigmaRectangleNodePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBE42365D85300401855 /* FigmaRectangleNodePayload.swift */; };
+		C021DC2A2365D85400401855 /* FigmaCanvasNodeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBE52365D85300401855 /* FigmaCanvasNodeInfo.swift */; };
+		C021DC2B2365D85400401855 /* FigmaSliceNodeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBE62365D85300401855 /* FigmaSliceNodeInfo.swift */; };
+		C021DC2C2365D85400401855 /* FigmaInstanceNodePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBE72365D85300401855 /* FigmaInstanceNodePayload.swift */; };
+		C021DC2D2365D85400401855 /* FigmaNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBE82365D85300401855 /* FigmaNode.swift */; };
+		C021DC2E2365D85400401855 /* FigmaVectorNodeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBE92365D85300401855 /* FigmaVectorNodeInfo.swift */; };
+		C021DC2F2365D85400401855 /* FigmaBooleanOperationNodePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBEA2365D85300401855 /* FigmaBooleanOperationNodePayload.swift */; };
+		C021DC302365D85400401855 /* FigmaLayoutGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBEB2365D85300401855 /* FigmaLayoutGrid.swift */; };
+		C021DC312365D85400401855 /* FigmaLineHeightUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBEC2365D85300401855 /* FigmaLineHeightUnit.swift */; };
+		C021DC322365D85400401855 /* FigmaTypeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBED2365D85300401855 /* FigmaTypeStyle.swift */; };
+		C021DC332365D85400401855 /* FigmaScaleMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBEE2365D85300401855 /* FigmaScaleMode.swift */; };
+		C021DC342365D85400401855 /* FigmaEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBEF2365D85300401855 /* FigmaEffect.swift */; };
+		C021DC352365D85400401855 /* FigmaBlendMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBF02365D85300401855 /* FigmaBlendMode.swift */; };
+		C021DC362365D85400401855 /* FigmaLayoutVerticalConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBF12365D85300401855 /* FigmaLayoutVerticalConstraint.swift */; };
+		C021DC372365D85400401855 /* FigmaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBF22365D85300401855 /* FigmaColor.swift */; };
+		C021DC382365D85400401855 /* FigmaVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBF32365D85300401855 /* FigmaVector.swift */; };
+		C021DC392365D85400401855 /* FigmaLayoutGridAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBF42365D85300401855 /* FigmaLayoutGridAlignment.swift */; };
+		C021DC3A2365D85400401855 /* FigmaStrokeJoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBF52365D85300401855 /* FigmaStrokeJoin.swift */; };
+		C021DC3B2365D85400401855 /* FigmaLayoutHorizontalConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBF62365D85300401855 /* FigmaLayoutHorizontalConstraint.swift */; };
+		C021DC3C2365D85400401855 /* FigmaComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBF72365D85300401855 /* FigmaComponent.swift */; };
+		C021DC3D2365D85400401855 /* FigmaEasingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBF82365D85300401855 /* FigmaEasingType.swift */; };
+		C021DC3E2365D85400401855 /* FigmaColorStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBF92365D85300401855 /* FigmaColorStop.swift */; };
+		C021DC3F2365D85400401855 /* FigmaStrokeCap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBFA2365D85300401855 /* FigmaStrokeCap.swift */; };
+		C021DC402365D85400401855 /* FigmaLayoutGridPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBFB2365D85300401855 /* FigmaLayoutGridPattern.swift */; };
+		C021DC412365D85400401855 /* FigmaLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBFC2365D85300401855 /* FigmaLayoutConstraint.swift */; };
+		C021DC422365D85400401855 /* FigmaTextHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBFD2365D85300401855 /* FigmaTextHorizontalAlignment.swift */; };
+		C021DC432365D85400401855 /* FigmaTextCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBFE2365D85300401855 /* FigmaTextCase.swift */; };
+		C021DC442365D85400401855 /* FigmaConstraintType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DBFF2365D85300401855 /* FigmaConstraintType.swift */; };
+		C021DC452365D85400401855 /* FigmaTextDecoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DC002365D85300401855 /* FigmaTextDecoration.swift */; };
+		C021DC462365D85400401855 /* FigmaStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DC012365D85300401855 /* FigmaStyle.swift */; };
+		C021DC472365D85400401855 /* FigmaEffectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DC022365D85300401855 /* FigmaEffectType.swift */; };
+		C021DC482365D85400401855 /* FigmaImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DC032365D85300401855 /* FigmaImageFormat.swift */; };
+		C021DC492365D85400401855 /* FigmaRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DC042365D85300401855 /* FigmaRectangle.swift */; };
+		C021DC4A2365D85400401855 /* FigmaPaintType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DC052365D85300401855 /* FigmaPaintType.swift */; };
+		C021DC4B2365D85400401855 /* FigmaBooleanOperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DC062365D85300401855 /* FigmaBooleanOperationType.swift */; };
+		C021DC4C2365D85400401855 /* FigmaConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DC072365D85300401855 /* FigmaConstraint.swift */; };
+		C021DC552365D85400401855 /* FigmaAPIVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DC142365D85400401855 /* FigmaAPIVersion.swift */; };
+		C021DC562365D85400401855 /* DefaultFigmaAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DC152365D85400401855 /* DefaultFigmaAPIProvider.swift */; };
+		C021DC572365D85400401855 /* FigmaAPIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DC162365D85400401855 /* FigmaAPIRoute.swift */; };
+		C021DC582365D85400401855 /* FigmaAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DC172365D85400401855 /* FigmaAPIService.swift */; };
+		C021DC592365D85400401855 /* FigmaAPIEmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DC182365D85400401855 /* FigmaAPIEmptyResponse.swift */; };
+		C021DC5A2365D85400401855 /* FigmaAPIEmptyParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DC192365D85400401855 /* FigmaAPIEmptyParameters.swift */; };
+		C021DC5B2365D85400401855 /* FigmaAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DC1A2365D85400401855 /* FigmaAPIProvider.swift */; };
+		C021DC5C2365D85400401855 /* FigmaAPIFileRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DC1C2365D85400401855 /* FigmaAPIFileRoute.swift */; };
+		C021DC5D2365D85400401855 /* FigmaAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C021DC1D2365D85400401855 /* FigmaAPIError.swift */; };
 		OBJ_172 /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* api.c */; };
 		OBJ_173 /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* emitter.c */; };
 		OBJ_174 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* parser.c */; };
@@ -527,6 +583,62 @@
 		C021DB672365D5E200401855 /* MessageError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageError.swift; sourceTree = "<group>"; };
 		C021DB682365D5E200401855 /* AnyCodingKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCodingKey.swift; sourceTree = "<group>"; };
 		C021DB692365D5E200401855 /* AnyCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCodable.swift; sourceTree = "<group>"; };
+		C021DBD82365D85300401855 /* FigmaExportSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaExportSetting.swift; sourceTree = "<group>"; };
+		C021DBD92365D85300401855 /* FigmaStrokeAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaStrokeAlignment.swift; sourceTree = "<group>"; };
+		C021DBDA2365D85300401855 /* FigmaStyleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaStyleType.swift; sourceTree = "<group>"; };
+		C021DBDB2365D85300401855 /* FigmaTextVerticalAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaTextVerticalAlignment.swift; sourceTree = "<group>"; };
+		C021DBDC2365D85300401855 /* FigmaPaint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaPaint.swift; sourceTree = "<group>"; };
+		C021DBDD2365D85300401855 /* FigmaFrameOffset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaFrameOffset.swift; sourceTree = "<group>"; };
+		C021DBDF2365D85300401855 /* FigmaFrameNodeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaFrameNodeInfo.swift; sourceTree = "<group>"; };
+		C021DBE02365D85300401855 /* FigmaTextNodePayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaTextNodePayload.swift; sourceTree = "<group>"; };
+		C021DBE12365D85300401855 /* FigmaNodeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaNodeType.swift; sourceTree = "<group>"; };
+		C021DBE22365D85300401855 /* FigmaDocumentNodeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaDocumentNodeInfo.swift; sourceTree = "<group>"; };
+		C021DBE32365D85300401855 /* FigmaFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaFile.swift; sourceTree = "<group>"; };
+		C021DBE42365D85300401855 /* FigmaRectangleNodePayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaRectangleNodePayload.swift; sourceTree = "<group>"; };
+		C021DBE52365D85300401855 /* FigmaCanvasNodeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaCanvasNodeInfo.swift; sourceTree = "<group>"; };
+		C021DBE62365D85300401855 /* FigmaSliceNodeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaSliceNodeInfo.swift; sourceTree = "<group>"; };
+		C021DBE72365D85300401855 /* FigmaInstanceNodePayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaInstanceNodePayload.swift; sourceTree = "<group>"; };
+		C021DBE82365D85300401855 /* FigmaNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaNode.swift; sourceTree = "<group>"; };
+		C021DBE92365D85300401855 /* FigmaVectorNodeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaVectorNodeInfo.swift; sourceTree = "<group>"; };
+		C021DBEA2365D85300401855 /* FigmaBooleanOperationNodePayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaBooleanOperationNodePayload.swift; sourceTree = "<group>"; };
+		C021DBEB2365D85300401855 /* FigmaLayoutGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaLayoutGrid.swift; sourceTree = "<group>"; };
+		C021DBEC2365D85300401855 /* FigmaLineHeightUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaLineHeightUnit.swift; sourceTree = "<group>"; };
+		C021DBED2365D85300401855 /* FigmaTypeStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaTypeStyle.swift; sourceTree = "<group>"; };
+		C021DBEE2365D85300401855 /* FigmaScaleMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaScaleMode.swift; sourceTree = "<group>"; };
+		C021DBEF2365D85300401855 /* FigmaEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaEffect.swift; sourceTree = "<group>"; };
+		C021DBF02365D85300401855 /* FigmaBlendMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaBlendMode.swift; sourceTree = "<group>"; };
+		C021DBF12365D85300401855 /* FigmaLayoutVerticalConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaLayoutVerticalConstraint.swift; sourceTree = "<group>"; };
+		C021DBF22365D85300401855 /* FigmaColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaColor.swift; sourceTree = "<group>"; };
+		C021DBF32365D85300401855 /* FigmaVector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaVector.swift; sourceTree = "<group>"; };
+		C021DBF42365D85300401855 /* FigmaLayoutGridAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaLayoutGridAlignment.swift; sourceTree = "<group>"; };
+		C021DBF52365D85300401855 /* FigmaStrokeJoin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaStrokeJoin.swift; sourceTree = "<group>"; };
+		C021DBF62365D85300401855 /* FigmaLayoutHorizontalConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaLayoutHorizontalConstraint.swift; sourceTree = "<group>"; };
+		C021DBF72365D85300401855 /* FigmaComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaComponent.swift; sourceTree = "<group>"; };
+		C021DBF82365D85300401855 /* FigmaEasingType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaEasingType.swift; sourceTree = "<group>"; };
+		C021DBF92365D85300401855 /* FigmaColorStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaColorStop.swift; sourceTree = "<group>"; };
+		C021DBFA2365D85300401855 /* FigmaStrokeCap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaStrokeCap.swift; sourceTree = "<group>"; };
+		C021DBFB2365D85300401855 /* FigmaLayoutGridPattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaLayoutGridPattern.swift; sourceTree = "<group>"; };
+		C021DBFC2365D85300401855 /* FigmaLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaLayoutConstraint.swift; sourceTree = "<group>"; };
+		C021DBFD2365D85300401855 /* FigmaTextHorizontalAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaTextHorizontalAlignment.swift; sourceTree = "<group>"; };
+		C021DBFE2365D85300401855 /* FigmaTextCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaTextCase.swift; sourceTree = "<group>"; };
+		C021DBFF2365D85300401855 /* FigmaConstraintType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaConstraintType.swift; sourceTree = "<group>"; };
+		C021DC002365D85300401855 /* FigmaTextDecoration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaTextDecoration.swift; sourceTree = "<group>"; };
+		C021DC012365D85300401855 /* FigmaStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaStyle.swift; sourceTree = "<group>"; };
+		C021DC022365D85300401855 /* FigmaEffectType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaEffectType.swift; sourceTree = "<group>"; };
+		C021DC032365D85300401855 /* FigmaImageFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaImageFormat.swift; sourceTree = "<group>"; };
+		C021DC042365D85300401855 /* FigmaRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaRectangle.swift; sourceTree = "<group>"; };
+		C021DC052365D85300401855 /* FigmaPaintType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaPaintType.swift; sourceTree = "<group>"; };
+		C021DC062365D85300401855 /* FigmaBooleanOperationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaBooleanOperationType.swift; sourceTree = "<group>"; };
+		C021DC072365D85300401855 /* FigmaConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaConstraint.swift; sourceTree = "<group>"; };
+		C021DC142365D85400401855 /* FigmaAPIVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaAPIVersion.swift; sourceTree = "<group>"; };
+		C021DC152365D85400401855 /* DefaultFigmaAPIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultFigmaAPIProvider.swift; sourceTree = "<group>"; };
+		C021DC162365D85400401855 /* FigmaAPIRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaAPIRoute.swift; sourceTree = "<group>"; };
+		C021DC172365D85400401855 /* FigmaAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaAPIService.swift; sourceTree = "<group>"; };
+		C021DC182365D85400401855 /* FigmaAPIEmptyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaAPIEmptyResponse.swift; sourceTree = "<group>"; };
+		C021DC192365D85400401855 /* FigmaAPIEmptyParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaAPIEmptyParameters.swift; sourceTree = "<group>"; };
+		C021DC1A2365D85400401855 /* FigmaAPIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaAPIProvider.swift; sourceTree = "<group>"; };
+		C021DC1C2365D85400401855 /* FigmaAPIFileRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaAPIFileRoute.swift; sourceTree = "<group>"; };
+		C021DC1D2365D85400401855 /* FigmaAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FigmaAPIError.swift; sourceTree = "<group>"; };
 		"Fugen::Fugen::Product" /* Fugen */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fugen; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Fugen::FugenTests::Product" /* FugenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FugenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Fugen::FugenTools::Product" /* FugenTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FugenTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -890,6 +1002,108 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		C021DBD62365D85300401855 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C021DBD72365D85300401855 /* Figma */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C021DBD72365D85300401855 /* Figma */ = {
+			isa = PBXGroup;
+			children = (
+				C021DBDE2365D85300401855 /* Nodes */,
+				C021DBF02365D85300401855 /* FigmaBlendMode.swift */,
+				C021DC062365D85300401855 /* FigmaBooleanOperationType.swift */,
+				C021DBF22365D85300401855 /* FigmaColor.swift */,
+				C021DBF92365D85300401855 /* FigmaColorStop.swift */,
+				C021DBF72365D85300401855 /* FigmaComponent.swift */,
+				C021DC072365D85300401855 /* FigmaConstraint.swift */,
+				C021DBFF2365D85300401855 /* FigmaConstraintType.swift */,
+				C021DBF82365D85300401855 /* FigmaEasingType.swift */,
+				C021DBEF2365D85300401855 /* FigmaEffect.swift */,
+				C021DC022365D85300401855 /* FigmaEffectType.swift */,
+				C021DBD82365D85300401855 /* FigmaExportSetting.swift */,
+				C021DBDD2365D85300401855 /* FigmaFrameOffset.swift */,
+				C021DC032365D85300401855 /* FigmaImageFormat.swift */,
+				C021DBFC2365D85300401855 /* FigmaLayoutConstraint.swift */,
+				C021DBEB2365D85300401855 /* FigmaLayoutGrid.swift */,
+				C021DBF42365D85300401855 /* FigmaLayoutGridAlignment.swift */,
+				C021DBFB2365D85300401855 /* FigmaLayoutGridPattern.swift */,
+				C021DBF62365D85300401855 /* FigmaLayoutHorizontalConstraint.swift */,
+				C021DBF12365D85300401855 /* FigmaLayoutVerticalConstraint.swift */,
+				C021DBEC2365D85300401855 /* FigmaLineHeightUnit.swift */,
+				C021DBDC2365D85300401855 /* FigmaPaint.swift */,
+				C021DC052365D85300401855 /* FigmaPaintType.swift */,
+				C021DC042365D85300401855 /* FigmaRectangle.swift */,
+				C021DBEE2365D85300401855 /* FigmaScaleMode.swift */,
+				C021DBD92365D85300401855 /* FigmaStrokeAlignment.swift */,
+				C021DBFA2365D85300401855 /* FigmaStrokeCap.swift */,
+				C021DBF52365D85300401855 /* FigmaStrokeJoin.swift */,
+				C021DC012365D85300401855 /* FigmaStyle.swift */,
+				C021DBDA2365D85300401855 /* FigmaStyleType.swift */,
+				C021DBFE2365D85300401855 /* FigmaTextCase.swift */,
+				C021DC002365D85300401855 /* FigmaTextDecoration.swift */,
+				C021DBFD2365D85300401855 /* FigmaTextHorizontalAlignment.swift */,
+				C021DBDB2365D85300401855 /* FigmaTextVerticalAlignment.swift */,
+				C021DBED2365D85300401855 /* FigmaTypeStyle.swift */,
+				C021DBF32365D85300401855 /* FigmaVector.swift */,
+			);
+			path = Figma;
+			sourceTree = "<group>";
+		};
+		C021DBDE2365D85300401855 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				C021DBEA2365D85300401855 /* FigmaBooleanOperationNodePayload.swift */,
+				C021DBE52365D85300401855 /* FigmaCanvasNodeInfo.swift */,
+				C021DBE22365D85300401855 /* FigmaDocumentNodeInfo.swift */,
+				C021DBE32365D85300401855 /* FigmaFile.swift */,
+				C021DBDF2365D85300401855 /* FigmaFrameNodeInfo.swift */,
+				C021DBE72365D85300401855 /* FigmaInstanceNodePayload.swift */,
+				C021DBE82365D85300401855 /* FigmaNode.swift */,
+				C021DBE12365D85300401855 /* FigmaNodeType.swift */,
+				C021DBE42365D85300401855 /* FigmaRectangleNodePayload.swift */,
+				C021DBE62365D85300401855 /* FigmaSliceNodeInfo.swift */,
+				C021DBE02365D85300401855 /* FigmaTextNodePayload.swift */,
+				C021DBE92365D85300401855 /* FigmaVectorNodeInfo.swift */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		C021DC0E2365D85400401855 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C021DC132365D85400401855 /* API */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C021DC132365D85400401855 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C021DC1B2365D85400401855 /* Routes */,
+				C021DC152365D85400401855 /* DefaultFigmaAPIProvider.swift */,
+				C021DC192365D85400401855 /* FigmaAPIEmptyParameters.swift */,
+				C021DC182365D85400401855 /* FigmaAPIEmptyResponse.swift */,
+				C021DC1D2365D85400401855 /* FigmaAPIError.swift */,
+				C021DC1A2365D85400401855 /* FigmaAPIProvider.swift */,
+				C021DC162365D85400401855 /* FigmaAPIRoute.swift */,
+				C021DC172365D85400401855 /* FigmaAPIService.swift */,
+				C021DC142365D85400401855 /* FigmaAPIVersion.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		C021DC1B2365D85400401855 /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				C021DC1C2365D85400401855 /* FigmaAPIFileRoute.swift */,
+			);
+			path = Routes;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* FugenTools */ = {
 			isa = PBXGroup;
 			children = (
@@ -1184,6 +1398,8 @@
 		OBJ_8 /* Fugen */ = {
 			isa = PBXGroup;
 			children = (
+				C021DBD62365D85300401855 /* Models */,
+				C021DC0E2365D85400401855 /* Services */,
 				OBJ_9 /* main.swift */,
 			);
 			name = Fugen;
@@ -1660,7 +1876,63 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				C021DC302365D85400401855 /* FigmaLayoutGrid.swift in Sources */,
+				C021DC402365D85400401855 /* FigmaLayoutGridPattern.swift in Sources */,
+				C021DC582365D85400401855 /* FigmaAPIService.swift in Sources */,
+				C021DC462365D85400401855 /* FigmaStyle.swift in Sources */,
+				C021DC412365D85400401855 /* FigmaLayoutConstraint.swift in Sources */,
+				C021DC2F2365D85400401855 /* FigmaBooleanOperationNodePayload.swift in Sources */,
+				C021DC292365D85400401855 /* FigmaRectangleNodePayload.swift in Sources */,
+				C021DC312365D85400401855 /* FigmaLineHeightUnit.swift in Sources */,
+				C021DC262365D85400401855 /* FigmaNodeType.swift in Sources */,
+				C021DC2C2365D85400401855 /* FigmaInstanceNodePayload.swift in Sources */,
+				C021DC4A2365D85400401855 /* FigmaPaintType.swift in Sources */,
+				C021DC3C2365D85400401855 /* FigmaComponent.swift in Sources */,
+				C021DC3A2365D85400401855 /* FigmaStrokeJoin.swift in Sources */,
+				C021DC352365D85400401855 /* FigmaBlendMode.swift in Sources */,
+				C021DC1F2365D85400401855 /* FigmaStrokeAlignment.swift in Sources */,
+				C021DC5B2365D85400401855 /* FigmaAPIProvider.swift in Sources */,
+				C021DC472365D85400401855 /* FigmaEffectType.swift in Sources */,
+				C021DC252365D85400401855 /* FigmaTextNodePayload.swift in Sources */,
+				C021DC5A2365D85400401855 /* FigmaAPIEmptyParameters.swift in Sources */,
+				C021DC572365D85400401855 /* FigmaAPIRoute.swift in Sources */,
+				C021DC2B2365D85400401855 /* FigmaSliceNodeInfo.swift in Sources */,
+				C021DC2A2365D85400401855 /* FigmaCanvasNodeInfo.swift in Sources */,
+				C021DC592365D85400401855 /* FigmaAPIEmptyResponse.swift in Sources */,
+				C021DC442365D85400401855 /* FigmaConstraintType.swift in Sources */,
+				C021DC452365D85400401855 /* FigmaTextDecoration.swift in Sources */,
+				C021DC562365D85400401855 /* DefaultFigmaAPIProvider.swift in Sources */,
+				C021DC432365D85400401855 /* FigmaTextCase.swift in Sources */,
+				C021DC382365D85400401855 /* FigmaVector.swift in Sources */,
+				C021DC362365D85400401855 /* FigmaLayoutVerticalConstraint.swift in Sources */,
+				C021DC4B2365D85400401855 /* FigmaBooleanOperationType.swift in Sources */,
+				C021DC422365D85400401855 /* FigmaTextHorizontalAlignment.swift in Sources */,
+				C021DC232365D85400401855 /* FigmaFrameOffset.swift in Sources */,
+				C021DC332365D85400401855 /* FigmaScaleMode.swift in Sources */,
+				C021DC3D2365D85400401855 /* FigmaEasingType.swift in Sources */,
+				C021DC222365D85400401855 /* FigmaPaint.swift in Sources */,
+				C021DC5D2365D85400401855 /* FigmaAPIError.swift in Sources */,
+				C021DC212365D85400401855 /* FigmaTextVerticalAlignment.swift in Sources */,
+				C021DC282365D85400401855 /* FigmaFile.swift in Sources */,
+				C021DC372365D85400401855 /* FigmaColor.swift in Sources */,
+				C021DC3F2365D85400401855 /* FigmaStrokeCap.swift in Sources */,
+				C021DC552365D85400401855 /* FigmaAPIVersion.swift in Sources */,
+				C021DC392365D85400401855 /* FigmaLayoutGridAlignment.swift in Sources */,
+				C021DC242365D85400401855 /* FigmaFrameNodeInfo.swift in Sources */,
+				C021DC3E2365D85400401855 /* FigmaColorStop.swift in Sources */,
+				C021DC272365D85400401855 /* FigmaDocumentNodeInfo.swift in Sources */,
+				C021DC492365D85400401855 /* FigmaRectangle.swift in Sources */,
+				C021DC2E2365D85400401855 /* FigmaVectorNodeInfo.swift in Sources */,
 				OBJ_187 /* main.swift in Sources */,
+				C021DC2D2365D85400401855 /* FigmaNode.swift in Sources */,
+				C021DC4C2365D85400401855 /* FigmaConstraint.swift in Sources */,
+				C021DC202365D85400401855 /* FigmaStyleType.swift in Sources */,
+				C021DC342365D85400401855 /* FigmaEffect.swift in Sources */,
+				C021DC322365D85400401855 /* FigmaTypeStyle.swift in Sources */,
+				C021DC482365D85400401855 /* FigmaImageFormat.swift in Sources */,
+				C021DC1E2365D85400401855 /* FigmaExportSetting.swift in Sources */,
+				C021DC3B2365D85400401855 /* FigmaLayoutHorizontalConstraint.swift in Sources */,
+				C021DC5C2365D85400401855 /* FigmaAPIFileRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,7 +4,7 @@
 [![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)](https://swift.org)
 [![License](https://img.shields.io/github/license/almazrafi/Fugen.svg?style=flat)](https://opensource.org/licenses/MIT)
 
-<!-- TODO: Add description -->
+Fugen is a tool to automate resources using the Figma API.
 
 ## Communication
 - If you need help, open an issue.
