@@ -121,7 +121,7 @@ public struct HTTPHeader: Equatable, CustomStringConvertible {
 
 extension Collection where Element == HTTPHeader {
 
-    // MARK: - Instance Methods
+    // MARK: - Instance Properties
 
     public var rawHTTPHeaders: [String: String] {
         return Dictionary(map { ($0.name, $0.value) }) { $1 }
