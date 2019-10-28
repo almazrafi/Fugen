@@ -30,7 +30,7 @@ public final class HTTPQueryURLEncoder: HTTPQueryEncoder {
 
         urlComponents.percentEncodedQuery = query
             .compactMap { $0 }
-            .joined(separator: Constants.ampersand)
+            .joined(separator: .querySeparator)
 
         guard let url = urlComponents.url else {
             throw MessageError("Invalid query parameters")
@@ -40,9 +40,9 @@ public final class HTTPQueryURLEncoder: HTTPQueryEncoder {
     }
 }
 
-private enum Constants {
+private extension String {
 
     // MARK: - Type Properties
 
-    static let ampersand = "&"
+    static let querySeparator = "&"
 }

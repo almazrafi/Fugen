@@ -1,5 +1,9 @@
 import Foundation
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 public final class HTTPServiceTask<SessionTask: URLSessionTask> {
 
     // MARK: - Instance Properties

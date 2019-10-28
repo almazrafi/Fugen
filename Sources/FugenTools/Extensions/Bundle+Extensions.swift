@@ -5,11 +5,11 @@ extension Bundle {
     // MARK: - Instance Properties
 
     public var bundleName: String? {
-        string(forInfoDictionaryKey: kCFBundleNameKey as String)
+        string(forInfoDictionaryKey: "CFBundleName")
     }
 
     public var developmentRegion: String? {
-        string(forInfoDictionaryKey: kCFBundleDevelopmentRegionKey as String)
+        string(forInfoDictionaryKey: "CFBundleDevelopmentRegion")
     }
 
     public var displayName: String? {
@@ -17,7 +17,7 @@ extension Bundle {
     }
 
     public var executableName: String? {
-        string(forInfoDictionaryKey: kCFBundleExecutableKey as String)
+        string(forInfoDictionaryKey: "CFBundleExecutable")
     }
 
     public var version: String? {
@@ -25,7 +25,7 @@ extension Bundle {
     }
 
     public var build: String? {
-        string(forInfoDictionaryKey: kCFBundleVersionKey as String)
+        string(forInfoDictionaryKey: "CFBundleVersion")
     }
 
     // MARK: - Instance Methods

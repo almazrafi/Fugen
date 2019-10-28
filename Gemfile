@@ -1,4 +1,5 @@
 source "https://rubygems.org"
 
-gem 'danger'
 gem 'cocoapods'
+gem 'danger'
+gem 'danger-swiftlint'

@@ -1,5 +1,9 @@
 import Foundation
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 public struct HTTPError: Error, CustomStringConvertible {
 
     // MARK: - Nested Types
@@ -115,8 +119,7 @@ public struct HTTPError: Error, CustomStringConvertible {
              .downloadDecodingFailedToComplete:
             code = .badResponse
 
-        case .dataLengthExceedsMaximum,
-             .httpTooManyRedirects,
+        case .httpTooManyRedirects,
              .redirectToNonExistentLocation,
              .resourceUnavailable,
              .zeroByteResource:
@@ -127,16 +130,17 @@ public struct HTTPError: Error, CustomStringConvertible {
              .userCancelledAuthentication:
             code = .access
 
+        #if !os(Linux)
+        case .appTransportSecurityRequiresSecureConnection:
+            // swiftlint:disable:previous vertical_whitespace_between_cases
+            code = .secureConnection
+
+        case .dataLengthExceedsMaximum:
+            code = .resource
+        #endif
+
         default:
-            var availableCode: Code?
-
-            if #available(macOS 10.11, iOS 9.0, watchOS 2.0, tvOS 9.0, *) {
-                if error.code == .appTransportSecurityRequiresSecureConnection {
-                    availableCode = .secureConnection
-                }
-            }
-
-            code = availableCode ?? .unknown
+            code = .unknown
         }
 
         self.init(code: code, reason: error, data: data)

@@ -1,5 +1,9 @@
 import Foundation
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 public final class HTTPBodyURLEncoder: HTTPBodyEncoder {
 
     // MARK: - Type Properties
@@ -23,11 +27,8 @@ public final class HTTPBodyURLEncoder: HTTPBodyEncoder {
 
         request.httpBody = try urlEncoder.encode(parameters)
 
-        if request.value(forHTTPHeaderField: Constants.contentTypeHeaderField) == nil {
-            request.setValue(
-                Constants.contentTypeHeaderValue,
-                forHTTPHeaderField: Constants.contentTypeHeaderField
-            )
+        if !request.httpBody.isEmptyOrNil, request.value(forHTTPHeaderField: Constants.contentTypeHeaderField) == nil {
+            request.setValue(Constants.contentTypeHeaderValue, forHTTPHeaderField: Constants.contentTypeHeaderField)
         }
 
         return request

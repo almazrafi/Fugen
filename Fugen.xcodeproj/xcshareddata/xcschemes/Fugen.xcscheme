@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Fugen::FugenTests"
-               BuildableName = "FugenTests.xctest"
-               BlueprintName = "FugenTests"
+               BlueprintIdentifier = "Fugen::FugenToolsTests"
+               BuildableName = "FugenToolsTests.xctest"
+               BlueprintName = "FugenToolsTests"
                ReferencedContainer = "container:Fugen.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Fugen::FugenToolsTests"
-               BuildableName = "FugenToolsTests.xctest"
-               BlueprintName = "FugenToolsTests"
+               BlueprintIdentifier = "Fugen::FugenTests"
+               BuildableName = "FugenTests.xctest"
+               BlueprintName = "FugenTests"
                ReferencedContainer = "container:Fugen.xcodeproj">
             </BuildableReference>
          </TestableReference>
