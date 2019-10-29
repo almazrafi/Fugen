@@ -1,6 +1,6 @@
 import Foundation
 
-struct FigmaLayoutConstraint: Decodable {
+struct FigmaLayoutConstraint: Decodable, Hashable {
 
     // MARK: - Nested Types
 

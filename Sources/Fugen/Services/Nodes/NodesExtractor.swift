@@ -6,7 +6,9 @@ protocol NodesExtractor {
 
     func extractNodes(
         from file: FigmaFile,
-        excluding excludingNodeIDs: [String],
-        including includingNodeIDs: [String]
-    ) throws -> [FigmaNode]
+        including includingNodeIDs: [String],
+        excluding excludingNodeIDs: [String]
+    ) -> [FigmaNode]
+
+    func extractNode(from file: FigmaFile, with style: FigmaStyle, styleID: String) -> FigmaNode?
 }

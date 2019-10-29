@@ -1,6 +1,6 @@
 import Foundation
 
-enum FigmaEasingType: String {
+enum FigmaEasingType: String, Hashable {
 
     // MARK: - Enumeration Cases
 

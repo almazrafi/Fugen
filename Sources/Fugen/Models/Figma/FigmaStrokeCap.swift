@@ -1,6 +1,6 @@
 import Foundation
 
-enum FigmaStrokeCap: String {
+enum FigmaStrokeCap: String, Hashable {
 
     // MARK: - Enumeration Cases
 

@@ -1,6 +1,6 @@
 import Foundation
 
-struct Color {
+struct Color: Hashable {
 
     // MARK: - Instance Properties
 

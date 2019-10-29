@@ -1,6 +1,6 @@
 import Foundation
 
-struct FigmaVectorNodeInfo: Decodable {
+struct FigmaVectorNodeInfo: Decodable, Hashable {
 
     // MARK: - Nested Types
 

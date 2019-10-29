@@ -20,25 +20,7 @@ final class DefaultColorsProvider: ColorsProvider {
 
     // MARK: - Instance Methods
 
-    private func extractColor(from nodeInfo: FigmaVectorNodeInfo, styleID: String) -> FigmaColor? {
-        let style = nodeInfo.styles?
-            .lazy
-            .filter { FigmaStyleType(rawValue: $0.key.uppercased()) == .fill }
-            .filter { $0.value == styleID }
-            .lazyFirst
-
-        guard style != nil else {
-            return nil
-        }
-
-        return nodeInfo.fills?
-            .lazy
-            .filter { $0.type == .solid }
-            .compactMap { $0.color }
-            .lazyFirst
-    }
-
-    private func extractColor(from node: FigmaNode, styleID: String) -> FigmaColor? {
+    private func extractColor(from node: FigmaNode) -> FigmaColor? {
         switch node.type {
         case .unknown,
              .document,
@@ -51,22 +33,19 @@ final class DefaultColorsProvider: ColorsProvider {
              .instance:
             return nil
 
-        case let .vector(info: vectorNodeInfo),
-             let .star(info: vectorNodeInfo),
-             let .line(info: vectorNodeInfo),
-             let .ellipse(info: vectorNodeInfo),
-             let .regularPolygon(info: vectorNodeInfo),
-             let .rectangle(info: vectorNodeInfo, payload: _),
-             let .text(info: vectorNodeInfo, payload: _):
-            return extractColor(from: vectorNodeInfo, styleID: styleID)
+        case let .vector(info: nodeInfo),
+             let .star(info: nodeInfo),
+             let .line(info: nodeInfo),
+             let .ellipse(info: nodeInfo),
+             let .regularPolygon(info: nodeInfo),
+             let .rectangle(info: nodeInfo, payload: _),
+             let .text(info: nodeInfo, payload: _):
+            return nodeInfo.fills?
+                .lazy
+                .filter { $0.type == .solid }
+                .compactMap { $0.color }
+                .lazyFirst
         }
-    }
-
-    private func extractColor(from nodes: [FigmaNode], styleID: String) -> FigmaColor? {
-        return nodes
-            .lazy
-            .compactMap { self.extractColor(from: $0, styleID: styleID) }
-            .lazyFirst
     }
 
     private func extractColors(
@@ -78,16 +57,25 @@ final class DefaultColorsProvider: ColorsProvider {
             throw ColorsError.stylesNotFound
         }
 
-        let nodes = try nodesExtractor.extractNodes(
+        let filteringNodes = nodesExtractor.extractNodes(
             from: file,
-            excluding: excludingNodeIDs,
-            including: includingNodeIDs
+            including: includingNodeIDs,
+            excluding: excludingNodeIDs
         )
 
         return try styles
+            .lazy
             .filter { $0.value.type == .fill }
-            .map { styleID, style in
-                guard let color = extractColor(from: nodes, styleID: styleID) else {
+            .compactMap { styleID, style in
+                guard let node = nodesExtractor.extractNode(from: file, with: style, styleID: styleID) else {
+                    throw ColorsError.invalidStyle(styleID: styleID)
+                }
+
+                guard filteringNodes.contains(node) else {
+                    return nil
+                }
+
+                guard let color = extractColor(from: node) else {
                     throw ColorsError.invalidStyle(styleID: styleID)
                 }
 

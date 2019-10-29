@@ -1,6 +1,6 @@
 import Foundation
 
-struct FigmaColorStop: Decodable {
+struct FigmaColorStop: Decodable, Hashable {
 
     // MARK: - Instance Properties
 

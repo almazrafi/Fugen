@@ -1,6 +1,6 @@
 import Foundation
 
-enum FigmaTextDecoration: String {
+enum FigmaTextDecoration: String, Hashable {
 
     // MARK: - Enumeration Cases
 

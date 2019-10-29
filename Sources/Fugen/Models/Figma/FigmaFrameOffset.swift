@@ -1,6 +1,6 @@
 import Foundation
 
-struct FigmaFrameOffset: Decodable {
+struct FigmaFrameOffset: Decodable, Hashable {
 
     // MARK: - Nested Types
 

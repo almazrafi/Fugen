@@ -1,6 +1,6 @@
 import Foundation
 
-enum FigmaConstraintType: String {
+enum FigmaConstraintType: String, Hashable {
 
     // MARK: - Enumeration Cases
 

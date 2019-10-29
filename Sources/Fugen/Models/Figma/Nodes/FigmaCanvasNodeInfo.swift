@@ -1,6 +1,6 @@
 import Foundation
 
-struct FigmaCanvasNodeInfo: Decodable {
+struct FigmaCanvasNodeInfo: Decodable, Hashable {
 
     // MARK: - Instance Properties
 

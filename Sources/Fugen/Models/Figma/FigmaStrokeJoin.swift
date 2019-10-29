@@ -1,6 +1,6 @@
 import Foundation
 
-enum FigmaStrokeJoin: String {
+enum FigmaStrokeJoin: String, Hashable {
 
     // MARK: - Enumeration Cases
 

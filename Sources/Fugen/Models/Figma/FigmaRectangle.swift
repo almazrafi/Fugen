@@ -1,6 +1,6 @@
 import Foundation
 
-struct FigmaRectangle: Decodable {
+struct FigmaRectangle: Decodable, Hashable {
 
     // MARK: - Instance Properties
 

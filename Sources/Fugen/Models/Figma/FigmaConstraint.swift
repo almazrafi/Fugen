@@ -1,6 +1,6 @@
 import Foundation
 
-struct FigmaConstraint: Decodable {
+struct FigmaConstraint: Decodable, Hashable {
 
     // MARK: - Nested Types
 

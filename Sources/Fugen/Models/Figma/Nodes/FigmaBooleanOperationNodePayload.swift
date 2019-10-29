@@ -1,6 +1,6 @@
 import Foundation
 
-struct FigmaBooleanOperationNodePayload: Decodable {
+struct FigmaBooleanOperationNodePayload: Decodable, Hashable {
 
     // MARK: - Nested Types
 
