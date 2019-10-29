@@ -7,3 +7,5 @@ public protocol FigmaAPIService {
 
     func request(route: HTTPRoute) -> HTTPTask
 }
+
+extension HTTPService: FigmaAPIService { }
