@@ -59,8 +59,8 @@ final class DefaultColorsProvider: ColorsProvider {
 
         let filteringNodes = nodesExtractor.extractNodes(
             from: file,
-            excluding: excludingNodeIDs,
-            including: includingNodeIDs
+            including: includingNodeIDs,
+            excluding: excludingNodeIDs
         )
 
         return try styles

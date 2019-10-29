@@ -6,12 +6,12 @@ final class DefaultNodesExtractor: NodesExtractor {
 
     private func extractNodes(
         from node: FigmaNode,
-        excluding excludingNodeIDs: inout Set<String>,
         including includingNodeIDs: inout Set<String>,
+        excluding excludingNodeIDs: inout Set<String>,
         forceInclude: Bool
     ) -> [FigmaNode] {
-        let isExcludingNode = excludingNodeIDs.remove(node.id) != nil
         let isIncludingNode = includingNodeIDs.remove(node.id) != nil
+        let isExcludingNode = excludingNodeIDs.remove(node.id) != nil
 
         var nodes: [FigmaNode] = []
 
@@ -45,16 +45,16 @@ final class DefaultNodesExtractor: NodesExtractor {
             children = frameNodeInfo.children
         }
 
-        let includingChildren = children?.flatMap { child in
+        let filteredChildren = children?.flatMap { child in
             return extractNodes(
                 from: child,
-                excluding: &excludingNodeIDs,
                 including: &includingNodeIDs,
+                excluding: &excludingNodeIDs,
                 forceInclude: forceInclude || isIncludingNode
             )
         } ?? []
 
-        return nodes.appending(contentsOf: includingChildren)
+        return nodes.appending(contentsOf: filteredChildren)
     }
 
     private func extractNode(from node: FigmaNode, with style: FigmaStyle, styleID: String) -> FigmaNode? {
@@ -102,11 +102,11 @@ final class DefaultNodesExtractor: NodesExtractor {
 
     func extractNodes(
         from file: FigmaFile,
-        excluding excludingNodeIDs: [String],
-        including includingNodeIDs: [String]
+        including includingNodeIDs: [String],
+        excluding excludingNodeIDs: [String]
     ) -> [FigmaNode] {
-        var excludingNodeIDs = Set(excludingNodeIDs)
         var includingNodeIDs = Set(includingNodeIDs)
+        var excludingNodeIDs = Set(excludingNodeIDs)
 
         if includingNodeIDs.isEmpty {
             includingNodeIDs.insert(file.document.id)
@@ -114,8 +114,8 @@ final class DefaultNodesExtractor: NodesExtractor {
 
         return extractNodes(
             from: file.document,
-            excluding: &excludingNodeIDs,
             including: &includingNodeIDs,
+            excluding: &excludingNodeIDs,
             forceInclude: false
         )
     }
