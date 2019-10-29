@@ -1,6 +1,6 @@
 import Foundation
 
-struct FigmaVector: Decodable {
+struct FigmaVector: Decodable, Hashable {
 
     // MARK: - Instance Properties
 

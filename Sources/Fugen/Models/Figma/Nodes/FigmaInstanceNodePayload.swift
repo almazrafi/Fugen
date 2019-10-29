@@ -1,6 +1,6 @@
 import Foundation
 
-struct FigmaInstanceNodePayload: Decodable {
+struct FigmaInstanceNodePayload: Decodable, Hashable {
 
     // MARK: - Nested Types
 

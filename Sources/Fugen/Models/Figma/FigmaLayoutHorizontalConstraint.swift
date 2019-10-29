@@ -1,6 +1,6 @@
 import Foundation
 
-enum FigmaLayoutHorizontalConstraint: String {
+enum FigmaLayoutHorizontalConstraint: String, Hashable {
 
     // MARK: - Enumeration Cases
 

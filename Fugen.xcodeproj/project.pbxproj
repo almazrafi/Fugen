@@ -39,6 +39,10 @@
 		C0F83BF8236779B400D42813 /* NodesExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83BF7236779B400D42813 /* NodesExtractor.swift */; };
 		C0F83BFA23677BCA00D42813 /* DefaultNodesExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83BF923677BC900D42813 /* DefaultNodesExtractor.swift */; };
 		C0F83D3423679F5200D42813 /* ColorsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D3323679F5200D42813 /* ColorsError.swift */; };
+		C0F83D3B2367AD4400D42813 /* ColorsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D3A2367AD4400D42813 /* ColorsCommand.swift */; };
+		C0F83D3D2367AD4E00D42813 /* ColorsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D3C2367AD4E00D42813 /* ColorsServices.swift */; };
+		C0F83D3F236832E500D42813 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D3E236832E500D42813 /* Services.swift */; };
+		C0F83D412368332B00D42813 /* Services+ColorsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D402368332B00D42813 /* Services+ColorsServices.swift */; };
 		OBJ_297 /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_203 /* api.c */; };
 		OBJ_298 /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_204 /* emitter.c */; };
 		OBJ_299 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_205 /* parser.c */; };
@@ -547,6 +551,10 @@
 		C0F83BF7236779B400D42813 /* NodesExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodesExtractor.swift; sourceTree = "<group>"; };
 		C0F83BF923677BC900D42813 /* DefaultNodesExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNodesExtractor.swift; sourceTree = "<group>"; };
 		C0F83D3323679F5200D42813 /* ColorsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsError.swift; sourceTree = "<group>"; };
+		C0F83D3A2367AD4400D42813 /* ColorsCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsCommand.swift; sourceTree = "<group>"; };
+		C0F83D3C2367AD4E00D42813 /* ColorsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsServices.swift; sourceTree = "<group>"; };
+		C0F83D3E236832E500D42813 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		C0F83D402368332B00D42813 /* Services+ColorsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services+ColorsServices.swift"; sourceTree = "<group>"; };
 		"Fugen::Fugen::Product" /* Fugen */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fugen; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Fugen::FugenTests::Product" /* FugenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FugenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Fugen::FugenTools::Product" /* FugenTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FugenTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -935,6 +943,15 @@
 				C0F83BF923677BC900D42813 /* DefaultNodesExtractor.swift */,
 			);
 			path = Nodes;
+			sourceTree = "<group>";
+		};
+		C0F83D392367AD3400D42813 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				C0F83D3A2367AD4400D42813 /* ColorsCommand.swift */,
+				C0F83D3C2367AD4E00D42813 /* ColorsServices.swift */,
+			);
+			path = Commands;
 			sourceTree = "<group>";
 		};
 		OBJ_10 /* Figma */ = {
@@ -1441,9 +1458,12 @@
 		OBJ_8 /* Fugen */ = {
 			isa = PBXGroup;
 			children = (
+				C0F83D392367AD3400D42813 /* Commands */,
 				OBJ_9 /* Models */,
 				OBJ_59 /* Services */,
 				OBJ_71 /* main.swift */,
+				C0F83D3E236832E500D42813 /* Services.swift */,
+				C0F83D402368332B00D42813 /* Services+ColorsServices.swift */,
 			);
 			name = Fugen;
 			path = Sources/Fugen;
@@ -1934,6 +1954,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_312 /* FigmaBlendMode.swift in Sources */,
+				C0F83D412368332B00D42813 /* Services+ColorsServices.swift in Sources */,
 				OBJ_313 /* FigmaBooleanOperationType.swift in Sources */,
 				OBJ_314 /* FigmaColor.swift in Sources */,
 				OBJ_315 /* FigmaColorStop.swift in Sources */,
@@ -1948,6 +1969,7 @@
 				OBJ_324 /* FigmaImageFormat.swift in Sources */,
 				OBJ_325 /* FigmaLayoutConstraint.swift in Sources */,
 				OBJ_326 /* FigmaLayoutGrid.swift in Sources */,
+				C0F83D3D2367AD4E00D42813 /* ColorsServices.swift in Sources */,
 				OBJ_327 /* FigmaLayoutGridAlignment.swift in Sources */,
 				OBJ_328 /* FigmaLayoutGridPattern.swift in Sources */,
 				OBJ_329 /* FigmaLayoutHorizontalConstraint.swift in Sources */,
@@ -1957,6 +1979,7 @@
 				OBJ_333 /* FigmaPaintType.swift in Sources */,
 				C0F83BFA23677BCA00D42813 /* DefaultNodesExtractor.swift in Sources */,
 				OBJ_334 /* FigmaRectangle.swift in Sources */,
+				C0F83D3F236832E500D42813 /* Services.swift in Sources */,
 				OBJ_335 /* FigmaScaleMode.swift in Sources */,
 				OBJ_336 /* FigmaStrokeAlignment.swift in Sources */,
 				OBJ_337 /* FigmaStrokeCap.swift in Sources */,
@@ -1964,6 +1987,7 @@
 				OBJ_339 /* FigmaStyle.swift in Sources */,
 				OBJ_340 /* FigmaStyleType.swift in Sources */,
 				OBJ_341 /* FigmaTextCase.swift in Sources */,
+				C0F83D3B2367AD4400D42813 /* ColorsCommand.swift in Sources */,
 				OBJ_342 /* FigmaTextDecoration.swift in Sources */,
 				OBJ_343 /* FigmaTextHorizontalAlignment.swift in Sources */,
 				C0F83D3423679F5200D42813 /* ColorsError.swift in Sources */,

@@ -1,6 +1,6 @@
 import Foundation
 
-struct FigmaComponent: Decodable {
+struct FigmaComponent: Decodable, Hashable {
 
     // MARK: - Instance Properties
 

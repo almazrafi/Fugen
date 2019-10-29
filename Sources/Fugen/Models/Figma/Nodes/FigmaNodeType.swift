@@ -1,6 +1,6 @@
 import Foundation
 
-indirect enum FigmaNodeType {
+indirect enum FigmaNodeType: Hashable {
 
     // MARK: - Enumeration Cases
 

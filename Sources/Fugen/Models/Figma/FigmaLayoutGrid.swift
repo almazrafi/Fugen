@@ -1,6 +1,6 @@
 import Foundation
 
-struct FigmaLayoutGrid: Decodable {
+struct FigmaLayoutGrid: Decodable, Hashable {
 
     // MARK: - Nested Types
 

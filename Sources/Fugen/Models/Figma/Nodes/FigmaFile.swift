@@ -1,6 +1,6 @@
 import Foundation
 
-struct FigmaFile: Decodable {
+struct FigmaFile: Decodable, Hashable {
 
     // MARK: - Nested Types
 

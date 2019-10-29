@@ -1,6 +1,6 @@
 import Foundation
 
-struct FigmaSliceNodeInfo: Decodable {
+struct FigmaSliceNodeInfo: Decodable, Hashable {
 
     // MARK: - Instance Properties
 

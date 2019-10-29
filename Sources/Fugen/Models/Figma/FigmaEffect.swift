@@ -1,6 +1,6 @@
 import Foundation
 
-struct FigmaEffect: Decodable {
+struct FigmaEffect: Decodable, Hashable {
 
     // MARK: - Nested Types
 

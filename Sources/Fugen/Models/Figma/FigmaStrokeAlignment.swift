@@ -1,6 +1,6 @@
 import Foundation
 
-enum FigmaStrokeAlignment: String {
+enum FigmaStrokeAlignment: String, Hashable {
 
     // MARK: - Enumeration Cases
 
