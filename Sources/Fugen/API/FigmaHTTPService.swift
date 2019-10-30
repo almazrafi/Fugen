@@ -1,11 +1,11 @@
 import Foundation
 import FugenTools
 
-public protocol FigmaAPIService {
+public protocol FigmaHTTPService {
 
     // MARK: - Instance Methods
 
     func request(route: HTTPRoute) -> HTTPTask
 }
 
-extension HTTPService: FigmaAPIService { }
+extension HTTPService: FigmaHTTPService { }

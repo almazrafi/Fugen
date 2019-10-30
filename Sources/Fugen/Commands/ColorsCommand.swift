@@ -1,5 +1,6 @@
 import Foundation
 import SwiftCLI
+import PathKit
 import PromiseKit
 import FugenTools
 
@@ -25,63 +26,135 @@ final class ColorsCommand: Command {
             """
     )
 
-    let excludingNodeIDs = Key<String>(
-        "--excluding",
-        description: """
-            Comma separated list of nodes to be excluded.
-            """
-    )
-
-    let includingNodeIDs = Key<String>(
+    let includingNodeIDs = VariadicKey<String>(
         "--including",
+        "-i",
+        description: #"""
+            A list of nodes whose styles will be extracted.
+            Can be repeated multiple times and must be in the format: -i "1:23".
+            If omitted, all nodes will be included.
+            """#
+    )
+
+    let excludingNodeIDs = VariadicKey<String>(
+        "--excluding",
+        "-e",
+        description: #"""
+            A list of nodes whose styles will be ignored.
+            Can be repeated multiple times and must be in the format: -e "1:23".
+            """#
+    )
+
+    let renderTemplatePath = Key<String>(
+        "--templatePath",
+        "-t",
         description: """
-            Comma separated list of nodes to be included.
+            Path to the template file.
+            If no template is passed a default template will be used.
             """
     )
 
-    let destinationPath = Key<String>(
+    let renderTemplateOptions = VariadicKey<String>(
+        "--options",
+        "-o",
+        description: #"""
+           An option that will be merged with template context, and overwrite any values of the same name.
+           Can be repeated multiple times and must be in the format: -o "name:value".
+           """#
+    )
+
+    let renderDestinationPath = Key<String>(
         "--destinationPath",
         "-d",
         description: """
-             The path to the file to generate.
-             By default, generated code will be printed on stdout.
-             """
+            The path to the file to generate.
+            By default, generated code will be printed on stdout.
+            """
     )
 
-    let services: ColorsServices
+    let dependencies: ColorsDependencies
 
     // MARK: - Initializers
 
-    init(services: ColorsServices) {
-        self.services = services
+    init(dependencies: ColorsDependencies) {
+        self.dependencies = dependencies
     }
 
     // MARK: - Instance Methods
 
+    private func resolveRenderTemplate() -> RenderTemplate {
+        let renderTemplateType: RenderTemplateType
+
+        if let renderTemplatePath = self.renderTemplatePath.value {
+            renderTemplateType = .custom(path: renderTemplatePath)
+        } else {
+            renderTemplateType = .native(name: "Colors")
+        }
+
+        var renderTemplateOptions: [String: String] = [:]
+
+        for renderTemplateOption in self.renderTemplateOptions.value {
+            var components = renderTemplateOption.components(separatedBy: ":")
+
+            guard components.count > 1 else {
+                fail(message: "Invalid format of options argument '\(renderTemplateOption)'")
+            }
+
+            let optionKey = components.removeFirst().trimmingCharacters(in: .whitespaces)
+            let optionValue = components.joined(separator: ":")
+
+            renderTemplateOptions[optionKey] = optionValue
+        }
+
+        return RenderTemplate(
+            type: renderTemplateType,
+            options: renderTemplateOptions
+        )
+    }
+
+    private func resolveRenderDestination() -> RenderDestination {
+        if let renderDestinationPath = self.renderDestinationPath.value {
+            return .file(path: renderDestinationPath)
+        } else {
+            return .console
+        }
+    }
+
+    // MARK: -
+
     func execute() throws {
         guard let fileKey = fileKey.value, !fileKey.isEmpty else {
-            fail(message: "Fatal error: Figma file key is missing or empty.")
+            fail(message: "Figma file key is missing or empty")
         }
 
         guard let accessToken = accessToken.value, !accessToken.isEmpty else {
-            fail(message: "Fatal error: Figma access token is missing or empty.")
+            fail(message: "Figma access token is missing or empty")
         }
 
-        let includingNodeIDs = self.includingNodeIDs.value?.components(separatedBy: ",") ?? []
-        let excludingNodeIDs = self.excludingNodeIDs.value?.components(separatedBy: ",") ?? []
+        let includingNodeIDs = self.includingNodeIDs.value
+        let excludingNodeIDs = self.excludingNodeIDs.value
 
-        let colorsProvider = services.makeColorsProvider(accessToken: accessToken)
+        let renderTemplate = resolveRenderTemplate()
+        let renderDestination = resolveRenderDestination()
+
+        let provider = dependencies.makeColorsProvider()
+        let renderer = dependencies.makeColorsRenderer()
 
         firstly {
-            colorsProvider.fetchColors(
+            provider.fetchColors(
                 fileKey: fileKey,
-                excludingNodes: excludingNodeIDs,
-                includingNodes: includingNodeIDs
+                accessToken: accessToken,
+                includingNodes: includingNodeIDs,
+                excludingNodes: excludingNodeIDs
             )
         }.done { colors in
-            // TODO: implement template rendering
+            try renderer.renderTemplate(
+                renderTemplate,
+                to: renderDestination,
+                colors: colors
+            )
 
-            self.success(message: "Color generation completed successfully: \(String(reflecting: colors))")
+            self.success(message: "Text styles generation completed successfully!")
         }.catch { error in
             self.fail(error: error)
         }

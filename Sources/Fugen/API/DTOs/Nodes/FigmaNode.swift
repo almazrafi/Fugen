@@ -7,7 +7,7 @@ struct FigmaNode: Decodable, Hashable {
     private enum CodingKeys: String, CodingKey {
         case id
         case name
-        case type
+        case rawType = "type"
         case isVisible = "visible"
     }
 
@@ -33,8 +33,80 @@ struct FigmaNode: Decodable, Hashable {
 
     let id: String
     let name: String
-    let type: FigmaNodeType
+    let rawType: String
     let isVisible: Bool?
+
+    let type: FigmaNodeType
+
+    var children: [FigmaNode]? {
+        switch type {
+        case .unknown, .vector, .star, .line, .ellipse, .regularPolygon, .rectangle, .text, .slice:
+            return nil
+
+        case let .document(info: documentNodeInfo):
+            return documentNodeInfo.children
+
+        case let .canvas(info: canvasNodeInfo):
+            return canvasNodeInfo.children
+
+        case let .frame(info: frameNodeInfo),
+             let .group(info: frameNodeInfo),
+             let .component(info: frameNodeInfo),
+             let .instance(info: frameNodeInfo, payload: _):
+            return frameNodeInfo.children
+
+        case let .booleanOperation(info: _, payload: payload):
+            return payload.children
+        }
+    }
+
+    var frameInfo: FigmaFrameNodeInfo? {
+        switch type {
+        case .unknown,
+             .document,
+             .canvas,
+             .vector,
+             .booleanOperation,
+             .star,
+             .line,
+             .ellipse,
+             .regularPolygon,
+             .rectangle,
+             .text,
+             .slice:
+            return nil
+
+        case let .frame(info: nodeInfo),
+             let .group(info: nodeInfo),
+             let .component(info: nodeInfo),
+             let .instance(info: nodeInfo, payload: _):
+            return nodeInfo
+        }
+    }
+
+    var vectorInfo: FigmaVectorNodeInfo? {
+        switch type {
+        case .unknown,
+             .document,
+             .canvas,
+             .frame,
+             .group,
+             .slice,
+             .component,
+             .instance:
+            return nil
+
+        case let .vector(info: nodeInfo),
+             let .booleanOperation(info: nodeInfo, payload: _),
+             let .star(info: nodeInfo),
+             let .line(info: nodeInfo),
+             let .ellipse(info: nodeInfo),
+             let .regularPolygon(info: nodeInfo),
+             let .rectangle(info: nodeInfo, payload: _),
+             let .text(info: nodeInfo, payload: _):
+            return nodeInfo
+        }
+    }
 
     // MARK: - Initializers
 
@@ -45,10 +117,11 @@ struct FigmaNode: Decodable, Hashable {
 
         id = try container.decode(forKey: .id)
         name = try container.decode(forKey: .name)
+        rawType = try container.decode(String.self, forKey: .rawType)
 
         isVisible = try container.decodeIfPresent(forKey: .isVisible)
 
-        switch try container.decode(String.self, forKey: .type) {
+        switch rawType {
         case CodingValues.documentType:
             type = .document(info: try FigmaDocumentNodeInfo(from: decoder))
 

@@ -15,6 +15,8 @@ struct FigmaAPIFileRoute: FigmaAPIRoute {
     // MARK: - Instance Properties
 
     let fileKey: String
+    let accessToken: String?
+
     let queryParameters: QueryParameters?
 
     var urlPath: String {
@@ -23,8 +25,15 @@ struct FigmaAPIFileRoute: FigmaAPIRoute {
 
     // MARK: - Initializers
 
-    init(fileKey: String, version: String? = nil, ids: [String]? = nil, depth: Int? = nil) {
+    init(
+        fileKey: String,
+        accessToken: String,
+        version: String? = nil,
+        ids: [String]? = nil,
+        depth: Int? = nil
+    ) {
         self.fileKey = fileKey
+        self.accessToken = accessToken
 
         self.queryParameters = QueryParameters(
             version: version,

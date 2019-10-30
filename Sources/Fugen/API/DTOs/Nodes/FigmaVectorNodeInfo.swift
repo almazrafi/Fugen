@@ -79,4 +79,10 @@ struct FigmaVectorNodeInfo: Decodable, Hashable {
     var strokeAlignment: FigmaStrokeAlignment? {
         FigmaStrokeAlignment(rawValue: rawStrokeAlignment)
     }
+
+    // MARK: - Instance Methods
+
+    func styleID(of styleType: FigmaStyleType) -> String? {
+        return styles?[styleType.rawValue.lowercased()]
+    }
 }
