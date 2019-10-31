@@ -2,7 +2,7 @@ import Foundation
 import SwiftCLI
 import FugenTools
 
-let services = Services()
+let dependencies = Dependencies()
 
 let fugen = CLI(
     name: "fugen",
@@ -11,7 +11,7 @@ let fugen = CLI(
 )
 
 fugen.commands = [
-    ColorsCommand(services: services)
+    ColorsCommand(dependencies: dependencies)
 ]
 
 fugen.goAndExitOnError()

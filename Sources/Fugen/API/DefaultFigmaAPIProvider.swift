@@ -12,22 +12,12 @@ final class DefaultFigmaAPIProvider: FigmaAPIProvider {
 
     // MARK: -
 
-    let apiService: FigmaAPIService
-
-    let serverBaseURL: URL
-    let accessToken: String
+    let httpService: FigmaHTTPService
 
     // MARK: - Initializers
 
-    init(
-        apiService: FigmaAPIService,
-        serverBaseURL: URL,
-        accessToken: String
-    ) {
-        self.apiService = apiService
-
-        self.serverBaseURL = serverBaseURL
-        self.accessToken = accessToken
+    init(httpService: FigmaHTTPService) {
+        self.httpService = httpService
 
         let urlEncoder = URLEncoder()
         let jsonEncoder = JSONEncoder()
@@ -45,11 +35,11 @@ final class DefaultFigmaAPIProvider: FigmaAPIProvider {
     // MARK: - Instance Methods
 
     private func makeHTTPRoute<Route: FigmaAPIRoute>(for route: Route) -> HTTPRoute {
-        let url = serverBaseURL
+        let url = URL.figmaAPIServer
             .appendingPathComponent(route.apiVersion.urlPath)
             .appendingPathComponent(route.urlPath)
 
-        let headers = [HTTPHeader.figmaAccessToken(accessToken)]
+        let headers = route.accessToken.map { [HTTPHeader.figmaAccessToken($0)] } ?? []
 
         return HTTPRoute(
             method: route.httpMethod,
@@ -78,7 +68,7 @@ final class DefaultFigmaAPIProvider: FigmaAPIProvider {
 
     func request<Route: FigmaAPIRoute>(route: Route) -> Promise<Void> where Route.Response == FigmaAPIEmptyResponse {
         return Promise { seal in
-            let task = apiService.request(route: makeHTTPRoute(for: route))
+            let task = httpService.request(route: makeHTTPRoute(for: route))
 
             task.response { response in
                 switch response.result {
@@ -94,7 +84,7 @@ final class DefaultFigmaAPIProvider: FigmaAPIProvider {
 
     func request<Route: FigmaAPIRoute>(route: Route) -> Promise<Route.Response> {
         return Promise { seal in
-            let task = apiService.request(route: makeHTTPRoute(for: route))
+            let task = httpService.request(route: makeHTTPRoute(for: route))
 
             task.responseDecodable(type: Route.Response.self, decoder: responseDecoder) { response in
                 switch response.result {
@@ -131,4 +121,11 @@ private extension DateFormatter {
 
         return dateFormatter
     }()
+}
+
+private extension URL {
+
+    // MARK: - Type Properties
+
+    static let figmaAPIServer = URL(string: "https://api.figma.com")!
 }

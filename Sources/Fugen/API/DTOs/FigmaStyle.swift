@@ -14,11 +14,11 @@ struct FigmaStyle: Decodable, Hashable {
     // MARK: - Instance Properties
 
     let key: String?
-    let rawType: String
-    let name: String
+    let rawType: String?
+    let name: String?
     let description: String?
 
     var type: FigmaStyleType? {
-        FigmaStyleType(rawValue: rawType)
+        rawType.flatMap(FigmaStyleType.init)
     }
 }

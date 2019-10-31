@@ -33,6 +33,14 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		C0A7A301236918D00087A369 /* RenderTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A2E22368EA520087A369 /* RenderTemplate.swift */; };
+		C0A7A30223691A990087A369 /* RenderTemplateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A2E92368F5EE0087A369 /* RenderTemplateType.swift */; };
+		C0A7A43D2369EF380087A369 /* TemplateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A43C2369EF380087A369 /* TemplateRenderer.swift */; };
+		C0A7A4402369EFA10087A369 /* DefaultTemplateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A43F2369EFA10087A369 /* DefaultTemplateRenderer.swift */; };
+		C0A7A442236A1AED0087A369 /* RenderDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A441236A1AED0087A369 /* RenderDestination.swift */; };
+		C0A7A44A236A34FE0087A369 /* ColorsRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A449236A34FE0087A369 /* ColorsRenderer.swift */; };
+		C0A7A44C236A356B0087A369 /* DefaultColorsRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A44B236A356B0087A369 /* DefaultColorsRenderer.swift */; };
+		C0A7A44F236A4B750087A369 /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = OBJ_282 /* Templates */; };
 		C0F83BF02367788600D42813 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83BEF2367788600D42813 /* Color.swift */; };
 		C0F83BF3236778EA00D42813 /* ColorsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83BF2236778EA00D42813 /* ColorsProvider.swift */; };
 		C0F83BF52367798700D42813 /* DefaultColorsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83BF42367798700D42813 /* DefaultColorsProvider.swift */; };
@@ -40,9 +48,8 @@
 		C0F83BFA23677BCA00D42813 /* DefaultNodesExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83BF923677BC900D42813 /* DefaultNodesExtractor.swift */; };
 		C0F83D3423679F5200D42813 /* ColorsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D3323679F5200D42813 /* ColorsError.swift */; };
 		C0F83D3B2367AD4400D42813 /* ColorsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D3A2367AD4400D42813 /* ColorsCommand.swift */; };
-		C0F83D3D2367AD4E00D42813 /* ColorsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D3C2367AD4E00D42813 /* ColorsServices.swift */; };
-		C0F83D3F236832E500D42813 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D3E236832E500D42813 /* Services.swift */; };
-		C0F83D412368332B00D42813 /* Services+ColorsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D402368332B00D42813 /* Services+ColorsServices.swift */; };
+		C0F83D3D2367AD4E00D42813 /* ColorsDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D3C2367AD4E00D42813 /* ColorsDependencies.swift */; };
+		C0F83D3F236832E500D42813 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D3E236832E500D42813 /* Dependencies.swift */; };
 		OBJ_297 /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_203 /* api.c */; };
 		OBJ_298 /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_204 /* emitter.c */; };
 		OBJ_299 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_205 /* parser.c */; };
@@ -104,7 +111,7 @@
 		OBJ_362 /* FigmaAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_64 /* FigmaAPIError.swift */; };
 		OBJ_363 /* FigmaAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_65 /* FigmaAPIProvider.swift */; };
 		OBJ_364 /* FigmaAPIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* FigmaAPIRoute.swift */; };
-		OBJ_365 /* FigmaAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_67 /* FigmaAPIService.swift */; };
+		OBJ_365 /* FigmaHTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_67 /* FigmaHTTPService.swift */; };
 		OBJ_366 /* FigmaAPIVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* FigmaAPIVersion.swift */; };
 		OBJ_367 /* FigmaAPIFileRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* FigmaAPIFileRoute.swift */; };
 		OBJ_368 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* main.swift */; };
@@ -536,6 +543,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C0A7A2E22368EA520087A369 /* RenderTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderTemplate.swift; sourceTree = "<group>"; };
+		C0A7A2E92368F5EE0087A369 /* RenderTemplateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderTemplateType.swift; sourceTree = "<group>"; };
+		C0A7A43C2369EF380087A369 /* TemplateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateRenderer.swift; sourceTree = "<group>"; };
+		C0A7A43F2369EFA10087A369 /* DefaultTemplateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTemplateRenderer.swift; sourceTree = "<group>"; };
+		C0A7A441236A1AED0087A369 /* RenderDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderDestination.swift; sourceTree = "<group>"; };
+		C0A7A449236A34FE0087A369 /* ColorsRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsRenderer.swift; sourceTree = "<group>"; };
+		C0A7A44B236A356B0087A369 /* DefaultColorsRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColorsRenderer.swift; sourceTree = "<group>"; };
 		C0F838C723665E4400D42813 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
 		C0F838C823665E4400D42813 /* .ruby-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".ruby-version"; sourceTree = "<group>"; };
 		C0F838C923665E4400D42813 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -552,9 +566,8 @@
 		C0F83BF923677BC900D42813 /* DefaultNodesExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNodesExtractor.swift; sourceTree = "<group>"; };
 		C0F83D3323679F5200D42813 /* ColorsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsError.swift; sourceTree = "<group>"; };
 		C0F83D3A2367AD4400D42813 /* ColorsCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsCommand.swift; sourceTree = "<group>"; };
-		C0F83D3C2367AD4E00D42813 /* ColorsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsServices.swift; sourceTree = "<group>"; };
-		C0F83D3E236832E500D42813 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
-		C0F83D402368332B00D42813 /* Services+ColorsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services+ColorsServices.swift"; sourceTree = "<group>"; };
+		C0F83D3C2367AD4E00D42813 /* ColorsDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsDependencies.swift; sourceTree = "<group>"; };
+		C0F83D3E236832E500D42813 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 		"Fugen::Fugen::Product" /* Fugen */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fugen; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Fugen::FugenTests::Product" /* FugenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FugenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Fugen::FugenTools::Product" /* FugenTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FugenTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -771,7 +784,7 @@
 		OBJ_64 /* FigmaAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaAPIError.swift; sourceTree = "<group>"; };
 		OBJ_65 /* FigmaAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaAPIProvider.swift; sourceTree = "<group>"; };
 		OBJ_66 /* FigmaAPIRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaAPIRoute.swift; sourceTree = "<group>"; };
-		OBJ_67 /* FigmaAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaAPIService.swift; sourceTree = "<group>"; };
+		OBJ_67 /* FigmaHTTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaHTTPService.swift; sourceTree = "<group>"; };
 		OBJ_68 /* FigmaAPIVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaAPIVersion.swift; sourceTree = "<group>"; };
 		OBJ_70 /* FigmaAPIFileRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaAPIFileRoute.swift; sourceTree = "<group>"; };
 		OBJ_71 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -926,21 +939,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C0F83BF12367788C00D42813 /* Colors */ = {
+		C0A7A444236A1C040087A369 /* Colors */ = {
 			isa = PBXGroup;
 			children = (
+				C0F83BEF2367788600D42813 /* Color.swift */,
 				C0F83D3323679F5200D42813 /* ColorsError.swift */,
 				C0F83BF2236778EA00D42813 /* ColorsProvider.swift */,
+				C0A7A449236A34FE0087A369 /* ColorsRenderer.swift */,
 				C0F83BF42367798700D42813 /* DefaultColorsProvider.swift */,
+				C0A7A44B236A356B0087A369 /* DefaultColorsRenderer.swift */,
 			);
 			path = Colors;
+			sourceTree = "<group>";
+		};
+		C0A7A446236A1CEC0087A369 /* Render */ = {
+			isa = PBXGroup;
+			children = (
+				C0A7A43F2369EFA10087A369 /* DefaultTemplateRenderer.swift */,
+				C0A7A441236A1AED0087A369 /* RenderDestination.swift */,
+				C0A7A2E22368EA520087A369 /* RenderTemplate.swift */,
+				C0A7A2E92368F5EE0087A369 /* RenderTemplateType.swift */,
+				C0A7A43C2369EF380087A369 /* TemplateRenderer.swift */,
+			);
+			path = Render;
 			sourceTree = "<group>";
 		};
 		C0F83BF62367799D00D42813 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
-				C0F83BF7236779B400D42813 /* NodesExtractor.swift */,
 				C0F83BF923677BC900D42813 /* DefaultNodesExtractor.swift */,
+				C0F83BF7236779B400D42813 /* NodesExtractor.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -949,12 +977,12 @@
 			isa = PBXGroup;
 			children = (
 				C0F83D3A2367AD4400D42813 /* ColorsCommand.swift */,
-				C0F83D3C2367AD4E00D42813 /* ColorsServices.swift */,
+				C0F83D3C2367AD4E00D42813 /* ColorsDependencies.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
 		};
-		OBJ_10 /* Figma */ = {
+		OBJ_10 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_46 /* Nodes */,
@@ -994,7 +1022,7 @@
 				OBJ_44 /* FigmaTypeStyle.swift */,
 				OBJ_45 /* FigmaVector.swift */,
 			);
-			path = Figma;
+			path = DTOs;
 			sourceTree = "<group>";
 		};
 		OBJ_105 /* QueryEncoders */ = {
@@ -1379,32 +1407,6 @@
 			);
 			sourceTree = "<group>";
 		};
-		OBJ_59 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_60 /* API */,
-				C0F83BF12367788C00D42813 /* Colors */,
-				C0F83BF62367799D00D42813 /* Nodes */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		OBJ_60 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_69 /* Routes */,
-				OBJ_61 /* DefaultFigmaAPIProvider.swift */,
-				OBJ_62 /* FigmaAPIEmptyParameters.swift */,
-				OBJ_63 /* FigmaAPIEmptyResponse.swift */,
-				OBJ_64 /* FigmaAPIError.swift */,
-				OBJ_65 /* FigmaAPIProvider.swift */,
-				OBJ_66 /* FigmaAPIRoute.swift */,
-				OBJ_67 /* FigmaAPIService.swift */,
-				OBJ_68 /* FigmaAPIVersion.swift */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
 		OBJ_69 /* Routes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1458,12 +1460,13 @@
 		OBJ_8 /* Fugen */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_9 /* API */,
+				C0A7A444236A1C040087A369 /* Colors */,
 				C0F83D392367AD3400D42813 /* Commands */,
-				OBJ_9 /* Models */,
-				OBJ_59 /* Services */,
+				C0F83BF62367799D00D42813 /* Nodes */,
+				C0A7A446236A1CEC0087A369 /* Render */,
+				C0F83D3E236832E500D42813 /* Dependencies.swift */,
 				OBJ_71 /* main.swift */,
-				C0F83D3E236832E500D42813 /* Services.swift */,
-				C0F83D402368332B00D42813 /* Services+ColorsServices.swift */,
 			);
 			name = Fugen;
 			path = Sources/Fugen;
@@ -1502,13 +1505,21 @@
 			path = BodyEncoders;
 			sourceTree = "<group>";
 		};
-		OBJ_9 /* Models */ = {
+		OBJ_9 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_10 /* Figma */,
-				C0F83BEF2367788600D42813 /* Color.swift */,
+				OBJ_10 /* DTOs */,
+				OBJ_61 /* DefaultFigmaAPIProvider.swift */,
+				OBJ_62 /* FigmaAPIEmptyParameters.swift */,
+				OBJ_63 /* FigmaAPIEmptyResponse.swift */,
+				OBJ_64 /* FigmaAPIError.swift */,
+				OBJ_65 /* FigmaAPIProvider.swift */,
+				OBJ_66 /* FigmaAPIRoute.swift */,
+				OBJ_68 /* FigmaAPIVersion.swift */,
+				OBJ_67 /* FigmaHTTPService.swift */,
+				OBJ_69 /* Routes */,
 			);
-			path = Models;
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1532,6 +1543,7 @@
 			buildPhases = (
 				OBJ_311 /* Sources */,
 				OBJ_369 /* Frameworks */,
+				C0A7A44E236A4B630087A369 /* Resources */,
 				C0F838CD23665E6E00D42813 /* SwiftLint */,
 			);
 			buildRules = (
@@ -1914,6 +1926,17 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		C0A7A44E236A4B630087A369 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0A7A44F236A4B750087A369 /* Templates in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXShellScriptBuildPhase section */
 		C0F838CD23665E6E00D42813 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1954,7 +1977,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_312 /* FigmaBlendMode.swift in Sources */,
-				C0F83D412368332B00D42813 /* Services+ColorsServices.swift in Sources */,
+				C0A7A442236A1AED0087A369 /* RenderDestination.swift in Sources */,
 				OBJ_313 /* FigmaBooleanOperationType.swift in Sources */,
 				OBJ_314 /* FigmaColor.swift in Sources */,
 				OBJ_315 /* FigmaColorStop.swift in Sources */,
@@ -1969,22 +1992,25 @@
 				OBJ_324 /* FigmaImageFormat.swift in Sources */,
 				OBJ_325 /* FigmaLayoutConstraint.swift in Sources */,
 				OBJ_326 /* FigmaLayoutGrid.swift in Sources */,
-				C0F83D3D2367AD4E00D42813 /* ColorsServices.swift in Sources */,
+				C0F83D3D2367AD4E00D42813 /* ColorsDependencies.swift in Sources */,
 				OBJ_327 /* FigmaLayoutGridAlignment.swift in Sources */,
 				OBJ_328 /* FigmaLayoutGridPattern.swift in Sources */,
 				OBJ_329 /* FigmaLayoutHorizontalConstraint.swift in Sources */,
 				OBJ_330 /* FigmaLayoutVerticalConstraint.swift in Sources */,
+				C0A7A30223691A990087A369 /* RenderTemplateType.swift in Sources */,
 				OBJ_331 /* FigmaLineHeightUnit.swift in Sources */,
 				OBJ_332 /* FigmaPaint.swift in Sources */,
 				OBJ_333 /* FigmaPaintType.swift in Sources */,
 				C0F83BFA23677BCA00D42813 /* DefaultNodesExtractor.swift in Sources */,
 				OBJ_334 /* FigmaRectangle.swift in Sources */,
-				C0F83D3F236832E500D42813 /* Services.swift in Sources */,
+				C0F83D3F236832E500D42813 /* Dependencies.swift in Sources */,
+				C0A7A43D2369EF380087A369 /* TemplateRenderer.swift in Sources */,
 				OBJ_335 /* FigmaScaleMode.swift in Sources */,
 				OBJ_336 /* FigmaStrokeAlignment.swift in Sources */,
 				OBJ_337 /* FigmaStrokeCap.swift in Sources */,
 				OBJ_338 /* FigmaStrokeJoin.swift in Sources */,
 				OBJ_339 /* FigmaStyle.swift in Sources */,
+				C0A7A44C236A356B0087A369 /* DefaultColorsRenderer.swift in Sources */,
 				OBJ_340 /* FigmaStyleType.swift in Sources */,
 				OBJ_341 /* FigmaTextCase.swift in Sources */,
 				C0F83D3B2367AD4400D42813 /* ColorsCommand.swift in Sources */,
@@ -2001,6 +2027,8 @@
 				OBJ_351 /* FigmaFrameNodeInfo.swift in Sources */,
 				OBJ_352 /* FigmaInstanceNodePayload.swift in Sources */,
 				OBJ_353 /* FigmaNode.swift in Sources */,
+				C0A7A301236918D00087A369 /* RenderTemplate.swift in Sources */,
+				C0A7A4402369EFA10087A369 /* DefaultTemplateRenderer.swift in Sources */,
 				C0F83BF3236778EA00D42813 /* ColorsProvider.swift in Sources */,
 				OBJ_354 /* FigmaNodeType.swift in Sources */,
 				OBJ_355 /* FigmaRectangleNodePayload.swift in Sources */,
@@ -2008,6 +2036,7 @@
 				C0F83BF8236779B400D42813 /* NodesExtractor.swift in Sources */,
 				OBJ_357 /* FigmaTextNodePayload.swift in Sources */,
 				OBJ_358 /* FigmaVectorNodeInfo.swift in Sources */,
+				C0A7A44A236A34FE0087A369 /* ColorsRenderer.swift in Sources */,
 				OBJ_359 /* DefaultFigmaAPIProvider.swift in Sources */,
 				OBJ_360 /* FigmaAPIEmptyParameters.swift in Sources */,
 				C0F83BF02367788600D42813 /* Color.swift in Sources */,
@@ -2015,7 +2044,7 @@
 				OBJ_362 /* FigmaAPIError.swift in Sources */,
 				OBJ_363 /* FigmaAPIProvider.swift in Sources */,
 				OBJ_364 /* FigmaAPIRoute.swift in Sources */,
-				OBJ_365 /* FigmaAPIService.swift in Sources */,
+				OBJ_365 /* FigmaHTTPService.swift in Sources */,
 				C0F83BF52367798700D42813 /* DefaultColorsProvider.swift in Sources */,
 				OBJ_366 /* FigmaAPIVersion.swift in Sources */,
 				OBJ_367 /* FigmaAPIFileRoute.swift in Sources */,

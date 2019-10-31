@@ -14,6 +14,7 @@ protocol FigmaAPIRoute {
     var apiVersion: FigmaAPIVersion { get }
     var httpMethod: HTTPMethod { get }
     var urlPath: String { get }
+    var accessToken: String? { get }
     var queryParameters: QueryParameters? { get }
     var bodyParameters: BodyParameters? { get }
 }
@@ -28,6 +29,10 @@ extension FigmaAPIRoute {
 
     var httpMethod: HTTPMethod {
         .get
+    }
+
+    var accessToken: String? {
+        nil
     }
 }
 
