@@ -154,7 +154,7 @@ final class ColorsCommand: Command {
                 colors: colors
             )
 
-            self.success(message: "Text styles generation completed successfully!")
+            self.success(message: "Colors generation completed successfully!")
         }.catch { error in
             self.fail(error: error)
         }

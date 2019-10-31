@@ -6,18 +6,24 @@
 {% macro rgbString color %}{{color.red|hexToInt}} {{color.green|hexToInt}} {{color.blue|hexToInt}}{% endmacro %}
 {% macro rgbaString color %}{% call rgbString color %}, {{color.alpha|hexToInt|int255toFloat|percent}}{% endmacro %}
 {% macro colorName color %}{{color.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}{% endmacro %}
-{% set accessLevel %}{% if options.publicAccess %}public{% else %}internal{% endif %}{% endset %}
+{% set accessModifier %}{% if options.publicAccess %}public{% else %}internal{% endif %}{% endset %}
+{% set colorAlias %}{{options.colorAlias|default:"Color"}}{% endset %}
 {% set colorsName %}{{options.colorsName|default:"Colors"}}{% endset %}
+#if canImport(UIKit)
 import UIKit.UIColor
+{{accessModifier}} typealias {{colorAlias}} = UIColor
+#else
+import AppKit.NSColor
+{{accessModifier}} typealias {{colorAlias}} = NSColor
+#endif
 
-{{accessLevel}} enum {{colorsName}} {
+{{accessModifier}} enum {{colorsName}} {
 
     // MARK: - Type Properties
-
 {% for color in colors %}
 
     /// Hex: {% call rgbaHexString color %}; rgba: {% call rgbaString color %}.
-    {{accessLevel}} static let {% call colorName color %} = {{colorAlias}}(rgbaHex: {% call rgbaHex color %})
+    {{accessModifier}} static let {% call colorName color %} = {{colorAlias}}(rgbaHex: {% call rgbaHex color %})
 {% endfor %}
 }
 
