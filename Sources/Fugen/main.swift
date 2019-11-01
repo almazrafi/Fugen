@@ -11,7 +11,7 @@ let fugen = CLI(
 )
 
 fugen.commands = [
-    ColorsCommand(dependencies: dependencies)
+    ColorStylesCommand(dependencies: dependencies)
 ]
 
 fugen.goAndExitOnError()

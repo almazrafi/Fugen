@@ -5,16 +5,24 @@ final class Dependencies {
 
     // MARK: - Instance Methods
 
-    func makeHTTPService() -> FigmaHTTPService {
+    func makeFigmaHTTPService() -> FigmaHTTPService {
         return HTTPService()
     }
 
-    func makeAPIProvider() -> FigmaAPIProvider {
-        return DefaultFigmaAPIProvider(httpService: makeHTTPService())
+    func makeFigmaAPIProvider() -> FigmaAPIProvider {
+        return DefaultFigmaAPIProvider(httpService: makeFigmaHTTPService())
     }
 
-    func makeNodesExtractor() -> NodesExtractor {
-        return DefaultNodesExtractor()
+    func makeFigmaNodesProvider() -> FigmaNodesProvider {
+        return DefaultFigmaNodesProvider()
+    }
+
+    func makeColorEncoder() -> ColorEncoder {
+        return DefaultColorEncoder()
+    }
+
+    func makeFontEncoder() -> FontEncoder {
+        return DefaultFontEncoder()
     }
 
     func makeTemplateRenderer() -> TemplateRenderer {
@@ -22,18 +30,37 @@ final class Dependencies {
     }
 }
 
-extension Dependencies: ColorsDependencies {
+extension Dependencies: ColorStylesDependencies {
 
     // MARK: - Instance Methods
 
-    func makeColorsProvider() -> ColorsProvider {
-        return DefaultColorsProvider(
-            apiProvider: makeAPIProvider(),
-            nodesExtractor: makeNodesExtractor()
+    func makeColorStylesProvider() -> ColorStylesProvider {
+        return DefaultColorStylesProvider(
+            apiProvider: makeFigmaAPIProvider(),
+            nodesProvider: makeFigmaNodesProvider()
         )
     }
 
-    func makeColorsRenderer() -> ColorsRenderer {
-        return DefaultColorsRenderer(templateRenderer: makeTemplateRenderer())
+    func makeColorStylesEncoder() -> ColorStylesEncoder {
+        return DefaultColorStylesEncoder(colorEncoder: makeColorEncoder())
+    }
+}
+
+extension Dependencies: TextStylesDependencies {
+
+    // MARK: - Instance Methods
+
+    func makeTextStylesProvider() -> TextStylesProvider {
+        return DefaultTextStylesProvider(
+            apiProvider: makeFigmaAPIProvider(),
+            nodesProvider: makeFigmaNodesProvider()
+        )
+    }
+
+    func makeTextStylesEncoder() -> TextStylesEncoder {
+        return DefaultTextStylesEncoder(
+            fontEncoder: makeFontEncoder(),
+            colorEncoder: makeColorEncoder()
+        )
     }
 }
