@@ -22,6 +22,6 @@ final class DefaultColorStylesEncoder: ColorStylesEncoder {
     }
 
     func encodeColorStyles(_ colorStyles: [ColorStyle]) -> [String: Any] {
-        return ["colorStyles": colorStyles.map(encodeColorStyle)]
+        return ["styles": colorStyles.map(encodeColorStyle)]
     }
 }

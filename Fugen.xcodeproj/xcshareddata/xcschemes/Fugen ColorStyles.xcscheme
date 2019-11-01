@@ -80,7 +80,7 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "--destinationPath ~/Downloads/Colors.swift"
+            argument = "--destinationPath ~/Downloads/ColorStyles.swift"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument

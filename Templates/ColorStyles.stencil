@@ -1,3 +1,71 @@
 // swiftlint:disable all
+{% if colorStyles %}
+{% macro rgbaHex color %}0x{{color.red}}{{color.green}}{{color.blue}}{{color.alpha}}{% endmacro %}
+{% macro rgbHexString color %}#{{color.red}}{{color.green}}{{color.blue}}{% endmacro %}
+{% macro rgbaHexString color %}{% call rgbHexString color %}{{color.alpha}}{% endmacro %}
+{% macro rgbString color %}{{color.red|hexToInt}} {{color.green|hexToInt}} {{color.blue|hexToInt}}{% endmacro %}
+{% macro rgbaString color %}{% call rgbString color %}, {{color.alpha|hexToInt|int255toFloat|percent}}{% endmacro %}
+{% macro stylePropertyName style %}{{style.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}{% endmacro %}
+{% set styleTypeName %}{{options.styleTypeName|default:"ColorStyle"}}{% endset %}
+{% set accessModifier %}{% if options.publicAccess %}public{% else %}internal{% endif %}{% endset %}
+{% set colorAlias %}{{options.colorAlias|default:"Color"}}{% endset %}
+#if canImport(UIKit)
+import UIKit.UIColor
+{{accessModifier}} typealias {{colorAlias}} = UIColor
+#else
+import AppKit.NSColor
+{{accessModifier}} typealias {{colorAlias}} = NSColor
+#endif
 
+{{accessModifier}} struct {{styleTypeName}} {
+
+    // MARK: - Type Properties
+{% for style in colorStyles %}
+
+    /// {{style.name}}
+    ///
+    /// Hex: {% call rgbaHexString style.color %}; rgba: {% call rgbaString style.color %}
+    {{accessModifier}} static let {% call stylePropertyName style %} = {{styleTypeName}}(
+        name: "{{style.name}}",
+        rgbaHex: {% call rgbaHex style.color %}
+    )
+{% endfor %}
+
+    // MARK: - Instance Properties
+
+    {{accessModifier}} let name: String
+    {{accessModifier}} let rgbaHex: UInt32
+
+    {{accessModifier}} var color: {{colorAlias}} {
+        return {{colorAlias}}(style: self)
+    }
+
+    // MARK: - Initializers
+
+    {{accessModifier}} init(name: String, rgbaHex: UInt32) {
+        self.name = name
+        self.rgbaHex = rgbaHex
+    }
+}
+
+extension {{colorAlias}} {
+
+    // MARK: - Initializers
+
+    private convenience init(rgbaHex: UInt32) {
+        self.init(
+            red: CGFloat((rgbaHex >> 24) & 0xFF) / 255.0,
+            green: CGFloat((rgbaHex >> 16) & 0xFF) / 255.0,
+            blue: CGFloat((rgbaHex >> 8) & 0xFF) / 255.0,
+            alpha: CGFloat(rgbaHex & 0xFF) / 255.0
+        )
+    }
+
+    {{accessModifier}} convenience init(style: {{styleTypeName}}) {
+        self.init(rgbaHex: style.rgbaHex)
+    }
+}
+{% else %}
+// No color found
+{% endif %}
 // swiftlint:enable all
