@@ -114,7 +114,7 @@ final class DefaultTextStylesProvider: TextStylesProvider {
             }
     }
 
-    // MARK: - Instance Methods
+    // MARK: - TextStylesProvider
 
     func fetchTextStyles(
         fileKey: String,
