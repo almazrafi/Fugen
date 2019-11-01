@@ -1,14 +1,14 @@
 // swiftlint:disable all
 {% if colorStyles %}
+{% set styleTypeName %}{{options.styleTypeName|default:"ColorStyle"}}{% endset %}
+{% set accessModifier %}{% if options.publicAccess %}public{% else %}internal{% endif %}{% endset %}
+{% set colorAlias %}{{options.colorAlias|default:"Color"}}{% endset %}
 {% macro rgbaHex color %}0x{{color.red}}{{color.green}}{{color.blue}}{{color.alpha}}{% endmacro %}
 {% macro rgbHexString color %}#{{color.red}}{{color.green}}{{color.blue}}{% endmacro %}
 {% macro rgbaHexString color %}{% call rgbHexString color %}{{color.alpha}}{% endmacro %}
 {% macro rgbString color %}{{color.red|hexToInt}} {{color.green|hexToInt}} {{color.blue|hexToInt}}{% endmacro %}
 {% macro rgbaString color %}{% call rgbString color %}, {{color.alpha|hexToInt|int255toFloat|percent}}{% endmacro %}
 {% macro stylePropertyName style %}{{style.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}{% endmacro %}
-{% set styleTypeName %}{{options.styleTypeName|default:"ColorStyle"}}{% endset %}
-{% set accessModifier %}{% if options.publicAccess %}public{% else %}internal{% endif %}{% endset %}
-{% set colorAlias %}{{options.colorAlias|default:"Color"}}{% endset %}
 #if canImport(UIKit)
 import UIKit.UIColor
 {{accessModifier}} typealias {{colorAlias}} = UIColor
