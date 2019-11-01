@@ -5,12 +5,12 @@ final class Dependencies {
 
     // MARK: - Instance Methods
 
-    func makeHTTPService() -> FigmaHTTPService {
+    func makeFigmaHTTPService() -> FigmaHTTPService {
         return HTTPService()
     }
 
     func makeFigmaAPIProvider() -> FigmaAPIProvider {
-        return DefaultFigmaAPIProvider(httpService: makeHTTPService())
+        return DefaultFigmaAPIProvider(httpService: makeFigmaHTTPService())
     }
 
     func makeFigmaNodesProvider() -> FigmaNodesProvider {
