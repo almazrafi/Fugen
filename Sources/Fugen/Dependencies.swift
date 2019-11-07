@@ -17,22 +17,9 @@ final class Dependencies {
         return DefaultFigmaNodesProvider()
     }
 
-    func makeColorEncoder() -> ColorEncoder {
-        return DefaultColorEncoder()
+    func makeConfigurationProvider() -> ConfigurationProvider {
+        return DefaultConfigurationProvider()
     }
-
-    func makeFontEncoder() -> FontEncoder {
-        return DefaultFontEncoder()
-    }
-
-    func makeTemplateRenderer() -> TemplateRenderer {
-        return DefaultTemplateRenderer()
-    }
-}
-
-extension Dependencies: ColorStylesDependencies {
-
-    // MARK: - Instance Methods
 
     func makeColorStylesProvider() -> ColorStylesProvider {
         return DefaultColorStylesProvider(
@@ -41,15 +28,6 @@ extension Dependencies: ColorStylesDependencies {
         )
     }
 
-    func makeColorStylesEncoder() -> ColorStylesEncoder {
-        return DefaultColorStylesEncoder(colorEncoder: makeColorEncoder())
-    }
-}
-
-extension Dependencies: TextStylesDependencies {
-
-    // MARK: - Instance Methods
-
     func makeTextStylesProvider() -> TextStylesProvider {
         return DefaultTextStylesProvider(
             apiProvider: makeFigmaAPIProvider(),
@@ -57,10 +35,26 @@ extension Dependencies: TextStylesDependencies {
         )
     }
 
+    func makeColorEncoder() -> ColorEncoder {
+        return DefaultColorEncoder()
+    }
+
+    func makeFontEncoder() -> FontEncoder {
+        return DefaultFontEncoder()
+    }
+
+    func makeColorStylesEncoder() -> ColorStylesEncoder {
+        return DefaultColorStylesEncoder(colorEncoder: makeColorEncoder())
+    }
+
     func makeTextStylesEncoder() -> TextStylesEncoder {
         return DefaultTextStylesEncoder(
             fontEncoder: makeFontEncoder(),
             colorEncoder: makeColorEncoder()
         )
+    }
+
+    func makeTemplateRenderer() -> TemplateRenderer {
+        return DefaultTemplateRenderer()
     }
 }

@@ -10,8 +10,21 @@ let fugen = CLI(
     description: "A tool to automate resources using the Figma API."
 )
 
+let colorStylesGenerator = ColorStylesGenerator(
+    colorStylesProvider: dependencies.makeColorStylesProvider(),
+    colorStylesEncoder: dependencies.makeColorStylesEncoder(),
+    templateRenderer: dependencies.makeTemplateRenderer()
+)
+
+let makeTextStylesGenerator = TextStylesGenerator (
+    textStylesProvider: dependencies.makeTextStylesProvider(),
+    textStylesEncoder: dependencies.makeTextStylesEncoder(),
+    templateRenderer: dependencies.makeTemplateRenderer()
+)
+
 fugen.commands = [
-    ColorStylesCommand(dependencies: dependencies)
+    ColorStylesCommand(generator: colorStylesGenerator),
+    TextStylesCommand(generator: makeTextStylesGenerator)
 ]
 
 fugen.goAndExitOnError()

@@ -1,10 +1,7 @@
 import Foundation
 import SwiftCLI
-import PathKit
-import PromiseKit
-import FugenTools
 
-final class ColorStylesCommand: Command {
+final class ColorStylesCommand: StepCommand {
 
     // MARK: - Instance Properties
 
@@ -18,6 +15,25 @@ final class ColorStylesCommand: Command {
             """
     )
 
+    let includedNodes = VariadicKey<String>(
+        "--includingNodes",
+        "-i",
+        description: #"""
+            A list of Figma nodes whose styles will be extracted.
+            Can be repeated multiple times and must be in the format: -i "1:23".
+            If omitted, all nodes will be included.
+            """#
+    )
+
+    let excludedNodes = VariadicKey<String>(
+        "--excludingNodes",
+        "-e",
+        description: #"""
+            A list of Figma nodes whose styles will be ignored.
+            Can be repeated multiple times and must be in the format: -e "1:23".
+            """#
+    )
+
     let accessToken = Key<String>(
         "--accessToken",
         description: """
@@ -26,35 +42,15 @@ final class ColorStylesCommand: Command {
             """
     )
 
-    let includingNodeIDs = VariadicKey<String>(
-        "--including",
-        "-i",
-        description: #"""
-            A list of nodes whose styles will be extracted.
-            Can be repeated multiple times and must be in the format: -i "1:23".
-            If omitted, all nodes will be included.
-            """#
-    )
-
-    let excludingNodeIDs = VariadicKey<String>(
-        "--excluding",
-        "-e",
-        description: #"""
-            A list of nodes whose styles will be ignored.
-            Can be repeated multiple times and must be in the format: -e "1:23".
-            """#
-    )
-
-    let renderTemplatePath = Key<String>(
+    let templatePath = Key<String>(
         "--templatePath",
-        "-t",
         description: """
             Path to the template file.
             If no template is passed a default template will be used.
             """
     )
 
-    let renderTemplateOptions = VariadicKey<String>(
+    let templateOptions = VariadicKey<String>(
         "--options",
         "-o",
         description: #"""
@@ -63,105 +59,19 @@ final class ColorStylesCommand: Command {
            """#
     )
 
-    let renderDestinationPath = Key<String>(
+    let destinationPath = Key<String>(
         "--destinationPath",
-        "-d",
         description: """
             The path to the file to generate.
             By default, generated code will be printed on stdout.
             """
     )
 
-    let dependencies: ColorStylesDependencies
+    let generator: ColorStylesGenerator
 
     // MARK: - Initializers
 
-    init(dependencies: ColorStylesDependencies) {
-        self.dependencies = dependencies
-    }
-
-    // MARK: - Instance Methods
-
-    private func resolveRenderTemplate() -> RenderTemplate {
-        let renderTemplateType: RenderTemplateType
-
-        if let renderTemplatePath = self.renderTemplatePath.value {
-            renderTemplateType = .custom(path: renderTemplatePath)
-        } else {
-            renderTemplateType = .native(name: "ColorStyles")
-        }
-
-        var renderTemplateOptions: [String: String] = [:]
-
-        for renderTemplateOption in self.renderTemplateOptions.value {
-            var components = renderTemplateOption.components(separatedBy: ":")
-
-            guard components.count > 1 else {
-                fail(message: "Invalid format of options argument '\(renderTemplateOption)'")
-            }
-
-            let optionKey = components.removeFirst().trimmingCharacters(in: .whitespaces)
-            let optionValue = components.joined(separator: ":")
-
-            renderTemplateOptions[optionKey] = optionValue
-        }
-
-        return RenderTemplate(
-            type: renderTemplateType,
-            options: renderTemplateOptions
-        )
-    }
-
-    private func resolveRenderDestination() -> RenderDestination {
-        if let renderDestinationPath = self.renderDestinationPath.value {
-            return .file(path: renderDestinationPath)
-        } else {
-            return .console
-        }
-    }
-
-    // MARK: -
-
-    func execute() throws {
-        guard let fileKey = fileKey.value, !fileKey.isEmpty else {
-            fail(message: "Figma file key is missing or empty")
-        }
-
-        guard let accessToken = accessToken.value, !accessToken.isEmpty else {
-            fail(message: "Figma access token is missing or empty")
-        }
-
-        let includingNodeIDs = self.includingNodeIDs.value
-        let excludingNodeIDs = self.excludingNodeIDs.value
-
-        let renderTemplate = resolveRenderTemplate()
-        let renderDestination = resolveRenderDestination()
-
-        let colorStylesProvider = dependencies.makeColorStylesProvider()
-        let colorStylesEncoder = dependencies.makeColorStylesEncoder()
-        let templateRenderer = dependencies.makeTemplateRenderer()
-
-        firstly {
-            colorStylesProvider.fetchColorStyles(
-                fileKey: fileKey,
-                accessToken: accessToken,
-                includingNodes: includingNodeIDs,
-                excludingNodes: excludingNodeIDs
-            )
-        }.map { colorStyles in
-            colorStylesEncoder.encodeColorStyles(colorStyles)
-        }.done { context in
-            try templateRenderer.renderTemplate(
-                renderTemplate,
-                to: renderDestination,
-                context: context
-            )
-
-            self.success(message: "Color styles generation completed successfully!")
-        }.catch { error in
-            self.fail(error: error)
-        }
-
-        RunLoop.main.run()
+    init(generator: ColorStylesGenerator) {
+        self.generator = generator
     }
 }

@@ -4,9 +4,9 @@ protocol FigmaNodesProvider {
 
     // MARK: - Instance Methods
 
-    func extractNodes(
+    func fetchNodes(
         from file: FigmaFile,
-        including includingNodeIDs: [String],
-        excluding excludingNodeIDs: [String]
+        including includedNodeIDs: [String]?,
+        excluding excludedNodeIDs: [String]?
     ) -> [FigmaNode]
 }

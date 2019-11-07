@@ -32,15 +32,15 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
         }
 
         guard let nodeFillColor = nodeFill.color else {
-            throw ColorStylesError.colorNotFound(nodeName: node.name, nodeID: node.id)
+            throw ColorStylesProviderError.colorNotFound(nodeName: node.name, nodeID: node.id)
         }
 
         guard let nodeStyle = styles[nodeStyleID], nodeStyle.type == .fill else {
-            throw ColorStylesError.styleNotFound(nodeName: node.name, nodeID: node.id)
+            throw ColorStylesProviderError.styleNotFound(nodeName: node.name, nodeID: node.id)
         }
 
         guard let nodeStyleName = nodeStyle.name, !nodeStyleName.isEmpty else {
-            throw ColorStylesError.invalidStyleName(nodeName: node.name, nodeID: node.id)
+            throw ColorStylesProviderError.invalidStyleName(nodeName: node.name, nodeID: node.id)
         }
 
         return ColorStyle(
@@ -56,11 +56,11 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
 
     private func extractColorStyles(
         from file: FigmaFile,
-        includingNodes includingNodeIDs: [String],
-        excludingNodes excludingNodeIDs: [String]
+        includingNodes includedNodeIDs: [String]?,
+        excludingNodes excludedNodeIDs: [String]?
     ) throws -> [ColorStyle] {
         return try nodesProvider
-            .extractNodes(from: file, including: includingNodeIDs, excluding: excludingNodeIDs)
+            .fetchNodes(from: file, including: includedNodeIDs, excluding: excludedNodeIDs)
             .lazy
             .compactMap { try extractColorStyle(from: $0, styles: file.styles ?? [:]) }
             .reduce(into: []) { result, colorStyle in
@@ -74,17 +74,17 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
 
     func fetchColorStyles(
         fileKey: String,
-        accessToken: String,
-        includingNodes includingNodeIDs: [String],
-        excludingNodes excludingNodeIDs: [String]
+        includingNodes includedNodeIDs: [String]?,
+        excludingNodes excludedNodeIDs: [String]?,
+        accessToken: String
     ) -> Promise<[ColorStyle]> {
         return firstly {
             self.apiProvider.request(route: FigmaAPIFileRoute(fileKey: fileKey, accessToken: accessToken))
         }.map(on: DispatchQueue.global(qos: .userInitiated)) { file in
             try self.extractColorStyles(
                 from: file,
-                includingNodes: includingNodeIDs,
-                excludingNodes: excludingNodeIDs
+                includingNodes: includedNodeIDs,
+                excludingNodes: excludedNodeIDs
             )
         }
     }

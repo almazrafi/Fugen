@@ -41,6 +41,11 @@
 		C0A7A44A236A34FE0087A369 /* ColorEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A449236A34FE0087A369 /* ColorEncoder.swift */; };
 		C0A7A44C236A356B0087A369 /* DefaultColorStylesEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A44B236A356B0087A369 /* DefaultColorStylesEncoder.swift */; };
 		C0A7A44F236A4B750087A369 /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = OBJ_282 /* Templates */; };
+		C0D4B88F23734875006C0F64 /* ConfigurationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4B88E23734875006C0F64 /* ConfigurationProvider.swift */; };
+		C0D4B892237348FF006C0F64 /* DefaultConfigurationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4B891237348FF006C0F64 /* DefaultConfigurationProvider.swift */; };
+		C0D4B89F23734E35006C0F64 /* FileConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4B89E23734E35006C0F64 /* FileConfiguration.swift */; };
+		C0D4B8A423735189006C0F64 /* StepConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4B8A323735189006C0F64 /* StepConfiguration.swift */; };
+		C0D4B8A62373576D006C0F64 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D4B8A52373576D006C0F64 /* Configuration.swift */; };
 		C0DCC12D236B77BC00A3F746 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC12B236B664F00A3F746 /* TextStyle.swift */; };
 		C0DCC2F0236BA91A00A3F746 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC2EF236BA91A00A3F746 /* Font.swift */; };
 		C0DCC2F8236BB19300A3F746 /* ColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC2F7236BB19300A3F746 /* ColorStyle.swift */; };
@@ -51,17 +56,23 @@
 		C0DCC30A236BB7F200A3F746 /* DefaultFontEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC309236BB7F200A3F746 /* DefaultFontEncoder.swift */; };
 		C0DCC30C236BB85900A3F746 /* DefaultTextStylesEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC2C9236B838200A3F746 /* DefaultTextStylesEncoder.swift */; };
 		C0DCC30D236BB85900A3F746 /* TextStylesEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC2B3236B7F5100A3F746 /* TextStylesEncoder.swift */; };
-		C0DCC30E236BBA1800A3F746 /* TextStylesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC2AB236B7B8A00A3F746 /* TextStylesError.swift */; };
-		C0DCC30F236BBA4600A3F746 /* TextStylesDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC2B1236B7F1D00A3F746 /* TextStylesDependencies.swift */; };
+		C0DCC30E236BBA1800A3F746 /* TextStylesProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC2AB236B7B8A00A3F746 /* TextStylesProviderError.swift */; };
 		C0DCC310236BBA5300A3F746 /* TextStylesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC2AD236B7EA900A3F746 /* TextStylesProvider.swift */; };
 		C0DCC311236BBA7700A3F746 /* DefaultTextStylesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC2C7236B835200A3F746 /* DefaultTextStylesProvider.swift */; };
+		C0DCEC4523736F0000A90690 /* ColorStylesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCEC4423736F0000A90690 /* ColorStylesGenerator.swift */; };
+		C0DCEC502373812200A90690 /* StepParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCEC4F2373812200A90690 /* StepParameters.swift */; };
+		C0DCEC53237381AB00A90690 /* StepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCEC52237381AB00A90690 /* StepGenerator.swift */; };
+		C0DCEC572373881100A90690 /* AsyncCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCEC562373881100A90690 /* AsyncCommand.swift */; };
+		C0DCEC5923738AFF00A90690 /* StepCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCEC5823738AFF00A90690 /* StepCommand.swift */; };
+		C0DCEC5B2373A09300A90690 /* StepGeneratorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCEC5A2373A09300A90690 /* StepGeneratorError.swift */; };
+		C0DCEC5C2373A0CC00A90690 /* TextStylesCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC2AF236B7EE400A3F746 /* TextStylesCommand.swift */; };
+		C0DCEC642374221900A90690 /* TextStylesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCEC632374221900A90690 /* TextStylesGenerator.swift */; };
 		C0F83BF3236778EA00D42813 /* ColorStylesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83BF2236778EA00D42813 /* ColorStylesProvider.swift */; };
 		C0F83BF52367798700D42813 /* DefaultColorStylesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83BF42367798700D42813 /* DefaultColorStylesProvider.swift */; };
 		C0F83BF8236779B400D42813 /* FigmaNodesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83BF7236779B400D42813 /* FigmaNodesProvider.swift */; };
 		C0F83BFA23677BCA00D42813 /* DefaultFigmaNodesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83BF923677BC900D42813 /* DefaultFigmaNodesProvider.swift */; };
-		C0F83D3423679F5200D42813 /* ColorStylesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D3323679F5200D42813 /* ColorStylesError.swift */; };
+		C0F83D3423679F5200D42813 /* ColorStylesProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D3323679F5200D42813 /* ColorStylesProviderError.swift */; };
 		C0F83D3B2367AD4400D42813 /* ColorStylesCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D3A2367AD4400D42813 /* ColorStylesCommand.swift */; };
-		C0F83D3D2367AD4E00D42813 /* ColorStylesDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D3C2367AD4E00D42813 /* ColorStylesDependencies.swift */; };
 		C0F83D3F236832E500D42813 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D3E236832E500D42813 /* Dependencies.swift */; };
 		OBJ_297 /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_203 /* api.c */; };
 		OBJ_298 /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_204 /* emitter.c */; };
@@ -158,7 +169,6 @@
 		OBJ_446 /* ProcessInfo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* ProcessInfo+Extensions.swift */; };
 		OBJ_447 /* Promise+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* Promise+Extensions.swift */; };
 		OBJ_448 /* RangeReplaceableCollection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_82 /* RangeReplaceableCollection+Extensions.swift */; };
-		OBJ_449 /* Routable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* Routable+Extensions.swift */; };
 		OBJ_450 /* Sequence+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* Sequence+Extensions.swift */; };
 		OBJ_451 /* SingleValueDecodingContainer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* SingleValueDecodingContainer+Extensions.swift */; };
 		OBJ_452 /* UnkeyedDecodingContainer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* UnkeyedDecodingContainer+Extensions.swift */; };
@@ -563,11 +573,15 @@
 		C0A7A441236A1AED0087A369 /* RenderDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderDestination.swift; sourceTree = "<group>"; };
 		C0A7A449236A34FE0087A369 /* ColorEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorEncoder.swift; sourceTree = "<group>"; };
 		C0A7A44B236A356B0087A369 /* DefaultColorStylesEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColorStylesEncoder.swift; sourceTree = "<group>"; };
+		C0D4B88E23734875006C0F64 /* ConfigurationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationProvider.swift; sourceTree = "<group>"; };
+		C0D4B891237348FF006C0F64 /* DefaultConfigurationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConfigurationProvider.swift; sourceTree = "<group>"; };
+		C0D4B89E23734E35006C0F64 /* FileConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileConfiguration.swift; sourceTree = "<group>"; };
+		C0D4B8A323735189006C0F64 /* StepConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepConfiguration.swift; sourceTree = "<group>"; };
+		C0D4B8A52373576D006C0F64 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		C0DCC12B236B664F00A3F746 /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
-		C0DCC2AB236B7B8A00A3F746 /* TextStylesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylesError.swift; sourceTree = "<group>"; };
+		C0DCC2AB236B7B8A00A3F746 /* TextStylesProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylesProviderError.swift; sourceTree = "<group>"; };
 		C0DCC2AD236B7EA900A3F746 /* TextStylesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylesProvider.swift; sourceTree = "<group>"; };
 		C0DCC2AF236B7EE400A3F746 /* TextStylesCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylesCommand.swift; sourceTree = "<group>"; };
-		C0DCC2B1236B7F1D00A3F746 /* TextStylesDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylesDependencies.swift; sourceTree = "<group>"; };
 		C0DCC2B3236B7F5100A3F746 /* TextStylesEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylesEncoder.swift; sourceTree = "<group>"; };
 		C0DCC2B8236B82C600A3F746 /* PathKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PathKit.framework; sourceTree = "<group>"; };
 		C0DCC2BA236B82C600A3F746 /* x86_64-apple-macos.swiftdoc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "x86_64-apple-macos.swiftdoc"; sourceTree = "<group>"; };
@@ -591,6 +605,13 @@
 		C0DCC2FF236BB35D00A3F746 /* DefaultColorEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColorEncoder.swift; sourceTree = "<group>"; };
 		C0DCC307236BB7AA00A3F746 /* FontEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontEncoder.swift; sourceTree = "<group>"; };
 		C0DCC309236BB7F200A3F746 /* DefaultFontEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFontEncoder.swift; sourceTree = "<group>"; };
+		C0DCEC4423736F0000A90690 /* ColorStylesGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStylesGenerator.swift; sourceTree = "<group>"; };
+		C0DCEC4F2373812200A90690 /* StepParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepParameters.swift; sourceTree = "<group>"; };
+		C0DCEC52237381AB00A90690 /* StepGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepGenerator.swift; sourceTree = "<group>"; };
+		C0DCEC562373881100A90690 /* AsyncCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncCommand.swift; sourceTree = "<group>"; };
+		C0DCEC5823738AFF00A90690 /* StepCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCommand.swift; sourceTree = "<group>"; };
+		C0DCEC5A2373A09300A90690 /* StepGeneratorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepGeneratorError.swift; sourceTree = "<group>"; };
+		C0DCEC632374221900A90690 /* TextStylesGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylesGenerator.swift; sourceTree = "<group>"; };
 		C0F838C723665E4400D42813 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
 		C0F838C823665E4400D42813 /* .ruby-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".ruby-version"; sourceTree = "<group>"; };
 		C0F838C923665E4400D42813 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -605,9 +626,8 @@
 		C0F83BF42367798700D42813 /* DefaultColorStylesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColorStylesProvider.swift; sourceTree = "<group>"; };
 		C0F83BF7236779B400D42813 /* FigmaNodesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaNodesProvider.swift; sourceTree = "<group>"; };
 		C0F83BF923677BC900D42813 /* DefaultFigmaNodesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFigmaNodesProvider.swift; sourceTree = "<group>"; };
-		C0F83D3323679F5200D42813 /* ColorStylesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStylesError.swift; sourceTree = "<group>"; };
+		C0F83D3323679F5200D42813 /* ColorStylesProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStylesProviderError.swift; sourceTree = "<group>"; };
 		C0F83D3A2367AD4400D42813 /* ColorStylesCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStylesCommand.swift; sourceTree = "<group>"; };
-		C0F83D3C2367AD4E00D42813 /* ColorStylesDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStylesDependencies.swift; sourceTree = "<group>"; };
 		C0F83D3E236832E500D42813 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 		"Fugen::Fugen::Product" /* Fugen */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fugen; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Fugen::FugenTests::Product" /* FugenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FugenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -838,7 +858,6 @@
 		OBJ_80 /* ProcessInfo+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+Extensions.swift"; sourceTree = "<group>"; };
 		OBJ_81 /* Promise+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+Extensions.swift"; sourceTree = "<group>"; };
 		OBJ_82 /* RangeReplaceableCollection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+Extensions.swift"; sourceTree = "<group>"; };
-		OBJ_83 /* Routable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routable+Extensions.swift"; sourceTree = "<group>"; };
 		OBJ_84 /* Sequence+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extensions.swift"; sourceTree = "<group>"; };
 		OBJ_85 /* SingleValueDecodingContainer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleValueDecodingContainer+Extensions.swift"; sourceTree = "<group>"; };
 		OBJ_86 /* UnkeyedDecodingContainer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnkeyedDecodingContainer+Extensions.swift"; sourceTree = "<group>"; };
@@ -992,6 +1011,25 @@
 			path = Render;
 			sourceTree = "<group>";
 		};
+		C0D4B89D23734E1F006C0F64 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				C0D4B8A52373576D006C0F64 /* Configuration.swift */,
+				C0D4B89E23734E35006C0F64 /* FileConfiguration.swift */,
+				C0D4B8A323735189006C0F64 /* StepConfiguration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		C0D4B8A023734E9E006C0F64 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				C0D4B88E23734875006C0F64 /* ConfigurationProvider.swift */,
+				C0D4B891237348FF006C0F64 /* DefaultConfigurationProvider.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		C0DCC2B7236B82C600A3F746 /* Debug */ = {
 			isa = PBXGroup;
 			children = (
@@ -1025,6 +1063,7 @@
 		C0DCC2F6236BB18000A3F746 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C0D4B89D23734E1F006C0F64 /* Configuration */,
 				C0F83BEF2367788600D42813 /* Color.swift */,
 				C0DCC2F7236BB19300A3F746 /* ColorStyle.swift */,
 				C0DCC2EF236BA91A00A3F746 /* Font.swift */,
@@ -1047,9 +1086,10 @@
 		C0DCC301236BB44800A3F746 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				C0DCC302236BB63A00A3F746 /* ColorStyles */,
+				C0D4B8A023734E9E006C0F64 /* Configuration */,
 				OBJ_9 /* FigmaAPI */,
 				C0F83BF62367799D00D42813 /* FigmaNodes */,
-				C0DCC302236BB63A00A3F746 /* ColorStyles */,
 				C0DCC303236BB67600A3F746 /* TextStyles */,
 			);
 			path = Providers;
@@ -1058,8 +1098,8 @@
 		C0DCC302236BB63A00A3F746 /* ColorStyles */ = {
 			isa = PBXGroup;
 			children = (
-				C0F83D3323679F5200D42813 /* ColorStylesError.swift */,
 				C0F83BF2236778EA00D42813 /* ColorStylesProvider.swift */,
+				C0F83D3323679F5200D42813 /* ColorStylesProviderError.swift */,
 				C0F83BF42367798700D42813 /* DefaultColorStylesProvider.swift */,
 			);
 			path = ColorStyles;
@@ -1069,8 +1109,8 @@
 			isa = PBXGroup;
 			children = (
 				C0DCC2C7236B835200A3F746 /* DefaultTextStylesProvider.swift */,
-				C0DCC2AB236B7B8A00A3F746 /* TextStylesError.swift */,
 				C0DCC2AD236B7EA900A3F746 /* TextStylesProvider.swift */,
+				C0DCC2AB236B7B8A00A3F746 /* TextStylesProviderError.swift */,
 			);
 			path = TextStyles;
 			sourceTree = "<group>";
@@ -1111,6 +1151,18 @@
 			path = TextStyles;
 			sourceTree = "<group>";
 		};
+		C0DCEC3F237367BA00A90690 /* Generators */ = {
+			isa = PBXGroup;
+			children = (
+				C0DCEC4423736F0000A90690 /* ColorStylesGenerator.swift */,
+				C0DCEC52237381AB00A90690 /* StepGenerator.swift */,
+				C0DCEC5A2373A09300A90690 /* StepGeneratorError.swift */,
+				C0DCEC4F2373812200A90690 /* StepParameters.swift */,
+				C0DCEC632374221900A90690 /* TextStylesGenerator.swift */,
+			);
+			path = Generators;
+			sourceTree = "<group>";
+		};
 		C0F83BF62367799D00D42813 /* FigmaNodes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1123,10 +1175,10 @@
 		C0F83D392367AD3400D42813 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
+				C0DCEC562373881100A90690 /* AsyncCommand.swift */,
 				C0F83D3A2367AD4400D42813 /* ColorStylesCommand.swift */,
-				C0F83D3C2367AD4E00D42813 /* ColorStylesDependencies.swift */,
+				C0DCEC5823738AFF00A90690 /* StepCommand.swift */,
 				C0DCC2AF236B7EE400A3F746 /* TextStylesCommand.swift */,
-				C0DCC2B1236B7F1D00A3F746 /* TextStylesDependencies.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -1599,7 +1651,6 @@
 				OBJ_80 /* ProcessInfo+Extensions.swift */,
 				OBJ_81 /* Promise+Extensions.swift */,
 				OBJ_82 /* RangeReplaceableCollection+Extensions.swift */,
-				OBJ_83 /* Routable+Extensions.swift */,
 				OBJ_84 /* Sequence+Extensions.swift */,
 				OBJ_85 /* SingleValueDecodingContainer+Extensions.swift */,
 				OBJ_86 /* UnkeyedDecodingContainer+Extensions.swift */,
@@ -1612,6 +1663,7 @@
 			children = (
 				C0F83D392367AD3400D42813 /* Commands */,
 				C0DCC2FE236BB32D00A3F746 /* Encoders */,
+				C0DCEC3F237367BA00A90690 /* Generators */,
 				C0DCC2F6236BB18000A3F746 /* Models */,
 				C0DCC301236BB44800A3F746 /* Providers */,
 				C0A7A446236A1CEC0087A369 /* Render */,
@@ -1691,10 +1743,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_308 /* Build configuration list for PBXNativeTarget "Fugen" */;
 			buildPhases = (
+				C0F838CD23665E6E00D42813 /* SwiftLint */,
 				OBJ_311 /* Sources */,
 				OBJ_369 /* Frameworks */,
 				C0A7A44E236A4B630087A369 /* Resources */,
-				C0F838CD23665E6E00D42813 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -2127,16 +2179,20 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_312 /* FigmaBlendMode.swift in Sources */,
+				C0D4B8A423735189006C0F64 /* StepConfiguration.swift in Sources */,
 				C0A7A442236A1AED0087A369 /* RenderDestination.swift in Sources */,
 				OBJ_313 /* FigmaBooleanOperationType.swift in Sources */,
 				OBJ_314 /* FigmaColor.swift in Sources */,
+				C0D4B8A62373576D006C0F64 /* Configuration.swift in Sources */,
 				OBJ_315 /* FigmaColorStop.swift in Sources */,
 				OBJ_316 /* FigmaComponent.swift in Sources */,
 				C0DCC308236BB7AA00A3F746 /* FontEncoder.swift in Sources */,
+				C0DCEC572373881100A90690 /* AsyncCommand.swift in Sources */,
 				OBJ_317 /* FigmaConstraint.swift in Sources */,
 				OBJ_318 /* FigmaConstraintType.swift in Sources */,
 				OBJ_319 /* FigmaEasingType.swift in Sources */,
 				OBJ_320 /* FigmaEffect.swift in Sources */,
+				C0D4B892237348FF006C0F64 /* DefaultConfigurationProvider.swift in Sources */,
 				OBJ_321 /* FigmaEffectType.swift in Sources */,
 				OBJ_322 /* FigmaExportSetting.swift in Sources */,
 				OBJ_323 /* FigmaFrameOffset.swift in Sources */,
@@ -2144,7 +2200,7 @@
 				OBJ_325 /* FigmaLayoutConstraint.swift in Sources */,
 				OBJ_326 /* FigmaLayoutGrid.swift in Sources */,
 				C0DCC2F8236BB19300A3F746 /* ColorStyle.swift in Sources */,
-				C0F83D3D2367AD4E00D42813 /* ColorStylesDependencies.swift in Sources */,
+				C0DCEC5B2373A09300A90690 /* StepGeneratorError.swift in Sources */,
 				OBJ_327 /* FigmaLayoutGridAlignment.swift in Sources */,
 				OBJ_328 /* FigmaLayoutGridPattern.swift in Sources */,
 				OBJ_329 /* FigmaLayoutHorizontalConstraint.swift in Sources */,
@@ -2156,6 +2212,7 @@
 				C0DCC2F0236BA91A00A3F746 /* Font.swift in Sources */,
 				OBJ_333 /* FigmaPaintType.swift in Sources */,
 				C0F83BFA23677BCA00D42813 /* DefaultFigmaNodesProvider.swift in Sources */,
+				C0D4B89F23734E35006C0F64 /* FileConfiguration.swift in Sources */,
 				C0DCC30C236BB85900A3F746 /* DefaultTextStylesEncoder.swift in Sources */,
 				OBJ_334 /* FigmaRectangle.swift in Sources */,
 				C0F83D3F236832E500D42813 /* Dependencies.swift in Sources */,
@@ -2166,14 +2223,16 @@
 				OBJ_338 /* FigmaStrokeJoin.swift in Sources */,
 				OBJ_339 /* FigmaStyle.swift in Sources */,
 				C0A7A44C236A356B0087A369 /* DefaultColorStylesEncoder.swift in Sources */,
+				C0DCEC4523736F0000A90690 /* ColorStylesGenerator.swift in Sources */,
 				C0DCC2FA236BB28800A3F746 /* ColorStylesEncoder.swift in Sources */,
 				OBJ_340 /* FigmaStyleType.swift in Sources */,
 				C0DCC12D236B77BC00A3F746 /* TextStyle.swift in Sources */,
 				OBJ_341 /* FigmaTextCase.swift in Sources */,
 				C0F83D3B2367AD4400D42813 /* ColorStylesCommand.swift in Sources */,
+				C0DCEC642374221900A90690 /* TextStylesGenerator.swift in Sources */,
 				OBJ_342 /* FigmaTextDecoration.swift in Sources */,
 				OBJ_343 /* FigmaTextHorizontalAlignment.swift in Sources */,
-				C0F83D3423679F5200D42813 /* ColorStylesError.swift in Sources */,
+				C0F83D3423679F5200D42813 /* ColorStylesProviderError.swift in Sources */,
 				C0DCC310236BBA5300A3F746 /* TextStylesProvider.swift in Sources */,
 				OBJ_344 /* FigmaTextVerticalAlignment.swift in Sources */,
 				OBJ_345 /* FigmaTypeStyle.swift in Sources */,
@@ -2182,7 +2241,7 @@
 				OBJ_348 /* FigmaCanvasNodeInfo.swift in Sources */,
 				OBJ_349 /* FigmaDocumentNodeInfo.swift in Sources */,
 				OBJ_350 /* FigmaFile.swift in Sources */,
-				C0DCC30E236BBA1800A3F746 /* TextStylesError.swift in Sources */,
+				C0DCC30E236BBA1800A3F746 /* TextStylesProviderError.swift in Sources */,
 				OBJ_351 /* FigmaFrameNodeInfo.swift in Sources */,
 				C0DCC300236BB35D00A3F746 /* DefaultColorEncoder.swift in Sources */,
 				OBJ_352 /* FigmaInstanceNodePayload.swift in Sources */,
@@ -2198,16 +2257,20 @@
 				OBJ_357 /* FigmaTextNodePayload.swift in Sources */,
 				OBJ_358 /* FigmaVectorNodeInfo.swift in Sources */,
 				C0DCC30D236BB85900A3F746 /* TextStylesEncoder.swift in Sources */,
-				C0DCC30F236BBA4600A3F746 /* TextStylesDependencies.swift in Sources */,
 				C0A7A44A236A34FE0087A369 /* ColorEncoder.swift in Sources */,
 				OBJ_359 /* DefaultFigmaAPIProvider.swift in Sources */,
+				C0DCEC53237381AB00A90690 /* StepGenerator.swift in Sources */,
 				OBJ_360 /* FigmaAPIEmptyParameters.swift in Sources */,
 				OBJ_361 /* FigmaAPIEmptyResponse.swift in Sources */,
 				C0DCC311236BBA7700A3F746 /* DefaultTextStylesProvider.swift in Sources */,
 				OBJ_362 /* FigmaAPIError.swift in Sources */,
 				OBJ_363 /* FigmaAPIProvider.swift in Sources */,
+				C0DCEC502373812200A90690 /* StepParameters.swift in Sources */,
 				OBJ_364 /* FigmaAPIRoute.swift in Sources */,
+				C0DCEC5C2373A0CC00A90690 /* TextStylesCommand.swift in Sources */,
+				C0D4B88F23734875006C0F64 /* ConfigurationProvider.swift in Sources */,
 				OBJ_365 /* FigmaHTTPService.swift in Sources */,
+				C0DCEC5923738AFF00A90690 /* StepCommand.swift in Sources */,
 				C0F83BF52367798700D42813 /* DefaultColorStylesProvider.swift in Sources */,
 				OBJ_366 /* FigmaAPIVersion.swift in Sources */,
 				OBJ_367 /* FigmaAPIFileRoute.swift in Sources */,
@@ -2245,7 +2308,6 @@
 				OBJ_446 /* ProcessInfo+Extensions.swift in Sources */,
 				OBJ_447 /* Promise+Extensions.swift in Sources */,
 				OBJ_448 /* RangeReplaceableCollection+Extensions.swift in Sources */,
-				OBJ_449 /* Routable+Extensions.swift in Sources */,
 				OBJ_450 /* Sequence+Extensions.swift in Sources */,
 				OBJ_451 /* SingleValueDecodingContainer+Extensions.swift in Sources */,
 				OBJ_452 /* UnkeyedDecodingContainer+Extensions.swift in Sources */,
