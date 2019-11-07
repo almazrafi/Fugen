@@ -24,24 +24,24 @@ final class DefaultTextStylesEncoder: TextStylesEncoder {
             "name": textStyle.name,
             "font": fontEncoder.encodeFont(textStyle.font),
             "textColor": colorEncoder.encodeColor(textStyle.textColor),
-            "strikethrough": "\(textStyle.strikethrough)",
-            "underline": "\(textStyle.underline)"
+            "strikethrough": textStyle.strikethrough,
+            "underline": textStyle.underline
         ]
 
         if let paragraphSpacing = textStyle.paragraphSpacing {
-            encodedTextStyle["paragraphSpacing"] = "\(paragraphSpacing)"
+            encodedTextStyle["paragraphSpacing"] = paragraphSpacing.rounded(precision: 4)
         }
 
         if let paragraphIndent = textStyle.paragraphIndent {
-            encodedTextStyle["paragraphIndent"] = "\(paragraphIndent)"
+            encodedTextStyle["paragraphIndent"] = paragraphIndent.rounded(precision: 4)
         }
 
         if let lineHeight = textStyle.lineHeight {
-            encodedTextStyle["lineHeight"] = "\(lineHeight)"
+            encodedTextStyle["lineHeight"] = lineHeight.rounded(precision: 4)
         }
 
         if let letterSpacing = textStyle.letterSpacing {
-            encodedTextStyle["letterSpacing"] = "\(letterSpacing)"
+            encodedTextStyle["letterSpacing"] = letterSpacing.rounded(precision: 4)
         }
 
         return encodedTextStyle

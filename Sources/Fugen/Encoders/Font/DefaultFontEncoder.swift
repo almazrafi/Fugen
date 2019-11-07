@@ -8,8 +8,8 @@ final class DefaultFontEncoder: FontEncoder {
         return [
             "family": font.family,
             "name": font.name,
-            "weight": "\(font.weight)",
-            "size": "\(font.size)"
+            "weight": font.weight.rounded(),
+            "size": font.size.rounded()
         ]
     }
 }

@@ -11,7 +11,7 @@ final class DefaultTemplateRenderer: TemplateRenderer {
         switch templateType {
         case let .native(name: templateName):
             let templateFileName = templateName.appending(String.templatesFileExtension)
-            let projectTemplatesPath = Path(#file).appending(.templatesProjectRelativePath)
+            let projectTemplatesPath = Path(#file).appending(.templatesFileRelativePath)
 
             if projectTemplatesPath.exists {
                 return projectTemplatesPath.appending(templateFileName).string
@@ -66,7 +66,7 @@ final class DefaultTemplateRenderer: TemplateRenderer {
             environment: stencilSwiftEnvironment()
         )
 
-        let context = context.merging(["options": template.options]) { $1 }
+        let context = context.merging([.templateOptionsKey: template.options]) { $1 }
         let output = try stencilTemplate.render(context)
 
         try writeOutput(output, to: destination)
@@ -78,7 +78,8 @@ private extension String {
     // MARK: - Type Properties
 
     static let templatesFileExtension = ".stencil"
-    static let templatesProjectRelativePath = "../../../../Templates"
+    static let templatesFileRelativePath = "../../../../Templates"
     static let templatesPodsRelativePath = "../Templates"
     static let templatesShareRelativePath = "../share/fugen"
+    static let templateOptionsKey = "options"
 }
