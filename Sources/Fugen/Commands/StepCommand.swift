@@ -69,7 +69,7 @@ extension StepCommand {
         )
     }
 
-    // MARK: - FailableCommand
+    // MARK: - AsyncCommand
 
     func executeAndExit() throws {
         let stepConfiguration = resolveStepConfiguration()
