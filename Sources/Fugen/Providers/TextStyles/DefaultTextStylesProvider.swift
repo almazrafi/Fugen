@@ -24,11 +24,11 @@ final class DefaultTextStylesProvider: TextStylesProvider {
         let nodeFills = nodeInfo.fills
 
         guard nodeFills?.count == 1, let nodeFill = nodeFills?.first(where: { $0.type == .solid }) else {
-            throw TextStylesError.invalidTextColor(nodeName: node.name, nodeID: node.id)
+            throw TextStylesProviderError.invalidTextColor(nodeName: node.name, nodeID: node.id)
         }
 
         guard let nodeFillColor = nodeFill.color else {
-            throw TextStylesError.textColorNotFound(nodeName: node.name, nodeID: node.id)
+            throw TextStylesProviderError.textColorNotFound(nodeName: node.name, nodeID: node.id)
         }
 
         return Color(
@@ -41,19 +41,19 @@ final class DefaultTextStylesProvider: TextStylesProvider {
 
     private func extractFont(from typeStyle: FigmaTypeStyle, of node: FigmaNode) throws -> Font {
         guard let fontFamily = typeStyle.fontFamily, !fontFamily.isEmpty else {
-            throw TextStylesError.invalidFontFamily(nodeName: node.name, nodeID: node.id)
+            throw TextStylesProviderError.invalidFontFamily(nodeName: node.name, nodeID: node.id)
         }
 
         guard let fontName = typeStyle.fontPostScriptName, !fontName.isEmpty else {
-            throw TextStylesError.invalidFontPostScriptName(nodeName: node.name, nodeID: node.id)
+            throw TextStylesProviderError.invalidFontPostScriptName(nodeName: node.name, nodeID: node.id)
         }
 
         guard let fontWeight = typeStyle.fontWeight else {
-            throw TextStylesError.invalidFontWeight(nodeName: node.name, nodeID: node.id)
+            throw TextStylesProviderError.invalidFontWeight(nodeName: node.name, nodeID: node.id)
         }
 
         guard let fontSize = typeStyle.fontSize else {
-            throw TextStylesError.invalidFontSize(nodeName: node.name, nodeID: node.id)
+            throw TextStylesProviderError.invalidFontSize(nodeName: node.name, nodeID: node.id)
         }
 
         return Font(
@@ -74,15 +74,15 @@ final class DefaultTextStylesProvider: TextStylesProvider {
         }
 
         guard let nodeStyle = styles[nodeStyleID], nodeStyle.type == .text else {
-            throw TextStylesError.styleNotFound(nodeName: node.name, nodeID: node.id)
+            throw TextStylesProviderError.styleNotFound(nodeName: node.name, nodeID: node.id)
         }
 
         guard let nodeStyleName = nodeStyle.name, !nodeStyleName.isEmpty else {
-            throw TextStylesError.invalidStyleName(nodeName: node.name, nodeID: node.id)
+            throw TextStylesProviderError.invalidStyleName(nodeName: node.name, nodeID: node.id)
         }
 
         guard let nodeTypeStyle = textNodePayload.style else {
-            throw TextStylesError.typeStyleNotFound(nodeName: node.name, nodeID: node.id)
+            throw TextStylesProviderError.typeStyleNotFound(nodeName: node.name, nodeID: node.id)
         }
 
         return TextStyle(
@@ -100,11 +100,11 @@ final class DefaultTextStylesProvider: TextStylesProvider {
 
     private func extractTextStyles(
         from file: FigmaFile,
-        includingNodes includingNodeIDs: [String],
-        excludingNodes excludingNodeIDs: [String]
+        includingNodes includedNodeIDs: [String]?,
+        excludingNodes excludedNodeIDs: [String]?
     ) throws -> [TextStyle] {
         return try nodesProvider
-            .extractNodes(from: file, including: includingNodeIDs, excluding: excludingNodeIDs)
+            .fetchNodes(from: file, including: includedNodeIDs, excluding: excludedNodeIDs)
             .lazy
             .compactMap { try extractTextStyle(from: $0, styles: file.styles ?? [:]) }
             .reduce(into: []) { result, textStyle in
@@ -118,17 +118,17 @@ final class DefaultTextStylesProvider: TextStylesProvider {
 
     func fetchTextStyles(
         fileKey: String,
-        accessToken: String,
-        includingNodes includingNodeIDs: [String],
-        excludingNodes excludingNodeIDs: [String]
+        includingNodes includedNodeIDs: [String]?,
+        excludingNodes excludedNodeIDs: [String]?,
+        accessToken: String
     ) -> Promise<[TextStyle]> {
         return firstly {
             self.apiProvider.request(route: FigmaAPIFileRoute(fileKey: fileKey, accessToken: accessToken))
         }.map(on: DispatchQueue.global(qos: .userInitiated)) { file in
             try self.extractTextStyles(
                 from: file,
-                includingNodes: includingNodeIDs,
-                excludingNodes: excludingNodeIDs
+                includingNodes: includedNodeIDs,
+                excludingNodes: excludedNodeIDs
             )
         }
     }

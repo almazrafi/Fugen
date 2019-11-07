@@ -7,8 +7,8 @@ protocol TextStylesProvider {
 
     func fetchTextStyles(
         fileKey: String,
-        accessToken: String,
-        includingNodes includingNodeIDs: [String],
-        excludingNodes excludingNodeIDs: [String]
+        includingNodes includedNodeIDs: [String]?,
+        excludingNodes excludedNodeIDs: [String]?,
+        accessToken: String
     ) -> Promise<[TextStyle]>
 }

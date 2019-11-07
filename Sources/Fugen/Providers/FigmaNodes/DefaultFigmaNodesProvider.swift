@@ -6,20 +6,20 @@ final class DefaultFigmaNodesProvider: FigmaNodesProvider {
 
     private func extractNodes(
         from node: FigmaNode,
-        including includingNodeIDs: inout Set<String>,
-        excluding excludingNodeIDs: inout Set<String>,
+        including includedNodeIDs: inout Set<String>,
+        excluding excludedNodeIDs: inout Set<String>,
         forceInclude: Bool
     ) -> [FigmaNode] {
-        let isIncludingNode = includingNodeIDs.remove(node.id) != nil
-        let isExcludingNode = excludingNodeIDs.remove(node.id) != nil
+        let isIncludedNode = includedNodeIDs.remove(node.id) != nil
+        let isExcludedNode = excludedNodeIDs.remove(node.id) != nil
 
         var nodes: [FigmaNode] = []
 
-        guard !isExcludingNode else {
+        guard !isExcludedNode else {
             return nodes
         }
 
-        if isIncludingNode || forceInclude {
+        if isIncludedNode || forceInclude {
             nodes.append(node)
         }
 
@@ -31,9 +31,9 @@ final class DefaultFigmaNodesProvider: FigmaNodesProvider {
             .flatMap { child in
                 extractNodes(
                     from: child,
-                    including: &includingNodeIDs,
-                    excluding: &excludingNodeIDs,
-                    forceInclude: forceInclude || isIncludingNode
+                    including: &includedNodeIDs,
+                    excluding: &excludedNodeIDs,
+                    forceInclude: forceInclude || isIncludedNode
                 )
             }
             .prepending(contentsOf: nodes)
@@ -41,22 +41,22 @@ final class DefaultFigmaNodesProvider: FigmaNodesProvider {
 
     // MARK: - FigmaNodesProvider
 
-    func extractNodes(
+    func fetchNodes(
         from file: FigmaFile,
-        including includingNodeIDs: [String],
-        excluding excludingNodeIDs: [String]
+        including includedNodeIDs: [String]?,
+        excluding excludedNodeIDs: [String]?
     ) -> [FigmaNode] {
-        var includingNodeIDs = Set(includingNodeIDs)
-        var excludingNodeIDs = Set(excludingNodeIDs)
+        var includedNodeIDs = Set(includedNodeIDs ?? [])
+        var excludedNodeIDs = Set(excludedNodeIDs ?? [])
 
-        if includingNodeIDs.isEmpty {
-            includingNodeIDs.insert(file.document.id)
+        if includedNodeIDs.isEmpty {
+            includedNodeIDs.insert(file.document.id)
         }
 
         return extractNodes(
             from: file.document,
-            including: &includingNodeIDs,
-            excluding: &excludingNodeIDs,
+            including: &includedNodeIDs,
+            excluding: &excludedNodeIDs,
             forceInclude: false
         )
     }

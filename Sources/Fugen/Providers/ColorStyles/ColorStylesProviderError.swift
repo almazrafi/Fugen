@@ -1,6 +1,6 @@
 import Foundation
 
-enum ColorStylesError: Error, CustomStringConvertible {
+enum ColorStylesProviderError: Error, CustomStringConvertible {
 
     // MARK: - Enumeration Cases
 

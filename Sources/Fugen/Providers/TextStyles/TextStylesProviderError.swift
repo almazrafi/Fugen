@@ -1,6 +1,6 @@
 import Foundation
 
-enum TextStylesError: Error {
+enum TextStylesProviderError: Error {
 
     // MARK: - Enumeration Cases
 

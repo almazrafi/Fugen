@@ -7,8 +7,8 @@ protocol ColorStylesProvider {
 
     func fetchColorStyles(
         fileKey: String,
-        accessToken: String,
-        includingNodes includingNodeIDs: [String],
-        excludingNodes excludingNodeIDs: [String]
+        includingNodes includedNodeIDs: [String]?,
+        excludingNodes excludedNodeIDs: [String]?,
+        accessToken: String
     ) -> Promise<[ColorStyle]>
 }
