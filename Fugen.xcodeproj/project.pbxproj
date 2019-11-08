@@ -33,6 +33,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		C045AD8F2374AC1C00BDA9E8 /* FloatingPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C045AD8E2374AC1C00BDA9E8 /* FloatingPoint+Extensions.swift */; };
 		C0A7A301236918D00087A369 /* RenderTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A2E22368EA520087A369 /* RenderTemplate.swift */; };
 		C0A7A30223691A990087A369 /* RenderTemplateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A2E92368F5EE0087A369 /* RenderTemplateType.swift */; };
 		C0A7A43D2369EF380087A369 /* TemplateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A43C2369EF380087A369 /* TemplateRenderer.swift */; };
@@ -566,6 +567,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C045AD8E2374AC1C00BDA9E8 /* FloatingPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FloatingPoint+Extensions.swift"; sourceTree = "<group>"; };
 		C0A7A2E22368EA520087A369 /* RenderTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderTemplate.swift; sourceTree = "<group>"; };
 		C0A7A2E92368F5EE0087A369 /* RenderTemplateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderTemplateType.swift; sourceTree = "<group>"; };
 		C0A7A43C2369EF380087A369 /* TemplateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateRenderer.swift; sourceTree = "<group>"; };
@@ -1644,6 +1646,7 @@
 			children = (
 				OBJ_74 /* Bundle+Extensions.swift */,
 				OBJ_75 /* CLI+Extensions.swift */,
+				C045AD8E2374AC1C00BDA9E8 /* FloatingPoint+Extensions.swift */,
 				OBJ_76 /* KeyedDecodingContainerProtocol+Extensions.swift */,
 				OBJ_77 /* OperatingSystemVersion+Extensions.swift */,
 				OBJ_78 /* Optional+Extensions.swift */,
@@ -2244,6 +2247,7 @@
 				C0DCC30E236BBA1800A3F746 /* TextStylesProviderError.swift in Sources */,
 				OBJ_351 /* FigmaFrameNodeInfo.swift in Sources */,
 				C0DCC300236BB35D00A3F746 /* DefaultColorEncoder.swift in Sources */,
+				C045AD8F2374AC1C00BDA9E8 /* FloatingPoint+Extensions.swift in Sources */,
 				OBJ_352 /* FigmaInstanceNodePayload.swift in Sources */,
 				OBJ_353 /* FigmaNode.swift in Sources */,
 				C0A7A301236918D00087A369 /* RenderTemplate.swift in Sources */,

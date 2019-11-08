@@ -1,8 +1,8 @@
 // swiftlint:disable all
 {% if colorStyles %}
-{% set styleTypeName %}{{options.styleTypeName|default:"ColorStyle"}}{% endset %}
 {% set accessModifier %}{% if options.publicAccess %}public{% else %}internal{% endif %}{% endset %}
-{% set colorAlias %}{{options.colorAlias|default:"Color"}}{% endset %}
+{% set styleTypeName %}{{options.styleTypeName|default:"ColorStyle"}}{% endset %}
+{% set colorTypeName %}{{options.colorTypeName|default:"UIColor"}}{% endset %}
 {% macro rgbaHex color %}0x{{color.red}}{{color.green}}{{color.blue}}{{color.alpha}}{% endmacro %}
 {% macro rgbHexString color %}#{{color.red}}{{color.green}}{{color.blue}}{% endmacro %}
 {% macro rgbaHexString color %}{% call rgbHexString color %}{{color.alpha}}{% endmacro %}
@@ -10,11 +10,9 @@
 {% macro rgbaString color %}{% call rgbString color %}, {{color.alpha|hexToInt|int255toFloat|percent}}{% endmacro %}
 {% macro stylePropertyName style %}{{style.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}{% endmacro %}
 #if canImport(UIKit)
-import UIKit.UIColor
-{{accessModifier}} typealias {{colorAlias}} = UIColor
+import UIKit
 #else
-import AppKit.NSColor
-{{accessModifier}} typealias {{colorAlias}} = NSColor
+import AppKit
 #endif
 
 {{accessModifier}} struct {{styleTypeName}} {
@@ -24,7 +22,7 @@ import AppKit.NSColor
 
     /// {{style.name}}
     ///
-    /// Hex: {% call rgbaHexString style.color %}; rgba: {% call rgbaString style.color %}
+    /// Hex {% call rgbaHexString style.color %}; rgba {% call rgbaString style.color %}
     {{accessModifier}} static let {% call stylePropertyName style %} = {{styleTypeName}}(
         name: "{{style.name}}",
         rgbaHex: {% call rgbaHex style.color %}
@@ -36,8 +34,8 @@ import AppKit.NSColor
     {{accessModifier}} let name: String
     {{accessModifier}} let rgbaHex: UInt32
 
-    {{accessModifier}} var color: {{colorAlias}} {
-        return {{colorAlias}}(style: self)
+    {{accessModifier}} var color: {{colorTypeName}} {
+        return {{colorTypeName}}(style: self)
     }
 
     // MARK: - Initializers
@@ -48,7 +46,7 @@ import AppKit.NSColor
     }
 }
 
-extension {{colorAlias}} {
+extension {{colorTypeName}} {
 
     // MARK: - Initializers
 

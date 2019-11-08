@@ -7,9 +7,8 @@ TEMPLATES_PATH = Templates
 PREFIX = /usr/local
 
 BIN_PATH = $(PREFIX)/bin
-BIN_PRODUCT_PATH = $(PREFIX)/bin/$(PRODUCT_NAME)
+BIN_PRODUCT_PATH = $(BIN_PATH)/$(PRODUCT_NAME)
 SHARE_PRODUCT_PATH = $(PREFIX)/share/$(PRODUCT_NAME)
-SHARE_TEMPLATES_PATH = $(PREFIX)/share/$(PRODUCT_NAME)/Templates
 
 .PHONY: all build install uninstall lint
 
@@ -21,7 +20,7 @@ install: build
 	cp -f $(PRODUCT_PATH) $(BIN_PRODUCT_PATH)
 
 	mkdir -p $(SHARE_PRODUCT_PATH)
-	cp -R $(TEMPLATES_PATH) $(SHARE_TEMPLATES_PATH)
+	cp -r $(TEMPLATES_PATH)/. $(SHARE_PRODUCT_PATH)
 
 uninstall:
 	rm -rf $(BIN_PRODUCT_PATH)
