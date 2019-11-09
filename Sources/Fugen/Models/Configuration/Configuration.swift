@@ -4,18 +4,18 @@ struct Configuration: Decodable {
 
     // MARK: - Instance Properties
 
-    let base: StepConfiguration?
+    let base: GeneratorConfiguration?
 
-    let colorStyles: StepConfiguration?
-    let textStyles: StepConfiguration?
+    let colorStyles: ColorStylesConfiguration?
+    let textStyles: TextStylesConfiguration?
 
     // MARK: - Instance Methods
 
-    func resolveColorStyles() -> StepConfiguration? {
-        return colorStyles?.resolve(baseConfiguration: base)
+    func resolveColorStyles() -> ColorStylesConfiguration? {
+        return colorStyles?.resolve(base: base)
     }
 
-    func resolveTextStyles() -> StepConfiguration? {
-        return textStyles?.resolve(baseConfiguration: base)
+    func resolveTextStyles() -> TextStylesConfiguration? {
+        return textStyles?.resolve(base: base)
     }
 }

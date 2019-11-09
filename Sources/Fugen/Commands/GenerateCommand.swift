@@ -2,15 +2,11 @@ import Foundation
 import SwiftCLI
 import PromiseKit
 
-final class KitCommand: AsyncCommand {
-
-    // MARK: - Type Properties
-
-    static let defaultConfigurationPath = ".fugen.yml"
+final class GenerateCommand: AsyncExecutableCommand {
 
     // MARK: - Instance Properties
 
-    let name = "kit"
+    let name = "generate"
     let shortDescription = "Generates code from Figma files using a configuration file."
 
     let configurationPath = Key<String>(
@@ -18,7 +14,7 @@ final class KitCommand: AsyncCommand {
         "-c",
         description: """
             Path to the configuration file.
-            Defaults to '\(defaultConfigurationPath)'.
+            Defaults to '\(String.defaultConfigurationPath)'.
             """
     )
 
@@ -32,15 +28,22 @@ final class KitCommand: AsyncCommand {
 
     // MARK: - Instance Methods
 
-    func executeAndExit() throws {
-        let configurationPath = self.configurationPath.value ?? Self.defaultConfigurationPath
+    func executeAsyncAndExit() throws {
+        let configurationPath = self.configurationPath.value ?? .defaultConfigurationPath
 
         firstly {
             self.generator.generate(configurationPath: configurationPath)
         }.done {
-            self.succeed()
+            self.succeed(message: "Generation completed successfully!")
         }.catch { error in
-            self.fail(error: error)
+            self.fail(message: "Failed to generate with error: \(error)")
         }
     }
+}
+
+private extension String {
+
+    // MARK: - Type Properties
+
+    static let defaultConfigurationPath = ".fugen.yml"
 }

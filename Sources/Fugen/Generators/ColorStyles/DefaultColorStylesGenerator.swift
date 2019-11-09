@@ -1,7 +1,7 @@
 import Foundation
 import PromiseKit
 
-final class ColorStylesGenerator: StepGenerator {
+final class DefaultColorStylesGenerator: ColorStylesGenerator, GeneratorParametersResolving {
 
     // MARK: - Instance Properties
 
@@ -9,7 +9,7 @@ final class ColorStylesGenerator: StepGenerator {
     let colorStylesEncoder: ColorStylesEncoder
     let templateRenderer: TemplateRenderer
 
-    // MARK: - StepGenerator
+    // MARK: - GeneratorParametersResolver
 
     let defaultTemplateType = RenderTemplateType.native(name: "ColorStyles")
     let defaultDestination = RenderDestination.console
@@ -28,7 +28,7 @@ final class ColorStylesGenerator: StepGenerator {
 
     // MARK: - Instance Methods
 
-    func generate(parameters: StepParameters) -> Promise<Void> {
+    private func generate(parameters: GeneratorParameters) -> Promise<Void> {
         return firstly {
             self.colorStylesProvider.fetchColorStyles(
                 fileKey: parameters.fileKey,
@@ -45,6 +45,14 @@ final class ColorStylesGenerator: StepGenerator {
                 to: parameters.destination,
                 context: context
             )
+        }
+    }
+
+    // MARK: -
+
+    func generate(configuration: ColorStylesConfiguration) -> Promise<Void> {
+        return firstly {
+            self.generate(parameters: try self.resolveGeneratorParameters(from: configuration))
         }
     }
 }

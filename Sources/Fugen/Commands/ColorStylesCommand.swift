@@ -1,9 +1,14 @@
 import Foundation
 import SwiftCLI
+import PromiseKit
 
-final class ColorStylesCommand: StepCommand {
+final class ColorStylesCommand: AsyncExecutableCommand, GeneratorConfigurableCommand {
 
     // MARK: - Instance Properties
+
+    let generator: ColorStylesGenerator
+
+    // MARK: - GeneratorConfigurableCommand
 
     let name = "colorStyles"
     let shortDescription = "Generates code for color style from a Figma file."
@@ -12,6 +17,13 @@ final class ColorStylesCommand: StepCommand {
         "--fileKey",
         description: """
             Figma file key to generate color styles from.
+            """
+    )
+
+    let fileVersion = Key<String>(
+        "--fileVersion",
+        description: """
+            Figma file version to generate color styles from.
             """
     )
 
@@ -67,11 +79,21 @@ final class ColorStylesCommand: StepCommand {
             """
     )
 
-    let generator: ColorStylesGenerator
-
     // MARK: - Initializers
 
     init(generator: ColorStylesGenerator) {
         self.generator = generator
+    }
+
+    // MARK: - Instance Methods
+
+    func executeAsyncAndExit() throws {
+        firstly {
+            self.generator.generate(configuration: self.generatorConfiguration)
+        }.done {
+            self.succeed(message: "Color styles generated successfully!")
+        }.catch { error in
+            self.fail(message: "Failed to generate color styles: \(error)")
+        }
     }
 }

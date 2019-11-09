@@ -1,0 +1,3 @@
+import Foundation
+
+typealias ColorStylesConfiguration = GeneratorConfiguration
