@@ -27,15 +27,15 @@ public final class HTTPBodyURLEncoder: HTTPBodyEncoder {
 
         request.httpBody = try urlEncoder.encode(parameters)
 
-        if !request.httpBody.isEmptyOrNil, request.value(forHTTPHeaderField: Constants.contentTypeHeaderField) == nil {
-            request.setValue(Constants.contentTypeHeaderValue, forHTTPHeaderField: Constants.contentTypeHeaderField)
+        if !request.httpBody.isEmptyOrNil, request.value(forHTTPHeaderField: .contentTypeHeaderField) == nil {
+            request.setValue(.contentTypeHeaderValue, forHTTPHeaderField: .contentTypeHeaderField)
         }
 
         return request
     }
 }
 
-private enum Constants {
+private extension String {
 
     // MARK: - Type Properties
 

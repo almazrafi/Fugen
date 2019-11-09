@@ -28,8 +28,8 @@ public final class HTTPBodyJSONEncoder: HTTPBodyEncoder {
         request.httpBody = try jsonEncoder.encode(parameters)
 
         if !request.httpBody.isEmptyOrNil {
-            if request.value(forHTTPHeaderField: Constants.contentTypeHeaderField) == nil {
-                request.setValue(Constants.contentTypeHeaderValue, forHTTPHeaderField: Constants.contentTypeHeaderField)
+            if request.value(forHTTPHeaderField: .contentTypeHeaderField) == nil {
+                request.setValue(.contentTypeHeaderValue, forHTTPHeaderField: .contentTypeHeaderField)
             }
         }
 
@@ -37,7 +37,7 @@ public final class HTTPBodyJSONEncoder: HTTPBodyEncoder {
     }
 }
 
-private enum Constants {
+private extension String {
 
     // MARK: - Type Properties
 
