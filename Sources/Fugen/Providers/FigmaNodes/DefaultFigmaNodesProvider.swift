@@ -39,19 +39,31 @@ final class DefaultFigmaNodesProvider: FigmaNodesProvider {
             .prepending(contentsOf: nodes)
     }
 
+    private func resolveNodeID(_ nodeID: String) throws -> String {
+        guard let unescapedNodeID = nodeID.removingPercentEncoding else {
+            throw FigmaNodesProviderError.invalidNodeID(nodeID)
+        }
+
+        return unescapedNodeID
+    }
+
+    private func resolveNodeIDs(_ nodeIDs: [String]?, defaultNodeIDs: Set<String>) throws -> Set<String> {
+        guard let nodeIDs = nodeIDs else {
+            return defaultNodeIDs
+        }
+
+        return try Set(nodeIDs.map { try resolveNodeID($0) })
+    }
+
     // MARK: - FigmaNodesProvider
 
     func fetchNodes(
         from file: FigmaFile,
         including includedNodeIDs: [String]?,
         excluding excludedNodeIDs: [String]?
-    ) -> [FigmaNode] {
-        var includedNodeIDs = Set(includedNodeIDs ?? [])
-        var excludedNodeIDs = Set(excludedNodeIDs ?? [])
-
-        if includedNodeIDs.isEmpty {
-            includedNodeIDs.insert(file.document.id)
-        }
+    ) throws -> [FigmaNode] {
+        var includedNodeIDs = try resolveNodeIDs(includedNodeIDs, defaultNodeIDs: [file.document.id])
+        var excludedNodeIDs = try resolveNodeIDs(excludedNodeIDs, defaultNodeIDs: [])
 
         return extractNodes(
             from: file.document,

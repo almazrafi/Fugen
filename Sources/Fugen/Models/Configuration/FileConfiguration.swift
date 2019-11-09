@@ -35,7 +35,7 @@ struct FileConfiguration: Decodable {
     init(from decoder: Decoder) throws {
         if let container = try? decoder.container(keyedBy: CodingKeys.self) {
             key = try container.decode(forKey: .key)
-            version = try container.decode(forKey: .version)
+            version = try container.decodeIfPresent(forKey: .version)
             includedNodes = try container.decodeIfPresent(forKey: .includedNodes)
             excludedNodes = try container.decodeIfPresent(forKey: .excludedNodes)
         } else {
