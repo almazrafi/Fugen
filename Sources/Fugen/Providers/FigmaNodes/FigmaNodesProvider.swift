@@ -8,5 +8,5 @@ protocol FigmaNodesProvider {
         from file: FigmaFile,
         including includedNodeIDs: [String]?,
         excluding excludedNodeIDs: [String]?
-    ) -> [FigmaNode]
+    ) throws -> [FigmaNode]
 }

@@ -6,7 +6,7 @@ let dependencies = Dependencies()
 
 let fugen = CLI(
     name: "fugen",
-    version: "1.0.0",
+    version: "1.0.0-alpha.1",
     description: "A tool to automate resources using the Figma API."
 )
 
