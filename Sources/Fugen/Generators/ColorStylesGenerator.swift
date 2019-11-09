@@ -32,6 +32,7 @@ final class ColorStylesGenerator: StepGenerator {
         return firstly {
             self.colorStylesProvider.fetchColorStyles(
                 fileKey: parameters.fileKey,
+                fileVersion: parameters.fileVersion,
                 includingNodes: parameters.includedNodes,
                 excludingNodes: parameters.excludedNodes,
                 accessToken: parameters.accessToken

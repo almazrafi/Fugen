@@ -33,7 +33,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		C01046D8237572BE00ED7C6E /* KitGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01046D7237572BE00ED7C6E /* KitGenerator.swift */; };
 		C045AD8F2374AC1C00BDA9E8 /* FloatingPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C045AD8E2374AC1C00BDA9E8 /* FloatingPoint+Extensions.swift */; };
+		C045AD912374DC3D00BDA9E8 /* KitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C045AD902374DC3D00BDA9E8 /* KitCommand.swift */; };
 		C0A7A301236918D00087A369 /* RenderTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A2E22368EA520087A369 /* RenderTemplate.swift */; };
 		C0A7A30223691A990087A369 /* RenderTemplateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A2E92368F5EE0087A369 /* RenderTemplateType.swift */; };
 		C0A7A43D2369EF380087A369 /* TemplateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A43C2369EF380087A369 /* TemplateRenderer.swift */; };
@@ -567,7 +569,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C01046D7237572BE00ED7C6E /* KitGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitGenerator.swift; sourceTree = "<group>"; };
 		C045AD8E2374AC1C00BDA9E8 /* FloatingPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FloatingPoint+Extensions.swift"; sourceTree = "<group>"; };
+		C045AD902374DC3D00BDA9E8 /* KitCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitCommand.swift; sourceTree = "<group>"; };
 		C0A7A2E22368EA520087A369 /* RenderTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderTemplate.swift; sourceTree = "<group>"; };
 		C0A7A2E92368F5EE0087A369 /* RenderTemplateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderTemplateType.swift; sourceTree = "<group>"; };
 		C0A7A43C2369EF380087A369 /* TemplateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateRenderer.swift; sourceTree = "<group>"; };
@@ -1157,6 +1161,7 @@
 			isa = PBXGroup;
 			children = (
 				C0DCEC4423736F0000A90690 /* ColorStylesGenerator.swift */,
+				C01046D7237572BE00ED7C6E /* KitGenerator.swift */,
 				C0DCEC52237381AB00A90690 /* StepGenerator.swift */,
 				C0DCEC5A2373A09300A90690 /* StepGeneratorError.swift */,
 				C0DCEC4F2373812200A90690 /* StepParameters.swift */,
@@ -1179,6 +1184,7 @@
 			children = (
 				C0DCEC562373881100A90690 /* AsyncCommand.swift */,
 				C0F83D3A2367AD4400D42813 /* ColorStylesCommand.swift */,
+				C045AD902374DC3D00BDA9E8 /* KitCommand.swift */,
 				C0DCEC5823738AFF00A90690 /* StepCommand.swift */,
 				C0DCC2AF236B7EE400A3F746 /* TextStylesCommand.swift */,
 			);
@@ -2226,8 +2232,10 @@
 				OBJ_338 /* FigmaStrokeJoin.swift in Sources */,
 				OBJ_339 /* FigmaStyle.swift in Sources */,
 				C0A7A44C236A356B0087A369 /* DefaultColorStylesEncoder.swift in Sources */,
+				C045AD912374DC3D00BDA9E8 /* KitCommand.swift in Sources */,
 				C0DCEC4523736F0000A90690 /* ColorStylesGenerator.swift in Sources */,
 				C0DCC2FA236BB28800A3F746 /* ColorStylesEncoder.swift in Sources */,
+				C01046D8237572BE00ED7C6E /* KitGenerator.swift in Sources */,
 				OBJ_340 /* FigmaStyleType.swift in Sources */,
 				C0DCC12D236B77BC00A3F746 /* TextStyle.swift in Sources */,
 				OBJ_341 /* FigmaTextCase.swift in Sources */,

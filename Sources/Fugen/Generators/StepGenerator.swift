@@ -10,7 +10,7 @@ protocol StepGenerator {
 
     // MARK: - Instance Methods
 
-    func generate(configuration: StepConfiguration) -> Promise<Void>
+    func generate(configuration: StepConfiguration?) -> Promise<Void>
     func generate(parameters: StepParameters) -> Promise<Void>
 }
 
@@ -18,7 +18,11 @@ extension StepGenerator {
 
     // MARK: - Instance Methods
 
-    func generate(configuration: StepConfiguration) -> Promise<Void> {
+    func generate(configuration: StepConfiguration?) -> Promise<Void> {
+        guard let configuration = configuration else {
+            return .value(Void())
+        }
+
         guard let fileConfiguration = configuration.file else {
             return .error(StepGeneratorError.invalidFileConfiguration)
         }

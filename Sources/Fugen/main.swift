@@ -16,15 +16,22 @@ let colorStylesGenerator = ColorStylesGenerator(
     templateRenderer: dependencies.makeTemplateRenderer()
 )
 
-let makeTextStylesGenerator = TextStylesGenerator (
+let textStylesGenerator = TextStylesGenerator (
     textStylesProvider: dependencies.makeTextStylesProvider(),
     textStylesEncoder: dependencies.makeTextStylesEncoder(),
     templateRenderer: dependencies.makeTemplateRenderer()
 )
 
+let kitGenerator = KitGenerator(
+    configurationProvider: dependencies.makeConfigurationProvider(),
+    colorStylesGenerator: colorStylesGenerator,
+    textStylesGenerator: textStylesGenerator
+)
+
 fugen.commands = [
     ColorStylesCommand(generator: colorStylesGenerator),
-    TextStylesCommand(generator: makeTextStylesGenerator)
+    TextStylesCommand(generator: textStylesGenerator),
+    KitCommand(generator: kitGenerator)
 ]
 
 fugen.goAndExitOnError()

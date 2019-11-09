@@ -50,4 +50,20 @@ struct StepConfiguration: Decodable {
 
         destinationPath = try container.decodeIfPresent(forKey: .destinationPath)
     }
+
+    // MARK: - Instance Methods
+
+    func resolve(baseConfiguration: StepConfiguration?) -> StepConfiguration {
+        guard let baseConfiguration = baseConfiguration else {
+            return self
+        }
+
+        return StepConfiguration(
+            file: file ?? baseConfiguration.file,
+            accessToken: accessToken ?? baseConfiguration.accessToken,
+            templatePath: templatePath ?? baseConfiguration.templatePath,
+            templateOptions: templateOptions ?? baseConfiguration.templateOptions,
+            destinationPath: destinationPath ?? baseConfiguration.destinationPath
+        )
+    }
 }

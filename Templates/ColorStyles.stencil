@@ -64,6 +64,6 @@ extension {{colorTypeName}} {
     }
 }
 {% else %}
-// No color found
+// No color style found
 {% endif %}
 // swiftlint:enable all
