@@ -32,6 +32,7 @@ final class TextStylesGenerator: StepGenerator {
         return firstly {
             self.textStylesProvider.fetchTextStyles(
                 fileKey: parameters.fileKey,
+                fileVersion: parameters.fileVersion,
                 includingNodes: parameters.includedNodes,
                 excludingNodes: parameters.excludedNodes,
                 accessToken: parameters.accessToken

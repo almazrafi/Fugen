@@ -74,12 +74,19 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
 
     func fetchColorStyles(
         fileKey: String,
+        fileVersion: String?,
         includingNodes includedNodeIDs: [String]?,
         excludingNodes excludedNodeIDs: [String]?,
         accessToken: String
     ) -> Promise<[ColorStyle]> {
+        let route = FigmaAPIFileRoute(
+            accessToken: accessToken,
+            fileKey: fileKey,
+            version: fileVersion
+        )
+
         return firstly {
-            self.apiProvider.request(route: FigmaAPIFileRoute(fileKey: fileKey, accessToken: accessToken))
+            self.apiProvider.request(route: route)
         }.map(on: DispatchQueue.global(qos: .userInitiated)) { file in
             try self.extractColorStyles(
                 from: file,

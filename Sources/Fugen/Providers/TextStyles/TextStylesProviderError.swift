@@ -1,6 +1,6 @@
 import Foundation
 
-enum TextStylesProviderError: Error {
+enum TextStylesProviderError: Error, CustomStringConvertible {
 
     // MARK: - Enumeration Cases
 
@@ -9,7 +9,6 @@ enum TextStylesProviderError: Error {
     case typeStyleNotFound(nodeName: String, nodeID: String)
 
     case invalidFontFamily(nodeName: String, nodeID: String)
-    case invalidFontPostScriptName(nodeName: String, nodeID: String)
     case invalidFontWeight(nodeName: String, nodeID: String)
     case invalidFontSize(nodeName: String, nodeID: String)
 
@@ -31,9 +30,6 @@ enum TextStylesProviderError: Error {
 
         case let .invalidFontFamily(nodeName, nodeID):
             return "Font family of node \(nodeName) ('\(nodeID)') is either empty or nil"
-
-        case let .invalidFontPostScriptName(nodeName, nodeID):
-            return "PostScript font name of node \(nodeName) ('\(nodeID)') is either empty or nil"
 
         case let .invalidFontWeight(nodeName, nodeID):
             return "Font weight of node \(nodeName) ('\(nodeID)') is nil"

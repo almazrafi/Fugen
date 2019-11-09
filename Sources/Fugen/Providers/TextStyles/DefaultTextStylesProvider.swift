@@ -44,9 +44,7 @@ final class DefaultTextStylesProvider: TextStylesProvider {
             throw TextStylesProviderError.invalidFontFamily(nodeName: node.name, nodeID: node.id)
         }
 
-        guard let fontName = typeStyle.fontPostScriptName, !fontName.isEmpty else {
-            throw TextStylesProviderError.invalidFontPostScriptName(nodeName: node.name, nodeID: node.id)
-        }
+        let fontName = typeStyle.fontPostScriptName ?? .textStyleRegularFontName(family: fontFamily)
 
         guard let fontWeight = typeStyle.fontWeight else {
             throw TextStylesProviderError.invalidFontWeight(nodeName: node.name, nodeID: node.id)
@@ -118,12 +116,19 @@ final class DefaultTextStylesProvider: TextStylesProvider {
 
     func fetchTextStyles(
         fileKey: String,
+        fileVersion: String?,
         includingNodes includedNodeIDs: [String]?,
         excludingNodes excludedNodeIDs: [String]?,
         accessToken: String
     ) -> Promise<[TextStyle]> {
+        let route = FigmaAPIFileRoute(
+            accessToken: accessToken,
+            fileKey: fileKey,
+            version: fileVersion
+        )
+
         return firstly {
-            self.apiProvider.request(route: FigmaAPIFileRoute(fileKey: fileKey, accessToken: accessToken))
+            self.apiProvider.request(route: route)
         }.map(on: DispatchQueue.global(qos: .userInitiated)) { file in
             try self.extractTextStyles(
                 from: file,
@@ -131,5 +136,14 @@ final class DefaultTextStylesProvider: TextStylesProvider {
                 excludingNodes: excludedNodeIDs
             )
         }
+    }
+}
+
+private extension String {
+
+    // MARK: - Type Methods
+
+    static func textStyleRegularFontName(family fontFamily: String) -> String {
+        return "\(fontFamily)-Regular"
     }
 }
