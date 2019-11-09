@@ -1,5 +1,5 @@
 PRODUCT_NAME = fugen
-VERSION = 1.0.0-dev
+VERSION = 1.0.0-alpha.1
 
 PRODUCT_PATH = .build/release/$(PRODUCT_NAME)
 TEMPLATES_PATH = Templates
