@@ -1,47 +1,63 @@
 import Foundation
 
-enum TextStylesProviderError: Error, CustomStringConvertible {
+struct TextStylesProviderError: Error, CustomStringConvertible {
 
-    // MARK: - Enumeration Cases
+    // MARK: - Nested Types
 
-    case styleNotFound(nodeName: String, nodeID: String)
-    case invalidStyleName(nodeName: String, nodeID: String)
-    case typeStyleNotFound(nodeName: String, nodeID: String)
+    enum Code {
+        case styleNotFound
+        case invalidStyleName
+        case typeStyleNotFound
 
-    case invalidFontFamily(nodeName: String, nodeID: String)
-    case invalidFontWeight(nodeName: String, nodeID: String)
-    case invalidFontSize(nodeName: String, nodeID: String)
+        case invalidFontFamily
+        case invalidFontWeight
+        case invalidFontSize
 
-    case invalidTextColor(nodeName: String, nodeID: String)
-    case textColorNotFound(nodeName: String, nodeID: String)
+        case invalidColor
+        case colorNotFound
+        case colorStyleNotFound
+        case invalidColorStyleName
+    }
 
     // MARK: - Instance Properties
 
+    let code: Code
+    let nodeID: String
+    let nodeName: String
+
+    // MARK: - CustomStringConvertible
+
     var description: String {
-        switch self {
-        case let .styleNotFound(nodeName, nodeID):
+        switch code {
+        case .styleNotFound:
             return "Figma file does not contain a valid style for node \(nodeName) ('\(nodeID)')"
 
-        case let .invalidStyleName(nodeName, nodeID):
+        case .invalidStyleName:
             return "Style name of node \(nodeName) ('\(nodeID)') is either empty or nil"
 
-        case let .typeStyleNotFound(nodeName, nodeID):
+        case .typeStyleNotFound:
             return "Type style of node \(nodeName) ('\(nodeID)') could not be found"
 
-        case let .invalidFontFamily(nodeName, nodeID):
+        case .invalidFontFamily:
             return "Font family of node \(nodeName) ('\(nodeID)') is either empty or nil"
 
-        case let .invalidFontWeight(nodeName, nodeID):
+        case .invalidFontWeight:
             return "Font weight of node \(nodeName) ('\(nodeID)') is nil"
 
-        case let .invalidFontSize(nodeName, nodeID):
+        case .invalidFontSize:
             return "Font size of node \(nodeName) ('\(nodeID)') is nil"
 
-        case let .invalidTextColor(nodeName, nodeID):
-            return "Text color of node \(nodeName) ('\(nodeID)') cannot be resolved"
+        case .invalidColor:
+            return "Color of node \(nodeName) ('\(nodeID)') cannot be resolved"
 
-        case let .textColorNotFound(nodeName, nodeID):
-            return "Text color of node \(nodeName) ('\(nodeID)') could not be found"
+        case .colorNotFound:
+            return "Color of node \(nodeName) ('\(nodeID)') could not be found"
+
+        case .colorStyleNotFound:
+            return "Figma file does not contain a valid color style for node \(nodeName) ('\(nodeID)')"
+
+        case .invalidColorStyleName:
+            return "Color style name of node \(nodeName) ('\(nodeID)') is either empty or nil"
         }
     }
 }

@@ -8,7 +8,7 @@ final class DefaultColorEncoder: ColorEncoder {
         return String(format: "%02lX", Int(colorComponent * 255.0))
     }
 
-    // MARK: - ColorEncoder
+    // MARK: -
 
     func encodeColor(_ color: Color) -> [String: Any] {
         return [

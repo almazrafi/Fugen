@@ -9,8 +9,6 @@ final class DefaultColorStylesGenerator: ColorStylesGenerator, GeneratorParamete
     let colorStylesEncoder: ColorStylesEncoder
     let templateRenderer: TemplateRenderer
 
-    // MARK: - GeneratorParametersResolver
-
     let defaultTemplateType = RenderTemplateType.native(name: "ColorStyles")
     let defaultDestination = RenderDestination.console
 

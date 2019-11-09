@@ -52,7 +52,7 @@ final class DefaultTemplateRenderer: TemplateRenderer {
         }
     }
 
-    // MARK: - RenderService
+    // MARK: -
 
     func renderTemplate(
         _ template: RenderTemplate,

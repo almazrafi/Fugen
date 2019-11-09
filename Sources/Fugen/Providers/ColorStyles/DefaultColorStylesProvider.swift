@@ -32,15 +32,15 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
         }
 
         guard let nodeFillColor = nodeFill.color else {
-            throw ColorStylesProviderError.colorNotFound(nodeName: node.name, nodeID: node.id)
+            throw ColorStylesProviderError(code: .colorNotFound, nodeID: node.id, nodeName: node.name)
         }
 
         guard let nodeStyle = styles[nodeStyleID], nodeStyle.type == .fill else {
-            throw ColorStylesProviderError.styleNotFound(nodeName: node.name, nodeID: node.id)
+            throw ColorStylesProviderError(code: .styleNotFound, nodeID: node.id, nodeName: node.name)
         }
 
         guard let nodeStyleName = nodeStyle.name, !nodeStyleName.isEmpty else {
-            throw ColorStylesProviderError.invalidStyleName(nodeName: node.name, nodeID: node.id)
+            throw ColorStylesProviderError(code: .invalidStyleName, nodeID: node.id, nodeName: node.name)
         }
 
         return ColorStyle(
@@ -70,7 +70,7 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
             }
     }
 
-    // MARK: - ColorStylesProvider
+    // MARK: -
 
     func fetchColorStyles(
         fileKey: String,

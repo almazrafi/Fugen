@@ -8,7 +8,7 @@ final class ColorStylesCommand: AsyncExecutableCommand, GeneratorConfigurableCom
 
     let generator: ColorStylesGenerator
 
-    // MARK: - GeneratorConfigurableCommand
+    // MARK: -
 
     let name = "colorStyles"
     let shortDescription = "Generates code for color style from a Figma file."

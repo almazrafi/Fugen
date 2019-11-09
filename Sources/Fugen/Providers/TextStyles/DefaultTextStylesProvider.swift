@@ -20,15 +20,35 @@ final class DefaultTextStylesProvider: TextStylesProvider {
 
     // MARK: - Instance Methods
 
+    private func extractColorStyle(
+        from nodeInfo: FigmaVectorNodeInfo,
+        of node: FigmaNode,
+        styles: [String: FigmaStyle]
+    ) throws -> String? {
+        guard let nodeStyleID = nodeInfo.styleID(of: .fill) else {
+            return nil
+        }
+
+        guard let nodeStyle = styles[nodeStyleID], nodeStyle.type == .fill else {
+            throw TextStylesProviderError(code: .colorStyleNotFound, nodeID: node.id, nodeName: node.name)
+        }
+
+        guard let nodeStyleName = nodeStyle.name, !nodeStyleName.isEmpty else {
+            throw TextStylesProviderError(code: .invalidColorStyleName, nodeID: node.id, nodeName: node.name)
+        }
+
+        return nodeStyleName
+    }
+
     private func extractColor(from nodeInfo: FigmaVectorNodeInfo, of node: FigmaNode) throws -> Color {
         let nodeFills = nodeInfo.fills
 
         guard nodeFills?.count == 1, let nodeFill = nodeFills?.first(where: { $0.type == .solid }) else {
-            throw TextStylesProviderError.invalidTextColor(nodeName: node.name, nodeID: node.id)
+            throw TextStylesProviderError(code: .invalidColor, nodeID: node.id, nodeName: node.name)
         }
 
         guard let nodeFillColor = nodeFill.color else {
-            throw TextStylesProviderError.textColorNotFound(nodeName: node.name, nodeID: node.id)
+            throw TextStylesProviderError(code: .colorNotFound, nodeID: node.id, nodeName: node.name)
         }
 
         return Color(
@@ -41,17 +61,17 @@ final class DefaultTextStylesProvider: TextStylesProvider {
 
     private func extractFont(from typeStyle: FigmaTypeStyle, of node: FigmaNode) throws -> Font {
         guard let fontFamily = typeStyle.fontFamily, !fontFamily.isEmpty else {
-            throw TextStylesProviderError.invalidFontFamily(nodeName: node.name, nodeID: node.id)
+            throw TextStylesProviderError(code: .invalidFontFamily, nodeID: node.id, nodeName: node.name)
         }
 
         let fontName = typeStyle.fontPostScriptName ?? .textStyleRegularFontName(family: fontFamily)
 
         guard let fontWeight = typeStyle.fontWeight else {
-            throw TextStylesProviderError.invalidFontWeight(nodeName: node.name, nodeID: node.id)
+            throw TextStylesProviderError(code: .invalidFontWeight, nodeID: node.id, nodeName: node.name)
         }
 
         guard let fontSize = typeStyle.fontSize else {
-            throw TextStylesProviderError.invalidFontSize(nodeName: node.name, nodeID: node.id)
+            throw TextStylesProviderError(code: .invalidFontSize, nodeID: node.id, nodeName: node.name)
         }
 
         return Font(
@@ -72,21 +92,22 @@ final class DefaultTextStylesProvider: TextStylesProvider {
         }
 
         guard let nodeStyle = styles[nodeStyleID], nodeStyle.type == .text else {
-            throw TextStylesProviderError.styleNotFound(nodeName: node.name, nodeID: node.id)
+            throw TextStylesProviderError(code: .styleNotFound, nodeID: node.id, nodeName: node.name)
         }
 
         guard let nodeStyleName = nodeStyle.name, !nodeStyleName.isEmpty else {
-            throw TextStylesProviderError.invalidStyleName(nodeName: node.name, nodeID: node.id)
+            throw TextStylesProviderError(code: .invalidStyleName, nodeID: node.id, nodeName: node.name)
         }
 
         guard let nodeTypeStyle = textNodePayload.style else {
-            throw TextStylesProviderError.typeStyleNotFound(nodeName: node.name, nodeID: node.id)
+            throw TextStylesProviderError(code: .typeStyleNotFound, nodeID: node.id, nodeName: node.name)
         }
 
         return TextStyle(
             name: nodeStyleName,
             font: try extractFont(from: nodeTypeStyle, of: node),
-            textColor: try extractColor(from: nodeInfo, of: node),
+            colorStyle: try extractColorStyle(from: nodeInfo, of: node, styles: styles),
+            color: try extractColor(from: nodeInfo, of: node),
             strikethrough: nodeTypeStyle.textDecoration == .strikethrough,
             underline: nodeTypeStyle.textDecoration == .underline,
             paragraphSpacing: nodeTypeStyle.paragraphSpacing,
@@ -112,7 +133,7 @@ final class DefaultTextStylesProvider: TextStylesProvider {
             }
     }
 
-    // MARK: - TextStylesProvider
+    // MARK: -
 
     func fetchTextStyles(
         fileKey: String,

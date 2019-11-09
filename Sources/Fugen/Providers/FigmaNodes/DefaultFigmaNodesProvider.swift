@@ -55,7 +55,7 @@ final class DefaultFigmaNodesProvider: FigmaNodesProvider {
         return try Set(nodeIDs.map { try resolveNodeID($0) })
     }
 
-    // MARK: - FigmaNodesProvider
+    // MARK: -
 
     func fetchNodes(
         from file: FigmaFile,

@@ -8,7 +8,7 @@ final class TextStylesCommand: AsyncExecutableCommand, GeneratorConfigurableComm
 
     let generator: TextStylesGenerator
 
-    // MARK: - GeneratorConfigurableCommand
+    // MARK: -
 
     let name = "textStyles"
     let shortDescription = "Generates code for text styles from a Figma file."

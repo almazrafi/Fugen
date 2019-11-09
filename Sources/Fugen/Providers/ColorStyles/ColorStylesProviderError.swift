@@ -1,24 +1,32 @@
 import Foundation
 
-enum ColorStylesProviderError: Error, CustomStringConvertible {
+struct ColorStylesProviderError: Error, CustomStringConvertible {
 
-    // MARK: - Enumeration Cases
+    // MARK: - Nested Types
 
-    case styleNotFound(nodeName: String, nodeID: String)
-    case invalidStyleName(nodeName: String, nodeID: String)
-    case colorNotFound(nodeName: String, nodeID: String)
+    enum Code {
+        case styleNotFound
+        case invalidStyleName
+        case colorNotFound
+    }
 
     // MARK: - Instance Properties
 
+    let code: Code
+    let nodeID: String
+    let nodeName: String
+
+    // MARK: - CustomStringConvertible
+
     var description: String {
-        switch self {
-        case let .styleNotFound(nodeName, nodeID):
+        switch code {
+        case .styleNotFound:
             return "Figma file does not contain a valid color style for node \(nodeName) ('\(nodeID)')"
 
-        case let .invalidStyleName(nodeName, nodeID):
+        case .invalidStyleName:
             return "Style name of node \(nodeName) ('\(nodeID)') is either empty or nil"
 
-        case let .colorNotFound(nodeName, nodeID):
+        case .colorNotFound:
             return "Style color of node \(nodeName) ('\(nodeID)') could not be found"
         }
     }
