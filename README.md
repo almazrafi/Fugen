@@ -6,7 +6,7 @@
 [![Platforms](https://img.shields.io/badge/platforms-macOS%20%7C%20Linux-lightgrey)](https://swift.org/about/#platform-support)
 [![License](https://img.shields.io/github/license/almazrafi/Fugen.svg?style=flat)](https://github.com/almazrafi/Fugen/blob/master/LICENSE)
 
-Fugen is a tool to automate resources using the Figma API.
+Fugen is a command line tool for generating code from [Figma](http://figma.com/) files, completely written in Swift.
 
 ## Communication
 - If you need help, open an issue.
