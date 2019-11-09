@@ -1,4 +1,5 @@
 // swiftlint:disable all
+// Generated using Fugen: https://github.com/almazrafi/Fugen
 {% if textStyles %}
 {% set accessModifier %}{% if options.publicAccess %}public{% else %}internal{% endif %}{% endset %}
 {% set styleTypeName %}{{options.styleTypeName|default:"TextStyle"}}{% endset %}
@@ -6,19 +7,17 @@
 {% set fontTypeName %}{{options.fontTypeName|default:"UIFont"}}{% endset %}
 {% set strikethroughStyle %}{{options.strikethroughStyle|default:"single"}}{% endset %}
 {% set underlineStyle %}{{options.underlineStyle|default:"single"}}{% endset %}
-{% macro boolean value %}{% if value %}true{% else %}false{% endif %}{% endmacro %}
-{% macro rgbaHex color %}0x{{color.red}}{{color.green}}{{color.blue}}{{color.alpha}}{% endmacro %}
+{% macro propertyName name %}{{name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}{% endmacro %}
 {% macro rgbHexString color %}#{{color.red}}{{color.green}}{{color.blue}}{% endmacro %}
 {% macro rgbaHexString color %}{% call rgbHexString color %}{{color.alpha}}{% endmacro %}
 {% macro rgbString color %}{{color.red|hexToInt}} {{color.green|hexToInt}} {{color.blue|hexToInt}}{% endmacro %}
 {% macro rgbaString color %}{% call rgbString color %}, {{color.alpha|hexToInt|int255toFloat|percent}}{% endmacro %}
 {% macro fontName style %}{{style.font.family}} ({{style.font.name}}){% endmacro %}
-{% macro fontWeight style %}weight {{style.font.weight}}{% endmacro %}
-{% macro fontSize style %}size {{style.font.size}}{% endmacro %}
-{% macro stylePropertyName style %}{{style.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}{% endmacro %}
+{% macro fontDescription style %}{% call fontName style %}; weight {{style.font.weight}}; size {{style.font.size}}{% endmacro %}
+{% macro colorDescription style %}hex {% call rgbaHexString style.color %}; rgba {% call rgbaString style.color %}{% endmacro %}
 {% set optionalColorTypeName %}{{colorTypeName}}?{% endset %}
 {% set styleDefaultNilParameters %}
-    textColor: {{optionalColorTypeName}} = nil,
+    color: {{optionalColorTypeName}} = nil,
     backgroundColor: {{optionalColorTypeName}} = nil,
     strikethrough: Bool = false,
     underline: Bool = false,
@@ -31,7 +30,7 @@
 {% endset %}
 {% set styleSelfTitledArguments %}
     font: font,
-    textColor: textColor,
+    color: color,
     backgroundColor: backgroundColor,
     strikethrough: strikethrough,
     underline: underline,
@@ -63,20 +62,25 @@ import AppKit
 
     /// {{style.name}}
     ///
-    /// Font: {% call fontName style %}; {% call fontWeight style %}; {% call fontSize style %}
-    /// Text color: hex {% call rgbaHexString style.textColor %}; rgba {% call rgbaString style.textColor %}
-    /// Strikethrough: {% call boolean style.strikethrough %}
-    /// Underline: {% call boolean style.underline %}
+    /// Font: {% call fontDescription style %}
+    /// Color: {% if style.colorStyle %}{{style.colorStyle}}; {% endif %}{% call colorDescription style %}
+    /// Strikethrough: {{ style.strikethrough }}
+    /// Underline: {{ style.underline }}
     /// Paragraph spacing: {{style.paragraphSpacing|default:"default"}}
     /// Paragraph indent: {{style.paragraphIndent|default:"default"}}
     /// Line height: {{style.lineHeight|default:"default"}}
     /// Letter spacing: {{style.letterSpacing|default:"default"}}
-    {{accessModifier}} static let {% call stylePropertyName style %} = {{styleTypeName}}(
+    {{accessModifier}} static let {% call propertyName style.name %} = {{styleTypeName}}(
         fontName: "{{style.font.name}}",
         fontSize: {{style.font.size}},
-        textColor: {{colorTypeName}}(rgbaHex: {% call rgbaHex style.textColor %}),
-        strikethrough: {% call boolean style.strikethrough %},
-        underline: {% call boolean style.underline %},
+        color: {{colorTypeName}}(
+            red: {{ style.color.red|hexToInt|int255toFloat }},
+            green: {{ style.color.green|hexToInt|int255toFloat }},
+            blue: {{ style.color.blue|hexToInt|int255toFloat }},
+            alpha: {{ style.color.alpha|hexToInt|int255toFloat }}
+        ),
+        strikethrough: {{ style.strikethrough }},
+        underline: {{ style.underline }},
         paragraphSpacing: {{style.paragraphSpacing|default:"nil"}},
         paragraphIndent: {{style.paragraphIndent|default:"nil"}},
         lineHeight: {{style.lineHeight|default:"nil"}},
@@ -87,7 +91,7 @@ import AppKit
     // MARK: - Instance Properties
 
     {{accessModifier}} let font: {{fontTypeName}}
-    {{accessModifier}} let textColor: {{optionalColorTypeName}}
+    {{accessModifier}} let color: {{optionalColorTypeName}}
     {{accessModifier}} let backgroundColor: {{optionalColorTypeName}}
     {{accessModifier}} let strikethrough: Bool
     {{accessModifier}} let underline: Bool
@@ -105,7 +109,7 @@ import AppKit
         {{styleDefaultNilParameters|indent:4," ",false}}
     ) {
         self.font = font
-        self.textColor = textColor
+        self.color = color
         self.backgroundColor = backgroundColor
         self.strikethrough = strikethrough
         self.underline = underline
@@ -138,8 +142,8 @@ import AppKit
             attributes[.paragraphStyle] = paragraphStyle
         }
 
-        if let textColor = textColor {
-            attributes[.foregroundColor] = textColor
+        if let color = color {
+            attributes[.foregroundColor] = color
         }
 
         if let backgroundColor = backgroundColor {
@@ -206,13 +210,13 @@ import AppKit
     ) -> NSAttributedString {
         return NSAttributedString(string: string, style: self, includingParagraphStyle: includingParagraphStyle)
     }
-
 {% if not options.skipStyleModifiers %}
+
     // MARK: -
 
     {% call styleModifier "font" "UIFont" %}
 
-    {% call styleModifier "textColor" optionalColorTypeName %}
+    {% call styleModifier "color" optionalColorTypeName %}
 
     {% call styleModifier "backgroundColor" optionalColorTypeName %}
 
@@ -240,20 +244,6 @@ import AppKit
 
     convenience init(string: String, style: {{styleTypeName}}, includingParagraphStyle: Bool = true) {
         self.init(string: string, attributes: style.attributes(includingParagraphStyle: includingParagraphStyle))
-    }
-}
-
-private extension {{colorTypeName}} {
-
-    // MARK: - Initializers
-
-    convenience init(rgbaHex: UInt32) {
-        self.init(
-            red: CGFloat((rgbaHex >> 24) & 0xFF) / 255.0,
-            green: CGFloat((rgbaHex >> 16) & 0xFF) / 255.0,
-            blue: CGFloat((rgbaHex >> 8) & 0xFF) / 255.0,
-            alpha: CGFloat(rgbaHex & 0xFF) / 255.0
-        )
     }
 }
 {% else %}

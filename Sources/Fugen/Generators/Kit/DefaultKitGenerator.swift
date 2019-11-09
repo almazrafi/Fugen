@@ -23,27 +23,16 @@ final class DefaultKitGenerator: KitGenerator {
 
     // MARK: - Instance Methods
 
-    private func generateColorStylesIfNeeded(configuration: Configuration) -> Promise<Void> {
-        guard let colorStylesConfiguration = configuration.resolveColorStyles() else {
-            return .value(Void())
-        }
-
-        return colorStylesGenerator.generate(configuration: colorStylesConfiguration)
-    }
-
-    private func generateTextStylesIfNeeded(configuration: Configuration) -> Promise<Void> {
-        guard let textStylesConfiguration = configuration.resolveTextStyles() else {
-            return .value(Void())
-        }
-
-        return textStylesGenerator.generate(configuration: textStylesConfiguration)
-    }
-
     private func generate(configuration: Configuration) -> Promise<Void> {
-        let promises = [
-            generateColorStylesIfNeeded(configuration: configuration),
-            generateTextStylesIfNeeded(configuration: configuration)
-        ]
+        var promises: [Promise<Void>] = []
+
+        if let colorStylesConfiguration = configuration.resolveColorStyles() {
+            promises.append(colorStylesGenerator.generate(configuration: colorStylesConfiguration))
+        }
+
+        if let textStylesConfiguration = configuration.resolveTextStyles() {
+            promises.append(textStylesGenerator.generate(configuration: textStylesConfiguration))
+        }
 
         return when(fulfilled: promises)
     }

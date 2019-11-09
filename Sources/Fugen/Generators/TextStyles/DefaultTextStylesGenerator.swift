@@ -9,8 +9,6 @@ final class DefaultTextStylesGenerator: TextStylesGenerator, GeneratorParameters
     let textStylesEncoder: TextStylesEncoder
     let templateRenderer: TemplateRenderer
 
-    // MARK: - GeneratorParametersResolver
-
     let defaultTemplateType = RenderTemplateType.native(name: "TextStyles")
     let defaultDestination = RenderDestination.console
 

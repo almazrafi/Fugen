@@ -23,10 +23,14 @@ final class DefaultTextStylesEncoder: TextStylesEncoder {
         var encodedTextStyle: [String: Any] = [
             "name": textStyle.name,
             "font": fontEncoder.encodeFont(textStyle.font),
-            "textColor": colorEncoder.encodeColor(textStyle.textColor),
+            "color": colorEncoder.encodeColor(textStyle.color),
             "strikethrough": textStyle.strikethrough,
             "underline": textStyle.underline
         ]
+
+        if let colorStyle = textStyle.colorStyle {
+            encodedTextStyle["colorStyle"] = colorStyle
+        }
 
         if let paragraphSpacing = textStyle.paragraphSpacing {
             encodedTextStyle["paragraphSpacing"] = paragraphSpacing.rounded(precision: 4)

@@ -6,7 +6,8 @@ struct TextStyle: Hashable {
 
     let name: String
     let font: Font
-    let textColor: Color
+    let colorStyle: String?
+    let color: Color
     let strikethrough: Bool
     let underline: Bool
     let paragraphSpacing: Double?
