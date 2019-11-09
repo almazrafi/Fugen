@@ -1,7 +1,7 @@
 import Foundation
 import PromiseKit
 
-final class TextStylesGenerator: StepGenerator {
+final class DefaultTextStylesGenerator: TextStylesGenerator, GeneratorParametersResolving {
 
     // MARK: - Instance Properties
 
@@ -9,7 +9,7 @@ final class TextStylesGenerator: StepGenerator {
     let textStylesEncoder: TextStylesEncoder
     let templateRenderer: TemplateRenderer
 
-    // MARK: - StepGenerator
+    // MARK: - GeneratorParametersResolver
 
     let defaultTemplateType = RenderTemplateType.native(name: "TextStyles")
     let defaultDestination = RenderDestination.console
@@ -28,7 +28,7 @@ final class TextStylesGenerator: StepGenerator {
 
     // MARK: - Instance Methods
 
-    func generate(parameters: StepParameters) -> Promise<Void> {
+    private func generate(parameters: GeneratorParameters) -> Promise<Void> {
         return firstly {
             self.textStylesProvider.fetchTextStyles(
                 fileKey: parameters.fileKey,
@@ -45,6 +45,14 @@ final class TextStylesGenerator: StepGenerator {
                 to: parameters.destination,
                 context: context
             )
+        }
+    }
+
+    // MARK: -
+
+    func generate(configuration: TextStylesConfiguration) -> Promise<Void> {
+        return firstly {
+            self.generate(parameters: try self.resolveGeneratorParameters(from: configuration))
         }
     }
 }

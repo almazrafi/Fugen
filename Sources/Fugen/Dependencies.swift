@@ -5,6 +5,10 @@ final class Dependencies {
 
     // MARK: - Instance Methods
 
+    func makeTemplateRenderer() -> TemplateRenderer {
+        return DefaultTemplateRenderer()
+    }
+
     func makeFigmaHTTPService() -> FigmaHTTPService {
         return HTTPService()
     }
@@ -54,7 +58,27 @@ final class Dependencies {
         )
     }
 
-    func makeTemplateRenderer() -> TemplateRenderer {
-        return DefaultTemplateRenderer()
+    func makeColorStylesGenerator() -> ColorStylesGenerator {
+        return DefaultColorStylesGenerator(
+            colorStylesProvider: makeColorStylesProvider(),
+            colorStylesEncoder: makeColorStylesEncoder(),
+            templateRenderer: makeTemplateRenderer()
+        )
+    }
+
+    func makeTextStylesGenerator() -> TextStylesGenerator {
+        return DefaultTextStylesGenerator(
+            textStylesProvider: makeTextStylesProvider(),
+            textStylesEncoder: makeTextStylesEncoder(),
+            templateRenderer: makeTemplateRenderer()
+        )
+    }
+
+    func makeKitGenerator() -> KitGenerator {
+        return DefaultKitGenerator(
+            configurationProvider: makeConfigurationProvider(),
+            colorStylesGenerator: makeColorStylesGenerator(),
+            textStylesGenerator: makeTextStylesGenerator()
+        )
     }
 }

@@ -1,7 +1,7 @@
 import Foundation
 import PromiseKit
 
-final class KitGenerator {
+final class DefaultKitGenerator: KitGenerator {
 
     // MARK: - Instance Properties
 
@@ -23,10 +23,26 @@ final class KitGenerator {
 
     // MARK: - Instance Methods
 
+    private func generateColorStylesIfNeeded(configuration: Configuration) -> Promise<Void> {
+        guard let colorStylesConfiguration = configuration.resolveColorStyles() else {
+            return .value(Void())
+        }
+
+        return colorStylesGenerator.generate(configuration: colorStylesConfiguration)
+    }
+
+    private func generateTextStylesIfNeeded(configuration: Configuration) -> Promise<Void> {
+        guard let textStylesConfiguration = configuration.resolveTextStyles() else {
+            return .value(Void())
+        }
+
+        return textStylesGenerator.generate(configuration: textStylesConfiguration)
+    }
+
     private func generate(configuration: Configuration) -> Promise<Void> {
         let promises = [
-            colorStylesGenerator.generate(configuration: configuration.resolveColorStyles()),
-            textStylesGenerator.generate(configuration: configuration.resolveTextStyles())
+            generateColorStylesIfNeeded(configuration: configuration),
+            generateTextStylesIfNeeded(configuration: configuration)
         ]
 
         return when(fulfilled: promises)

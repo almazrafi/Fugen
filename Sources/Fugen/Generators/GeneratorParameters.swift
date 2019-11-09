@@ -1,6 +1,6 @@
 import Foundation
 
-struct StepParameters {
+struct GeneratorParameters {
 
     // MARK: - Instance Properties
 

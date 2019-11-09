@@ -1,7 +1,7 @@
 import Foundation
 import FugenTools
 
-struct StepConfiguration: Decodable {
+struct GeneratorConfiguration: Decodable {
 
     // MARK: - Nested Types
 
@@ -53,17 +53,17 @@ struct StepConfiguration: Decodable {
 
     // MARK: - Instance Methods
 
-    func resolve(baseConfiguration: StepConfiguration?) -> StepConfiguration {
-        guard let baseConfiguration = baseConfiguration else {
+    func resolve(base: GeneratorConfiguration?) -> GeneratorConfiguration {
+        guard let base = base else {
             return self
         }
 
-        return StepConfiguration(
-            file: file ?? baseConfiguration.file,
-            accessToken: accessToken ?? baseConfiguration.accessToken,
-            templatePath: templatePath ?? baseConfiguration.templatePath,
-            templateOptions: templateOptions ?? baseConfiguration.templateOptions,
-            destinationPath: destinationPath ?? baseConfiguration.destinationPath
+        return GeneratorConfiguration(
+            file: file ?? base.file,
+            accessToken: accessToken ?? base.accessToken,
+            templatePath: templatePath ?? base.templatePath,
+            templateOptions: templateOptions ?? base.templateOptions,
+            destinationPath: destinationPath ?? base.destinationPath
         )
     }
 }
