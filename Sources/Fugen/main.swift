@@ -1,7 +1,7 @@
 import Foundation
 import SwiftCLI
 
-let version = "1.0.0-alpha.1"
+let version = "1.0.0-alpha.2"
 let dependencies = Dependencies()
 
 let fugen = CLI(
