@@ -50,15 +50,17 @@ uninstall:
 	rm -rf $(BIN_PRODUCT_PATH)
 	rm -rf $(SHARE_PRODUCT_PATH)
 
-release: build
-	sed -i '' 's|\(let PRODUCT_VERSION = "\)\(.*\)\("\)|\1$(PRODUCT_VERSION)\3|' $(SOURCES_MAIN_PATH)
+update_main_version:
+	sed -i '' 's|\(let version = "\)\(.*\)\("\)|\1$(PRODUCT_VERSION)\3|' $(SOURCES_MAIN_PATH)
+
+update_formula_version:
+	sed -i '' 's|\(url ".*/archive/\)\(.*\)\(.tar\)|\1$(PRODUCT_VERSION)\3|' $(HOMEBREW_FORMULA_PATH)
+	sed -i '' 's|\(sha256 "\)\(.*\)\("\)|\1$(RELEASE_SHA)\3|' $(HOMEBREW_FORMULA_PATH)
+
+release: update_main_version build
 	mkdir -p $(RELEASE_PATH)
 	cp -f $(PRODUCT_PATH) $(RELEASE_PATH)
 	cp -r $(TEMPLATES_PATH) $(RELEASE_PATH)
 	cp -f $(README_PATH) $(RELEASE_PATH)
 	cp -f $(LICENSE_PATH) $(RELEASE_PATH)
 	(cd $(RELEASE_PATH); zip -yr - $(PRODUCT_NAME) $(TEMPLATES_NAME) $(README_NAME) $(LICENSE_NAME)) > $(RELEASE_ZIP_PATH)
-
-release_brew:
-	sed -i '' 's|\(url ".*/archive/\)\(.*\)\(.tar\)|\1$(PRODUCT_VERSION)\3|' $(HOMEBREW_FORMULA_PATH)
-	sed -i '' 's|\(sha256 "\)\(.*\)\("\)|\1$(RELEASE_SHA)\3|' $(HOMEBREW_FORMULA_PATH)

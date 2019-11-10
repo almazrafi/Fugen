@@ -80,6 +80,6 @@ private extension String {
     static let templatesFileExtension = ".stencil"
     static let templatesFileRelativePath = "../../../../Templates"
     static let templatesPodsRelativePath = "../Templates"
-    static let templatesShareRelativePath = "../share/fugen"
+    static let templatesShareRelativePath = "../../share/fugen"
     static let templateOptionsKey = "options"
 }
