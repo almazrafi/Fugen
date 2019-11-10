@@ -630,6 +630,7 @@
 		C0F7A5ED23770DAE0069775B /* DefaultColorStylesGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColorStylesGenerator.swift; sourceTree = "<group>"; };
 		C0F7A5F223770FA80069775B /* GeneratorConfigurableCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorConfigurableCommand.swift; sourceTree = "<group>"; };
 		C0F7A5FD23773AAA0069775B /* DefaultKitGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultKitGenerator.swift; sourceTree = "<group>"; };
+		C0F7A60223778D1A0069775B /* VERSION */ = {isa = PBXFileReference; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 		C0F838C723665E4400D42813 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
 		C0F838C823665E4400D42813 /* .ruby-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".ruby-version"; sourceTree = "<group>"; };
 		C0F838C923665E4400D42813 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -1656,6 +1657,7 @@
 				OBJ_285 /* Package.resources */,
 				OBJ_6 /* Package.swift */,
 				OBJ_286 /* README.md */,
+				C0F7A60223778D1A0069775B /* VERSION */,
 			);
 			sourceTree = "<group>";
 		};
