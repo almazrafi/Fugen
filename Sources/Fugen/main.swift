@@ -1,6 +1,5 @@
 import Foundation
 import SwiftCLI
-import FugenTools
 
 let version = "1.0.0-alpha.1"
 let dependencies = Dependencies()
