@@ -83,6 +83,7 @@
 		C0F83BFA23677BCA00D42813 /* DefaultFigmaNodesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83BF923677BC900D42813 /* DefaultFigmaNodesProvider.swift */; };
 		C0F83D3423679F5200D42813 /* ColorStylesProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D3323679F5200D42813 /* ColorStylesProviderError.swift */; };
 		C0F83D3F236832E500D42813 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F83D3E236832E500D42813 /* Dependencies.swift */; };
+		C0FFBFB62379B7010060AACB /* BaseConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFBFB42379B6FD0060AACB /* BaseConfiguration.swift */; };
 		OBJ_297 /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_203 /* api.c */; };
 		OBJ_298 /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_204 /* emitter.c */; };
 		OBJ_299 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_205 /* parser.c */; };
@@ -648,6 +649,7 @@
 		C0F83D3323679F5200D42813 /* ColorStylesProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStylesProviderError.swift; sourceTree = "<group>"; };
 		C0F83D3A2367AD4400D42813 /* ColorStylesCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStylesCommand.swift; sourceTree = "<group>"; };
 		C0F83D3E236832E500D42813 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
+		C0FFBFB42379B6FD0060AACB /* BaseConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConfiguration.swift; sourceTree = "<group>"; };
 		"Fugen::Fugen::Product" /* Fugen */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fugen; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Fugen::FugenTests::Product" /* FugenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FugenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Fugen::FugenTools::Product" /* FugenTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FugenTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1033,6 +1035,7 @@
 		C0D4B89D23734E1F006C0F64 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				C0FFBFB42379B6FD0060AACB /* BaseConfiguration.swift */,
 				C0F7A5D42376F6E80069775B /* ColorStylesConfiguration.swift */,
 				C0D4B8A52373576D006C0F64 /* Configuration.swift */,
 				C0D4B89E23734E35006C0F64 /* FileConfiguration.swift */,
@@ -2319,6 +2322,7 @@
 				C0F83BF8236779B400D42813 /* FigmaNodesProvider.swift in Sources */,
 				OBJ_357 /* FigmaTextNodePayload.swift in Sources */,
 				OBJ_358 /* FigmaVectorNodeInfo.swift in Sources */,
+				C0FFBFB62379B7010060AACB /* BaseConfiguration.swift in Sources */,
 				C0DCC30D236BB85900A3F746 /* TextStylesEncoder.swift in Sources */,
 				C0F7A5D82376FBDC0069775B /* TextStylesConfiguration.swift in Sources */,
 				C0A7A44A236A34FE0087A369 /* ColorEncoder.swift in Sources */,

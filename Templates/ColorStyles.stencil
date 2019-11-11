@@ -26,7 +26,7 @@ import UIKit
 import AppKit
 #endif
 
-{{accessModifier}} struct {{styleTypeName}} {
+{{accessModifier}} struct {{styleTypeName}}: Equatable {
 
     // MARK: - Type Properties
 {% for style in colorStyles %}

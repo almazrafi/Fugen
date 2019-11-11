@@ -4,7 +4,7 @@ struct Configuration: Decodable {
 
     // MARK: - Instance Properties
 
-    let base: GeneratorConfiguration?
+    let base: BaseConfiguration?
 
     let colorStyles: ColorStylesConfiguration?
     let textStyles: TextStylesConfiguration?

@@ -53,7 +53,7 @@ struct GeneratorConfiguration: Decodable {
 
     // MARK: - Instance Methods
 
-    func resolve(base: GeneratorConfiguration?) -> GeneratorConfiguration {
+    func resolve(base: BaseConfiguration?) -> GeneratorConfiguration {
         guard let base = base else {
             return self
         }
@@ -61,9 +61,9 @@ struct GeneratorConfiguration: Decodable {
         return GeneratorConfiguration(
             file: file ?? base.file,
             accessToken: accessToken ?? base.accessToken,
-            templatePath: templatePath ?? base.templatePath,
-            templateOptions: templateOptions ?? base.templateOptions,
-            destinationPath: destinationPath ?? base.destinationPath
+            templatePath: templatePath,
+            templateOptions: templateOptions,
+            destinationPath: destinationPath
         )
     }
 }
