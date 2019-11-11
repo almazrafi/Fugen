@@ -1,8 +1,8 @@
 class Fugen < Formula
   desc "A Swift command line tool to generate code from Figma files"
   homepage "https://github.com/almazrafi/Fugen"
-  url "https://github.com/almazrafi/Fugen/archive/1.0.0-alpha.2.tar.gz"
-  sha256 "196822878306f60a291a0275166cfc27321a57c4819b96d88009c956dc05312d"
+  url "https://github.com/almazrafi/Fugen/archive/1.0.0-alpha.3.tar.gz"
+  sha256 "776bac2ab82faf5e499a8273acea853bc5e337d271545b8d55e5e72b9c9082d2"
   head "https://github.com/almazrafi/Fugen.git"
 
   depends_on :xcode
