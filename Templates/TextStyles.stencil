@@ -214,7 +214,6 @@ import AppKit
     ) -> NSAttributedString {
         return NSAttributedString(string: string, style: self, includingParagraphStyle: includingParagraphStyle)
     }
-{% if not options.skipStyleModifiers %}
 
     // MARK: -
 
@@ -239,7 +238,6 @@ import AppKit
     {% call styleModifier "lineBreakMode" "NSLineBreakMode?" %}
 
     {% call styleModifier "alignment" "NSTextAlignment?" %}
-{% endif %}
 }
 
 {{accessModifier}} extension NSAttributedString {

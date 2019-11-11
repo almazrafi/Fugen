@@ -76,7 +76,11 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "-o publicAccess:true"
+            argument = "--fileKey FILE_KEY"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--accessToken ACCESS_TOKEN"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
@@ -84,11 +88,7 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "--fileKey FILE_KEY"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "--accessToken ACCESS_TOKEN"
+            argument = "-o publicAccess:true"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument

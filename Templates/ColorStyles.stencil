@@ -61,7 +61,6 @@ import AppKit
         self.blue = blue
         self.alpha = alpha
     }
-{% if not options.skipStyleModifiers %}
 
     // MARK: - Instance Methods
 
@@ -72,7 +71,6 @@ import AppKit
     {% call styleModifier "blue" "CGFloat" %}
 
     {% call styleModifier "alpha" "CGFloat" %}
-{% endif %}
 }
 
 {{accessModifier}} extension {{colorTypeName}} {

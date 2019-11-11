@@ -23,7 +23,7 @@ final class TextStylesCommand: AsyncExecutableCommand, GeneratorConfigurableComm
     let fileVersion = Key<String>(
         "--fileVersion",
         description: """
-            Figma file version to generate color styles from.
+            Figma file version ID to generate color styles from.
             """
     )
 
