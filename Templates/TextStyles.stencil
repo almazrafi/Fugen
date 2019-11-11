@@ -55,7 +55,7 @@ import UIKit
 import AppKit
 #endif
 
-{{accessModifier}} struct {{styleTypeName}} {
+{{accessModifier}} struct {{styleTypeName}}: Equatable {
 
     // MARK: - Type Properties
 {% for style in textStyles %}
@@ -101,6 +101,10 @@ import AppKit
     {{accessModifier}} let letterSpacing: CGFloat?
     {{accessModifier}} let lineBreakMode: NSLineBreakMode?
     {{accessModifier}} let alignment: NSTextAlignment?
+
+    {{accessModifier}} var actualLineHeight: CGFloat {
+        return lineHeight ?? font.lineHeight
+    }
 
     // MARK: - Initializers
 
@@ -210,7 +214,6 @@ import AppKit
     ) -> NSAttributedString {
         return NSAttributedString(string: string, style: self, includingParagraphStyle: includingParagraphStyle)
     }
-{% if not options.skipStyleModifiers %}
 
     // MARK: -
 
@@ -235,7 +238,6 @@ import AppKit
     {% call styleModifier "lineBreakMode" "NSLineBreakMode?" %}
 
     {% call styleModifier "alignment" "NSTextAlignment?" %}
-{% endif %}
 }
 
 {{accessModifier}} extension NSAttributedString {

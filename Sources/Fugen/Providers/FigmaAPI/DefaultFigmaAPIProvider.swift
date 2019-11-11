@@ -23,9 +23,25 @@ final class DefaultFigmaAPIProvider: FigmaAPIProvider {
         let jsonEncoder = JSONEncoder()
         let jsonDecoder = JSONDecoder()
 
-        urlEncoder.dateEncodingStrategy = .formatted(.figmaAPI)
-        jsonEncoder.dateEncodingStrategy = .formatted(.figmaAPI)
-        jsonDecoder.dateDecodingStrategy = .formatted(.figmaAPI)
+        urlEncoder.dateEncodingStrategy = .formatted(.figmaAPI(withMilliseconds: true))
+        jsonEncoder.dateEncodingStrategy = .formatted(.figmaAPI(withMilliseconds: true))
+        jsonDecoder.dateDecodingStrategy = .custom { decoder in
+            let container = try decoder.singleValueContainer()
+            let dateString = try container.decode(String.self)
+
+            if let date = DateFormatter.figmaAPI(withMilliseconds: true).date(from: dateString) {
+                return date
+            }
+
+            if let date = DateFormatter.figmaAPI(withMilliseconds: false).date(from: dateString) {
+                return date
+            }
+
+            throw DecodingError.dataCorruptedError(
+                in: container,
+                debugDescription: "Date string does not match format expected by formatter."
+            )
+        }
 
         self.queryEncoder = HTTPQueryURLEncoder(urlEncoder: urlEncoder)
         self.bodyEncoder = HTTPBodyJSONEncoder(jsonEncoder: jsonEncoder)
@@ -112,15 +128,20 @@ private extension DateFormatter {
 
     // MARK: - Type Properties
 
-    static let figmaAPI: DateFormatter = {
+    static func figmaAPI(withMilliseconds: Bool) -> DateFormatter {
         let dateFormatter = DateFormatter()
 
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'"
-        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+
+        if withMilliseconds {
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'"
+        } else {
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        }
 
         return dateFormatter
-    }()
+    }
 }
 
 private extension URL {
