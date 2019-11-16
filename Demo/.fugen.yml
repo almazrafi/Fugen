@@ -12,11 +12,11 @@ colorStyles:
     publicAccess: true
 
 textStyles:
-  # file: 'https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo?version-id=201889163&node-id=15%3A2'
-  file:
-    key: 61xw2FQn61Xr7VVFYwiHHy
-    includedNodes:
-      - 15%3A2
+  file: 'https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo?version-id=201889163&node-id=15%3A2'
+  # file:
+  #   key: 61xw2FQn61Xr7VVFYwiHHy
+  #   includedNodes:
+  #     - 15%3A2
   destinationPath: FugenDemo/Generated/TextStyle.swift
   options:
     publicAccess: true
