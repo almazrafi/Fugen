@@ -155,6 +155,8 @@ import AppKit
         return attributes
     }
 
+    // MARK: -
+
     {{accessModifier}} func paragraphStyle() -> NSParagraphStyle {
         let paragraphStyle = NSMutableParagraphStyle()
 
