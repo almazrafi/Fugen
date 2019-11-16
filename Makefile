@@ -1,12 +1,14 @@
 PREFIX?=/usr/local
 
 PRODUCT_NAME=fugen
-PRODUCT_VERSION=1.0.0-alpha.3
+PRODUCT_VERSION=1.0.0-alpha.4
 TEMPLATES_NAME=Templates
 README_NAME=README.md
 LICENSE_NAME=LICENSE
 
 SOURCES_MAIN_PATH=Sources/Fugen/main.swift
+DEMO_PODFILE_PATH=Demo/Podfile
+
 RELEASE_PATH=.build/release/$(PRODUCT_NAME)-$(PRODUCT_VERSION)
 RELEASE_ZIP_PATH = ./$(PRODUCT_NAME)-$(PRODUCT_VERSION).zip
 PRODUCT_PATH=.build/release/$(PRODUCT_NAME)
@@ -46,6 +48,7 @@ uninstall:
 
 update_version:
 	sed -i '' 's|\(let version = "\)\(.*\)\("\)|\1$(PRODUCT_VERSION)\3|' $(SOURCES_MAIN_PATH)
+	sed -i '' 's|\(pod '\''Fugen'\'', '\''~> \)\(.*\)\('\''\)|\1$(PRODUCT_VERSION)\3|' $(DEMO_PODFILE_PATH)
 
 release: update_version build
 	mkdir -p $(RELEASE_PATH)
