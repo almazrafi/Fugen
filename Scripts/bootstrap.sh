@@ -136,7 +136,7 @@ homebrew_step() {
 brewfile_step() {
   echo ""
   echo "Installing ${homebrew_style}Homebrew formulae${default_style} specified in Brewfile..."
-  assert_failure 'brew bundle'
+  assert_failure 'brew bundle --no-lock'
 }
 
 rbenv_shell_step() {
