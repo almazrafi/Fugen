@@ -41,7 +41,7 @@
     lineBreakMode: lineBreakMode,
     alignment: alignment
 {% endset %}
-{% macro styleModifier propertyName propertyTypeName %}
+{% macro styleMutator propertyName propertyTypeName %}
     {% set methodName %}with{{propertyName|upperFirstLetter}}{% endset %}
     {{accessModifier}} func {{methodName}}(_ {{propertyName}}: {{propertyTypeName}}) -> {{styleTypeName}} {
         return {{styleTypeName}}(
@@ -217,27 +217,27 @@ import AppKit
 
     // MARK: -
 
-    {% call styleModifier "font" "UIFont" %}
+    {% call styleMutator "font" "UIFont" %}
 
-    {% call styleModifier "color" optionalColorTypeName %}
+    {% call styleMutator "color" optionalColorTypeName %}
 
-    {% call styleModifier "backgroundColor" optionalColorTypeName %}
+    {% call styleMutator "backgroundColor" optionalColorTypeName %}
 
-    {% call styleModifier "strikethrough" "Bool" %}
+    {% call styleMutator "strikethrough" "Bool" %}
 
-    {% call styleModifier "underline" "Bool" %}
+    {% call styleMutator "underline" "Bool" %}
 
-    {% call styleModifier "paragraphSpacing" "CGFloat?" %}
+    {% call styleMutator "paragraphSpacing" "CGFloat?" %}
 
-    {% call styleModifier "paragraphIndent" "CGFloat?" %}
+    {% call styleMutator "paragraphIndent" "CGFloat?" %}
 
-    {% call styleModifier "lineHeight" "CGFloat?" %}
+    {% call styleMutator "lineHeight" "CGFloat?" %}
 
-    {% call styleModifier "letterSpacing" "CGFloat?" %}
+    {% call styleMutator "letterSpacing" "CGFloat?" %}
 
-    {% call styleModifier "lineBreakMode" "NSLineBreakMode?" %}
+    {% call styleMutator "lineBreakMode" "NSLineBreakMode?" %}
 
-    {% call styleModifier "alignment" "NSTextAlignment?" %}
+    {% call styleMutator "alignment" "NSTextAlignment?" %}
 }
 
 {{accessModifier}} extension NSAttributedString {
