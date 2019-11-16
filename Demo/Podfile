@@ -1,0 +1,11 @@
+platform :ios, '10.0'
+
+target 'FugenDemo' do
+  use_frameworks!
+
+  pod 'Fugen', '~> 1.0.0-alpha.3'
+end
+
+pre_install do |installer|
+  system("Pods/Fugen/fugen generate")
+end
