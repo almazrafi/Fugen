@@ -1,10 +1,10 @@
 // swiftlint:disable all
-// Generated using Fugen: https://github.com/almazrafi/Fugen
+// Generated using Fugen - https://github.com/almazrafi/Fugen
 {% if textStyles %}
 {% set accessModifier %}{% if options.publicAccess %}public{% else %}internal{% endif %}{% endset %}
 {% set styleTypeName %}{{options.styleTypeName|default:"TextStyle"}}{% endset %}
-{% set colorTypeName %}{{options.colorTypeName|default:"UIColor"}}{% endset %}
 {% set fontTypeName %}{{options.fontTypeName|default:"UIFont"}}{% endset %}
+{% set colorTypeName %}{{options.colorTypeName|default:"UIColor"}}{% endset %}
 {% set strikethroughStyle %}{{options.strikethroughStyle|default:"single"}}{% endset %}
 {% set underlineStyle %}{{options.underlineStyle|default:"single"}}{% endset %}
 {% macro propertyName name %}{{name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}{% endmacro %}
@@ -15,40 +15,27 @@
 {% macro fontName style %}{{style.font.family}} ({{style.font.name}}){% endmacro %}
 {% macro fontDescription style %}{% call fontName style %}; weight {{style.font.weight}}; size {{style.font.size}}{% endmacro %}
 {% macro colorDescription style %}hex {% call rgbaHexString style.color %}; rgba {% call rgbaString style.color %}{% endmacro %}
+{% set optionalFontTypeName %}{{fontTypeName}}?{% endset %}
 {% set optionalColorTypeName %}{{colorTypeName}}?{% endset %}
-{% set styleDefaultNilParameters %}
-    color: {{optionalColorTypeName}} = nil,
-    backgroundColor: {{optionalColorTypeName}} = nil,
-    strikethrough: Bool = false,
-    underline: Bool = false,
-    paragraphSpacing: CGFloat? = nil,
-    paragraphIndent: CGFloat? = nil,
-    lineHeight: CGFloat? = nil,
-    letterSpacing: CGFloat? = nil,
-    lineBreakMode: NSLineBreakMode? = nil,
-    alignment: NSTextAlignment? = nil
-{% endset %}
-{% set styleSelfTitledArguments %}
-    font: font,
-    color: color,
-    backgroundColor: backgroundColor,
-    strikethrough: strikethrough,
-    underline: underline,
-    paragraphSpacing: paragraphSpacing,
-    paragraphIndent: paragraphIndent,
-    lineHeight: lineHeight,
-    letterSpacing: letterSpacing,
-    lineBreakMode: lineBreakMode,
-    alignment: alignment
-{% endset %}
 {% macro styleMutator propertyName propertyTypeName %}
     {% set methodName %}with{{propertyName|upperFirstLetter}}{% endset %}
     {{accessModifier}} func {{methodName}}(_ {{propertyName}}: {{propertyTypeName}}) -> {{styleTypeName}} {
         return {{styleTypeName}}(
-            {{styleSelfTitledArguments|indent:8," ",false}}
+            font: font,
+            color: color,
+            backgroundColor: backgroundColor,
+            strikethrough: strikethrough,
+            underline: underline,
+            paragraphSpacing: paragraphSpacing,
+            paragraphIndent: paragraphIndent,
+            lineHeight: lineHeight,
+            letterSpacing: letterSpacing,
+            lineBreakMode: lineBreakMode,
+            alignment: alignment
         )
     }
 {% endmacro %}
+
 #if canImport(UIKit)
 import UIKit
 #else
@@ -71,8 +58,10 @@ import AppKit
     /// Line height: {{style.lineHeight|default:"default"}}
     /// Letter spacing: {{style.letterSpacing|default:"default"}}
     {{accessModifier}} static let {% call propertyName style.name %} = {{styleTypeName}}(
-        fontName: "{{style.font.name}}",
-        fontSize: {{style.font.size}},
+        font: {{fontTypeName}}(
+            name: "{{style.font.name}}",
+            size: {{style.font.size}}
+        ),
         color: {{colorTypeName}}(
             red: {{ style.color.red|hexToInt|int255toFloat }},
             green: {{ style.color.green|hexToInt|int255toFloat }},
@@ -90,7 +79,7 @@ import AppKit
 
     // MARK: - Instance Properties
 
-    {{accessModifier}} let font: {{fontTypeName}}
+    {{accessModifier}} let font: {{optionalFontTypeName}}
     {{accessModifier}} let color: {{optionalColorTypeName}}
     {{accessModifier}} let backgroundColor: {{optionalColorTypeName}}
     {{accessModifier}} let strikethrough: Bool
@@ -102,15 +91,20 @@ import AppKit
     {{accessModifier}} let lineBreakMode: NSLineBreakMode?
     {{accessModifier}} let alignment: NSTextAlignment?
 
-    {{accessModifier}} var actualLineHeight: CGFloat {
-        return lineHeight ?? font.lineHeight
-    }
-
     // MARK: - Initializers
 
     {{accessModifier}} init(
-        font: {{fontTypeName}},
-        {{styleDefaultNilParameters|indent:4," ",false}}
+        font: {{optionalFontTypeName}} = nil,
+        color: {{optionalColorTypeName}} = nil,
+        backgroundColor: {{optionalColorTypeName}} = nil,
+        strikethrough: Bool = false,
+        underline: Bool = false,
+        paragraphSpacing: CGFloat? = nil,
+        paragraphIndent: CGFloat? = nil,
+        lineHeight: CGFloat? = nil,
+        letterSpacing: CGFloat? = nil,
+        lineBreakMode: NSLineBreakMode? = nil,
+        alignment: NSTextAlignment? = nil
     ) {
         self.font = font
         self.color = color
@@ -125,25 +119,17 @@ import AppKit
         self.alignment = alignment
     }
 
-    {{accessModifier}} init(
-        fontName: String,
-        fontSize: CGFloat,
-        {{styleDefaultNilParameters|indent:4," ",false}}
-    ) {
-        let font = {{fontTypeName}}(name: fontName, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
-
-        self.init(
-            {{styleSelfTitledArguments|indent:8," ",false}}
-        )
-    }
-
     // MARK: - Instance Methods
 
     private func attributes(paragraphStyle: NSParagraphStyle?) -> [NSAttributedString.Key: Any] {
-        var attributes: [NSAttributedString.Key: Any] = [.font: font]
+        var attributes: [NSAttributedString.Key: Any] = [:]
 
         if let paragraphStyle = paragraphStyle {
             attributes[.paragraphStyle] = paragraphStyle
+        }
+
+        if let font = font {
+            attributes[.font] = font
         }
 
         if let color = color {
@@ -173,12 +159,15 @@ import AppKit
         let paragraphStyle = NSMutableParagraphStyle()
 
         if let lineHeight = lineHeight {
-            let paragraphLineSpacing = (lineHeight - font.lineHeight) * 0.5
-            let paragraphLineHeight = lineHeight - paragraphLineSpacing
+            if let font = font {
+                paragraphStyle.lineSpacing = (lineHeight - font.lineHeight) * 0.5
+                paragraphStyle.minimumLineHeight = lineHeight - paragraphStyle.lineSpacing
+            } else {
+                paragraphStyle.lineSpacing = 0.0
+                paragraphStyle.minimumLineHeight = lineHeight
+            }
 
-            paragraphStyle.lineSpacing = paragraphLineSpacing
-            paragraphStyle.minimumLineHeight = paragraphLineHeight
-            paragraphStyle.maximumLineHeight = paragraphLineHeight
+            paragraphStyle.maximumLineHeight = paragraphStyle.minimumLineHeight
         }
 
         if let paragraphSpacing = paragraphSpacing {
@@ -217,7 +206,7 @@ import AppKit
 
     // MARK: -
 
-    {% call styleMutator "font" "UIFont" %}
+    {% call styleMutator "font" optionalFontTypeName %}
 
     {% call styleMutator "color" optionalColorTypeName %}
 
@@ -251,4 +240,3 @@ import AppKit
 {% else %}
 // No text style found
 {% endif %}
-// swiftlint:enable all
