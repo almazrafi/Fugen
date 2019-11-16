@@ -23,6 +23,8 @@ whitelist_rules:
   - comma
   - compiler_protocol_init
   - conditional_returns_on_newline
+  - contains_over_filter_count
+  - contains_over_filter_is_empty
   - contains_over_first_not_nil
   - contains_over_range_nil_comparison
   - control_statement
@@ -159,20 +161,24 @@ attributes:
     - '@NSCopying'
     - '@NSManaged'
     - '@dynamic'
-    - '@inlinable'
     - '@nonobjc'
     - '@objc'
     - '@objcMembers'
+    - '@testable'
   always_on_line_above:
-    - '@dynamicMemberLookup'
     - '@UIApplicationMain'
     - '@NSApplicationMain'
-    - '@available'
+    - '@dynamicMemberLookup'
+    - '@dynamicCallable'
+    - '@propertyWrapper'
     - '@convention'
+    - '@frozen'
+    - '@available'
     - '@discardableResult'
+    - '@inlinable'
     - '@usableFromInline'
     - '@warn_unqualified_access'
-    - '@testable'
+    - '@requires_stored_property_inits'
 
 closure_body_length:
   warning: 20
@@ -385,4 +391,4 @@ unused_declaration:
 vertical_whitespace:
   max_empty_lines: 1
 
-warning_threshold: 500
+warning_threshold: 100
