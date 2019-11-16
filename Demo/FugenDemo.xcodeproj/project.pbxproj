@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2AACCA0388F9FF9E4AF322F1 /* Pods_FugenDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5892121F1D00E978F9A770E /* Pods_FugenDemo.framework */; };
+		C08DB57B2380983E00391F14 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DB5792380983E00391F14 /* TextStyle.swift */; };
+		C08DB57C2380983E00391F14 /* ColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DB57A2380983E00391F14 /* ColorStyle.swift */; };
+		C0E6B5FB238096C500083ADB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E6B5FA238096C500083ADB /* AppDelegate.swift */; };
+		C0E6B5FD238096C500083ADB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E6B5FC238096C500083ADB /* SceneDelegate.swift */; };
+		C0E6B5FF238096C500083ADB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E6B5FE238096C500083ADB /* ViewController.swift */; };
+		C0E6B602238096C500083ADB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E6B600238096C500083ADB /* Main.storyboard */; };
+		C0E6B604238096C500083ADB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E6B603238096C500083ADB /* Assets.xcassets */; };
+		C0E6B607238096C500083ADB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E6B605238096C500083ADB /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		29B6BD966DD89C853A1AFFD2 /* Pods-FugenDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FugenDemo.debug.xcconfig"; path = "Target Support Files/Pods-FugenDemo/Pods-FugenDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		8FC235E00E36DC62C4755546 /* Pods-Fugen Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fugen Demo.debug.xcconfig"; path = "Target Support Files/Pods-Fugen Demo/Pods-Fugen Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		A5892121F1D00E978F9A770E /* Pods_FugenDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FugenDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEAAC6E1082665BBB49FA803 /* Pods-FugenDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FugenDemo.release.xcconfig"; path = "Target Support Files/Pods-FugenDemo/Pods-FugenDemo.release.xcconfig"; sourceTree = "<group>"; };
+		C08DB5792380983E00391F14 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
+		C08DB57A2380983E00391F14 /* ColorStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorStyle.swift; sourceTree = "<group>"; };
+		C0E6B5F7238096C500083ADB /* Fugen Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fugen Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0E6B5FA238096C500083ADB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C0E6B5FC238096C500083ADB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C0E6B5FE238096C500083ADB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C0E6B601238096C500083ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C0E6B603238096C500083ADB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C0E6B606238096C500083ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C0E6B608238096C500083ADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C670EBD294B45540406F27CE /* Pods-Fugen Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fugen Demo.release.xcconfig"; path = "Target Support Files/Pods-Fugen Demo/Pods-Fugen Demo.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C0E6B5F4238096C500083ADB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AACCA0388F9FF9E4AF322F1 /* Pods_FugenDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		45BFC2FE748FBFC15ABD446E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8FC235E00E36DC62C4755546 /* Pods-Fugen Demo.debug.xcconfig */,
+				C670EBD294B45540406F27CE /* Pods-Fugen Demo.release.xcconfig */,
+				29B6BD966DD89C853A1AFFD2 /* Pods-FugenDemo.debug.xcconfig */,
+				BEAAC6E1082665BBB49FA803 /* Pods-FugenDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C08DB5772380978C00391F14 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				C08DB57A2380983E00391F14 /* ColorStyle.swift */,
+				C08DB5792380983E00391F14 /* TextStyle.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		C08DB5782380979900391F14 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C0E6B603238096C500083ADB /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C08DB57D2380991800391F14 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C0E6B605238096C500083ADB /* LaunchScreen.storyboard */,
+				C0E6B600238096C500083ADB /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C0E6B5EE238096C500083ADB = {
+			isa = PBXGroup;
+			children = (
+				C0E6B5F9238096C500083ADB /* FugenDemo */,
+				C0E6B5F8238096C500083ADB /* Products */,
+				45BFC2FE748FBFC15ABD446E /* Pods */,
+				CB1DDE6FE90E7C3F902816CB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C0E6B5F8238096C500083ADB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C0E6B5F7238096C500083ADB /* Fugen Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C0E6B5F9238096C500083ADB /* FugenDemo */ = {
+			isa = PBXGroup;
+			children = (
+				C08DB5772380978C00391F14 /* Generated */,
+				C08DB5782380979900391F14 /* Resources */,
+				C08DB57D2380991800391F14 /* Storyboards */,
+				C0E6B5FA238096C500083ADB /* AppDelegate.swift */,
+				C0E6B608238096C500083ADB /* Info.plist */,
+				C0E6B5FC238096C500083ADB /* SceneDelegate.swift */,
+				C0E6B5FE238096C500083ADB /* ViewController.swift */,
+			);
+			path = FugenDemo;
+			sourceTree = "<group>";
+		};
+		CB1DDE6FE90E7C3F902816CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5892121F1D00E978F9A770E /* Pods_FugenDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C0E6B5F6238096C500083ADB /* FugenDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0E6B60B238096C500083ADB /* Build configuration list for PBXNativeTarget "FugenDemo" */;
+			buildPhases = (
+				2F36647D95B78805F756F3F1 /* [CP] Check Pods Manifest.lock */,
+				C0E6B5F3238096C500083ADB /* Sources */,
+				C0E6B5F4238096C500083ADB /* Frameworks */,
+				C0E6B5F5238096C500083ADB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FugenDemo;
+			productName = "Fugen Demo";
+			productReference = C0E6B5F7238096C500083ADB /* Fugen Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C0E6B5EF238096C500083ADB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = "Almaz Ibragimov";
+				TargetAttributes = {
+					C0E6B5F6238096C500083ADB = {
+						CreatedOnToolsVersion = 11.0;
+					};
+				};
+			};
+			buildConfigurationList = C0E6B5F2238096C500083ADB /* Build configuration list for PBXProject "FugenDemo" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C0E6B5EE238096C500083ADB;
+			productRefGroup = C0E6B5F8238096C500083ADB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C0E6B5F6238096C500083ADB /* FugenDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C0E6B5F5238096C500083ADB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0E6B607238096C500083ADB /* LaunchScreen.storyboard in Resources */,
+				C0E6B604238096C500083ADB /* Assets.xcassets in Resources */,
+				C0E6B602238096C500083ADB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2F36647D95B78805F756F3F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FugenDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C0E6B5F3238096C500083ADB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C08DB57B2380983E00391F14 /* TextStyle.swift in Sources */,
+				C0E6B5FF238096C500083ADB /* ViewController.swift in Sources */,
+				C0E6B5FB238096C500083ADB /* AppDelegate.swift in Sources */,
+				C08DB57C2380983E00391F14 /* ColorStyle.swift in Sources */,
+				C0E6B5FD238096C500083ADB /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C0E6B600238096C500083ADB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0E6B601238096C500083ADB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C0E6B605238096C500083ADB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0E6B606238096C500083ADB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C0E6B609238096C500083ADB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C0E6B60A238096C500083ADB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C0E6B60C238096C500083ADB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29B6BD966DD89C853A1AFFD2 /* Pods-FugenDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FugenDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.almazrafi.Fugen-Demo";
+				PRODUCT_NAME = "Fugen Demo";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C0E6B60D238096C500083ADB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEAAC6E1082665BBB49FA803 /* Pods-FugenDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FugenDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.almazrafi.Fugen-Demo";
+				PRODUCT_NAME = "Fugen Demo";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C0E6B5F2238096C500083ADB /* Build configuration list for PBXProject "FugenDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0E6B609238096C500083ADB /* Debug */,
+				C0E6B60A238096C500083ADB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0E6B60B238096C500083ADB /* Build configuration list for PBXNativeTarget "FugenDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0E6B60C238096C500083ADB /* Debug */,
+				C0E6B60D238096C500083ADB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C0E6B5EF238096C500083ADB /* Project object */;
+}

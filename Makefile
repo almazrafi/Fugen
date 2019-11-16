@@ -6,10 +6,6 @@ TEMPLATES_NAME=Templates
 README_NAME=README.md
 LICENSE_NAME=LICENSE
 
-REPOSITORY=https://github.com/almazrafi/$(PRODUCT_NAME)
-RELEASE_TAR = $(REPOSITORY)/archive/$(PRODUCT_VERSION).tar.gz
-RELEASE_SHA = $(shell curl -L -s $(RELEASE_TAR) | shasum -a 256 | sed 's/ .*//')
-
 SOURCES_MAIN_PATH=Sources/Fugen/main.swift
 RELEASE_PATH=.build/release/$(PRODUCT_NAME)-$(PRODUCT_VERSION)
 RELEASE_ZIP_PATH = ./$(PRODUCT_NAME)-$(PRODUCT_VERSION).zip
@@ -23,9 +19,7 @@ BIN_PATH=$(PREFIX)/bin
 BIN_PRODUCT_PATH=$(BIN_PATH)/$(PRODUCT_NAME)
 SHARE_PRODUCT_PATH=$(PREFIX)/share/$(PRODUCT_NAME)
 
-HOMEBREW_FORMULA_PATH=Formula/Fugen.rb
-
-.PHONY: all version bootstrap lint build install uninstall
+.PHONY: all version bootstrap lint build install uninstall update_version release
 
 version:
 	@echo $(PRODUCT_VERSION)
@@ -50,14 +44,10 @@ uninstall:
 	rm -rf $(BIN_PRODUCT_PATH)
 	rm -rf $(SHARE_PRODUCT_PATH)
 
-update_main_version:
+update_version:
 	sed -i '' 's|\(let version = "\)\(.*\)\("\)|\1$(PRODUCT_VERSION)\3|' $(SOURCES_MAIN_PATH)
 
-update_formula_version:
-	sed -i '' 's|\(url ".*/archive/\)\(.*\)\(.tar\)|\1$(PRODUCT_VERSION)\3|' $(HOMEBREW_FORMULA_PATH)
-	sed -i '' 's|\(sha256 "\)\(.*\)\("\)|\1$(RELEASE_SHA)\3|' $(HOMEBREW_FORMULA_PATH)
-
-release: update_main_version build
+release: update_version build
 	mkdir -p $(RELEASE_PATH)
 	cp -f $(PRODUCT_PATH) $(RELEASE_PATH)
 	cp -r $(TEMPLATES_PATH) $(RELEASE_PATH)

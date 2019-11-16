@@ -48,7 +48,7 @@ final class DefaultFigmaNodesProvider: FigmaNodesProvider {
     }
 
     private func resolveNodeIDs(_ nodeIDs: [String]?, defaultNodeIDs: Set<String>) throws -> Set<String> {
-        guard let nodeIDs = nodeIDs else {
+        guard let nodeIDs = nodeIDs, !nodeIDs.isEmpty else {
             return defaultNodeIDs
         }
 

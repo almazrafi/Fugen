@@ -136,7 +136,7 @@ homebrew_step() {
 brewfile_step() {
   echo ""
   echo "Installing ${homebrew_style}Homebrew formulae${default_style} specified in Brewfile..."
-  assert_failure 'brew bundle'
+  assert_failure 'brew bundle --no-lock'
 }
 
 rbenv_shell_step() {
@@ -187,7 +187,7 @@ ruby_step() {
   echo ""
   echo "Checking ${ruby_style}Ruby${default_style} version:"
 
-  ruby_versions=($(rbenv versions 2>&1))
+  ruby_versions=$(rbenv versions 2>&1)
 
   if [[ " ${ruby_versions[@]} " =~ " ${required_ruby_version} " ]]; then
     echo "  Required Ruby version ($required_ruby_version) already installed."
@@ -260,7 +260,7 @@ swift_step() {
   echo ""
   echo "Checking ${swift_style}Swift${default_style} version:"
 
-  swift_versions=($(swiftenv versions 2>&1))
+  swift_versions=$(swiftenv versions 2>&1)
 
   if [[ " ${swift_versions[@]} " =~ " ${required_swift_version} " ]]; then
     echo "  Required Swift version ($required_swift_version) already installed."

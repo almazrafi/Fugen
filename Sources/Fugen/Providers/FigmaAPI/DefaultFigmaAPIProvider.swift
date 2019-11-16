@@ -39,7 +39,7 @@ final class DefaultFigmaAPIProvider: FigmaAPIProvider {
 
             throw DecodingError.dataCorruptedError(
                 in: container,
-                debugDescription: "Date string does not match format expected by formatter."
+                debugDescription: "Date string does not match format expected by formatter"
             )
         }
 

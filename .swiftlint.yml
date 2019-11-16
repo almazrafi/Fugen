@@ -23,6 +23,8 @@ whitelist_rules:
   - comma
   - compiler_protocol_init
   - conditional_returns_on_newline
+  - contains_over_filter_count
+  - contains_over_filter_is_empty
   - contains_over_first_not_nil
   - contains_over_range_nil_comparison
   - control_statement
@@ -159,24 +161,28 @@ attributes:
     - '@NSCopying'
     - '@NSManaged'
     - '@dynamic'
-    - '@inlinable'
     - '@nonobjc'
     - '@objc'
     - '@objcMembers'
+    - '@testable'
   always_on_line_above:
-    - '@dynamicMemberLookup'
     - '@UIApplicationMain'
     - '@NSApplicationMain'
-    - '@available'
+    - '@dynamicMemberLookup'
+    - '@dynamicCallable'
+    - '@propertyWrapper'
     - '@convention'
+    - '@frozen'
+    - '@available'
     - '@discardableResult'
+    - '@inlinable'
     - '@usableFromInline'
     - '@warn_unqualified_access'
-    - '@testable'
+    - '@requires_stored_property_inits'
 
 closure_body_length:
   warning: 20
-  error: 100
+  error: 200
 
 collection_alignment:
   align_colons: false
@@ -190,7 +196,7 @@ conditional_returns_on_newline:
 
 cyclomatic_complexity:
   warning: 16
-  error: 100
+  error: 160
   ignores_case_statements: true
 
 discouraged_direct_init:
@@ -217,7 +223,7 @@ file_header:
 
 file_length:
   warning: 400
-  error: 2000
+  error: 4000
   ignore_comment_only_lines: true
 
 file_name:
@@ -232,7 +238,7 @@ force_try:
 
 function_body_length:
   warning: 40
-  error: 100
+  error: 400
 
 generic_type_name:
   min_length:
@@ -240,7 +246,7 @@ generic_type_name:
     error: 0
   max_length:
     warning: 20
-    error: 100
+    error: 200
   validates_start_with_lowercase: true
   excluded:
     - T
@@ -253,7 +259,7 @@ identifier_name:
     error: 1
   max_length:
     warning: 40
-    error: 100
+    error: 400
   validates_start_with_lowercase: true
   excluded:
     - a
@@ -273,7 +279,7 @@ large_tuple:
 
 line_length:
   warning: 120
-  error: 1000
+  error: 1200
   ignores_urls: false
   ignores_function_declarations: false
   ignores_comments: false
@@ -303,7 +309,7 @@ nesting:
     error: 10
   statement_level:
     warning: 4
-    error: 10
+    error: 40
 
 number_separator:
   minimum_length: 5
@@ -364,7 +370,7 @@ type_contents_order:
 
 type_body_length:
   warning: 400
-  error: 2000
+  error: 4000
 
 type_name:
   min_length:
@@ -372,7 +378,7 @@ type_name:
     error: 0
   max_length:
     warning: 50
-    error: 100
+    error: 500
   validates_start_with_lowercase: true
 
 unused_optional_binding:
@@ -385,4 +391,4 @@ unused_declaration:
 vertical_whitespace:
   max_empty_lines: 1
 
-warning_threshold: 500
+warning_threshold: 100

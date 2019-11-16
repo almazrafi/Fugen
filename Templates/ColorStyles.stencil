@@ -1,5 +1,5 @@
 // swiftlint:disable all
-// Generated using Fugen: https://github.com/almazrafi/Fugen
+// Generated using Fugen - https://github.com/almazrafi/Fugen
 {% if colorStyles %}
 {% set accessModifier %}{% if options.publicAccess %}public{% else %}internal{% endif %}{% endset %}
 {% set styleTypeName %}{{options.styleTypeName|default:"ColorStyle"}}{% endset %}
@@ -9,7 +9,7 @@
 {% macro rgbaHexString color %}{% call rgbHexString color %}{{color.alpha}}{% endmacro %}
 {% macro rgbString color %}{{color.red|hexToInt}} {{color.green|hexToInt}} {{color.blue|hexToInt}}{% endmacro %}
 {% macro rgbaString color %}{% call rgbString color %}, {{color.alpha|hexToInt|int255toFloat|percent}}{% endmacro %}
-{% macro styleModifier propertyName propertyTypeName %}
+{% macro styleMutator propertyName propertyTypeName %}
     {% set methodName %}with{{propertyName|upperFirstLetter}}{% endset %}
     {{accessModifier}} func {{methodName}}(_ {{propertyName}}: {{propertyTypeName}}) -> {{styleTypeName}} {
         return {{styleTypeName}}(
@@ -20,6 +20,7 @@
         )
     }
 {% endmacro %}
+
 #if canImport(UIKit)
 import UIKit
 #else
@@ -64,13 +65,13 @@ import AppKit
 
     // MARK: - Instance Methods
 
-    {% call styleModifier "red" "CGFloat" %}
+    {% call styleMutator "red" "CGFloat" %}
 
-    {% call styleModifier "green" "CGFloat" %}
+    {% call styleMutator "green" "CGFloat" %}
 
-    {% call styleModifier "blue" "CGFloat" %}
+    {% call styleMutator "blue" "CGFloat" %}
 
-    {% call styleModifier "alpha" "CGFloat" %}
+    {% call styleMutator "alpha" "CGFloat" %}
 }
 
 {{accessModifier}} extension {{colorTypeName}} {
@@ -84,4 +85,3 @@ import AppKit
 {% else %}
 // No color style found
 {% endif %}
-// swiftlint:enable all
