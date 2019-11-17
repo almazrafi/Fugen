@@ -5,16 +5,26 @@ import PathKit
 
 final class DefaultTemplateRenderer: TemplateRenderer {
 
+    // MARK: - Instance Properties
+
+    let stencilExtensions: [StencilExtension]
+
+    // MARK: - Initializers
+
+    init(stencilExtensions: [StencilExtension]) {
+        self.stencilExtensions = stencilExtensions
+    }
+
     // MARK: - Instance Methods
 
-    private func resolveTemplatePath(of templateType: RenderTemplateType) throws -> String {
+    private func resolveTemplatePath(of templateType: RenderTemplateType) throws -> Path {
         switch templateType {
         case let .native(name: templateName):
             let templateFileName = templateName.appending(String.templatesFileExtension)
             let projectTemplatesPath = Path(#file).appending(.templatesFileRelativePath)
 
             if projectTemplatesPath.exists {
-                return projectTemplatesPath.appending(templateFileName).string
+                return projectTemplatesPath.appending(templateFileName)
             }
 
             var executablePath = Path(ProcessInfo.processInfo.executablePath)
@@ -26,16 +36,15 @@ final class DefaultTemplateRenderer: TemplateRenderer {
             let podsTemplatesPath = executablePath.appending(.templatesPodsRelativePath)
 
             if podsTemplatesPath.exists {
-                return podsTemplatesPath.appending(templateFileName).string
+                return podsTemplatesPath.appending(templateFileName)
             }
 
             return executablePath
                 .appending(.templatesShareRelativePath)
                 .appending(templateFileName)
-                .string
 
         case let .custom(path: templatePath):
-            return templatePath
+            return Path(templatePath)
         }
     }
 
@@ -59,11 +68,25 @@ final class DefaultTemplateRenderer: TemplateRenderer {
         to destination: RenderDestination,
         context: [String: Any]
     ) throws {
-        let templatePath = Path(try resolveTemplatePath(of: template.type))
+        let stencilExtensionRegistry = ExtensionRegistry()
+
+        stencilExtensionRegistry.registerStencilSwiftExtensions()
+
+        stencilExtensions.forEach { stencilExtension in
+            stencilExtension.register(in: stencilExtensionRegistry)
+        }
+
+        let templatePath = try resolveTemplatePath(of: template.type)
+
+        let stencilEnvironment = Environment(
+            loader: FileSystemLoader(paths: [templatePath.parent()]),
+            extensions: [stencilExtensionRegistry],
+            templateClass: StencilSwiftTemplate.self
+        )
 
         let stencilTemplate = StencilSwiftTemplate(
             templateString: try templatePath.read(),
-            environment: stencilSwiftEnvironment()
+            environment: stencilEnvironment
         )
 
         let context = context.merging([.templateOptionsKey: template.options]) { $1 }

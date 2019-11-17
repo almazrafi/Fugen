@@ -1,18 +1,13 @@
-// swiftlint:disable all
-// Generated using Fugen - https://github.com/almazrafi/Fugen
+{% include "FileHeader.stencil" %}
 {% if colorStyles %}
 {% set accessModifier %}{% if options.publicAccess %}public{% else %}internal{% endif %}{% endset %}
-{% set styleTypeName %}{{options.styleTypeName|default:"ColorStyle"}}{% endset %}
-{% set colorTypeName %}{{options.colorTypeName|default:"UIColor"}}{% endset %}
-{% macro propertyName name %}{{name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}{% endmacro %}
-{% macro rgbHexString color %}#{{color.red}}{{color.green}}{{color.blue}}{% endmacro %}
-{% macro rgbaHexString color %}{% call rgbHexString color %}{{color.alpha}}{% endmacro %}
-{% macro rgbString color %}{{color.red|hexToInt}} {{color.green|hexToInt}} {{color.blue|hexToInt}}{% endmacro %}
-{% macro rgbaString color %}{% call rgbString color %}, {{color.alpha|hexToInt|int255toFloat|percent}}{% endmacro %}
+{% set styleTypeName %}{{ options.styleTypeName|default:"ColorStyle" }}{% endset %}
+{% set colorTypeName %}{{ options.colorTypeName|default:"UIColor" }}{% endset %}
+{% macro propertyName name %}{{ name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords }}{% endmacro %}
 {% macro styleMutator propertyName propertyTypeName %}
-    {% set methodName %}with{{propertyName|upperFirstLetter}}{% endset %}
-    {{accessModifier}} func {{methodName}}(_ {{propertyName}}: {{propertyTypeName}}) -> {{styleTypeName}} {
-        return {{styleTypeName}}(
+    {% set methodName %}with{{ propertyName|upperFirstLetter }}{% endset %}
+    {{ accessModifier }} func {{ methodName }}(_ {{propertyName}}: {{ propertyTypeName }}) -> {{ styleTypeName }} {
+        return {{ styleTypeName }}(
             red: red,
             green: green,
             blue: blue,
@@ -27,36 +22,36 @@ import UIKit
 import AppKit
 #endif
 
-{{accessModifier}} struct {{styleTypeName}}: Equatable {
+{{ accessModifier }} struct {{ styleTypeName }}: Equatable {
 
     // MARK: - Type Properties
 {% for style in colorStyles %}
 
-    /// {{style.name}}
+    /// {{ style.name }}
     ///
-    /// Hex {% call rgbaHexString style.color %}; rgba {% call rgbaString style.color %}
-    {{accessModifier}} static let {% call propertyName style.name %} = {{styleTypeName}}(
-        red: {{ style.color.red|hexToInt|int255toFloat }},
-        green: {{ style.color.green|hexToInt|int255toFloat }},
-        blue: {{ style.color.blue|hexToInt|int255toFloat }},
-        alpha: {{ style.color.alpha|hexToInt|int255toFloat }}
+    /// {{ style.color|colorInfo }}
+    {{ accessModifier }} static let {% call propertyName style.name %} = {{ styleTypeName }}(
+        red: {{ style.color.red }},
+        green: {{ style.color.green }},
+        blue: {{ style.color.blue }},
+        alpha: {{ style.color.alpha }}
     )
 {% endfor %}
 
     // MARK: - Instance Properties
 
-    {{accessModifier}} let red: CGFloat
-    {{accessModifier}} let green: CGFloat
-    {{accessModifier}} let blue: CGFloat
-    {{accessModifier}} let alpha: CGFloat
+    {{ accessModifier }} let red: CGFloat
+    {{ accessModifier }} let green: CGFloat
+    {{ accessModifier }} let blue: CGFloat
+    {{ accessModifier }} let alpha: CGFloat
 
-    {{accessModifier}} var color: {{colorTypeName}} {
-        return {{colorTypeName}}(style: self)
+    {{ accessModifier }} var color: {{ colorTypeName }} {
+        return {{ colorTypeName }}(style: self)
     }
 
     // MARK: - Initializers
 
-    {{accessModifier}} init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1.0) {
+    {{ accessModifier }} init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1.0) {
         self.red = red
         self.green = green
         self.blue = blue
@@ -74,11 +69,11 @@ import AppKit
     {% call styleMutator "alpha" "CGFloat" %}
 }
 
-{{accessModifier}} extension {{colorTypeName}} {
+{{ accessModifier }} extension {{ colorTypeName }} {
 
     // MARK: - Initializers
 
-    convenience init(style: {{styleTypeName}}) {
+    convenience init(style: {{ styleTypeName }}) {
         self.init(red: style.red, green: style.green, blue: style.blue, alpha: style.alpha)
     }
 }

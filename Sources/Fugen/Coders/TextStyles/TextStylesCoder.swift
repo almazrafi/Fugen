@@ -1,6 +1,6 @@
 import Foundation
 
-protocol TextStylesEncoder {
+protocol TextStylesCoder {
 
     // MARK: - Instance Methods
 

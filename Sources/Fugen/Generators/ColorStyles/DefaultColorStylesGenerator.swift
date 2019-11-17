@@ -6,7 +6,7 @@ final class DefaultColorStylesGenerator: ColorStylesGenerator, GeneratorParamete
     // MARK: - Instance Properties
 
     let colorStylesProvider: ColorStylesProvider
-    let colorStylesEncoder: ColorStylesEncoder
+    let colorStylesCoder: ColorStylesCoder
     let templateRenderer: TemplateRenderer
 
     let defaultTemplateType = RenderTemplateType.native(name: "ColorStyles")
@@ -16,11 +16,11 @@ final class DefaultColorStylesGenerator: ColorStylesGenerator, GeneratorParamete
 
     init(
         colorStylesProvider: ColorStylesProvider,
-        colorStylesEncoder: ColorStylesEncoder,
+        colorStylesCoder: ColorStylesCoder,
         templateRenderer: TemplateRenderer
     ) {
         self.colorStylesProvider = colorStylesProvider
-        self.colorStylesEncoder = colorStylesEncoder
+        self.colorStylesCoder = colorStylesCoder
         self.templateRenderer = templateRenderer
     }
 
@@ -36,7 +36,7 @@ final class DefaultColorStylesGenerator: ColorStylesGenerator, GeneratorParamete
                 accessToken: parameters.accessToken
             )
         }.map { colorStyles in
-            self.colorStylesEncoder.encodeColorStyles(colorStyles)
+            self.colorStylesCoder.encodeColorStyles(colorStyles)
         }.done { context in
             try self.templateRenderer.renderTemplate(
                 parameters.template,

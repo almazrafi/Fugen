@@ -5,10 +5,6 @@ final class Dependencies {
 
     // MARK: - Instance Methods
 
-    func makeTemplateRenderer() -> TemplateRenderer {
-        return DefaultTemplateRenderer()
-    }
-
     func makeFigmaHTTPService() -> FigmaHTTPService {
         return HTTPService()
     }
@@ -39,29 +35,47 @@ final class Dependencies {
         )
     }
 
-    func makeColorEncoder() -> ColorEncoder {
-        return DefaultColorEncoder()
+    // MARK: -
+
+    func makeColorCoder() -> ColorCoder {
+        return DefaultColorCoder()
     }
 
-    func makeFontEncoder() -> FontEncoder {
-        return DefaultFontEncoder()
+    func makeFontCoder() -> FontCoder {
+        return DefaultFontCoder()
     }
 
-    func makeColorStylesEncoder() -> ColorStylesEncoder {
-        return DefaultColorStylesEncoder(colorEncoder: makeColorEncoder())
+    func makeColorStylesCoder() -> ColorStylesCoder {
+        return DefaultColorStylesCoder(colorCoder: makeColorCoder())
     }
 
-    func makeTextStylesEncoder() -> TextStylesEncoder {
-        return DefaultTextStylesEncoder(
-            fontEncoder: makeFontEncoder(),
-            colorEncoder: makeColorEncoder()
+    func makeTextStylesCoder() -> TextStylesCoder {
+        return DefaultTextStylesCoder(
+            fontCoder: makeFontCoder(),
+            colorCoder: makeColorCoder()
         )
     }
+
+    // MARK: -
+
+    func makeStencilExtensions() -> [StencilExtension] {
+        return [
+            StencilNumberExtension(),
+            StencilColorExtension(colorCoder: makeColorCoder()),
+            StencilFontExtension(fontCoder: makeFontCoder())
+        ]
+    }
+
+    func makeTemplateRenderer() -> TemplateRenderer {
+        return DefaultTemplateRenderer(stencilExtensions: makeStencilExtensions())
+    }
+
+    // MARK: -
 
     func makeColorStylesGenerator() -> ColorStylesGenerator {
         return DefaultColorStylesGenerator(
             colorStylesProvider: makeColorStylesProvider(),
-            colorStylesEncoder: makeColorStylesEncoder(),
+            colorStylesCoder: makeColorStylesCoder(),
             templateRenderer: makeTemplateRenderer()
         )
     }
@@ -69,7 +83,7 @@ final class Dependencies {
     func makeTextStylesGenerator() -> TextStylesGenerator {
         return DefaultTextStylesGenerator(
             textStylesProvider: makeTextStylesProvider(),
-            textStylesEncoder: makeTextStylesEncoder(),
+            textStylesCoder: makeTextStylesCoder(),
             templateRenderer: makeTemplateRenderer()
         )
     }
