@@ -21,7 +21,7 @@ public struct HTTPRoute: CustomStringConvertible {
     // MARK: - CustomStringConvertible
 
     public var description: String {
-        return "\(String(describing: type(of: self))).\(method)(\(url.absoluteString))"
+        return "\(type(of: self)).\(method)(\(url.absoluteString))"
     }
 
     // MARK: - Initializers

@@ -41,7 +41,7 @@ public struct HTTPStatusCode: HTTPErrorStringConvertible, Hashable, ExpressibleB
     // MARK: - HTTPErrorStringConvertible
 
     public var httpErrorDescription: String {
-        "\(String(describing: type(of: self))).\(rawValue)"
+        "\(type(of: self)).\(rawValue)"
     }
 
     // MARK: - Initializers
