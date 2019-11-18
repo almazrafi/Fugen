@@ -2,7 +2,6 @@ import Foundation
 import SwiftCLI
 
 let version = "1.0.0-alpha.4"
-let dependencies = Dependencies()
 
 let fugen = CLI(
     name: "fugen",
@@ -11,9 +10,9 @@ let fugen = CLI(
 )
 
 fugen.commands = [
-    ColorStylesCommand(generator: dependencies.makeColorStylesGenerator()),
-    TextStylesCommand(generator: dependencies.makeTextStylesGenerator()),
-    GenerateCommand(generator: dependencies.makeKitGenerator())
+    ColorStylesCommand(generator: Dependencies.colorStylesGenerator),
+    TextStylesCommand(generator: Dependencies.textStylesGenerator),
+    GenerateCommand(generator: Dependencies.kitGenerator)
 ]
 
 fugen.goAndExitOnError()
