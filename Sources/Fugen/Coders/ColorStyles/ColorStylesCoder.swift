@@ -1,6 +1,6 @@
 import Foundation
 
-protocol ColorStylesEncoder {
+protocol ColorStylesCoder {
 
     // MARK: - Instance Methods
 

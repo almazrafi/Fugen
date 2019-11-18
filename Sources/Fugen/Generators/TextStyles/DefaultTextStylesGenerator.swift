@@ -6,7 +6,7 @@ final class DefaultTextStylesGenerator: TextStylesGenerator, GeneratorParameters
     // MARK: - Instance Properties
 
     let textStylesProvider: TextStylesProvider
-    let textStylesEncoder: TextStylesEncoder
+    let textStylesCoder: TextStylesCoder
     let templateRenderer: TemplateRenderer
 
     let defaultTemplateType = RenderTemplateType.native(name: "TextStyles")
@@ -16,11 +16,11 @@ final class DefaultTextStylesGenerator: TextStylesGenerator, GeneratorParameters
 
     init(
         textStylesProvider: TextStylesProvider,
-        textStylesEncoder: TextStylesEncoder,
+        textStylesCoder: TextStylesCoder,
         templateRenderer: TemplateRenderer
     ) {
         self.textStylesProvider = textStylesProvider
-        self.textStylesEncoder = textStylesEncoder
+        self.textStylesCoder = textStylesCoder
         self.templateRenderer = templateRenderer
     }
 
@@ -36,7 +36,7 @@ final class DefaultTextStylesGenerator: TextStylesGenerator, GeneratorParameters
                 accessToken: parameters.accessToken
             )
         }.map { textStyles in
-            self.textStylesEncoder.encodeTextStyles(textStyles)
+            self.textStylesCoder.encodeTextStyles(textStyles)
         }.done { context in
             try self.templateRenderer.renderTemplate(
                 parameters.template,

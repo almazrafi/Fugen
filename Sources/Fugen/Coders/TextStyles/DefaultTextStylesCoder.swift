@@ -1,20 +1,20 @@
 import Foundation
 
-final class DefaultTextStylesEncoder: TextStylesEncoder {
+final class DefaultTextStylesCoder: TextStylesCoder {
 
     // MARK: - Instance Properties
 
-    let fontEncoder: FontEncoder
-    let colorEncoder: ColorEncoder
+    let fontCoder: FontCoder
+    let colorCoder: ColorCoder
 
     // MARK: - Initializers
 
     init(
-        fontEncoder: FontEncoder,
-        colorEncoder: ColorEncoder
+        fontCoder: FontCoder,
+        colorCoder: ColorCoder
     ) {
-        self.fontEncoder = fontEncoder
-        self.colorEncoder = colorEncoder
+        self.fontCoder = fontCoder
+        self.colorCoder = colorCoder
     }
 
     // MARK: - Instance Methods
@@ -22,8 +22,8 @@ final class DefaultTextStylesEncoder: TextStylesEncoder {
     func encodeTextStyle(_ textStyle: TextStyle) -> [String: Any] {
         var encodedTextStyle: [String: Any] = [
             "name": textStyle.name,
-            "font": fontEncoder.encodeFont(textStyle.font),
-            "color": colorEncoder.encodeColor(textStyle.color),
+            "font": fontCoder.encodeFont(textStyle.font),
+            "color": colorCoder.encodeColor(textStyle.color),
             "strikethrough": textStyle.strikethrough,
             "underline": textStyle.underline
         ]

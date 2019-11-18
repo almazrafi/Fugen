@@ -1,15 +1,15 @@
 import Foundation
 
-final class DefaultColorStylesEncoder: ColorStylesEncoder {
+final class DefaultColorStylesCoder: ColorStylesCoder {
 
     // MARK: - Instance Properties
 
-    let colorEncoder: ColorEncoder
+    let colorCoder: ColorCoder
 
     // MARK: - Initializers
 
-    init(colorEncoder: ColorEncoder) {
-        self.colorEncoder = colorEncoder
+    init(colorCoder: ColorCoder) {
+        self.colorCoder = colorCoder
     }
 
     // MARK: - Instance Methods
@@ -17,7 +17,7 @@ final class DefaultColorStylesEncoder: ColorStylesEncoder {
     func encodeColorStyle(_ colorStyle: ColorStyle) -> [String: Any] {
         return [
             "name": colorStyle.name,
-            "color": colorEncoder.encodeColor(colorStyle.color)
+            "color": colorCoder.encodeColor(colorStyle.color)
         ]
     }
 
