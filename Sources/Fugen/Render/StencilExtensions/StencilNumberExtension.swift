@@ -40,7 +40,7 @@ final class StencilNumberExtension: StencilExtension {
 
 private extension String {
 
-    // MARK: - Instance Properties
+    // MARK: - Type Properties
 
     static let stencilUInt8ToHexFilter = "uint8ToHex"
     static let stencilUInt8ToFloatFilter = "uint8ToFloat"

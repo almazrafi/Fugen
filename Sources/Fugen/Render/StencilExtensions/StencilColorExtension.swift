@@ -85,7 +85,7 @@ private extension Color {
 
 private extension String {
 
-    // MARK: - Instance Properties
+    // MARK: - Type Properties
 
     static let stencilColorRGBHexInfoFilter = "colorRGBHexInfo"
     static let stencilColorRGBAHexInfoFilter = "colorRGBAHexInfo"

@@ -42,7 +42,7 @@ final class StencilFontExtension: StencilExtension {
 
 private extension String {
 
-    // MARK: - Instance Properties
+    // MARK: - Type Properties
 
     static let stencilFontInfoFilter = "fontInfo"
 }
