@@ -2,10 +2,6 @@ import Foundation
 
 class StencilFontInfoFilter: StencilFontFilter {
 
-    // MARK: - Nested Types
-
-    typealias Output = String
-
     // MARK: - Instance Properties
 
     let name = "fontInfo"

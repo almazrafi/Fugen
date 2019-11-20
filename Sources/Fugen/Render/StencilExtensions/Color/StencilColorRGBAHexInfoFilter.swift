@@ -1,10 +1,6 @@
 import Foundation
 
-class StencilColorRGBAHexInfoFilter: StencilColorFilter {
-
-    // MARK: - Nested Types
-
-    typealias Output = String
+final class StencilColorRGBAHexInfoFilter: StencilColorFilter {
 
     // MARK: - Instance Properties
 
@@ -25,7 +21,7 @@ class StencilColorRGBAHexInfoFilter: StencilColorFilter {
         let rgbHexInfo = try rgbHexInfoFilter.filter(color: color)
 
         guard let alpha = colorComponentHexByte(color.alpha) else {
-            throw StencilFilterError.invalidValue(color, filter: name)
+            throw StencilFilterError(code: .invalidValue(color), filter: name)
         }
 
         return "\(rgbHexInfo)\(alpha)"

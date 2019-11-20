@@ -20,7 +20,7 @@ extension StencilFilter {
     func register(in extensionRegistry: ExtensionRegistry) {
         extensionRegistry.registerFilter(name) { value in
             guard let input = value as? Input else {
-                throw StencilFilterError.invalidValue(value, filter: self.name)
+                throw StencilFilterError(code: .invalidValue(value), filter: self.name)
             }
 
             return try self.filter(input: input)

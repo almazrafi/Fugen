@@ -1,6 +1,6 @@
 import Foundation
 
-class StencilByteToHexFilter: StencilFilter {
+final class StencilByteToHexFilter: StencilFilter {
 
     // MARK: - Instance Properties
 

@@ -1,10 +1,6 @@
 import Foundation
 
-class StencilColorInfoFilter: StencilColorFilter {
-
-    // MARK: - Nested Types
-
-    typealias Output = String
+final class StencilColorInfoFilter: StencilColorFilter {
 
     // MARK: - Instance Properties
 

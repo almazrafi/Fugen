@@ -1,10 +1,6 @@
 import Foundation
 
-class StencilColorRGBAInfoFilter: StencilColorFilter {
-
-    // MARK: - Nested Types
-
-    typealias Output = String
+final class StencilColorRGBAInfoFilter: StencilColorFilter {
 
     // MARK: - Instance Properties
 

@@ -1,10 +1,6 @@
 import Foundation
 
-class StencilColorRGBInfoFilter: StencilColorFilter {
-
-    // MARK: - Nested Types
-
-    typealias Output = String
+final class StencilColorRGBInfoFilter: StencilColorFilter {
 
     // MARK: - Instance Properties
 
@@ -22,15 +18,15 @@ class StencilColorRGBInfoFilter: StencilColorFilter {
 
     func filter(color: Color) throws -> String {
         guard let red = colorComponentByte(color.red) else {
-            throw StencilFilterError.invalidValue(color, filter: name)
+            throw StencilFilterError(code: .invalidValue(color), filter: name)
         }
 
         guard let green = colorComponentByte(color.green) else {
-            throw StencilFilterError.invalidValue(color, filter: name)
+            throw StencilFilterError(code: .invalidValue(color), filter: name)
         }
 
         guard let blue = colorComponentByte(color.blue) else {
-            throw StencilFilterError.invalidValue(color, filter: name)
+            throw StencilFilterError(code: .invalidValue(color), filter: name)
         }
 
         return "\(red) \(green) \(blue)"

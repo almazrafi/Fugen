@@ -1,6 +1,6 @@
 import Foundation
 
-class StencilFloatToByteFilter: StencilFilter {
+final class StencilFloatToByteFilter: StencilFilter {
 
     // MARK: - Instance Properties
 
@@ -10,7 +10,7 @@ class StencilFloatToByteFilter: StencilFilter {
 
     func filter(input: Double) throws -> UInt8 {
         guard 0.0...1.0 ~= input else {
-            throw StencilFilterError.invalidValue(input, filter: name)
+            throw StencilFilterError(code: .invalidValue(input), filter: name)
         }
 
         return UInt8(input * 255.0)

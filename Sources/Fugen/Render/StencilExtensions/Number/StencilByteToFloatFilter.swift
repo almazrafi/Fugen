@@ -1,6 +1,6 @@
 import Foundation
 
-class StencilByteToFloatFilter: StencilFilter {
+final class StencilByteToFloatFilter: StencilFilter {
 
     // MARK: - Instance Properties
 
