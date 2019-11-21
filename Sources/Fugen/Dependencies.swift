@@ -47,7 +47,8 @@ enum Dependencies {
         StencilColorRGBAInfoFilter(colorCoder: colorCoder),
         StencilColorInfoFilter(colorCoder: colorCoder),
         StencilFontInfoFilter(fontCoder: fontCoder),
-        StencilDeleteFileOrDirectoryTag()
+        StencilDeleteFileOrDirectoryTag(),
+        StencilCreateFileTag()
     ]
 
     static let templateRenderer: TemplateRenderer = DefaultTemplateRenderer(stencilExtensions: stencilExtensions)

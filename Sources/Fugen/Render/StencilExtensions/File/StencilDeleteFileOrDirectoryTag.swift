@@ -11,7 +11,7 @@ final class StencilDeleteFileOrDirectoryTag: StencilTag {
 
     // MARK: - Instance Methods
 
-    private func deleteFileOrDirectory(_ pathVariable: Variable, context: Context) throws -> String {
+    private func deleteFileOrDirectory(at pathVariable: Variable, context: Context) throws -> String {
         guard let relativePath = try pathVariable.resolve(context) as? String else {
             throw StencilTagError(
                 code: .invalidVariable(pathVariable.variable, expectedType: String.self),
@@ -19,10 +19,10 @@ final class StencilDeleteFileOrDirectoryTag: StencilTag {
             )
         }
 
-        let path = Path.current.appending(relativePath)
+        let filePath = Path.current.appending(relativePath)
 
-        if path.exists {
-            try path.delete()
+        if filePath.exists {
+            try filePath.delete()
         }
 
         return .empty
@@ -33,10 +33,10 @@ final class StencilDeleteFileOrDirectoryTag: StencilTag {
         let pathArgument: String
 
         switch arguments.count {
-        case 3 where arguments[0] == name && arguments[1] == .deleteFileOrDirectoryAtLabel:
+        case 3 where arguments[1] == .deleteFileOrDirectoryPathLabel:
             pathArgument = arguments[2]
 
-        case 2 where arguments[0] == name:
+        case 2:
             pathArgument = arguments[1]
 
         default:
@@ -44,7 +44,7 @@ final class StencilDeleteFileOrDirectoryTag: StencilTag {
         }
 
         return StencilTagNode(token: token) { context in
-            try self.deleteFileOrDirectory(Variable(pathArgument), context: context)
+            try self.deleteFileOrDirectory(at: Variable(pathArgument), context: context)
         }
     }
 }
@@ -53,5 +53,5 @@ private extension String {
 
     // MARK: - Type Properties
 
-    static let deleteFileOrDirectoryAtLabel = "at"
+    static let deleteFileOrDirectoryPathLabel = "at"
 }

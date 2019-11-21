@@ -53,6 +53,7 @@
 		C04614E92385B95200E12C1F /* StencilTagError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04614E62385B95100E12C1F /* StencilTagError.swift */; };
 		C04614EA2385B95200E12C1F /* StencilTagNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04614E72385B95100E12C1F /* StencilTagNode.swift */; };
 		C04614ED2385B95C00E12C1F /* StencilDeleteFileOrDirectoryTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04614EC2385B95C00E12C1F /* StencilDeleteFileOrDirectoryTag.swift */; };
+		C04614F22385CBA000E12C1F /* StencilCreateFileTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04614F12385CBA000E12C1F /* StencilCreateFileTag.swift */; };
 		C0A7A301236918D00087A369 /* RenderTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A2E22368EA520087A369 /* RenderTemplate.swift */; };
 		C0A7A30223691A990087A369 /* RenderTemplateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A2E92368F5EE0087A369 /* RenderTemplateType.swift */; };
 		C0A7A43D2369EF380087A369 /* TemplateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A43C2369EF380087A369 /* TemplateRenderer.swift */; };
@@ -618,6 +619,7 @@
 		C04614E62385B95100E12C1F /* StencilTagError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StencilTagError.swift; sourceTree = "<group>"; };
 		C04614E72385B95100E12C1F /* StencilTagNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StencilTagNode.swift; sourceTree = "<group>"; };
 		C04614EC2385B95C00E12C1F /* StencilDeleteFileOrDirectoryTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StencilDeleteFileOrDirectoryTag.swift; sourceTree = "<group>"; };
+		C04614F12385CBA000E12C1F /* StencilCreateFileTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StencilCreateFileTag.swift; sourceTree = "<group>"; };
 		C0A7A2E22368EA520087A369 /* RenderTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderTemplate.swift; sourceTree = "<group>"; };
 		C0A7A2E92368F5EE0087A369 /* RenderTemplateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderTemplateType.swift; sourceTree = "<group>"; };
 		C0A7A43C2369EF380087A369 /* TemplateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateRenderer.swift; sourceTree = "<group>"; };
@@ -1097,6 +1099,7 @@
 			isa = PBXGroup;
 			children = (
 				C04614EC2385B95C00E12C1F /* StencilDeleteFileOrDirectoryTag.swift */,
+				C04614F12385CBA000E12C1F /* StencilCreateFileTag.swift */,
 			);
 			path = File;
 			sourceTree = "<group>";
@@ -1817,8 +1820,8 @@
 		OBJ_8 /* Fugen */ = {
 			isa = PBXGroup;
 			children = (
-				C0F83D392367AD3400D42813 /* Commands */,
 				C0DCC2FE236BB32D00A3F746 /* Coders */,
+				C0F83D392367AD3400D42813 /* Commands */,
 				C0F7A5DF2376FF910069775B /* Generators */,
 				C0DCC2F6236BB18000A3F746 /* Models */,
 				C0DCC301236BB44800A3F746 /* Providers */,
@@ -2379,6 +2382,7 @@
 				C0F7A5CF2376DE550069775B /* FigmaNodesProviderError.swift in Sources */,
 				C0D4B89F23734E35006C0F64 /* FileConfiguration.swift in Sources */,
 				C0335F13238328CE005ABA6D /* StencilByteToFloatFilter.swift in Sources */,
+				C04614F22385CBA000E12C1F /* StencilCreateFileTag.swift in Sources */,
 				C0DCC30C236BB85900A3F746 /* DefaultTextStylesCoder.swift in Sources */,
 				C0F7A5F4237710CD0069775B /* ColorStylesCommand.swift in Sources */,
 				C0F7A5EE23770DAE0069775B /* DefaultColorStylesGenerator.swift in Sources */,
