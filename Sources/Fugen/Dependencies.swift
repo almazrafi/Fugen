@@ -35,6 +35,10 @@ final class Dependencies {
         )
     }
 
+    func makeAssetsProvider() -> AssetsProvider {
+        return DefaultAssetsProvider()
+    }
+
     // MARK: -
 
     func makeColorCoder() -> ColorCoder {
@@ -75,6 +79,7 @@ final class Dependencies {
     func makeColorStylesGenerator() -> ColorStylesGenerator {
         return DefaultColorStylesGenerator(
             colorStylesProvider: makeColorStylesProvider(),
+            assetsProvider: makeAssetsProvider(),
             colorStylesCoder: makeColorStylesCoder(),
             templateRenderer: makeTemplateRenderer()
         )

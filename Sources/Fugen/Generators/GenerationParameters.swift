@@ -1,6 +1,6 @@
 import Foundation
 
-struct GeneratorParameters {
+struct GenerationParameters {
 
     // MARK: - Instance Properties
 

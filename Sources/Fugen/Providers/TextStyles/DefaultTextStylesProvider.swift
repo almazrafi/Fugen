@@ -64,7 +64,7 @@ final class DefaultTextStylesProvider: TextStylesProvider {
             throw TextStylesProviderError(code: .invalidFontFamily, nodeID: node.id, nodeName: node.name)
         }
 
-        let fontName = typeStyle.fontPostScriptName ?? .textStyleRegularFontName(family: fontFamily)
+        let fontName = typeStyle.fontPostScriptName ?? .regularFontName(family: fontFamily)
 
         guard let fontWeight = typeStyle.fontWeight else {
             throw TextStylesProviderError(code: .invalidFontWeight, nodeID: node.id, nodeName: node.name)
@@ -164,7 +164,7 @@ private extension String {
 
     // MARK: - Type Methods
 
-    static func textStyleRegularFontName(family fontFamily: String) -> String {
+    static func regularFontName(family fontFamily: String) -> String {
         return "\(fontFamily)-Regular"
     }
 }

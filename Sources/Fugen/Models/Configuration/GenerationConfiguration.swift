@@ -1,7 +1,7 @@
 import Foundation
 import FugenTools
 
-struct GeneratorConfiguration: Decodable {
+struct GenerationConfiguration: Decodable {
 
     // MARK: - Nested Types
 
@@ -9,8 +9,8 @@ struct GeneratorConfiguration: Decodable {
         case file
         case accessToken
         case templatePath
+        case templateOptions
         case destinationPath
-        case options
     }
 
     // MARK: - Instance Properties
@@ -45,7 +45,7 @@ struct GeneratorConfiguration: Decodable {
         templatePath = try container.decodeIfPresent(forKey: .templatePath)
 
         templateOptions = try container
-            .decodeIfPresent([String: AnyCodable].self, forKey: .options)?
+            .decodeIfPresent([String: AnyCodable].self, forKey: .templateOptions)?
             .mapValues { $0.value }
 
         destinationPath = try container.decodeIfPresent(forKey: .destinationPath)
@@ -53,12 +53,12 @@ struct GeneratorConfiguration: Decodable {
 
     // MARK: - Instance Methods
 
-    func resolve(base: BaseConfiguration?) -> GeneratorConfiguration {
+    func resolve(base: BaseConfiguration?) -> GenerationConfiguration {
         guard let base = base else {
             return self
         }
 
-        return GeneratorConfiguration(
+        return GenerationConfiguration(
             file: file ?? base.file,
             accessToken: accessToken ?? base.accessToken,
             templatePath: templatePath,

@@ -2,7 +2,7 @@ import Foundation
 import SwiftCLI
 import PromiseKit
 
-final class TextStylesCommand: AsyncExecutableCommand, GeneratorConfigurableCommand {
+final class TextStylesCommand: AsyncExecutableCommand, GenerationConfigurableCommand {
 
     // MARK: - Instance Properties
 
@@ -89,7 +89,7 @@ final class TextStylesCommand: AsyncExecutableCommand, GeneratorConfigurableComm
 
     func executeAsyncAndExit() throws {
         firstly {
-            self.generator.generate(configuration: self.generatorConfiguration)
+            self.generator.generate(configuration: self.generationConfiguration)
         }.done {
             self.succeed(message: "Text styles generated successfully!")
         }.catch { error in

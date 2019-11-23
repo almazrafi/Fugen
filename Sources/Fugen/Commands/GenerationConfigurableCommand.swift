@@ -1,7 +1,7 @@
 import Foundation
 import SwiftCLI
 
-protocol GeneratorConfigurableCommand: Command {
+protocol GenerationConfigurableCommand: Command {
 
     // MARK: - Instance Properties
 
@@ -16,15 +16,15 @@ protocol GeneratorConfigurableCommand: Command {
     var templateOptions: VariadicKey<String> { get }
     var destinationPath: Key<String> { get }
 
-    var generatorConfiguration: GeneratorConfiguration { get }
+    var generationConfiguration: GenerationConfiguration { get }
 }
 
-extension GeneratorConfigurableCommand {
+extension GenerationConfigurableCommand {
 
     // MARK: - Instance Properties
 
-    var generatorConfiguration: GeneratorConfiguration {
-        GeneratorConfiguration(
+    var generationConfiguration: GenerationConfiguration {
+        GenerationConfiguration(
             file: resolveFileConfiguration(),
             accessToken: accessToken.value,
             templatePath: templatePath.value,
