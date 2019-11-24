@@ -7,8 +7,9 @@ colorStyles:
     key: 61xw2FQn61Xr7VVFYwiHHy
     includedNodes:
       - 14%3A6
+  assetsFolderPath: FugenDemo/Resources/Assets.xcassets/Generated/Colors
   destinationPath: FugenDemo/Generated/ColorStyle.swift
-  options:
+  templateOptions:
     publicAccess: true
 
 textStyles:
@@ -18,5 +19,5 @@ textStyles:
   #   includedNodes:
   #     - 15%3A2
   destinationPath: FugenDemo/Generated/TextStyle.swift
-  options:
+  templateOptions:
     publicAccess: true

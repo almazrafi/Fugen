@@ -70,6 +70,7 @@ whitelist_rules:
   - legacy_multiple
   - legacy_nsgeometry_functions
   - legacy_random
+  - let_var_whitespace
   - line_length
   - literal_expression_end_indentation
   - lower_acl_than_parent
@@ -82,6 +83,7 @@ whitelist_rules:
   - multiline_parameters_brackets
   - multiple_closures_with_trailing_closure
   - nesting
+  - no_space_in_method_call
   - nsobject_prefer_isequal
   - number_separator
   - opening_brace
