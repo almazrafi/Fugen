@@ -1325,11 +1325,11 @@
 		C0DCC301236BB44800A3F746 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
-				C0D6B9EC238ACCF60054D818 /* FigmaFiles */,
 				C040A6E1238A897600A3F918 /* Assets */,
 				C0DCC302236BB63A00A3F746 /* ColorStyles */,
 				C0D4B8A023734E9E006C0F64 /* Configuration */,
 				OBJ_9 /* FigmaAPI */,
+				C0D6B9EC238ACCF60054D818 /* FigmaFiles */,
 				C0F83BF62367799D00D42813 /* FigmaNodes */,
 				C0DCC303236BB67600A3F746 /* TextStyles */,
 			);
