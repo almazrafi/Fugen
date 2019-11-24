@@ -89,6 +89,11 @@
 		C040A711238A8A1200A3F918 /* SingleValueDecodingContainer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* SingleValueDecodingContainer+Extensions.swift */; };
 		C040A712238A8A1200A3F918 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C004AD102384974C002A09E0 /* String+Extensions.swift */; };
 		C040A713238A8A1200A3F918 /* UnkeyedDecodingContainer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* UnkeyedDecodingContainer+Extensions.swift */; };
+		C040A722238A91A700A3F918 /* StencilTagError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040A71F238A91A700A3F918 /* StencilTagError.swift */; };
+		C040A723238A91A700A3F918 /* StencilTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040A720238A91A700A3F918 /* StencilTag.swift */; };
+		C040A724238A91A700A3F918 /* StencilTagNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040A721238A91A700A3F918 /* StencilTagNode.swift */; };
+		C040A728238A91B100A3F918 /* StencilDeleteFileOrDirectoryTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040A726238A91B100A3F918 /* StencilDeleteFileOrDirectoryTag.swift */; };
+		C040A729238A91B100A3F918 /* StencilCreateFileTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040A727238A91B100A3F918 /* StencilCreateFileTag.swift */; };
 		C04614E42385B76100E12C1F /* StencilFilterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04614E32385B76100E12C1F /* StencilFilterError.swift */; };
 		C0A7A301236918D00087A369 /* RenderTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A2E22368EA520087A369 /* RenderTemplate.swift */; };
 		C0A7A30223691A990087A369 /* RenderTemplateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A2E92368F5EE0087A369 /* RenderTemplateType.swift */; };
@@ -660,6 +665,11 @@
 		C040A6EE238A89F100A3F918 /* GenerationConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerationConfiguration.swift; sourceTree = "<group>"; };
 		C040A6F0238A8A0900A3F918 /* JSONEncoder+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONEncoder+Extensions.swift"; sourceTree = "<group>"; };
 		C040A6F1238A8A0900A3F918 /* JSONDecoder+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extensions.swift"; sourceTree = "<group>"; };
+		C040A71F238A91A700A3F918 /* StencilTagError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StencilTagError.swift; sourceTree = "<group>"; };
+		C040A720238A91A700A3F918 /* StencilTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StencilTag.swift; sourceTree = "<group>"; };
+		C040A721238A91A700A3F918 /* StencilTagNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StencilTagNode.swift; sourceTree = "<group>"; };
+		C040A726238A91B100A3F918 /* StencilDeleteFileOrDirectoryTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StencilDeleteFileOrDirectoryTag.swift; sourceTree = "<group>"; };
+		C040A727238A91B100A3F918 /* StencilCreateFileTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StencilCreateFileTag.swift; sourceTree = "<group>"; };
 		C045AD8E2374AC1C00BDA9E8 /* FloatingPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FloatingPoint+Extensions.swift"; sourceTree = "<group>"; };
 		C045AD902374DC3D00BDA9E8 /* GenerateCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateCommand.swift; sourceTree = "<group>"; };
 		C04614E32385B76100E12C1F /* StencilFilterError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StencilFilterError.swift; sourceTree = "<group>"; };
@@ -1103,10 +1113,10 @@
 		C0335F1623832A24005ABA6D /* Number */ = {
 			isa = PBXGroup;
 			children = (
-				C0335F1423832990005ABA6D /* StencilFloatToByteFilter.swift */,
-				C0335F1023832817005ABA6D /* StencilHexToByteFilter.swift */,
 				C0335F12238328CE005ABA6D /* StencilByteToFloatFilter.swift */,
 				C0335F0E23832784005ABA6D /* StencilByteToHexFilter.swift */,
+				C0335F1423832990005ABA6D /* StencilFloatToByteFilter.swift */,
+				C0335F1023832817005ABA6D /* StencilHexToByteFilter.swift */,
 			);
 			path = Number;
 			sourceTree = "<group>";
@@ -1114,12 +1124,12 @@
 		C0335F1723832CA6005ABA6D /* Color */ = {
 			isa = PBXGroup;
 			children = (
-				C0335F1823832CDB005ABA6D /* StencilColorRGBHexInfoFilter.swift */,
-				C0335F1F238334FC005ABA6D /* StencilColorRGBAHexInfoFilter.swift */,
-				C0335F2223833718005ABA6D /* StencilColorRGBInfoFilter.swift */,
-				C0335F242383380F005ABA6D /* StencilColorRGBAInfoFilter.swift */,
 				C0335F1D23832E18005ABA6D /* StencilColorFilter.swift */,
 				C0335F2B23834017005ABA6D /* StencilColorInfoFilter.swift */,
+				C0335F1F238334FC005ABA6D /* StencilColorRGBAHexInfoFilter.swift */,
+				C0335F242383380F005ABA6D /* StencilColorRGBAInfoFilter.swift */,
+				C0335F1823832CDB005ABA6D /* StencilColorRGBHexInfoFilter.swift */,
+				C0335F2223833718005ABA6D /* StencilColorRGBInfoFilter.swift */,
 			);
 			path = Color;
 			sourceTree = "<group>";
@@ -1185,6 +1195,15 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		C040A725238A91B100A3F918 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				C040A727238A91B100A3F918 /* StencilCreateFileTag.swift */,
+				C040A726238A91B100A3F918 /* StencilDeleteFileOrDirectoryTag.swift */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
 		C0A7A446236A1CEC0087A369 /* Render */ = {
 			isa = PBXGroup;
 			children = (
@@ -1202,11 +1221,15 @@
 			isa = PBXGroup;
 			children = (
 				C0335F1723832CA6005ABA6D /* Color */,
+				C040A725238A91B100A3F918 /* File */,
 				C0335F26238338D0005ABA6D /* Font */,
 				C0335F1623832A24005ABA6D /* Number */,
 				C0D336182381C02A0041F571 /* StencilExtension.swift */,
 				C0335F1A23832D63005ABA6D /* StencilFilter.swift */,
 				C04614E32385B76100E12C1F /* StencilFilterError.swift */,
+				C040A720238A91A700A3F918 /* StencilTag.swift */,
+				C040A71F238A91A700A3F918 /* StencilTagError.swift */,
+				C040A721238A91A700A3F918 /* StencilTagNode.swift */,
 			);
 			path = StencilExtensions;
 			sourceTree = "<group>";
@@ -2420,6 +2443,7 @@
 			buildActionMask = 0;
 			files = (
 				C0F7A5E2237702600069775B /* DefaultTextStylesGenerator.swift in Sources */,
+				C040A724238A91A700A3F918 /* StencilTagNode.swift in Sources */,
 				OBJ_312 /* FigmaBlendMode.swift in Sources */,
 				C0F7A5F023770F6B0069775B /* AsyncExecutableCommand.swift in Sources */,
 				C0A7A442236A1AED0087A369 /* RenderDestination.swift in Sources */,
@@ -2429,10 +2453,12 @@
 				C0335F2323833718005ABA6D /* StencilColorRGBInfoFilter.swift in Sources */,
 				OBJ_315 /* FigmaColorStop.swift in Sources */,
 				OBJ_316 /* FigmaComponent.swift in Sources */,
+				C040A729238A91B100A3F918 /* StencilCreateFileTag.swift in Sources */,
 				C0DCC308236BB7AA00A3F746 /* FontCoder.swift in Sources */,
 				OBJ_317 /* FigmaConstraint.swift in Sources */,
 				OBJ_318 /* FigmaConstraintType.swift in Sources */,
 				C040A6D5238A892000A3F918 /* AssetColorContent.swift in Sources */,
+				C040A723238A91A700A3F918 /* StencilTag.swift in Sources */,
 				OBJ_319 /* FigmaEasingType.swift in Sources */,
 				OBJ_320 /* FigmaEffect.swift in Sources */,
 				C0D4B892237348FF006C0F64 /* DefaultConfigurationProvider.swift in Sources */,
@@ -2523,6 +2549,7 @@
 				OBJ_354 /* FigmaNodeType.swift in Sources */,
 				C0F7A5EC23770D910069775B /* ColorStylesGenerator.swift in Sources */,
 				OBJ_355 /* FigmaRectangleNodePayload.swift in Sources */,
+				C040A722238A91A700A3F918 /* StencilTagError.swift in Sources */,
 				C0DCC30A236BB7F200A3F746 /* DefaultFontCoder.swift in Sources */,
 				C0F7A5E5237702770069775B /* TextStylesGenerator.swift in Sources */,
 				OBJ_356 /* FigmaSliceNodeInfo.swift in Sources */,
@@ -2532,6 +2559,7 @@
 				C040A6CF238A892000A3F918 /* AssetFolderContents.swift in Sources */,
 				C0FFBFB62379B7010060AACB /* BaseConfiguration.swift in Sources */,
 				C0D336202381C0460041F571 /* StencilExtension.swift in Sources */,
+				C040A728238A91B100A3F918 /* StencilDeleteFileOrDirectoryTag.swift in Sources */,
 				C0DCC30D236BB85900A3F746 /* TextStylesCoder.swift in Sources */,
 				C0F7A5D82376FBDC0069775B /* TextStylesConfiguration.swift in Sources */,
 				OBJ_359 /* DefaultFigmaAPIProvider.swift in Sources */,
