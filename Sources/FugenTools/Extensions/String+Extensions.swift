@@ -2,6 +2,10 @@ import Foundation
 
 extension String {
 
+    // MARK: - Type Properties
+
+    public static let empty = ""
+
     // MARK: - Instance Properties
 
     public var firstUppercased: String {

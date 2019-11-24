@@ -1,103 +1,76 @@
 import Foundation
 import FugenTools
 
-final class Dependencies {
+enum Dependencies {
 
-    // MARK: - Instance Methods
+    // MARK: - Type Properties
 
-    func makeFigmaHTTPService() -> FigmaHTTPService {
-        return HTTPService()
-    }
+    static let figmaHTTPService: FigmaHTTPService = HTTPService()
 
-    func makeFigmaAPIProvider() -> FigmaAPIProvider {
-        return DefaultFigmaAPIProvider(httpService: makeFigmaHTTPService())
-    }
+    static let figmaAPIProvider: FigmaAPIProvider = DefaultFigmaAPIProvider(httpService: figmaHTTPService)
+    static let figmaNodesProvider: FigmaNodesProvider = DefaultFigmaNodesProvider()
 
-    func makeFigmaNodesProvider() -> FigmaNodesProvider {
-        return DefaultFigmaNodesProvider()
-    }
+    static let colorStylesProvider: ColorStylesProvider = DefaultColorStylesProvider(
+        apiProvider: figmaAPIProvider,
+        nodesProvider: figmaNodesProvider
+    )
 
-    func makeConfigurationProvider() -> ConfigurationProvider {
-        return DefaultConfigurationProvider()
-    }
+    static let textStylesProvider: TextStylesProvider = DefaultTextStylesProvider(
+        apiProvider: figmaAPIProvider,
+        nodesProvider: figmaNodesProvider
+    )
 
-    func makeColorStylesProvider() -> ColorStylesProvider {
-        return DefaultColorStylesProvider(
-            apiProvider: makeFigmaAPIProvider(),
-            nodesProvider: makeFigmaNodesProvider()
-        )
-    }
+    static let assetsProvider: AssetsProvider = DefaultAssetsProvider()
 
-    func makeTextStylesProvider() -> TextStylesProvider {
-        return DefaultTextStylesProvider(
-            apiProvider: makeFigmaAPIProvider(),
-            nodesProvider: makeFigmaNodesProvider()
-        )
-    }
-
-    func makeAssetsProvider() -> AssetsProvider {
-        return DefaultAssetsProvider()
-    }
+    static let configurationProvider: ConfigurationProvider = DefaultConfigurationProvider()
 
     // MARK: -
 
-    func makeColorCoder() -> ColorCoder {
-        return DefaultColorCoder()
-    }
+    static let colorCoder: ColorCoder = DefaultColorCoder()
+    static let fontCoder: FontCoder = DefaultFontCoder()
 
-    func makeFontCoder() -> FontCoder {
-        return DefaultFontCoder()
-    }
+    static let colorStylesCoder: ColorStylesCoder = DefaultColorStylesCoder(colorCoder: colorCoder)
 
-    func makeColorStylesCoder() -> ColorStylesCoder {
-        return DefaultColorStylesCoder(colorCoder: makeColorCoder())
-    }
-
-    func makeTextStylesCoder() -> TextStylesCoder {
-        return DefaultTextStylesCoder(
-            fontCoder: makeFontCoder(),
-            colorCoder: makeColorCoder()
-        )
-    }
+    static let textStylesCoder: TextStylesCoder = DefaultTextStylesCoder(
+        fontCoder: fontCoder,
+        colorCoder: colorCoder
+    )
 
     // MARK: -
 
-    func makeStencilExtensions() -> [StencilExtension] {
-        return [
-            StencilNumberExtension(),
-            StencilColorExtension(colorCoder: makeColorCoder()),
-            StencilFontExtension(fontCoder: makeFontCoder())
-        ]
-    }
+    static let stencilExtensions: [StencilExtension] = [
+        StencilByteToHexFilter(),
+        StencilHexToByteFilter(),
+        StencilByteToFloatFilter(),
+        StencilFloatToByteFilter(),
+        StencilColorRGBHexInfoFilter(colorCoder: colorCoder),
+        StencilColorRGBAHexInfoFilter(colorCoder: colorCoder),
+        StencilColorRGBInfoFilter(colorCoder: colorCoder),
+        StencilColorRGBAInfoFilter(colorCoder: colorCoder),
+        StencilColorInfoFilter(colorCoder: colorCoder),
+        StencilFontInfoFilter(fontCoder: fontCoder)
+    ]
 
-    func makeTemplateRenderer() -> TemplateRenderer {
-        return DefaultTemplateRenderer(stencilExtensions: makeStencilExtensions())
-    }
+    static let templateRenderer: TemplateRenderer = DefaultTemplateRenderer(stencilExtensions: stencilExtensions)
 
     // MARK: -
 
-    func makeColorStylesGenerator() -> ColorStylesGenerator {
-        return DefaultColorStylesGenerator(
-            colorStylesProvider: makeColorStylesProvider(),
-            assetsProvider: makeAssetsProvider(),
-            colorStylesCoder: makeColorStylesCoder(),
-            templateRenderer: makeTemplateRenderer()
-        )
-    }
+    static let colorStylesGenerator: ColorStylesGenerator = DefaultColorStylesGenerator(
+        colorStylesProvider: colorStylesProvider,
+        assetsProvider: assetsProvider,
+        colorStylesCoder: colorStylesCoder,
+        templateRenderer: templateRenderer
+    )
 
-    func makeTextStylesGenerator() -> TextStylesGenerator {
-        return DefaultTextStylesGenerator(
-            textStylesProvider: makeTextStylesProvider(),
-            textStylesCoder: makeTextStylesCoder(),
-            templateRenderer: makeTemplateRenderer()
-        )
-    }
+    static let textStylesGenerator: TextStylesGenerator = DefaultTextStylesGenerator(
+        textStylesProvider: textStylesProvider,
+        textStylesCoder: textStylesCoder,
+        templateRenderer: templateRenderer
+    )
 
-    func makeKitGenerator() -> KitGenerator {
-        return DefaultKitGenerator(
-            configurationProvider: makeConfigurationProvider(),
-            colorStylesGenerator: makeColorStylesGenerator(),
-            textStylesGenerator: makeTextStylesGenerator()
-        )
-    }
+    static let kitGenerator: KitGenerator = DefaultKitGenerator(
+        configurationProvider: configurationProvider,
+        colorStylesGenerator: colorStylesGenerator,
+        textStylesGenerator: textStylesGenerator
+    )
 }

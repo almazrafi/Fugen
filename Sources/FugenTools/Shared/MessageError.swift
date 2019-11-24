@@ -11,7 +11,7 @@ public struct MessageError: Error, CustomStringConvertible, Hashable {
     }
 
     public var description: String {
-        "\(String(describing: type(of: self)))(\"\(message)\")"
+        "\(type(of: self))(\"\(message)\")"
     }
 
     // MARK: - Initializers
