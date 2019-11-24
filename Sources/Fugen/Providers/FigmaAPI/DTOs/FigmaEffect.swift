@@ -17,7 +17,7 @@ struct FigmaEffect: Decodable, Hashable {
 
     let rawType: String
     let isVisible: Bool?
-    let radius: Double
+    let radius: Double?
     let color: FigmaColor?
     let rawBlendMode: String?
     let offset: FigmaVector?

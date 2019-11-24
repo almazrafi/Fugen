@@ -17,17 +17,17 @@ struct FigmaLayoutGrid: Decodable, Hashable {
 
     // MARK: - Instance Properties
 
-    let rawPattern: String
+    let rawPattern: String?
     let rawAlignment: String?
-    let sectionSize: Double
+    let sectionSize: Double?
     let isVisible: Bool?
-    let color: FigmaColor
+    let color: FigmaColor?
     let gutterSize: Double?
     let offset: Double?
     let count: Double?
 
     var pattern: FigmaLayoutGridPattern? {
-        FigmaLayoutGridPattern(rawValue: rawPattern)
+        rawPattern.flatMap(FigmaLayoutGridPattern.init)
     }
 
     var alignment: FigmaLayoutGridAlignment? {

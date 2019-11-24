@@ -32,7 +32,7 @@ struct FigmaVectorNodeInfo: Decodable, Hashable {
 
     let isLocked: Bool?
     let exportSettings: [FigmaExportSetting]?
-    let rawBlendMode: String
+    let rawBlendMode: String?
     let preserveRatio: Bool?
     let constraints: FigmaLayoutConstraint?
     let transitionNodeID: String?
@@ -53,7 +53,7 @@ struct FigmaVectorNodeInfo: Decodable, Hashable {
     let styles: [String: String]?
 
     var blendMode: FigmaBlendMode? {
-        FigmaBlendMode(rawValue: rawBlendMode)
+        rawBlendMode.flatMap(FigmaBlendMode.init)
     }
 
     var transitionEasing: FigmaEasingType? {

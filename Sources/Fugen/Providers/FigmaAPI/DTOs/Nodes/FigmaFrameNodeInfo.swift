@@ -38,7 +38,7 @@ struct FigmaFrameNodeInfo: Decodable, Hashable {
     let rawTransitionEasing: String?
     let opacity: Double?
     let absoluteBoundingBox: FigmaRectangle?
-    let clipsContent: Bool
+    let clipsContent: Bool?
     let layoutGrids: [FigmaLayoutGrid]?
     let effects: [FigmaEffect]?
     let isMask: Bool?
