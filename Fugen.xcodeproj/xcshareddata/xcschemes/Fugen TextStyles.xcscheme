@@ -88,7 +88,7 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "--destinationPath ~/Downloads/TextStyles.swift"
+            argument = "--destinationPath Demo/FugenDemo/Generated/TextStyles.swift"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument

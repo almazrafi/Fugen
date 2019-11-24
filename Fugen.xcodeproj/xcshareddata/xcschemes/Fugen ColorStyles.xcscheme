@@ -84,7 +84,7 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "--destinationPath ~/Downloads/ColorStyles.swift"
+            argument = "--destinationPath Demo/FugenDemo/Generated/ColorStyles.swift"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument

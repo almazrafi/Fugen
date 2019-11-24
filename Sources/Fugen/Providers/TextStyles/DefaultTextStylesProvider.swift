@@ -5,16 +5,13 @@ final class DefaultTextStylesProvider: TextStylesProvider {
 
     // MARK: - Instance Properties
 
-    let apiProvider: FigmaAPIProvider
+    let filesProvider: FigmaFilesProvider
     let nodesProvider: FigmaNodesProvider
 
     // MARK: - Initializers
 
-    init(
-        apiProvider: FigmaAPIProvider,
-        nodesProvider: FigmaNodesProvider
-    ) {
-        self.apiProvider = apiProvider
+    init(filesProvider: FigmaFilesProvider, nodesProvider: FigmaNodesProvider) {
+        self.filesProvider = filesProvider
         self.nodesProvider = nodesProvider
     }
 
@@ -142,14 +139,8 @@ final class DefaultTextStylesProvider: TextStylesProvider {
         excludingNodes excludedNodeIDs: [String]?,
         accessToken: String
     ) -> Promise<[TextStyle]> {
-        let route = FigmaAPIFileRoute(
-            accessToken: accessToken,
-            fileKey: fileKey,
-            version: fileVersion
-        )
-
         return firstly {
-            self.apiProvider.request(route: route)
+            self.filesProvider.fetchFile(key: fileKey, version: fileVersion, accessToken: accessToken)
         }.map(on: DispatchQueue.global(qos: .userInitiated)) { file in
             try self.extractTextStyles(
                 from: file,
