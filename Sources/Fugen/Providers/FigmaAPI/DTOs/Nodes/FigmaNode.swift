@@ -32,7 +32,7 @@ struct FigmaNode: Decodable, Hashable {
     // MARK: - Instance Properties
 
     let id: String
-    let name: String
+    let name: String?
     let rawType: String
     let isVisible: Bool?
 
@@ -116,9 +116,8 @@ struct FigmaNode: Decodable, Hashable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         id = try container.decode(forKey: .id)
-        name = try container.decode(forKey: .name)
+        name = try container.decodeIfPresent(forKey: .name)
         rawType = try container.decode(String.self, forKey: .rawType)
-
         isVisible = try container.decodeIfPresent(forKey: .isVisible)
 
         switch rawType {

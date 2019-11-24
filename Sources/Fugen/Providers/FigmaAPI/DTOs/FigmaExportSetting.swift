@@ -12,9 +12,9 @@ struct FigmaExportSetting: Decodable, Hashable {
 
     // MARK: - Instance Properties
 
-    let suffix: String
+    let suffix: String?
     let rawFormat: String
-    let constraint: FigmaConstraint
+    let constraint: FigmaConstraint?
 
     var format: FigmaImageFormat? {
         FigmaImageFormat(rawValue: rawFormat)
