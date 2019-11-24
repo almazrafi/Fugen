@@ -11,14 +11,14 @@ struct FigmaLayoutConstraint: Decodable, Hashable {
 
     // MARK: - Instance Properties
 
-    let rawVertical: String
-    let rawHorizontal: String
+    let rawVertical: String?
+    let rawHorizontal: String?
 
     var vertical: FigmaLayoutVerticalConstraint? {
-        FigmaLayoutVerticalConstraint(rawValue: rawVertical)
+        rawVertical.flatMap(FigmaLayoutVerticalConstraint.init)
     }
 
     var horizontal: FigmaLayoutHorizontalConstraint? {
-        FigmaLayoutHorizontalConstraint(rawValue: rawHorizontal)
+        rawHorizontal.flatMap(FigmaLayoutHorizontalConstraint.init)
     }
 }

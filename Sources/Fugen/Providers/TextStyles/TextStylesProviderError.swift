@@ -23,11 +23,13 @@ struct TextStylesProviderError: Error, CustomStringConvertible {
 
     let code: Code
     let nodeID: String
-    let nodeName: String
+    let nodeName: String?
 
     // MARK: - CustomStringConvertible
 
     var description: String {
+        let nodeName = self.nodeName ?? "nil"
+
         switch code {
         case .styleNotFound:
             return "Figma file does not contain a valid style for node \(nodeName) ('\(nodeID)')"
