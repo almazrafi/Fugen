@@ -6,17 +6,18 @@ enum Dependencies {
     // MARK: - Type Properties
 
     static let figmaHTTPService: FigmaHTTPService = HTTPService()
-
     static let figmaAPIProvider: FigmaAPIProvider = DefaultFigmaAPIProvider(httpService: figmaHTTPService)
+
+    static let figmaFilesProvider: FigmaFilesProvider = DefaultFigmaFilesProvider(apiProvider: figmaAPIProvider)
     static let figmaNodesProvider: FigmaNodesProvider = DefaultFigmaNodesProvider()
 
     static let colorStylesProvider: ColorStylesProvider = DefaultColorStylesProvider(
-        apiProvider: figmaAPIProvider,
+        filesProvider: figmaFilesProvider,
         nodesProvider: figmaNodesProvider
     )
 
     static let textStylesProvider: TextStylesProvider = DefaultTextStylesProvider(
-        apiProvider: figmaAPIProvider,
+        filesProvider: figmaFilesProvider,
         nodesProvider: figmaNodesProvider
     )
 
