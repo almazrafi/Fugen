@@ -1,6 +1,6 @@
 import Foundation
 
-protocol GeneratorParametersResolving {
+protocol GenerationParametersResolving {
 
     // MARK: - Instance Properties
 
@@ -9,14 +9,14 @@ protocol GeneratorParametersResolving {
 
     // MARK: - Instance Methods
 
-    func resolveGeneratorParameters(from configuration: GeneratorConfiguration) throws -> GeneratorParameters
+    func resolveGenerationParameters(from configuration: GenerationConfiguration) throws -> GenerationParameters
 }
 
-extension GeneratorParametersResolving {
+extension GenerationParametersResolving {
 
     // MARK: - Instance Methods
 
-    private func resolveTemplateType(configuration: GeneratorConfiguration) -> RenderTemplateType {
+    private func resolveTemplateType(configuration: GenerationConfiguration) -> RenderTemplateType {
         if let templatePath = configuration.templatePath {
             return .custom(path: templatePath)
         } else {
@@ -24,7 +24,7 @@ extension GeneratorParametersResolving {
         }
     }
 
-    private func resolveDestination(configuration: GeneratorConfiguration) -> RenderDestination {
+    private func resolveDestination(configuration: GenerationConfiguration) -> RenderDestination {
         if let destinationPath = configuration.destinationPath {
             return .file(path: destinationPath)
         } else {
@@ -34,13 +34,13 @@ extension GeneratorParametersResolving {
 
     // MARK: -
 
-    func resolveGeneratorParameters(from configuration: GeneratorConfiguration) throws -> GeneratorParameters {
+    func resolveGenerationParameters(from configuration: GenerationConfiguration) throws -> GenerationParameters {
         guard let fileConfiguration = configuration.file else {
-            throw GeneratorParametersError.invalidFileConfiguration
+            throw GenerationParametersError.invalidFileConfiguration
         }
 
         guard let accessToken = configuration.accessToken, !accessToken.isEmpty else {
-            throw GeneratorParametersError.invalidAccessToken
+            throw GenerationParametersError.invalidAccessToken
         }
 
         let templateType = resolveTemplateType(configuration: configuration)
@@ -51,7 +51,7 @@ extension GeneratorParametersResolving {
             options: configuration.templateOptions ?? [:]
         )
 
-        return GeneratorParameters(
+        return GenerationParameters(
             fileKey: fileConfiguration.key,
             fileVersion: fileConfiguration.version,
             includedNodes: fileConfiguration.includedNodes,

@@ -1,3 +1,3 @@
 import Foundation
 
-typealias TextStylesConfiguration = GeneratorConfiguration
+typealias TextStylesConfiguration = GenerationConfiguration

@@ -1,6 +1,6 @@
 import Foundation
 
-enum GeneratorParametersError: Error, CustomStringConvertible {
+enum GenerationParametersError: Error, CustomStringConvertible {
 
     // MARK: - Enumeration Cases
 

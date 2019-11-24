@@ -2,7 +2,7 @@ import Foundation
 import SwiftCLI
 import PromiseKit
 
-final class ColorStylesCommand: AsyncExecutableCommand, GeneratorConfigurableCommand {
+final class ColorStylesCommand: AsyncExecutableCommand, GenerationConfigurableCommand {
 
     // MARK: - Instance Properties
 
@@ -54,6 +54,13 @@ final class ColorStylesCommand: AsyncExecutableCommand, GeneratorConfigurableCom
             """
     )
 
+    let assetsFolderPath = Key<String>(
+        "--assetsFolderPath",
+        description: """
+            Optional path to Xcode-assets folder to store colors.
+            """
+    )
+
     let templatePath = Key<String>(
         "--templatePath",
         description: """
@@ -87,9 +94,18 @@ final class ColorStylesCommand: AsyncExecutableCommand, GeneratorConfigurableCom
 
     // MARK: - Instance Methods
 
+    private func resolveColorStylesConfiguration() -> ColorStylesConfiguration {
+        return ColorStylesConfiguration(
+            generatation: generationConfiguration,
+            assetsFolderPath: assetsFolderPath.value
+        )
+    }
+
+    // MARK: -
+
     func executeAsyncAndExit() throws {
         firstly {
-            self.generator.generate(configuration: self.generatorConfiguration)
+            self.generator.generate(configuration: self.resolveColorStylesConfiguration())
         }.done {
             self.succeed(message: "Color styles generated successfully!")
         }.catch { error in

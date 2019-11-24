@@ -6,27 +6,27 @@ final class DefaultColorCoder: ColorCoder {
 
     func encodeColor(_ color: Color) -> [String: Any] {
         return [
-            .colorRedCodingKey: color.red,
-            .colorGreenCodingKey: color.green,
-            .colorBlueCodingKey: color.blue,
-            .colorAlphaCodingKey: color.alpha
+            .redComponentCodingKey: color.red,
+            .greenComponentCodingKey: color.green,
+            .blueComponentCodingKey: color.blue,
+            .alphaComponentCodingKey: color.alpha
         ]
     }
 
     func decodeColor(from encodedColor: [String: Any]) -> Color? {
-        guard let red = encodedColor[.colorRedCodingKey] as? Double else {
+        guard let red = encodedColor[.redComponentCodingKey] as? Double else {
             return nil
         }
 
-        guard let green = encodedColor[.colorGreenCodingKey] as? Double else {
+        guard let green = encodedColor[.greenComponentCodingKey] as? Double else {
             return nil
         }
 
-        guard let blue = encodedColor[.colorBlueCodingKey] as? Double else {
+        guard let blue = encodedColor[.blueComponentCodingKey] as? Double else {
             return nil
         }
 
-        guard let alpha = encodedColor[.colorAlphaCodingKey] as? Double else {
+        guard let alpha = encodedColor[.alphaComponentCodingKey] as? Double else {
             return nil
         }
 
@@ -38,8 +38,8 @@ private extension String {
 
     // MARK: - Type Properties
 
-    static let colorRedCodingKey = "red"
-    static let colorGreenCodingKey = "green"
-    static let colorBlueCodingKey = "blue"
-    static let colorAlphaCodingKey = "alpha"
+    static let redComponentCodingKey = "red"
+    static let greenComponentCodingKey = "green"
+    static let blueComponentCodingKey = "blue"
+    static let alphaComponentCodingKey = "alpha"
 }

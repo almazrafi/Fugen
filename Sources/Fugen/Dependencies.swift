@@ -20,6 +20,8 @@ enum Dependencies {
         nodesProvider: figmaNodesProvider
     )
 
+    static let assetsProvider: AssetsProvider = DefaultAssetsProvider()
+
     static let configurationProvider: ConfigurationProvider = DefaultConfigurationProvider()
 
     // MARK: -
@@ -57,6 +59,7 @@ enum Dependencies {
 
     static let colorStylesGenerator: ColorStylesGenerator = DefaultColorStylesGenerator(
         colorStylesProvider: colorStylesProvider,
+        assetsProvider: assetsProvider,
         colorStylesCoder: colorStylesCoder,
         templateRenderer: templateRenderer
     )
