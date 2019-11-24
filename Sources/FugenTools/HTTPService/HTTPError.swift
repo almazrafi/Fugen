@@ -36,7 +36,7 @@ public struct HTTPError: Error, CustomStringConvertible {
     // MARK: - CustomStringConvertible
 
     public var description: String {
-        var description = "\(String(describing: type(of: self))).\(code)"
+        var description = "\(type(of: self)).\(code)"
 
         if let reason = reason {
             let reasonDescription: String

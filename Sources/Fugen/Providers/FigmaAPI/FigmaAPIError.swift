@@ -17,6 +17,6 @@ struct FigmaAPIError: Error, Codable, CustomStringConvertible {
     // MARK: - CustomStringConvertible
 
     var description: String {
-        "\(String(describing: type(of: self))).\(status)(\(message))"
+        "\(type(of: self)).\(status)(\(message))"
     }
 }

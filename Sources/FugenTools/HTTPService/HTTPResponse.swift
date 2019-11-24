@@ -49,10 +49,10 @@ public struct HTTPResponse<T>: CustomStringConvertible {
     public var description: String {
         switch result {
         case .success:
-            return "\(String(describing: type(of: self))).success"
+            return "\(type(of: self)).success"
 
         case let .failure(error):
-            return "\(String(describing: type(of: self))).failure(\(error))"
+            return "\(type(of: self)).failure(\(error))"
         }
     }
 
