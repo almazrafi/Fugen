@@ -1,5 +1,6 @@
 // swiftlint:disable all
-// Generated using Fugen: https://github.com/almazrafi/Fugen
+// Generated using Fugen - https://github.com/almazrafi/Fugen
+
 #if canImport(UIKit)
 import UIKit
 #else
@@ -21,12 +22,14 @@ public struct TextStyle: Equatable {
     /// Line height: 12.9
     /// Letter spacing: 0.0
     public static let footnote = TextStyle(
-        fontName: "Roboto-Regular",
-        fontSize: 11.0,
+        font: UIFont(
+            name: "Roboto-Regular",
+            size: 11.0
+        ),
         color: UIColor(
-            red: 0.22352941,
-            green: 0.22352941,
-            blue: 0.22352941,
+            red: 0.2235294133424759,
+            green: 0.2235294133424759,
+            blue: 0.2235294133424759,
             alpha: 1.0
         ),
         strikethrough: false,
@@ -48,12 +51,14 @@ public struct TextStyle: Equatable {
     /// Line height: 15.225
     /// Letter spacing: 0.0
     public static let body = TextStyle(
-        fontName: "Roboto-Regular",
-        fontSize: 13.0,
+        font: UIFont(
+            name: "Roboto-Regular",
+            size: 13.0
+        ),
         color: UIColor(
-            red: 0.22352941,
-            green: 0.22352941,
-            blue: 0.22352941,
+            red: 0.2235294133424759,
+            green: 0.2235294133424759,
+            blue: 0.2235294133424759,
             alpha: 1.0
         ),
         strikethrough: false,
@@ -75,12 +80,14 @@ public struct TextStyle: Equatable {
     /// Line height: 16.4
     /// Letter spacing: 0.0
     public static let subtitle = TextStyle(
-        fontName: "Roboto-Medium",
-        fontSize: 14.0,
+        font: UIFont(
+            name: "Roboto-Medium",
+            size: 14.0
+        ),
         color: UIColor(
-            red: 0.22352941,
-            green: 0.22352941,
-            blue: 0.22352941,
+            red: 0.2235294133424759,
+            green: 0.2235294133424759,
+            blue: 0.2235294133424759,
             alpha: 1.0
         ),
         strikethrough: false,
@@ -102,12 +109,14 @@ public struct TextStyle: Equatable {
     /// Line height: 21.1
     /// Letter spacing: 0.0
     public static let title = TextStyle(
-        fontName: "Roboto-Regular",
-        fontSize: 18.0,
+        font: UIFont(
+            name: "Roboto-Regular",
+            size: 18.0
+        ),
         color: UIColor(
-            red: 0.22352941,
-            green: 0.22352941,
-            blue: 0.22352941,
+            red: 0.2235294133424759,
+            green: 0.2235294133424759,
+            blue: 0.2235294133424759,
             alpha: 1.0
         ),
         strikethrough: false,
@@ -129,12 +138,14 @@ public struct TextStyle: Equatable {
     /// Line height: 35.15
     /// Letter spacing: 0.0
     public static let largeTitle = TextStyle(
-        fontName: "Roboto-Regular",
-        fontSize: 30.0,
+        font: UIFont(
+            name: "Roboto-Regular",
+            size: 30.0
+        ),
         color: UIColor(
-            red: 0.22352941,
-            green: 0.22352941,
-            blue: 0.22352941,
+            red: 0.2235294133424759,
+            green: 0.2235294133424759,
+            blue: 0.2235294133424759,
             alpha: 1.0
         ),
         strikethrough: false,
@@ -147,7 +158,7 @@ public struct TextStyle: Equatable {
 
     // MARK: - Instance Properties
 
-    public let font: UIFont
+    public let font: UIFont?
     public let color: UIColor?
     public let backgroundColor: UIColor?
     public let strikethrough: Bool
@@ -159,14 +170,10 @@ public struct TextStyle: Equatable {
     public let lineBreakMode: NSLineBreakMode?
     public let alignment: NSTextAlignment?
 
-    public var actualLineHeight: CGFloat {
-        return lineHeight ?? font.lineHeight
-    }
-
     // MARK: - Initializers
 
     public init(
-        font: UIFont,
+        font: UIFont? = nil,
         color: UIColor? = nil,
         backgroundColor: UIColor? = nil,
         strikethrough: Bool = false,
@@ -191,44 +198,17 @@ public struct TextStyle: Equatable {
         self.alignment = alignment
     }
 
-    public init(
-        fontName: String,
-        fontSize: CGFloat,
-        color: UIColor? = nil,
-        backgroundColor: UIColor? = nil,
-        strikethrough: Bool = false,
-        underline: Bool = false,
-        paragraphSpacing: CGFloat? = nil,
-        paragraphIndent: CGFloat? = nil,
-        lineHeight: CGFloat? = nil,
-        letterSpacing: CGFloat? = nil,
-        lineBreakMode: NSLineBreakMode? = nil,
-        alignment: NSTextAlignment? = nil
-    ) {
-        let font = UIFont(name: fontName, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
-
-        self.init(
-            font: font,
-            color: color,
-            backgroundColor: backgroundColor,
-            strikethrough: strikethrough,
-            underline: underline,
-            paragraphSpacing: paragraphSpacing,
-            paragraphIndent: paragraphIndent,
-            lineHeight: lineHeight,
-            letterSpacing: letterSpacing,
-            lineBreakMode: lineBreakMode,
-            alignment: alignment
-        )
-    }
-
     // MARK: - Instance Methods
 
     private func attributes(paragraphStyle: NSParagraphStyle?) -> [NSAttributedString.Key: Any] {
-        var attributes: [NSAttributedString.Key: Any] = [.font: font]
+        var attributes: [NSAttributedString.Key: Any] = [:]
 
         if let paragraphStyle = paragraphStyle {
             attributes[.paragraphStyle] = paragraphStyle
+        }
+
+        if let font = font {
+            attributes[.font] = font
         }
 
         if let color = color {
@@ -254,16 +234,21 @@ public struct TextStyle: Equatable {
         return attributes
     }
 
+    // MARK: -
+
     public func paragraphStyle() -> NSParagraphStyle {
         let paragraphStyle = NSMutableParagraphStyle()
 
         if let lineHeight = lineHeight {
-            let paragraphLineSpacing = (lineHeight - font.lineHeight) * 0.5
-            let paragraphLineHeight = lineHeight - paragraphLineSpacing
+            if let font = font {
+                paragraphStyle.lineSpacing = (lineHeight - font.lineHeight) * 0.5
+                paragraphStyle.minimumLineHeight = lineHeight - paragraphStyle.lineSpacing
+            } else {
+                paragraphStyle.lineSpacing = 0.0
+                paragraphStyle.minimumLineHeight = lineHeight
+            }
 
-            paragraphStyle.lineSpacing = paragraphLineSpacing
-            paragraphStyle.minimumLineHeight = paragraphLineHeight
-            paragraphStyle.maximumLineHeight = paragraphLineHeight
+            paragraphStyle.maximumLineHeight = paragraphStyle.minimumLineHeight
         }
 
         if let paragraphSpacing = paragraphSpacing {
@@ -302,7 +287,7 @@ public struct TextStyle: Equatable {
 
     // MARK: -
 
-    public func withFont(_ font: UIFont) -> TextStyle {
+    public func withFont(_ font: UIFont?) -> TextStyle {
         return TextStyle(
             font: font,
             color: color,
@@ -487,4 +472,3 @@ public extension NSAttributedString {
         self.init(string: string, attributes: style.attributes(includingParagraphStyle: includingParagraphStyle))
     }
 }
-// swiftlint:enable all
