@@ -1,6 +1,6 @@
 import Foundation
 
-public enum AssetSystemColorPlatform: String, Codable, Hashable {
+public enum AssetSystemColorPlatform: String, Codable {
 
     // MARK: - Enumeration Cases
 

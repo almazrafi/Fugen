@@ -208,16 +208,16 @@ private extension ImageScale {
 
     var figmaScale: Double {
         switch self {
-        case .single, .x1:
+        case .single, .scale1x:
             return 1.0
 
-        case .x2:
+        case .scale2x:
             return 2.0
 
-        case .x3:
+        case .scale3x:
             return 3.0
 
-        case .x4:
+        case .scale4x:
             return 4.0
         }
     }
