@@ -1,6 +1,6 @@
 import Foundation
 
-public enum AssetAppearanceLuminosity: String, Codable, Hashable {
+public enum AssetAppearanceLuminosity: String, Codable {
 
     // MARK: - Enumeration Cases
 

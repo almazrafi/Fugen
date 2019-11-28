@@ -5,8 +5,8 @@ enum ImageScale: Hashable {
     // MARK: - Enumeration Cases
 
     case single
-    case x1
-    case x2
-    case x3
-    case x4
+    case scale1x
+    case scale2x
+    case scale3x
+    case scale4x
 }
