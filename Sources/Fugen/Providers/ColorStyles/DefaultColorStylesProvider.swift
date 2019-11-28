@@ -56,10 +56,12 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
         includingNodes includedNodeIDs: [String]?,
         excludingNodes excludedNodeIDs: [String]?
     ) throws -> [ColorStyle] {
+        let styles = file.styles ?? [:]
+
         return try nodesProvider
             .fetchNodes(from: file, including: includedNodeIDs, excluding: excludedNodeIDs)
             .lazy
-            .compactMap { try extractColorStyle(from: $0, styles: file.styles ?? [:]) }
+            .compactMap { try extractColorStyle(from: $0, styles: styles) }
             .reduce(into: []) { result, colorStyle in
                 if !result.contains(colorStyle) {
                     result.append(colorStyle)

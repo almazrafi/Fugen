@@ -108,6 +108,22 @@ struct FigmaNode: Decodable, Hashable {
         }
     }
 
+    var isComponent: Bool {
+        if case .component = type {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    var isInstance: Bool {
+        if case .instance = type {
+            return true
+        } else {
+            return false
+        }
+    }
+
     // MARK: - Initializers
 
     init(from decoder: Decoder) throws {

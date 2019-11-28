@@ -1,22 +1,22 @@
 import Foundation
 
-struct FigmaAPIError: Error, Codable, CustomStringConvertible {
+struct FigmaError: Error, Decodable, Hashable, CustomStringConvertible {
 
     // MARK: - Nested Types
 
     private enum CodingKeys: String, CodingKey {
         case status
-        case message = "err"
+        case content = "err"
     }
 
     // MARK: - Instance Properties
 
     let status: Int
-    let message: String
+    let content: String
 
     // MARK: - CustomStringConvertible
 
     var description: String {
-        "\(type(of: self)).\(status)(\(message))"
+        "\(type(of: self)).\(status)(\(content))"
     }
 }
