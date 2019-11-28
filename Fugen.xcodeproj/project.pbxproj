@@ -115,6 +115,8 @@
 		C07C1C56239071FE007CF12E /* AssetImageAutoScaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C1C55239071FE007CF12E /* AssetImageAutoScaling.swift */; };
 		C07C1C582390777C007CF12E /* AssetImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C1C572390777C007CF12E /* AssetImageSet.swift */; };
 		C07C1C5A23907AC7007CF12E /* AssetNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C1C5923907AC7007CF12E /* AssetNode.swift */; };
+		C07C1C5D239081FA007CF12E /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C1C5C239081FA007CF12E /* DataProvider.swift */; };
+		C07C1C5F239082AD007CF12E /* DefaultDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C1C5E239082AD007CF12E /* DefaultDataProvider.swift */; };
 		C09AD2DA238EF16B005C787A /* ImagesProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09AD2D9238EF16B005C787A /* ImagesProviderError.swift */; };
 		C09AD2DB238F225A005C787A /* DefaultImagesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0195F4F238DAEED006BA2F3 /* DefaultImagesProvider.swift */; };
 		C09AD2DD238F25E7005C787A /* ImageScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09AD2DC238F25E7005C787A /* ImageScale.swift */; };
@@ -719,6 +721,8 @@
 		C07C1C55239071FE007CF12E /* AssetImageAutoScaling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetImageAutoScaling.swift; sourceTree = "<group>"; };
 		C07C1C572390777C007CF12E /* AssetImageSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetImageSet.swift; sourceTree = "<group>"; };
 		C07C1C5923907AC7007CF12E /* AssetNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetNode.swift; sourceTree = "<group>"; };
+		C07C1C5C239081FA007CF12E /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		C07C1C5E239082AD007CF12E /* DefaultDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDataProvider.swift; sourceTree = "<group>"; };
 		C09AD2D9238EF16B005C787A /* ImagesProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesProviderError.swift; sourceTree = "<group>"; };
 		C09AD2DC238F25E7005C787A /* ImageScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScale.swift; sourceTree = "<group>"; };
 		C0A7A2E22368EA520087A369 /* RenderTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderTemplate.swift; sourceTree = "<group>"; };
@@ -1328,6 +1332,15 @@
 			path = ImageSet;
 			sourceTree = "<group>";
 		};
+		C07C1C5B239081E5007CF12E /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				C07C1C5C239081FA007CF12E /* DataProvider.swift */,
+				C07C1C5E239082AD007CF12E /* DefaultDataProvider.swift */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
 		C0A7A446236A1CEC0087A369 /* Render */ = {
 			isa = PBXGroup;
 			children = (
@@ -1448,6 +1461,7 @@
 		C0DCC301236BB44800A3F746 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				C07C1C5B239081E5007CF12E /* DataProvider */,
 				C040A6E1238A897600A3F918 /* Assets */,
 				C0DCC302236BB63A00A3F746 /* ColorStyles */,
 				C0D4B8A023734E9E006C0F64 /* Configuration */,
@@ -2612,6 +2626,7 @@
 				C040A6E5238A897600A3F918 /* AssetsProvider.swift in Sources */,
 				OBJ_338 /* FigmaStrokeJoin.swift in Sources */,
 				OBJ_339 /* FigmaStyle.swift in Sources */,
+				C07C1C5D239081FA007CF12E /* DataProvider.swift in Sources */,
 				C0335F1523832990005ABA6D /* StencilFloatToByteFilter.swift in Sources */,
 				C0A7A44C236A356B0087A369 /* DefaultColorStylesCoder.swift in Sources */,
 				C0195F54238DB1CB006BA2F3 /* FigmaAPIImagesRouteQueryParameters.swift in Sources */,
@@ -2666,6 +2681,7 @@
 				C0DCC30D236BB85900A3F746 /* TextStylesCoder.swift in Sources */,
 				C0F7A5D82376FBDC0069775B /* TextStylesConfiguration.swift in Sources */,
 				OBJ_359 /* DefaultFigmaAPIProvider.swift in Sources */,
+				C07C1C5F239082AD007CF12E /* DefaultDataProvider.swift in Sources */,
 				C0335F1123832817005ABA6D /* StencilHexToByteFilter.swift in Sources */,
 				OBJ_360 /* FigmaAPIEmptyParameters.swift in Sources */,
 				C0D6B9F0238AEB060054D818 /* FigmaFilesProvider.swift in Sources */,

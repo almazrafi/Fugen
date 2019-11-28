@@ -97,7 +97,7 @@ final class ColorStylesCommand: AsyncExecutableCommand, GenerationConfigurableCo
     private func resolveColorStylesConfiguration() -> ColorStylesConfiguration {
         return ColorStylesConfiguration(
             generatation: generationConfiguration,
-            assetsFolderPath: assetsFolderPath.value
+            assets: assetsFolderPath.value
         )
     }
 

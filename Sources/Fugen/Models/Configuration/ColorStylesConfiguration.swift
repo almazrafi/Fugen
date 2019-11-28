@@ -5,30 +5,30 @@ struct ColorStylesConfiguration: Decodable {
     // MARK: - Nested Types
 
     private enum CodingKeys: String, CodingKey {
-        case assetsFolderPath
+        case assets
     }
 
     // MARK: - Instance Properties
 
     let generatation: GenerationConfiguration
-    let assetsFolderPath: String?
+    let assets: String?
 
     // MARK: - Initializers
 
     init(
         generatation: GenerationConfiguration,
-        assetsFolderPath: String?
+        assets: String?
     ) {
         self.generatation = generatation
-        self.assetsFolderPath = assetsFolderPath
+        self.assets = assets
     }
 
     init(from decoder: Decoder) throws {
         generatation = try GenerationConfiguration(from: decoder)
 
-        assetsFolderPath = try decoder
+        assets = try decoder
             .container(keyedBy: CodingKeys.self)
-            .decodeIfPresent(forKey: .assetsFolderPath)
+            .decodeIfPresent(forKey: .assets)
     }
 
     // MARK: - Instance Methods
@@ -36,7 +36,7 @@ struct ColorStylesConfiguration: Decodable {
     func resolve(base: BaseConfiguration?) -> ColorStylesConfiguration {
         return ColorStylesConfiguration(
             generatation: generatation.resolve(base: base),
-            assetsFolderPath: assetsFolderPath
+            assets: assets
         )
     }
 }

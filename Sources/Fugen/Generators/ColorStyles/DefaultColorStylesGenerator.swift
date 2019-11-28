@@ -29,7 +29,7 @@ final class DefaultColorStylesGenerator: ColorStylesGenerator, GenerationParamet
 
     // MARK: - Instance Methods
 
-    private func generate(parameters: GenerationParameters, assetsFolderPath: String?) -> Promise<Void> {
+    private func generate(parameters: GenerationParameters, assets: String?) -> Promise<Void> {
         return firstly {
             self.colorStylesProvider.fetchColorStyles(
                 fileKey: parameters.fileKey,
@@ -39,8 +39,8 @@ final class DefaultColorStylesGenerator: ColorStylesGenerator, GenerationParamet
                 accessToken: parameters.accessToken
             )
         }.done { colorStyles in
-            if let assetsFolderPath = assetsFolderPath {
-                try self.assetsProvider.saveColorStyles(colorStyles, in: assetsFolderPath)
+            if let assets = assets {
+                try self.assetsProvider.saveColorStyles(colorStyles, in: assets)
             }
 
             let context = self.colorStylesCoder.encodeColorStyles(colorStyles)
@@ -59,7 +59,7 @@ final class DefaultColorStylesGenerator: ColorStylesGenerator, GenerationParamet
         return firstly {
             self.generate(
                 parameters: try self.resolveGenerationParameters(from: configuration.generatation),
-                assetsFolderPath: configuration.assetsFolderPath
+                assets: configuration.assets
             )
         }
     }
