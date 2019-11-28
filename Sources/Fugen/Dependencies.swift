@@ -21,6 +21,12 @@ enum Dependencies {
         nodesProvider: figmaNodesProvider
     )
 
+    static let imagesProvider: ImagesProvider = DefaultImagesProvider(
+        apiProvider: figmaAPIProvider,
+        filesProvider: figmaFilesProvider,
+        nodesProvider: figmaNodesProvider
+    )
+
     static let assetsProvider: AssetsProvider = DefaultAssetsProvider()
 
     static let configurationProvider: ConfigurationProvider = DefaultConfigurationProvider()

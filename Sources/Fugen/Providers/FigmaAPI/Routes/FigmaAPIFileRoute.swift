@@ -5,12 +5,7 @@ struct FigmaAPIFileRoute: FigmaAPIRoute {
     // MARK: - Nested Types
 
     typealias Response = FigmaFile
-
-    struct QueryParameters: Encodable {
-        let version: String?
-        let ids: String?
-        let depth: Int?
-    }
+    typealias QueryParameters = FigmaAPIFileRouteQueryParameters
 
     // MARK: - Instance Properties
 
@@ -29,7 +24,7 @@ struct FigmaAPIFileRoute: FigmaAPIRoute {
         accessToken: String,
         fileKey: String,
         version: String? = nil,
-        ids: [String]? = nil,
+        nodeIDs: [String]? = nil,
         depth: Int? = nil
     ) {
         self.accessToken = accessToken
@@ -37,8 +32,15 @@ struct FigmaAPIFileRoute: FigmaAPIRoute {
 
         self.queryParameters = QueryParameters(
             version: version,
-            ids: ids?.joined(separator: ", "),
+            nodeIDs: nodeIDs?.joined(separator: .nodeIDsSeparator),
             depth: depth
         )
     }
+}
+
+private extension String {
+
+    // MARK: - Type Properties
+
+    static let nodeIDsSeparator = ","
 }

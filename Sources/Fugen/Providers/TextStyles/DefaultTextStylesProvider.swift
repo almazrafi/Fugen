@@ -119,10 +119,12 @@ final class DefaultTextStylesProvider: TextStylesProvider {
         includingNodes includedNodeIDs: [String]?,
         excludingNodes excludedNodeIDs: [String]?
     ) throws -> [TextStyle] {
+        let styles = file.styles ?? [:]
+
         return try nodesProvider
             .fetchNodes(from: file, including: includedNodeIDs, excluding: excludedNodeIDs)
             .lazy
-            .compactMap { try extractTextStyle(from: $0, styles: file.styles ?? [:]) }
+            .compactMap { try extractTextStyle(from: $0, styles: styles) }
             .reduce(into: []) { result, textStyle in
                 if !result.contains(textStyle) {
                     result.append(textStyle)
