@@ -54,7 +54,7 @@ public struct AssetFolder {
                 case AssetColorSet.pathExtension:
                     colorSets[nodeName] = try AssetColorSet(folderPath: nodePath.string)
 
-                case AssetColorSet.pathExtension:
+                case AssetImageSet.pathExtension:
                     imageSets[nodeName] = try AssetImageSet(folderPath: nodePath.string)
 
                 case nil:
