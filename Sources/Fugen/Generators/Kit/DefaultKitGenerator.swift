@@ -8,17 +8,20 @@ final class DefaultKitGenerator: KitGenerator {
     let configurationProvider: ConfigurationProvider
     let colorStylesGenerator: ColorStylesGenerator
     let textStylesGenerator: TextStylesGenerator
+    let imagesGenerator: ImagesGenerator
 
     // MARK: - Initializers
 
     init(
         configurationProvider: ConfigurationProvider,
         colorStylesGenerator: ColorStylesGenerator,
-        textStylesGenerator: TextStylesGenerator
+        textStylesGenerator: TextStylesGenerator,
+        imagesGenerator: ImagesGenerator
     ) {
         self.configurationProvider = configurationProvider
         self.colorStylesGenerator = colorStylesGenerator
         self.textStylesGenerator = textStylesGenerator
+        self.imagesGenerator = imagesGenerator
     }
 
     // MARK: - Instance Methods
@@ -32,6 +35,10 @@ final class DefaultKitGenerator: KitGenerator {
 
         if let textStylesConfiguration = configuration.resolveTextStyles() {
             promises.append(textStylesGenerator.generate(configuration: textStylesConfiguration))
+        }
+
+        if let imagesConfiguration = configuration.resolveImages() {
+            promises.append(imagesGenerator.generate(configuration: imagesConfiguration))
         }
 
         return when(fulfilled: promises)

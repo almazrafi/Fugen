@@ -6,5 +6,6 @@ struct Image: Hashable {
 
     let name: String
     let description: String?
+    let format: ImageFormat
     let urls: [ImageScale: URL]
 }

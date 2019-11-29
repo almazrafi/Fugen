@@ -27,7 +27,8 @@ enum Dependencies {
         nodesProvider: figmaNodesProvider
     )
 
-    static let assetsProvider: AssetsProvider = DefaultAssetsProvider()
+    static let dataProvider: DataProvider = DefaultDataProvider()
+    static let assetsProvider: AssetsProvider = DefaultAssetsProvider(dataProvider: dataProvider)
 
     static let configurationProvider: ConfigurationProvider = DefaultConfigurationProvider()
 
@@ -77,9 +78,17 @@ enum Dependencies {
         templateRenderer: templateRenderer
     )
 
+    static let imagesGenerator: ImagesGenerator = DefaultImagesGenerator(
+        imagesProvider: imagesProvider,
+        assetsProvider: assetsProvider,
+//        imagesCoder: imagesCoder,
+        templateRenderer: templateRenderer
+    )
+
     static let kitGenerator: KitGenerator = DefaultKitGenerator(
         configurationProvider: configurationProvider,
         colorStylesGenerator: colorStylesGenerator,
-        textStylesGenerator: textStylesGenerator
+        textStylesGenerator: textStylesGenerator,
+        imagesGenerator: imagesGenerator
     )
 }

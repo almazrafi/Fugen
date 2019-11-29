@@ -1,4 +1,5 @@
 import Foundation
+import FugenTools
 import PromiseKit
 
 final class DefaultTextStylesGenerator: TextStylesGenerator, GenerationParametersResolving {
@@ -49,8 +50,10 @@ final class DefaultTextStylesGenerator: TextStylesGenerator, GenerationParameter
     // MARK: -
 
     func generate(configuration: TextStylesConfiguration) -> Promise<Void> {
-        return firstly {
-            self.generate(parameters: try self.resolveGenerationParameters(from: configuration))
+        return perform {
+            try self.resolveGenerationParameters(from: configuration)
+        }.then { parameters in
+            self.generate(parameters: parameters)
         }
     }
 }

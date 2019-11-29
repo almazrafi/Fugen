@@ -51,10 +51,10 @@ public struct AssetFolder {
                 let nodeName = nodePath.lastComponentWithoutExtension
 
                 switch nodePath.extension {
-                case String.colorSetPathExtension:
+                case AssetColorSet.pathExtension:
                     colorSets[nodeName] = try AssetColorSet(folderPath: nodePath.string)
 
-                case String.imageSetPathExtension:
+                case AssetColorSet.pathExtension:
                     imageSets[nodeName] = try AssetImageSet(folderPath: nodePath.string)
 
                 case nil:
@@ -68,11 +68,11 @@ public struct AssetFolder {
 
     // MARK: - Instance Methods
 
-    private func saveNodes<T: AssetNode>(_ nodes: [String: T], in folderPath: Path, pathExtension: String) throws {
+    private func saveNodes<T: AssetNode>(_ nodes: [String: T], in folderPath: Path) throws {
         try nodes.forEach { node in
             let nodePath = folderPath.appending(
                 fileName: node.key,
-                extension: pathExtension
+                extension: T.pathExtension
             )
 
             try node.value.save(in: nodePath.string)
@@ -96,8 +96,8 @@ public struct AssetFolder {
 
         try folderPath.mkpath()
 
-        try saveNodes(colorSets, in: folderPath, pathExtension: .colorSetPathExtension)
-        try saveNodes(imageSets, in: folderPath, pathExtension: .imageSetPathExtension)
+        try saveNodes(colorSets, in: folderPath)
+        try saveNodes(imageSets, in: folderPath)
         try saveFolders(in: folderPath)
 
         let contentsEncoder = JSONEncoder(outputFormatting: .prettyPrinted)
@@ -113,6 +113,4 @@ private extension String {
     // MARK: - Type Properties
 
     static let contentsPath = "Contents.json"
-    static let colorSetPathExtension = "colorset"
-    static let imageSetPathExtension = "imageset"
 }

@@ -1,4 +1,5 @@
 import Foundation
+import FugenTools
 import PromiseKit
 
 final class DefaultColorStylesGenerator: ColorStylesGenerator, GenerationParametersResolving {
@@ -29,6 +30,14 @@ final class DefaultColorStylesGenerator: ColorStylesGenerator, GenerationParamet
 
     // MARK: - Instance Methods
 
+    private func saveColorStylesIfNeeded(_ colorStyles: [ColorStyle], in assets: String?) -> Promise<Void> {
+        guard let assets = assets else {
+            return .value(Void())
+        }
+
+        return assetsProvider.saveColorStyles(colorStyles, in: assets)
+    }
+
     private func generate(parameters: GenerationParameters, assets: String?) -> Promise<Void> {
         return firstly {
             self.colorStylesProvider.fetchColorStyles(
@@ -38,11 +47,9 @@ final class DefaultColorStylesGenerator: ColorStylesGenerator, GenerationParamet
                 excludingNodes: parameters.excludedNodes,
                 accessToken: parameters.accessToken
             )
+        }.nest { colorStyles in
+            self.saveColorStylesIfNeeded(colorStyles, in: assets)
         }.done { colorStyles in
-            if let assets = assets {
-                try self.assetsProvider.saveColorStyles(colorStyles, in: assets)
-            }
-
             let context = self.colorStylesCoder.encodeColorStyles(colorStyles)
 
             try self.templateRenderer.renderTemplate(
@@ -56,11 +63,10 @@ final class DefaultColorStylesGenerator: ColorStylesGenerator, GenerationParamet
     // MARK: -
 
     func generate(configuration: ColorStylesConfiguration) -> Promise<Void> {
-        return firstly {
-            self.generate(
-                parameters: try self.resolveGenerationParameters(from: configuration.generatation),
-                assets: configuration.assets
-            )
+        return perform {
+            try self.resolveGenerationParameters(from: configuration.generatation)
+        }.then { parameters in
+            self.generate(parameters: parameters, assets: configuration.assets)
         }
     }
 }

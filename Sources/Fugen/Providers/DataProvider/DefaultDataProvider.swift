@@ -1,43 +1,26 @@
 import Foundation
+import FugenTools
+import PromiseKit
 
-class DefaultDataProvider: DataProvider {
+final class DefaultDataProvider: DataProvider {
 
     // MARK: - Instance Properties
 
-    private let dataCache = NSCache<DataCacheKey, DataCacheValue>()
+    private let dataCache = Cache<URL, Data>()
 
     // MARK: - Instance Methods
 
-    func fetchData(from url: URL) throws -> Data {
-        let dataCacheKey = DataCacheKey(url: url)
+    func fetchData(from url: URL) -> Promise<Data> {
+        return perform {
+            if let data = self.dataCache.value(forKey: url) {
+                return data
+            }
 
-        if let dataCacheValue = dataCache.object(forKey: dataCacheKey) {
-            return dataCacheValue.data
+            let data = try Data(contentsOf: url)
+
+            self.dataCache.setValue(data, forKey: url)
+
+            return data
         }
-
-        let data = try Data(contentsOf: url)
-        let dataCacheValue = DataCacheValue(data: data)
-
-        dataCache.setObject(dataCacheValue, forKey: dataCacheKey)
-
-        return data
-    }
-}
-
-private class DataCacheKey {
-
-    let url: URL
-
-    init(url: URL) {
-        self.url = url
-    }
-}
-
-private class DataCacheValue {
-
-    let data: Data
-
-    init(data: Data) {
-        self.data = data
     }
 }

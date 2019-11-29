@@ -1,6 +1,6 @@
 import Foundation
 
-enum ImageScale: Hashable {
+enum ImageScale {
 
     // MARK: - Enumeration Cases
 

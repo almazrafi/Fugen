@@ -94,7 +94,8 @@ class DefaultImagesProvider: ImagesProvider {
 
     private func extractImages(
         from imageURLs: [ImageScale: [ImageMetadata: URL]],
-        metadata: [ImageMetadata]
+        metadata: [ImageMetadata],
+        format: ImageFormat
     ) -> [Image] {
         let scales = imageURLs.keys
 
@@ -106,6 +107,7 @@ class DefaultImagesProvider: ImagesProvider {
             return Image(
                 name: metadata.name,
                 description: metadata.description,
+                format: format,
                 urls: urls
             )
         }
@@ -115,7 +117,7 @@ class DefaultImagesProvider: ImagesProvider {
         metadata: [ImageMetadata],
         fileKey: String,
         fileVersion: String?,
-        format: ImageFormat?,
+        format: ImageFormat,
         scale: ImageScale,
         accessToken: String
     ) -> Promise<[ImageMetadata: URL]> {
@@ -124,7 +126,7 @@ class DefaultImagesProvider: ImagesProvider {
             fileKey: fileKey,
             fileVersion: fileVersion,
             nodeIDs: metadata.map { $0.id },
-            format: format?.figmaFormat,
+            format: format.figmaFormat,
             scale: scale.figmaScale
         )
 
@@ -139,7 +141,7 @@ class DefaultImagesProvider: ImagesProvider {
         metadata: [ImageMetadata],
         fileKey: String,
         fileVersion: String?,
-        format: ImageFormat?,
+        format: ImageFormat,
         scales: [ImageScale],
         accessToken: String
     ) -> Promise<[Image]> {
@@ -157,7 +159,11 @@ class DefaultImagesProvider: ImagesProvider {
         return firstly {
             when(fulfilled: promises)
         }.map(on: DispatchQueue.global(qos: .userInitiated)) { imageURLs in
-            self.extractImages(from: Dictionary(imageURLs) { $1 }, metadata: metadata)
+            self.extractImages(
+                from: Dictionary(imageURLs) { $1 },
+                metadata: metadata,
+                format: format
+            )
         }
     }
 
@@ -168,7 +174,7 @@ class DefaultImagesProvider: ImagesProvider {
         fileVersion: String?,
         includingNodes includedNodeIDs: [String]?,
         excludingNodes excludedNodeIDs: [String]?,
-        format: ImageFormat?,
+        format: ImageFormat,
         scales: [ImageScale],
         accessToken: String
     ) -> Promise<[Image]> {
@@ -202,27 +208,6 @@ private struct ImageMetadata: Hashable {
     let description: String?
 }
 
-private extension ImageScale {
-
-    // MARK: - Instance Properties
-
-    var figmaScale: Double {
-        switch self {
-        case .single, .scale1x:
-            return 1.0
-
-        case .scale2x:
-            return 2.0
-
-        case .scale3x:
-            return 3.0
-
-        case .scale4x:
-            return 4.0
-        }
-    }
-}
-
 private extension ImageFormat {
 
     // MARK: - Instance Properties
@@ -240,6 +225,27 @@ private extension ImageFormat {
 
         case .svg:
             return .svg
+        }
+    }
+}
+
+private extension ImageScale {
+
+    // MARK: - Instance Properties
+
+    var figmaScale: Double {
+        switch self {
+        case .single, .scale1x:
+            return 1.0
+
+        case .scale2x:
+            return 2.0
+
+        case .scale3x:
+            return 3.0
+
+        case .scale4x:
+            return 4.0
         }
     }
 }
