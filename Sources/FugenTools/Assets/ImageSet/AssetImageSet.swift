@@ -2,6 +2,10 @@ import Foundation
 
 public struct AssetImageSet: AssetNode {
 
+    // MARK: - Type Properties
+
+    public static let pathExtension = "imageset"
+
     // MARK: - Instance Properties
 
     public var contents: AssetImageSetContents

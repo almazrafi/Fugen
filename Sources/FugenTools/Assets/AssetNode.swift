@@ -7,6 +7,10 @@ public protocol AssetNode {
 
     associatedtype Contents: Codable
 
+    // MARK: - Type Properties
+
+    static var pathExtension: String { get }
+
     // MARK: - Instance Properties
 
     var contents: Contents { get set }
