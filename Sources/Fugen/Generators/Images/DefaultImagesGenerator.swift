@@ -7,8 +7,7 @@ final class DefaultImagesGenerator: ImagesGenerator, GenerationParametersResolvi
     // MARK: - Instance Properties
 
     let imagesProvider: ImagesProvider
-    let assetsProvider: AssetsProvider
-//    let imagesCoder: ImagesCoder
+    let imagesCoder: ImagesCoder
     let templateRenderer: TemplateRenderer
 
     let defaultTemplateType = RenderTemplateType.native(name: "Images")
@@ -18,69 +17,50 @@ final class DefaultImagesGenerator: ImagesGenerator, GenerationParametersResolvi
 
     init(
         imagesProvider: ImagesProvider,
-        assetsProvider: AssetsProvider,
-//        imagesCoder: ImagesCoder,
+        imagesCoder: ImagesCoder,
         templateRenderer: TemplateRenderer
     ) {
         self.imagesProvider = imagesProvider
-        self.assetsProvider = assetsProvider
-//        self.imagesCoder = imagesCoder
+        self.imagesCoder = imagesCoder
         self.templateRenderer = templateRenderer
     }
 
     // MARK: - Instance Methods
 
-    private func saveImagesIfNeeded(_ images: [Image], in assets: String?) -> Promise<Void> {
-        guard let assets = assets else {
-            return .value(Void())
-        }
-
-        return assetsProvider.saveImages(images, in: assets)
-    }
-
-    private func generate(
-        parameters: GenerationParameters,
-        assets: String?,
-        resources: String?,
-        format: ImageFormat,
-        scales: [ImageScale]
-    ) -> Promise<Void> {
+    private func generate(parameters: GenerationParameters, imagesParameters: ImagesParameters) -> Promise<Void> {
         return firstly {
             self.imagesProvider.fetchImages(
-                fileKey: parameters.fileKey,
-                fileVersion: parameters.fileVersion,
-                includingNodes: parameters.includedNodes,
-                excludingNodes: parameters.excludedNodes,
-                format: format,
-                scales: scales,
-                accessToken: parameters.accessToken
+                from: parameters.file,
+                nodes: parameters.nodes,
+                parameters: imagesParameters
             )
-        }.nest { images in
-            self.saveImagesIfNeeded(images, in: assets)
         }.done { images in
-//            let context = self.colorStylesCoder.encodeColorStyles(colorStyles)
-//
-//            try self.templateRenderer.renderTemplate(
-//                parameters.template,
-//                to: parameters.destination,
-//                context: context
-//            )
+            let context = self.imagesCoder.encodeImages(images)
+
+            try self.templateRenderer.renderTemplate(
+                parameters.render.template,
+                to: parameters.render.destination,
+                context: context
+            )
         }
     }
 
     // MARK: -
 
     func generate(configuration: ImagesConfiguration) -> Promise<Void> {
-        return perform {
+        return perform(on: DispatchQueue.global(qos: .userInitiated)) {
             try self.resolveGenerationParameters(from: configuration.generatation)
         }.then { parameters in
-            self.generate(
-                parameters: parameters,
-                assets: configuration.assets,
-                resources: configuration.resources,
-                format: configuration.format,
-                scales: configuration.scales
-            )
+            self.generate(parameters: parameters, imagesParameters: configuration.imagesParameters)
         }
+    }
+}
+
+private extension ImagesConfiguration {
+
+    // MARK: - Instance Properties
+
+    var imagesParameters: ImagesParameters {
+        ImagesParameters(format: format, scales: scales, assets: assets, resources: resources)
     }
 }

@@ -4,7 +4,9 @@ struct TextStyle: Hashable {
 
     // MARK: - Instance Properties
 
+    let id: String
     let name: String
+    let description: String?
     let font: Font
     let colorStyle: String?
     let color: Color

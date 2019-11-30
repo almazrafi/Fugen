@@ -1,6 +1,6 @@
 import Foundation
 
-enum FigmaBlendMode: String, Hashable {
+enum FigmaBlendMode: String {
 
     // MARK: - Enumeration Cases
 

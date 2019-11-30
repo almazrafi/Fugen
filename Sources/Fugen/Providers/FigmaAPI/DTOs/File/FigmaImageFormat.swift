@@ -1,6 +1,6 @@
 import Foundation
 
-enum FigmaImageFormat: String, Hashable {
+enum FigmaImageFormat: String {
 
     // MARK: - Enumeration Cases
 

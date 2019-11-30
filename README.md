@@ -2,7 +2,7 @@
 [![Travis CI](https://travis-ci.com/almazrafi/Fugen.svg?branch=master)](https://travis-ci.com/almazrafi/Fugen)
 [![Version](https://img.shields.io/github/v/release/almazrafi/Fugen)](https://github.com/almazrafi/Fugen/releases)
 [![Xcode](https://img.shields.io/badge/Xcode-11-blue.svg)](https://developer.apple.com/xcode)
-[![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)](https://swift.org)
+[![Swift](https://img.shields.io/badge/Swift-5.1-orange.svg)](https://swift.org)
 [![Platforms](https://img.shields.io/badge/platforms-macOS%20%7C%20Linux-lightgrey)](https://swift.org/about/#platform-support)
 [![License](https://img.shields.io/github/license/almazrafi/Fugen.svg?style=flat)](https://github.com/almazrafi/Fugen/blob/master/LICENSE)
 

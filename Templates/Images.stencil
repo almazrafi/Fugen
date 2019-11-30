@@ -1,0 +1,5 @@
+{% include "FileHeader.stencil" %}
+{% if images %}
+{% else %}
+// No text style found
+{% endif %}

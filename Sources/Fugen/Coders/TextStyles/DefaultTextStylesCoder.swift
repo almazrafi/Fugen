@@ -28,6 +28,10 @@ final class DefaultTextStylesCoder: TextStylesCoder {
             "underline": textStyle.underline
         ]
 
+        if let description = textStyle.description {
+            encodedTextStyle["description"] = description
+        }
+
         if let colorStyle = textStyle.colorStyle {
             encodedTextStyle["colorStyle"] = colorStyle
         }

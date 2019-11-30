@@ -7,8 +7,6 @@ struct ImagesProviderError: Error, CustomStringConvertible {
     enum Code {
         case componentNotFound
         case invalidComponentName
-        case invalidImage
-        case invalidImageURL
     }
 
     // MARK: - Instance Properties
@@ -28,12 +26,6 @@ struct ImagesProviderError: Error, CustomStringConvertible {
 
         case .invalidComponentName:
             return "Component name of node \(nodeName) ('\(nodeID)') is either empty or nil"
-
-        case .invalidImage:
-            return "Image for node \(nodeName) ('\(nodeID)') cannot be rendered"
-
-        case .invalidImageURL:
-            return "Image for node \(nodeName) ('\(nodeID)') has an invalid URL"
         }
     }
 }

@@ -24,11 +24,11 @@ struct ColorStylesConfiguration: Decodable {
     }
 
     init(from decoder: Decoder) throws {
-        generatation = try GenerationConfiguration(from: decoder)
-
         assets = try decoder
             .container(keyedBy: CodingKeys.self)
             .decodeIfPresent(forKey: .assets)
+
+        generatation = try GenerationConfiguration(from: decoder)
     }
 
     // MARK: - Instance Methods

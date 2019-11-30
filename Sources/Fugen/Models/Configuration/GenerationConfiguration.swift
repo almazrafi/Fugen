@@ -8,33 +8,33 @@ struct GenerationConfiguration: Decodable {
     private enum CodingKeys: String, CodingKey {
         case file
         case accessToken
-        case templatePath
+        case template
         case templateOptions
-        case destinationPath
+        case destination
     }
 
     // MARK: - Instance Properties
 
     let file: FileConfiguration?
     let accessToken: String?
-    let templatePath: String?
+    let template: String?
     let templateOptions: [String: Any]?
-    let destinationPath: String?
+    let destination: String?
 
     // MARK: - Initializers
 
     init(
         file: FileConfiguration?,
         accessToken: String?,
-        templatePath: String?,
+        template: String?,
         templateOptions: [String: Any]?,
-        destinationPath: String?
+        destination: String?
     ) {
         self.file = file
         self.accessToken = accessToken
-        self.templatePath = templatePath
+        self.template = template
         self.templateOptions = templateOptions
-        self.destinationPath = destinationPath
+        self.destination = destination
     }
 
     init(from decoder: Decoder) throws {
@@ -42,13 +42,13 @@ struct GenerationConfiguration: Decodable {
 
         file = try container.decodeIfPresent(forKey: .file)
         accessToken = try container.decodeIfPresent(forKey: .accessToken)
-        templatePath = try container.decodeIfPresent(forKey: .templatePath)
+        template = try container.decodeIfPresent(forKey: .template)
 
         templateOptions = try container
             .decodeIfPresent([String: AnyCodable].self, forKey: .templateOptions)?
             .mapValues { $0.value }
 
-        destinationPath = try container.decodeIfPresent(forKey: .destinationPath)
+        destination = try container.decodeIfPresent(forKey: .destination)
     }
 
     // MARK: - Instance Methods
@@ -61,9 +61,9 @@ struct GenerationConfiguration: Decodable {
         return GenerationConfiguration(
             file: file ?? base.file,
             accessToken: accessToken ?? base.accessToken,
-            templatePath: templatePath,
+            template: template,
             templateOptions: templateOptions,
-            destinationPath: destinationPath
+            destination: destination
         )
     }
 }

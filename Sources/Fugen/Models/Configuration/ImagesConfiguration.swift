@@ -36,46 +36,20 @@ struct ImagesConfiguration: Decodable {
     }
 
     init(from decoder: Decoder) throws {
-        generatation = try GenerationConfiguration(from: decoder)
-
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         assets = try container.decodeIfPresent(forKey: .assets)
         resources = try container.decodeIfPresent(forKey: .resources)
 
-        switch try container.decodeIfPresent(ImageRawFormat.self, forKey: .format) {
-        case .pdf, nil:
-            format = .pdf
+        format = try container
+            .decodeIfPresent(ImageRawFormat.self, forKey: .format)?
+            .imageFormat ?? .pdf
 
-        case .png:
-            format = .png
+        scales = try container
+            .decodeIfPresent([ImageRawScale].self, forKey: .scales)?
+            .map { $0.imageScale } ?? [.single]
 
-        case .jpg:
-            format = .jpg
-
-        case .svg:
-            format = .svg
-        }
-
-        if let rawScales = try container.decodeIfPresent([ImageRawScale].self, forKey: .scales) {
-            scales = rawScales.map { rawScale in
-                switch rawScale {
-                case .scale1x:
-                    return .scale1x
-
-                case .scale2x:
-                    return .scale2x
-
-                case .scale3x:
-                    return .scale3x
-
-                case .scale4x:
-                    return .scale4x
-                }
-            }
-        } else {
-            scales = [.single]
-        }
+        generatation = try GenerationConfiguration(from: decoder)
     }
 
     // MARK: - Instance Methods
@@ -99,6 +73,24 @@ private enum ImageRawFormat: String, Codable {
     case png
     case jpg
     case svg
+
+    // MARK: - Instance Properties
+
+    var imageFormat: ImageFormat {
+        switch self {
+        case .pdf:
+            return .pdf
+
+        case .png:
+            return .png
+
+        case .jpg:
+            return .jpg
+
+        case .svg:
+            return .svg
+        }
+    }
 }
 
 private enum ImageRawScale: Int, Codable {
@@ -109,4 +101,22 @@ private enum ImageRawScale: Int, Codable {
     case scale2x
     case scale3x
     case scale4x
+
+    // MARK: - Instance Properties
+
+    var imageScale: ImageScale {
+        switch self {
+        case .scale1x:
+            return .scale1x
+
+        case .scale2x:
+            return .scale2x
+
+        case .scale3x:
+            return .scale3x
+
+        case .scale4x:
+            return .scale4x
+        }
+    }
 }

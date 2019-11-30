@@ -1,6 +1,6 @@
 import Foundation
 
-enum ImageFormat: Hashable {
+enum ImageFormat {
 
     // MARK: - Enumeration Cases
 
@@ -25,5 +25,15 @@ enum ImageFormat: Hashable {
         case .svg:
             return "svg"
         }
+    }
+
+    // MARK: - Instance Methods
+
+    func assetName(for fileName: String) -> String {
+        return fileName
+    }
+
+    func resourceName(for fileName: String) -> String {
+        return "\(fileName).\(fileExtension)"
     }
 }

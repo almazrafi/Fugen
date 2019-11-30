@@ -22,6 +22,10 @@ extension Promise {
             }
         }
     }
+
+    public func asOptional() -> Promise<T?> {
+        return map(on: nil) { $0 as T? }
+    }
 }
 
 public func perform<T>(

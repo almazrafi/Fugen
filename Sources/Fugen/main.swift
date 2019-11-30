@@ -12,7 +12,8 @@ let fugen = CLI(
 fugen.commands = [
     ColorStylesCommand(generator: Dependencies.colorStylesGenerator),
     TextStylesCommand(generator: Dependencies.textStylesGenerator),
-    GenerateCommand(generator: Dependencies.kitGenerator)
+    ImagesCommand(generator: Dependencies.imagesGenerator),
+    GenerateCommand(generator: Dependencies.libraryGenerator)
 ]
 
 fugen.goAndExitOnError()

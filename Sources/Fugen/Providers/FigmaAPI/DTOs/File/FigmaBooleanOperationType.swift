@@ -1,6 +1,6 @@
 import Foundation
 
-enum FigmaBooleanOperationType: String, Hashable {
+enum FigmaBooleanOperationType: String {
 
     // MARK: - Enumeration Cases
 

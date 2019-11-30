@@ -54,15 +54,17 @@ final class ColorStylesCommand: AsyncExecutableCommand, GenerationConfigurableCo
             """
     )
 
-    let assetsFolderPath = Key<String>(
-        "--assetsFolderPath",
+    let assets = Key<String>(
+        "--assets",
+        "-a",
         description: """
             Optional path to Xcode-assets folder to store colors.
             """
     )
 
-    let templatePath = Key<String>(
-        "--templatePath",
+    let template = Key<String>(
+        "--template",
+        "-t",
         description: """
             Path to the template file.
             If no template is passed a default template will be used.
@@ -73,13 +75,14 @@ final class ColorStylesCommand: AsyncExecutableCommand, GenerationConfigurableCo
         "--options",
         "-o",
         description: #"""
-           An option that will be merged with template context, and overwrite any values of the same name.
-           Can be repeated multiple times and must be in the format: -o "name:value".
-           """#
+            An option that will be merged with template context, and overwrite any values of the same name.
+            Can be repeated multiple times and must be in the format: -o "name:value".
+            """#
     )
 
-    let destinationPath = Key<String>(
-        "--destinationPath",
+    let destination = Key<String>(
+        "--destination",
+        "-d",
         description: """
             The path to the file to generate.
             By default, generated code will be printed on stdout.
@@ -97,7 +100,7 @@ final class ColorStylesCommand: AsyncExecutableCommand, GenerationConfigurableCo
     private func resolveColorStylesConfiguration() -> ColorStylesConfiguration {
         return ColorStylesConfiguration(
             generatation: generationConfiguration,
-            assets: assetsFolderPath.value
+            assets: assets.value
         )
     }
 

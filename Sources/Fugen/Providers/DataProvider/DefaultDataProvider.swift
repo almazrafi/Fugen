@@ -1,6 +1,7 @@
 import Foundation
 import FugenTools
 import PromiseKit
+import PathKit
 
 final class DefaultDataProvider: DataProvider {
 
@@ -11,16 +12,29 @@ final class DefaultDataProvider: DataProvider {
     // MARK: - Instance Methods
 
     func fetchData(from url: URL) -> Promise<Data> {
-        return perform {
+        return perform(on: DispatchQueue.global(qos: .userInitiated)) {
             if let data = self.dataCache.value(forKey: url) {
                 return data
             }
 
-            let data = try Data(contentsOf: url)
-
+            return try Data(contentsOf: url)
+        }.get { data in
             self.dataCache.setValue(data, forKey: url)
+        }
+    }
 
-            return data
+    func saveData(from url: URL, to filePath: String) -> Promise<Void> {
+        return firstly {
+            self.fetchData(from: url)
+        }.map(on: DispatchQueue.global(qos: .userInitiated)) { fileData in
+            let filePath = Path(filePath)
+
+            if filePath.exists {
+                try filePath.delete()
+            }
+
+            try filePath.parent().mkpath()
+            try filePath.write(fileData)
         }
     }
 }

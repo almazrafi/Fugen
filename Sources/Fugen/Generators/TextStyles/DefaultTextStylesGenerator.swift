@@ -29,19 +29,13 @@ final class DefaultTextStylesGenerator: TextStylesGenerator, GenerationParameter
 
     private func generate(parameters: GenerationParameters) -> Promise<Void> {
         return firstly {
-            self.textStylesProvider.fetchTextStyles(
-                fileKey: parameters.fileKey,
-                fileVersion: parameters.fileVersion,
-                includingNodes: parameters.includedNodes,
-                excludingNodes: parameters.excludedNodes,
-                accessToken: parameters.accessToken
-            )
+            self.textStylesProvider.fetchTextStyles(from: parameters.file, nodes: parameters.nodes)
         }.done { textStyles in
             let context = self.textStylesCoder.encodeTextStyles(textStyles)
 
             try self.templateRenderer.renderTemplate(
-                parameters.template,
-                to: parameters.destination,
+                parameters.render.template,
+                to: parameters.render.destination,
                 context: context
             )
         }
@@ -50,7 +44,7 @@ final class DefaultTextStylesGenerator: TextStylesGenerator, GenerationParameter
     // MARK: -
 
     func generate(configuration: TextStylesConfiguration) -> Promise<Void> {
-        return perform {
+        return perform(on: DispatchQueue.global(qos: .userInitiated)) {
             try self.resolveGenerationParameters(from: configuration)
         }.then { parameters in
             self.generate(parameters: parameters)

@@ -12,9 +12,9 @@ protocol GenerationConfigurableCommand: Command {
 
     var accessToken: Key<String> { get }
 
-    var templatePath: Key<String> { get }
+    var template: Key<String> { get }
     var templateOptions: VariadicKey<String> { get }
-    var destinationPath: Key<String> { get }
+    var destination: Key<String> { get }
 
     var generationConfiguration: GenerationConfiguration { get }
 }
@@ -27,9 +27,9 @@ extension GenerationConfigurableCommand {
         GenerationConfiguration(
             file: resolveFileConfiguration(),
             accessToken: accessToken.value,
-            templatePath: templatePath.value,
+            template: template.value,
             templateOptions: resolveTemplateOptions(),
-            destinationPath: destinationPath.value
+            destination: destination.value
         )
     }
 

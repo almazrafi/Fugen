@@ -63,11 +63,7 @@ final class DefaultTemplateRenderer: TemplateRenderer {
 
     // MARK: -
 
-    func renderTemplate(
-        _ template: RenderTemplate,
-        to destination: RenderDestination,
-        context: [String: Any]
-    ) throws {
+    func renderTemplate(_ template: RenderTemplate, to destination: RenderDestination, context: [String: Any]) throws {
         let stencilExtensionRegistry = ExtensionRegistry()
 
         stencilExtensionRegistry.registerStencilSwiftExtensions()

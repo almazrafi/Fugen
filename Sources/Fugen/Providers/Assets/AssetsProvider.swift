@@ -6,6 +6,5 @@ protocol AssetsProvider {
 
     // MARK: - Instance Methods
 
-    func saveColorStyles(_ colorStyle: [ColorStyle], in folderPath: String) -> Promise<Void>
-    func saveImages(_ images: [Image], in folderPath: String) -> Promise<Void>
+    func saveAssetFolder(_ folder: AssetFolder, in folderPath: String) -> Promise<Void>
 }

@@ -1,7 +1,7 @@
 import Foundation
 import PromiseKit
 
-protocol KitGenerator {
+protocol LibraryGenerator {
 
     // MARK: - Instance Methods
 

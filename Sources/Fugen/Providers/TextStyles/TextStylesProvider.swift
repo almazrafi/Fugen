@@ -5,11 +5,5 @@ protocol TextStylesProvider {
 
     // MARK: - Instance Methods
 
-    func fetchTextStyles(
-        fileKey: String,
-        fileVersion: String?,
-        includingNodes includedNodeIDs: [String]?,
-        excludingNodes excludedNodeIDs: [String]?,
-        accessToken: String
-    ) -> Promise<[TextStyle]>
+    func fetchTextStyles(from file: FileParameters, nodes: NodesParameters) -> Promise<[TextStyle]>
 }

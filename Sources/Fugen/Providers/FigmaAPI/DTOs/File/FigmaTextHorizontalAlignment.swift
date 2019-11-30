@@ -1,6 +1,6 @@
 import Foundation
 
-enum FigmaTextHorizontalAlignment: String, Hashable {
+enum FigmaTextHorizontalAlignment: String {
 
     // MARK: - Enumeration Cases
 

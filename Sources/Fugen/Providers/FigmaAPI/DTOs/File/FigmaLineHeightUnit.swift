@@ -1,6 +1,6 @@
 import Foundation
 
-enum FigmaLineHeightUnit: String, Hashable {
+enum FigmaLineHeightUnit: String {
 
     // MARK: - Enumeration Cases
 

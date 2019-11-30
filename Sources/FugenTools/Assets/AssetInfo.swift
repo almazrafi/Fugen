@@ -2,6 +2,10 @@ import Foundation
 
 public struct AssetInfo: Codable, Hashable {
 
+    // MARK: - Type Properties
+
+    public static let defaultFugen = AssetInfo(version: 1, author: "Fugen")
+
     // MARK: - Instance Properties
 
     public var version: Int?

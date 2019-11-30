@@ -1,7 +1,7 @@
 import Foundation
 import PromiseKit
 
-final class DefaultKitGenerator: KitGenerator {
+final class DefaultLibraryGenerator: LibraryGenerator {
 
     // MARK: - Instance Properties
 

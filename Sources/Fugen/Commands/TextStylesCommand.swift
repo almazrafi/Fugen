@@ -29,7 +29,6 @@ final class TextStylesCommand: AsyncExecutableCommand, GenerationConfigurableCom
 
     let includedNodes = VariadicKey<String>(
         "--includingNodes",
-        "-i",
         description: #"""
             A list of Figma nodes whose styles will be extracted.
             Can be repeated multiple times and must be in the format: -i "1:23".
@@ -39,7 +38,6 @@ final class TextStylesCommand: AsyncExecutableCommand, GenerationConfigurableCom
 
     let excludedNodes = VariadicKey<String>(
         "--excludingNodes",
-        "-e",
         description: #"""
             A list of Figma nodes whose styles will be ignored.
             Can be repeated multiple times and must be in the format: -e "1:23".
@@ -54,8 +52,9 @@ final class TextStylesCommand: AsyncExecutableCommand, GenerationConfigurableCom
             """
     )
 
-    let templatePath = Key<String>(
-        "--templatePath",
+    let template = Key<String>(
+        "--template",
+        "-t",
         description: """
             Path to the template file.
             If no template is passed a default template will be used.
@@ -66,13 +65,14 @@ final class TextStylesCommand: AsyncExecutableCommand, GenerationConfigurableCom
         "--options",
         "-o",
         description: #"""
-           An option that will be merged with template context, and overwrite any values of the same name.
-           Can be repeated multiple times and must be in the format: -o "name:value".
-           """#
+            An option that will be merged with template context, and overwrite any values of the same name.
+            Can be repeated multiple times and must be in the format: -o "name:value".
+            """#
     )
 
-    let destinationPath = Key<String>(
-        "--destinationPath",
+    let destination = Key<String>(
+        "--destination",
+        "-d",
         description: """
             The path to the file to generate.
             By default, generated code will be printed on stdout.

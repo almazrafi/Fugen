@@ -9,7 +9,7 @@ colorStyles:
 #    includedNodes:
 #      - 14%3A6
   assets: FugenDemo/Resources/Assets.xcassets/Generated/Colors
-  destinationPath: FugenDemo/Generated/ColorStyle.swift
+  destination: FugenDemo/Generated/ColorStyle.swift
   templateOptions:
     publicAccess: true
 
@@ -20,6 +20,21 @@ textStyles:
     version: 201889163
     includedNodes:
       - 15%3A2
-  destinationPath: FugenDemo/Generated/TextStyle.swift
+  destination: FugenDemo/Generated/TextStyle.swift
+  templateOptions:
+    publicAccess: true
+
+images:
+  file: 'https://www.figma.com/file/1GNzO48CZVWv9QPYCzBxnz/Icon-Pack'
+#  file:
+#    key: 1GNzO48CZVWv9QPYCzBxnz
+  assets: FugenDemo/Resources/Assets.xcassets/Generated/Images
+  resources: FugenDemo/Resources/Images
+  format: png
+  scales:
+    - 1
+    - 2
+    - 3
+  destination: FugenDemo/Generated/Images.swift
   templateOptions:
     publicAccess: true

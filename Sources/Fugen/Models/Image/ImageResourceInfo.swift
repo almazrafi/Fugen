@@ -1,9 +1,8 @@
 import Foundation
 
-struct ColorStyle: Hashable {
+struct ImageResourceInfo: Hashable {
 
     // MARK: - Instance Properties
 
     let name: String
-    let color: Color
 }

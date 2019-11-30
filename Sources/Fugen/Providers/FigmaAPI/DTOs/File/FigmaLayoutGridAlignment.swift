@@ -1,6 +1,6 @@
 import Foundation
 
-enum FigmaLayoutGridAlignment: String, Hashable {
+enum FigmaLayoutGridAlignment: String {
 
     // MARK: - Enumeration Cases
 

@@ -101,7 +101,9 @@ final class DefaultTextStylesProvider: TextStylesProvider {
         }
 
         return TextStyle(
+            id: node.id,
             name: nodeStyleName,
+            description: nodeStyle.description,
             font: try extractFont(from: nodeTypeStyle, of: node),
             colorStyle: try extractColorStyle(from: nodeInfo, of: node, styles: styles),
             color: try extractColor(from: nodeInfo, of: node),
@@ -114,15 +116,10 @@ final class DefaultTextStylesProvider: TextStylesProvider {
         )
     }
 
-    private func extractTextStyles(
-        from file: FigmaFile,
-        includingNodes includedNodeIDs: [String]?,
-        excludingNodes excludedNodeIDs: [String]?
-    ) throws -> [TextStyle] {
+    private func extractTextStyles(from nodes: [FigmaNode], of file: FigmaFile) throws -> [TextStyle] {
         let styles = file.styles ?? [:]
 
-        return try nodesProvider
-            .fetchNodes(from: file, including: includedNodeIDs, excluding: excludedNodeIDs)
+        return try nodes
             .lazy
             .compactMap { try extractTextStyle(from: $0, styles: styles) }
             .reduce(into: []) { result, textStyle in
@@ -134,21 +131,13 @@ final class DefaultTextStylesProvider: TextStylesProvider {
 
     // MARK: -
 
-    func fetchTextStyles(
-        fileKey: String,
-        fileVersion: String?,
-        includingNodes includedNodeIDs: [String]?,
-        excludingNodes excludedNodeIDs: [String]?,
-        accessToken: String
-    ) -> Promise<[TextStyle]> {
+    func fetchTextStyles(from file: FileParameters, nodes: NodesParameters) -> Promise<[TextStyle]> {
         return firstly {
-            self.filesProvider.fetchFile(key: fileKey, version: fileVersion, accessToken: accessToken)
-        }.map(on: DispatchQueue.global(qos: .userInitiated)) { file in
-            try self.extractTextStyles(
-                from: file,
-                includingNodes: includedNodeIDs,
-                excludingNodes: excludedNodeIDs
-            )
+            self.filesProvider.fetchFile(file)
+        }.then { figmaFile in
+            self.nodesProvider.fetchNodes(nodes, from: figmaFile).map { figmaNodes in
+                try self.extractTextStyles(from: figmaNodes, of: figmaFile)
+            }
         }
     }
 }
