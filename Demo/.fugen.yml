@@ -30,11 +30,6 @@ images:
 #    key: 1GNzO48CZVWv9QPYCzBxnz
   assets: FugenDemo/Resources/Assets.xcassets/Generated/Images
   resources: FugenDemo/Resources/Images
-  format: png
-  scales:
-    - 1
-    - 2
-    - 3
   destination: FugenDemo/Generated/Images.swift
   templateOptions:
     publicAccess: true

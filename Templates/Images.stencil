@@ -1,5 +1,31 @@
 {% include "FileHeader.stencil" %}
 {% if images %}
+{% set accessModifier %}{% if options.publicAccess %}public{% else %}internal{% endif %}{% endset %}
+{% set imagesEnumName %}{{ options.imagesEnumName|default:"Images" }}{% endset %}
+{% set imageTypeName %}{{ options.imageTypeName|default:"UIImage" }}{% endset %}
+{% macro propertyName name %}{{ name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords }}{% endmacro %}
+{% macro assetImage asset %}{{ imageTypeName }}(named: "{{ asset.name }}")!{% endmacro %}
+#if canImport(UIKit)
+import UIKit
+#else
+import AppKit
+#endif
+
+{{ accessModifier }} enum {{ imagesEnumName }} {
+
+    // MARK: - Enumeration Cases
+{% for image in images %}
+
+{% if image.asset.name %}
+    /// {{ image.name }}
+    {% if image.description %}
+    ///
+    /// {{ image.description }}
+    {% endif %}
+    {{ accessModifier }} static let {% call propertyName image.name %} = {% call assetImage image.asset %}
+{% endif %}
+{% endfor %}
+}
 {% else %}
 // No text style found
 {% endif %}

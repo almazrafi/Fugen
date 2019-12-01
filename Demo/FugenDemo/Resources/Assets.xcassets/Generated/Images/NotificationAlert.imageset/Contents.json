@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "NotificationAlert.pdf"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "Fugen"
+  }
+}
