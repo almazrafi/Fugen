@@ -175,7 +175,7 @@ This token could be created in a few simple steps:
 3. Enter a description for the token (for instance, "Fugen").
 4. Copy the created token to the clipboard.
 
-![](Assets/AccessToken.png)
+![](Docs/AccessToken.png)
 
 Then paste the received access token in the `accessToken` field of the configuration.
 It is enough to define it only in the `base` section if this token allows access to all Figma files,
@@ -214,7 +214,7 @@ If this parameter is present, then only the data from this frame will be used.
 
 The URL of the Figma file opened in the browser can be easily obtained from the address bar.
 
-![](Assets/FileURL.png)
+![](Docs/FileURL.png)
 
 **N.B.:** Be careful with the `node-id` parameter, as in Figma the wrong frame could be selected.
 Then the wrong data will be used for generation.
@@ -277,7 +277,7 @@ colorStyles:
 ```
 
 #### Xcode-assets
-It's recommended to specify the path to a subfolder inside the Xcode-assets folder in the  `assets` parameter,
+It's recommended to specify the path to a subfolder inside the Xcode-assets folder in the `assets` parameter,
 so all colors are saved in this subfolder. For example `Sources/Assets.xcasset/Colors`.
 The whole assets structure be created if it was missing.
 
