@@ -23,13 +23,3 @@ textStyles:
   destination: FugenDemo/Generated/TextStyle.swift
   templateOptions:
     publicAccess: true
-
-images:
-  file: 'https://www.figma.com/file/1GNzO48CZVWv9QPYCzBxnz/Icon-Pack'
-#  file:
-#    key: 1GNzO48CZVWv9QPYCzBxnz
-  assets: FugenDemo/Resources/Assets.xcassets/Generated/Images
-  resources: FugenDemo/Resources/Images
-  destination: FugenDemo/Generated/Images.swift
-  templateOptions:
-    publicAccess: true

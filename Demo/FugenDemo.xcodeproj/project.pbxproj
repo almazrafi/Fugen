@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2AACCA0388F9FF9E4AF322F1 /* Pods_FugenDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5892121F1D00E978F9A770E /* Pods_FugenDemo.framework */; };
-		C05B3B752393665A0042A8AA /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05B3B742393665A0042A8AA /* Images.swift */; };
 		C08DB57B2380983E00391F14 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DB5792380983E00391F14 /* TextStyle.swift */; };
 		C08DB57C2380983E00391F14 /* ColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DB57A2380983E00391F14 /* ColorStyle.swift */; };
 		C0E6B5FB238096C500083ADB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E6B5FA238096C500083ADB /* AppDelegate.swift */; };
@@ -24,7 +23,6 @@
 		8FC235E00E36DC62C4755546 /* Pods-Fugen Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fugen Demo.debug.xcconfig"; path = "Target Support Files/Pods-Fugen Demo/Pods-Fugen Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		A5892121F1D00E978F9A770E /* Pods_FugenDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FugenDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEAAC6E1082665BBB49FA803 /* Pods-FugenDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FugenDemo.release.xcconfig"; path = "Target Support Files/Pods-FugenDemo/Pods-FugenDemo.release.xcconfig"; sourceTree = "<group>"; };
-		C05B3B742393665A0042A8AA /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		C08DB5792380983E00391F14 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		C08DB57A2380983E00391F14 /* ColorStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorStyle.swift; sourceTree = "<group>"; };
 		C0E6B5F7238096C500083ADB /* Fugen Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fugen Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,7 +62,6 @@
 		C08DB5772380978C00391F14 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				C05B3B742393665A0042A8AA /* Images.swift */,
 				C08DB57A2380983E00391F14 /* ColorStyle.swift */,
 				C08DB5792380983E00391F14 /* TextStyle.swift */,
 			);
@@ -226,7 +223,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C08DB57B2380983E00391F14 /* TextStyle.swift in Sources */,
-				C05B3B752393665A0042A8AA /* Images.swift in Sources */,
 				C0E6B5FF238096C500083ADB /* ViewController.swift in Sources */,
 				C0E6B5FB238096C500083ADB /* AppDelegate.swift in Sources */,
 				C08DB57C2380983E00391F14 /* ColorStyle.swift in Sources */,
