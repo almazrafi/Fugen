@@ -1,6 +1,6 @@
 import Foundation
 
-class StencilFontInfoFilter: StencilFontFilter {
+final class StencilFontInfoFilter: StencilFontFilter {
 
     // MARK: - Instance Properties
 

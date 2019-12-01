@@ -18,11 +18,11 @@ final class GenerateCommand: AsyncExecutableCommand {
             """
     )
 
-    let generator: KitGenerator
+    let generator: LibraryGenerator
 
     // MARK: - Initializers
 
-    init(generator: KitGenerator) {
+    init(generator: LibraryGenerator) {
         self.generator = generator
     }
 

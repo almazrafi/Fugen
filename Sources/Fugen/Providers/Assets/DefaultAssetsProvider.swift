@@ -1,13 +1,13 @@
 import Foundation
 import FugenTools
+import PromiseKit
 import PathKit
 
 final class DefaultAssetsProvider: AssetsProvider {
 
     // MARK: - Instance Methods
 
-    private func saveAssetFolder(_ folder: AssetFolder, at folderPath: String) throws {
-        let folderPath = Path(folderPath)
+    private func saveAssetFolder(_ folder: AssetFolder, in folderPath: Path) throws {
         let folderPathComponents = folderPath.components
 
         let parentFolderPath = folderPathComponents
@@ -29,33 +29,11 @@ final class DefaultAssetsProvider: AssetsProvider {
 
     // MARK: -
 
-    func saveColorStyles(_ colorStyle: [ColorStyle], in folderPath: String) throws {
-        let folderContents = AssetFolderContents(info: .defaultFugen)
-        var folder = AssetFolder(contents: folderContents)
-
-        colorStyle.forEach { colorStyle in
-            let colorComponents = AssetColorComponents(
-                red: colorStyle.color.red,
-                green: colorStyle.color.green,
-                blue: colorStyle.color.blue,
-                alpha: colorStyle.color.alpha
-            )
-
-            let color = AssetColor(custom: .sRGB(components: colorComponents))
-            let colorSetContents = AssetColorSetContents(info: .defaultFugen, colors: [color])
-
-            folder.colorSets[colorStyle.name.camelized] = AssetColorSet(contents: colorSetContents)
+    func saveAssetFolder(_ folder: AssetFolder, in folderPath: String) -> Promise<Void> {
+        return perform(on: DispatchQueue.global(qos: .userInitiated)) {
+            try self.saveAssetFolder(folder, in: Path(folderPath))
         }
-
-        try saveAssetFolder(folder, at: folderPath)
     }
-}
-
-private extension AssetInfo {
-
-    // MARK: - Type Properties
-
-    static let defaultFugen = AssetInfo(version: 1, author: "Fugen")
 }
 
 private extension String {

@@ -17,7 +17,7 @@ extension GenerationParametersResolving {
     // MARK: - Instance Methods
 
     private func resolveTemplateType(configuration: GenerationConfiguration) -> RenderTemplateType {
-        if let templatePath = configuration.templatePath {
+        if let templatePath = configuration.template {
             return .custom(path: templatePath)
         } else {
             return defaultTemplateType
@@ -25,7 +25,7 @@ extension GenerationParametersResolving {
     }
 
     private func resolveDestination(configuration: GenerationConfiguration) -> RenderDestination {
-        if let destinationPath = configuration.destinationPath {
+        if let destinationPath = configuration.destination {
             return .file(path: destinationPath)
         } else {
             return defaultDestination
@@ -43,6 +43,17 @@ extension GenerationParametersResolving {
             throw GenerationParametersError.invalidAccessToken
         }
 
+        let file = FileParameters(
+            key: fileConfiguration.key,
+            version: fileConfiguration.version,
+            accessToken: accessToken
+        )
+
+        let nodes = NodesParameters(
+            includedIDs: fileConfiguration.includedNodes,
+            excludedIDs: fileConfiguration.excludedNodes
+        )
+
         let templateType = resolveTemplateType(configuration: configuration)
         let destination = resolveDestination(configuration: configuration)
 
@@ -51,14 +62,8 @@ extension GenerationParametersResolving {
             options: configuration.templateOptions ?? [:]
         )
 
-        return GenerationParameters(
-            fileKey: fileConfiguration.key,
-            fileVersion: fileConfiguration.version,
-            includedNodes: fileConfiguration.includedNodes,
-            excludedNodes: fileConfiguration.excludedNodes,
-            accessToken: accessToken,
-            template: template,
-            destination: destination
-        )
+        let render = RenderParameters(template: template, destination: destination)
+
+        return GenerationParameters(file: file, nodes: nodes, render: render)
     }
 }

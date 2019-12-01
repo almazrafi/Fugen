@@ -1,6 +1,6 @@
 import Foundation
 
-public enum AssetCompressionType: String, Codable, Hashable {
+public enum AssetCompressionType: String, Codable {
 
     // MARK: - Enumeration Cases
 

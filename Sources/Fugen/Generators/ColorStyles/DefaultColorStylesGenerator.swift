@@ -1,4 +1,5 @@
 import Foundation
+import FugenTools
 import PromiseKit
 
 final class DefaultColorStylesGenerator: ColorStylesGenerator, GenerationParametersResolving {
@@ -6,7 +7,6 @@ final class DefaultColorStylesGenerator: ColorStylesGenerator, GenerationParamet
     // MARK: - Instance Properties
 
     let colorStylesProvider: ColorStylesProvider
-    let assetsProvider: AssetsProvider
     let colorStylesCoder: ColorStylesCoder
     let templateRenderer: TemplateRenderer
 
@@ -17,37 +17,25 @@ final class DefaultColorStylesGenerator: ColorStylesGenerator, GenerationParamet
 
     init(
         colorStylesProvider: ColorStylesProvider,
-        assetsProvider: AssetsProvider,
         colorStylesCoder: ColorStylesCoder,
         templateRenderer: TemplateRenderer
     ) {
         self.colorStylesProvider = colorStylesProvider
-        self.assetsProvider = assetsProvider
         self.colorStylesCoder = colorStylesCoder
         self.templateRenderer = templateRenderer
     }
 
     // MARK: - Instance Methods
 
-    private func generate(parameters: GenerationParameters, assetsFolderPath: String?) -> Promise<Void> {
+    private func generate(parameters: GenerationParameters, assets: String?) -> Promise<Void> {
         return firstly {
-            self.colorStylesProvider.fetchColorStyles(
-                fileKey: parameters.fileKey,
-                fileVersion: parameters.fileVersion,
-                includingNodes: parameters.includedNodes,
-                excludingNodes: parameters.excludedNodes,
-                accessToken: parameters.accessToken
-            )
+            self.colorStylesProvider.fetchColorStyles(from: parameters.file, nodes: parameters.nodes, assets: assets)
         }.done { colorStyles in
-            if let assetsFolderPath = assetsFolderPath {
-                try self.assetsProvider.saveColorStyles(colorStyles, in: assetsFolderPath)
-            }
-
             let context = self.colorStylesCoder.encodeColorStyles(colorStyles)
 
             try self.templateRenderer.renderTemplate(
-                parameters.template,
-                to: parameters.destination,
+                parameters.render.template,
+                to: parameters.render.destination,
                 context: context
             )
         }
@@ -56,11 +44,10 @@ final class DefaultColorStylesGenerator: ColorStylesGenerator, GenerationParamet
     // MARK: -
 
     func generate(configuration: ColorStylesConfiguration) -> Promise<Void> {
-        return firstly {
-            self.generate(
-                parameters: try self.resolveGenerationParameters(from: configuration.generatation),
-                assetsFolderPath: configuration.assetsFolderPath
-            )
+        return perform(on: DispatchQueue.global(qos: .userInitiated)) {
+            try self.resolveGenerationParameters(from: configuration.generatation)
+        }.then { parameters in
+            self.generate(parameters: parameters, assets: configuration.assets)
         }
     }
 }

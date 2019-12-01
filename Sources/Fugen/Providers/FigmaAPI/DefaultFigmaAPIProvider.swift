@@ -73,7 +73,7 @@ final class DefaultFigmaAPIProvider: FigmaAPIProvider {
             return error
         }
 
-        guard let apiError = try? responseDecoder.decode(FigmaAPIError.self, from: errorData) else {
+        guard let apiError = try? responseDecoder.decode(FigmaError.self, from: errorData) else {
             return error
         }
 

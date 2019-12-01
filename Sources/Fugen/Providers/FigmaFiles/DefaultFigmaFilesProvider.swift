@@ -19,17 +19,17 @@ final class DefaultFigmaFilesProvider: FigmaFilesProvider {
 
     // MARK: - Instance Methods
 
-    func fetchFile(key: String, version: String?, accessToken: String) -> Promise<FigmaFile> {
-        let fileUniqueID = "\(key): \(version ?? "nil")"
+    func fetchFile(_ file: FileParameters) -> Promise<FigmaFile> {
+        let fileUniqueID = "\(file.key): \(file.version ?? "nil")"
 
         if let filePromise = filePromises[fileUniqueID] {
             return filePromise
         }
 
         let route = FigmaAPIFileRoute(
-            accessToken: accessToken,
-            fileKey: key,
-            version: version
+            accessToken: file.accessToken,
+            fileKey: file.key,
+            version: file.version
         )
 
         let promise = firstly {

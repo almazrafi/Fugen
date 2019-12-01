@@ -5,15 +5,24 @@ enum Dependencies {
 
     // MARK: - Type Properties
 
+    static let dataProvider: DataProvider = DefaultDataProvider()
+
     static let figmaHTTPService: FigmaHTTPService = HTTPService()
     static let figmaAPIProvider: FigmaAPIProvider = DefaultFigmaAPIProvider(httpService: figmaHTTPService)
 
     static let figmaFilesProvider: FigmaFilesProvider = DefaultFigmaFilesProvider(apiProvider: figmaAPIProvider)
     static let figmaNodesProvider: FigmaNodesProvider = DefaultFigmaNodesProvider()
 
+    static let assetsProvider: AssetsProvider = DefaultAssetsProvider()
+
+    static let colorStyleAssetsProvider: ColorStyleAssetsProvider = DefaultColorStyleAssetsProvider(
+        assetsProvider: assetsProvider
+    )
+
     static let colorStylesProvider: ColorStylesProvider = DefaultColorStylesProvider(
         filesProvider: figmaFilesProvider,
-        nodesProvider: figmaNodesProvider
+        nodesProvider: figmaNodesProvider,
+        colorStyleAssetsProvider: colorStyleAssetsProvider
     )
 
     static let textStylesProvider: TextStylesProvider = DefaultTextStylesProvider(
@@ -21,7 +30,24 @@ enum Dependencies {
         nodesProvider: figmaNodesProvider
     )
 
-    static let assetsProvider: AssetsProvider = DefaultAssetsProvider()
+    static let imageRenderProvider: ImageRenderProvider = DefaultImageRenderProvider(apiProvider: figmaAPIProvider)
+
+    static let imageAssetsProvider: ImageAssetsProvider = DefaultImageAssetsProvider(
+        assetsProvider: assetsProvider,
+        dataProvider: dataProvider
+    )
+
+    static let imageResourcesProvider: ImageResourcesProvider = DefaultImageResourcesProvider(
+        dataProvider: dataProvider
+    )
+
+    static let imagesProvider: ImagesProvider = DefaultImagesProvider(
+        filesProvider: figmaFilesProvider,
+        nodesProvider: figmaNodesProvider,
+        imageRenderProvider: imageRenderProvider,
+        imageAssetsProvider: imageAssetsProvider,
+        imageResourcesProvider: imageResourcesProvider
+    )
 
     static let configurationProvider: ConfigurationProvider = DefaultConfigurationProvider()
 
@@ -37,6 +63,8 @@ enum Dependencies {
         colorCoder: colorCoder
     )
 
+    static let imagesCoder: ImagesCoder = DefaultImagesCoder()
+
     // MARK: -
 
     static let stencilExtensions: [StencilExtension] = [
@@ -49,9 +77,7 @@ enum Dependencies {
         StencilColorRGBInfoFilter(colorCoder: colorCoder),
         StencilColorRGBAInfoFilter(colorCoder: colorCoder),
         StencilColorInfoFilter(colorCoder: colorCoder),
-        StencilFontInfoFilter(fontCoder: fontCoder),
-        StencilDeleteFileOrDirectoryTag(),
-        StencilCreateFileTag()
+        StencilFontInfoFilter(fontCoder: fontCoder)
     ]
 
     static let templateRenderer: TemplateRenderer = DefaultTemplateRenderer(stencilExtensions: stencilExtensions)
@@ -60,7 +86,6 @@ enum Dependencies {
 
     static let colorStylesGenerator: ColorStylesGenerator = DefaultColorStylesGenerator(
         colorStylesProvider: colorStylesProvider,
-        assetsProvider: assetsProvider,
         colorStylesCoder: colorStylesCoder,
         templateRenderer: templateRenderer
     )
@@ -71,9 +96,16 @@ enum Dependencies {
         templateRenderer: templateRenderer
     )
 
-    static let kitGenerator: KitGenerator = DefaultKitGenerator(
+    static let imagesGenerator: ImagesGenerator = DefaultImagesGenerator(
+        imagesProvider: imagesProvider,
+        imagesCoder: imagesCoder,
+        templateRenderer: templateRenderer
+    )
+
+    static let libraryGenerator: LibraryGenerator = DefaultLibraryGenerator(
         configurationProvider: configurationProvider,
         colorStylesGenerator: colorStylesGenerator,
-        textStylesGenerator: textStylesGenerator
+        textStylesGenerator: textStylesGenerator,
+        imagesGenerator: imagesGenerator
     )
 }

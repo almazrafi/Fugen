@@ -7,17 +7,26 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
 
     let filesProvider: FigmaFilesProvider
     let nodesProvider: FigmaNodesProvider
+    let colorStyleAssetsProvider: ColorStyleAssetsProvider
 
     // MARK: - Initializers
 
-    init(filesProvider: FigmaFilesProvider, nodesProvider: FigmaNodesProvider) {
+    init(
+        filesProvider: FigmaFilesProvider,
+        nodesProvider: FigmaNodesProvider,
+        colorStyleAssetsProvider: ColorStyleAssetsProvider
+    ) {
         self.filesProvider = filesProvider
         self.nodesProvider = nodesProvider
+        self.colorStyleAssetsProvider = colorStyleAssetsProvider
     }
 
     // MARK: - Instance Methods
 
-    private func extractColorStyle(from node: FigmaNode, styles: [String: FigmaStyle]) throws -> ColorStyle? {
+    private func extractColorStyleInfo(
+        from node: FigmaNode,
+        styles: [String: FigmaStyle]
+    ) throws -> ColorStyleNodeInfo? {
         guard let nodeInfo = node.vectorInfo, let nodeStyleID = nodeInfo.styleID(of: .fill) else {
             return nil
         }
@@ -40,8 +49,10 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
             throw ColorStylesProviderError(code: .invalidStyleName, nodeID: node.id, nodeName: node.name)
         }
 
-        return ColorStyle(
+        return ColorStyleNodeInfo(
+            id: node.id,
             name: nodeStyleName,
+            description: nodeStyle.description,
             color: Color(
                 red: nodeFillColor.red,
                 green: nodeFillColor.green,
@@ -51,15 +62,12 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
         )
     }
 
-    private func extractColorStyles(
-        from file: FigmaFile,
-        includingNodes includedNodeIDs: [String]?,
-        excludingNodes excludedNodeIDs: [String]?
-    ) throws -> [ColorStyle] {
-        return try nodesProvider
-            .fetchNodes(from: file, including: includedNodeIDs, excluding: excludedNodeIDs)
+    private func extractColorStylesInfo(from nodes: [FigmaNode], of file: FigmaFile) throws -> [ColorStyleNodeInfo] {
+        let styles = file.styles ?? [:]
+
+        return try nodes
             .lazy
-            .compactMap { try extractColorStyle(from: $0, styles: file.styles ?? [:]) }
+            .compactMap { try extractColorStyleInfo(from: $0, styles: styles) }
             .reduce(into: []) { result, colorStyle in
                 if !result.contains(colorStyle) {
                     result.append(colorStyle)
@@ -67,27 +75,41 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
             }
     }
 
+    private func saveColorStyles(
+        info: [ColorStyleNodeInfo],
+        assets: String?
+    ) -> Promise<[ColorStyleNodeInfo: ColorStyleAssetInfo]> {
+        guard let folderPath = assets else {
+            return .value([:])
+        }
+
+        return colorStyleAssetsProvider.saveColorStyles(info: info, in: folderPath)
+    }
+
+    private func makeColorStyles(
+        info: [ColorStyleNodeInfo],
+        assetsInfo: [ColorStyleNodeInfo: ColorStyleAssetInfo]
+    ) -> [ColorStyle] {
+        return info.map { info in
+            ColorStyle(info: info, assetInfo: assetsInfo[info])
+        }
+    }
+
     // MARK: -
 
-    func fetchColorStyles(
-        fileKey: String,
-        fileVersion: String?,
-        includingNodes includedNodeIDs: [String]?,
-        excludingNodes excludedNodeIDs: [String]?,
-        accessToken: String
-    ) -> Promise<[ColorStyle]> {
+    func fetchColorStyles(from file: FileParameters, nodes: NodesParameters, assets: String?) -> Promise<[ColorStyle]> {
         return firstly {
-            self.filesProvider.fetchFile(
-                key: fileKey,
-                version: fileVersion,
-                accessToken: accessToken
-            )
-        }.map(on: DispatchQueue.global(qos: .userInitiated)) { file in
-            try self.extractColorStyles(
-                from: file,
-                includingNodes: includedNodeIDs,
-                excludingNodes: excludedNodeIDs
-            )
+            self.filesProvider.fetchFile(file)
+        }.then { figmaFile in
+            self.nodesProvider.fetchNodes(nodes, from: figmaFile).map { figmaNodes in
+                try self.extractColorStylesInfo(from: figmaNodes, of: figmaFile)
+            }
+        }.then { info in
+            firstly {
+                self.saveColorStyles(info: info, assets: assets)
+            }.map { assetsInfo in
+                self.makeColorStyles(info: info, assetsInfo: assetsInfo)
+            }
         }
     }
 }

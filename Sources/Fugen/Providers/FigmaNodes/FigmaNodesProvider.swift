@@ -1,12 +1,9 @@
 import Foundation
+import PromiseKit
 
 protocol FigmaNodesProvider {
 
     // MARK: - Instance Methods
 
-    func fetchNodes(
-        from file: FigmaFile,
-        including includedNodeIDs: [String]?,
-        excluding excludedNodeIDs: [String]?
-    ) throws -> [FigmaNode]
+    func fetchNodes(_ nodes: NodesParameters, from file: FigmaFile) -> Promise<[FigmaNode]>
 }

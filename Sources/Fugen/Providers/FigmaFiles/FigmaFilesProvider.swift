@@ -5,5 +5,5 @@ protocol FigmaFilesProvider {
 
     // MARK: - Instance Methods
 
-    func fetchFile(key: String, version: String?, accessToken: String) -> Promise<FigmaFile>
+    func fetchFile(_ file: FileParameters) -> Promise<FigmaFile>
 }

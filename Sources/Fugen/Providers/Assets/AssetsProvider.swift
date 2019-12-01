@@ -1,9 +1,10 @@
 import Foundation
 import FugenTools
+import PromiseKit
 
 protocol AssetsProvider {
 
     // MARK: - Instance Methods
 
-    func saveColorStyles(_ colorStyle: [ColorStyle], in folderPath: String) throws
+    func saveAssetFolder(_ folder: AssetFolder, in folderPath: String) -> Promise<Void>
 }

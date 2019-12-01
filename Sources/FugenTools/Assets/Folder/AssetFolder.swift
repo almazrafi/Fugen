@@ -12,6 +12,7 @@ public struct AssetFolder {
     // MARK: - Instance Properties
 
     public var colorSets: [String: AssetColorSet]
+    public var imageSets: [String: AssetImageSet]
     public var folders: [String: AssetFolder]
     public var contents: AssetFolderContents
 
@@ -19,10 +20,12 @@ public struct AssetFolder {
 
     public init(
         colorSets: [String: AssetColorSet] = [:],
+        imageSets: [String: AssetImageSet] = [:],
         folders: [String: AssetFolder] = [:],
         contents: AssetFolderContents = AssetFolderContents()
     ) {
         self.colorSets = colorSets
+        self.imageSets = imageSets
         self.folders = folders
         self.contents = contents
     }
@@ -37,6 +40,7 @@ public struct AssetFolder {
         contents = try contentsDecoder.decode(from: contentsData)
 
         colorSets = [:]
+        imageSets = [:]
         folders = [:]
 
         try folderPath
@@ -47,8 +51,11 @@ public struct AssetFolder {
                 let nodeName = nodePath.lastComponentWithoutExtension
 
                 switch nodePath.extension {
-                case String.colorSetPathExtension:
+                case AssetColorSet.pathExtension:
                     colorSets[nodeName] = try AssetColorSet(folderPath: nodePath.string)
+
+                case AssetImageSet.pathExtension:
+                    imageSets[nodeName] = try AssetImageSet(folderPath: nodePath.string)
 
                 case nil:
                     folders[nodeName] = try AssetFolder(folderPath: nodePath.string)
@@ -61,14 +68,14 @@ public struct AssetFolder {
 
     // MARK: - Instance Methods
 
-    private func saveColorSets(in  folderPath: Path) throws {
-        try colorSets.forEach { colorSet in
-            let colorSetPath = folderPath.appending(
-                fileName: colorSet.key,
-                extension: .colorSetPathExtension
+    private func saveNodes<T: AssetNode>(_ nodes: [String: T], in folderPath: Path) throws {
+        try nodes.forEach { node in
+            let nodePath = folderPath.appending(
+                fileName: node.key,
+                extension: T.pathExtension
             )
 
-            try colorSet.value.save(in: colorSetPath.string)
+            try node.value.save(in: nodePath.string)
         }
     }
 
@@ -77,6 +84,8 @@ public struct AssetFolder {
             try folder.value.save(in: folderPath.appending(folder.key).string)
         }
     }
+
+    // MARK: -
 
     public func save(in folderPath: String) throws {
         let folderPath = Path(folderPath)
@@ -87,7 +96,8 @@ public struct AssetFolder {
 
         try folderPath.mkpath()
 
-        try saveColorSets(in: folderPath)
+        try saveNodes(colorSets, in: folderPath)
+        try saveNodes(imageSets, in: folderPath)
         try saveFolders(in: folderPath)
 
         let contentsEncoder = JSONEncoder(outputFormatting: .prettyPrinted)
@@ -103,5 +113,4 @@ private extension String {
     // MARK: - Type Properties
 
     static let contentsPath = "Contents.json"
-    static let colorSetPathExtension = "colorset"
 }

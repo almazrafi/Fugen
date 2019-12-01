@@ -1,6 +1,6 @@
 import Foundation
 
-public enum AssetDisplayGamut: String, Codable, Hashable {
+public enum AssetDisplayGamut: String, Codable {
 
     // MARK: - Enumeration Cases
 

@@ -1,4 +1,6 @@
 import Foundation
+import FugenTools
+import PromiseKit
 
 final class DefaultFigmaNodesProvider: FigmaNodesProvider {
 
@@ -57,19 +59,17 @@ final class DefaultFigmaNodesProvider: FigmaNodesProvider {
 
     // MARK: -
 
-    func fetchNodes(
-        from file: FigmaFile,
-        including includedNodeIDs: [String]?,
-        excluding excludedNodeIDs: [String]?
-    ) throws -> [FigmaNode] {
-        var includedNodeIDs = try resolveNodeIDs(includedNodeIDs, defaultNodeIDs: [file.document.id])
-        var excludedNodeIDs = try resolveNodeIDs(excludedNodeIDs, defaultNodeIDs: [])
+    func fetchNodes(_ nodes: NodesParameters, from file: FigmaFile) -> Promise<[FigmaNode]> {
+        return perform(on: DispatchQueue.global(qos: .userInitiated)) {
+            var includedNodeIDs = try self.resolveNodeIDs(nodes.includedIDs, defaultNodeIDs: [file.document.id])
+            var excludedNodeIDs = try self.resolveNodeIDs(nodes.excludedIDs, defaultNodeIDs: [])
 
-        return extractNodes(
-            from: file.document,
-            including: &includedNodeIDs,
-            excluding: &excludedNodeIDs,
-            forceInclude: false
-        )
+            return self.extractNodes(
+                from: file.document,
+                including: &includedNodeIDs,
+                excluding: &excludedNodeIDs,
+                forceInclude: false
+            )
+        }
     }
 }
