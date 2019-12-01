@@ -18,7 +18,7 @@ Currently, it supports generating the following entities:
 - [Installation](#installation)
     - [CocoaPods](#cocoapods)
     - [Homebrew](#homebrew)
-    - [Release ZIP archive](#release-zip-archive)
+    - [ZIP archive](#zip-archive)
 - [Usage](#usage)
 - [Configuration](#configuration)
     - [Base parameters](#base-parameters)
@@ -61,7 +61,7 @@ $ brew install almazrafi/tap/fugen
 > It's impossible to set a specific package version via Homebrew.
 > In case this method was chosen, it's recommended to control that all team members use the same version of Fugen.
 
-### Release ZIP archive
+### ZIP archive
 Every release in the repo has a ZIP archive which can be used to integrate Fugen into a project.
 For using that method, the following steps should be taken:
 - Open [repository release page](https://github.com/almazrafi/Fugen/releases).
