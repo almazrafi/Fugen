@@ -299,8 +299,8 @@ The template could be configured using different options that are specified in `
 Key  | Type | Default value | Description
 ---- | -----| ------------- | -----------
 `styleTypeName` | string | ColorStyle | Style type name
-`colorTypeName` | string | UICOlor | Color type name. If the target platform is macOS, specify `NSColor`.
-`publicAccess` | flag | false | Flag that adds `public` access modifier to the declarations in the generated file.
+`colorTypeName` | string | UIColor | Color type name. If the target platform is macOS, specify `NSColor`.
+`publicAccess` | Boolean | false | Flag that adds `public` access modifier to the declarations in the generated file.
 
 ## Text styles
 To generate text styles [standard configuration set](#generation-configuration) is used.
@@ -336,7 +336,7 @@ Key  | Type | Default value | Description
 `styleTypeName` | string | TextStyle | Style type name
 `colorTypeName` | string | UICOlor | Color type name. If the target platform is macOS, specify `NSColor`.
 `fontTypeName` | string | UIFont | Font type name. If the target platform is macOS, specify `NSFont`.
-`publicAccess` | flag | false | Flag that adds `public` access modifier to the declarations in the generated file.
+`publicAccess` | Boolean | false | Flag that adds `public` access modifier to the declarations in the generated file.
 
 ## Images
 To load and generate code for images, the [standard configuration set](#generation-configuration) is used with additional parameters:
@@ -399,9 +399,9 @@ The template could be configured using additional options specified in `template
 
 Key  | Type | Default value | Description
 ---- | -----| ------------- | -----------
-`imagesEnumName` | string | TextStyle | Name of a generated enum with static image fields
+`imagesEnumName` | string | Images | Name of a generated enum with static image fields
 `imageTypeName` | string | UIImage | Image type name. If the target platform is macOS, specify `NSImage`.
-`publicAccess` | flag | false | Flag that adds `public` access modifier to the declarations in the generated file.
+`publicAccess` | Boolean | false | Flag that adds `public` access modifier to the declarations in the generated file.
 
 ---
 
