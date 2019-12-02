@@ -361,7 +361,7 @@ images:
 ```
 
 #### Figma components
-Fugen only uses nodes that are [components]((https://help.figma.com/article/66-components) as images.
+Fugen only uses nodes that are [components](https://help.figma.com/article/66-components) as images.
 So, make sure that the chosen frame in the file URL (see [Figma file](#figma-file))
 allows to filter out the components that should not render images in Figma file.
 
