@@ -163,7 +163,7 @@ textStyles:
   file: 'https://www.figma.com/file/SSeboI2x0jmeG4QO8iBMqX/Fugen-Demo-iOS'
 ```
 
-If base parameters are missing for both the generation step section and in the `base` section,
+If a base parameter is missing for both the generation step section and in the `base` section,
 then as a result of the execution `fugen generate` command, the corresponding error will be received.
 
 ### Figma access token
