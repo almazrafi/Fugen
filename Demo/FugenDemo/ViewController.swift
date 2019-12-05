@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet private weak var label: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,5 +27,7 @@ class ViewController: UIViewController {
             .withColor(.white)
             .withLineBreakMode(.byWordWrapping)
             .attributedString("Hello world")
+
+        imageView.image = Images.cloud
     }
 }

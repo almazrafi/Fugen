@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fugen Demo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oo0-AZ-nsr">
-                                <rect key="frame" x="135.5" y="437.5" width="143.5" height="31.5"/>
+                                <rect key="frame" x="130" y="436.5" width="154" height="33.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" name="Eclipse"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNA-xM-GIG">
-                                <rect key="frame" x="173.5" y="485" width="67.5" height="18"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <rect key="frame" x="160" y="478" width="94.5" height="26.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <color key="textColor" name="Submarine"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -34,7 +35,7 @@
                             <constraint firstItem="oo0-AZ-nsr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1sN-Ke-PPd"/>
                             <constraint firstItem="ZNA-xM-GIG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="BRH-1E-hiH"/>
                             <constraint firstItem="oo0-AZ-nsr" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="G1d-Ed-ZrB"/>
-                            <constraint firstItem="ZNA-xM-GIG" firstAttribute="top" secondItem="oo0-AZ-nsr" secondAttribute="bottom" constant="16" id="pA7-su-3jq"/>
+                            <constraint firstItem="ZNA-xM-GIG" firstAttribute="top" secondItem="oo0-AZ-nsr" secondAttribute="bottom" constant="8" id="pA7-su-3jq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
