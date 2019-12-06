@@ -15,7 +15,7 @@ Currently, it supports generating the following entities:
 - Images
 
 #### Watch the video
-[![Watch the video](https://img.youtube.com/vi/0cFXaEbMc5c/maxresdefault.jpg)](https://youtu.be/0cFXaEbMc5c)
+[![Watch the video](https://img.youtube.com/vi/SfZb8iu2bWY/maxresdefault.jpg)](https://youtu.be/SfZb8iu2bWY)
 
 #### Table of context
 - [Installation](#installation)
