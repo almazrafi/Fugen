@@ -1,5 +1,10 @@
 import Foundation
 import SwiftCLI
+import PathKit
+
+#if DEBUG
+Path.current = Path(#file).appending("../../../Demo")
+#endif
 
 let version = "1.0.0"
 
