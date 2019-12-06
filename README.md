@@ -14,6 +14,8 @@ Currently, it supports generating the following entities:
 - Text styles
 - Images
 
+[![Watch the video](https://img.youtube.com/vi/0cFXaEbMc5c/maxresdefault.jpg)](https://youtu.be/0cFXaEbMc5c)
+
 #### Table of context
 - [Installation](#installation)
     - [CocoaPods](#cocoapods)
