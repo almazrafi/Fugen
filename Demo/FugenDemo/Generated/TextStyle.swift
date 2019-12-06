@@ -11,38 +11,9 @@ public struct TextStyle: Equatable {
 
     // MARK: - Type Properties
 
-    /// Footnote
+    /// Caption
     ///
-    /// Font: Roboto (Roboto-Regular); weight 400.0; size 11.0
-    /// Color: Eclipse; hex #393939FF; rgba 57 57 57, 100%
-    /// Strikethrough: false
-    /// Underline: false
-    /// Paragraph spacing: default
-    /// Paragraph indent: default
-    /// Line height: 12.9
-    /// Letter spacing: 0.0
-    public static let footnote = TextStyle(
-        font: UIFont(
-            name: "Roboto-Regular",
-            size: 11.0
-        ),
-        color: UIColor(
-            red: 0.2235294133424759,
-            green: 0.2235294133424759,
-            blue: 0.2235294133424759,
-            alpha: 1.0
-        ),
-        strikethrough: false,
-        underline: false,
-        paragraphSpacing: nil,
-        paragraphIndent: nil,
-        lineHeight: 12.9,
-        letterSpacing: 0.0
-    )
-
-    /// Body
-    ///
-    /// Font: Roboto (Roboto-Regular); weight 400.0; size 13.0
+    /// Font: SF Pro Display (SFProDisplay-Light); weight 300.0; size 13.0
     /// Color: Eclipse; hex #393939FF; rgba 57 57 57, 100%
     /// Strikethrough: false
     /// Underline: false
@@ -50,9 +21,9 @@ public struct TextStyle: Equatable {
     /// Paragraph indent: default
     /// Line height: 15.225
     /// Letter spacing: 0.0
-    public static let body = TextStyle(
+    public static let caption = TextStyle(
         font: UIFont(
-            name: "Roboto-Regular",
+            name: "SFProDisplay-Light",
             size: 13.0
         ),
         color: UIColor(
@@ -69,20 +40,49 @@ public struct TextStyle: Equatable {
         letterSpacing: 0.0
     )
 
+    /// Body
+    ///
+    /// Font: SF Pro Display (SFProDisplay-Regular); weight 400.0; size 13.0
+    /// Color: Eclipse; hex #393939FF; rgba 57 57 57, 100%
+    /// Strikethrough: false
+    /// Underline: false
+    /// Paragraph spacing: 4.0
+    /// Paragraph indent: 16.0
+    /// Line height: 16.0
+    /// Letter spacing: 0.125
+    public static let body = TextStyle(
+        font: UIFont(
+            name: "SFProDisplay-Regular",
+            size: 13.0
+        ),
+        color: UIColor(
+            red: 0.2235294133424759,
+            green: 0.2235294133424759,
+            blue: 0.2235294133424759,
+            alpha: 1.0
+        ),
+        strikethrough: false,
+        underline: false,
+        paragraphSpacing: 4.0,
+        paragraphIndent: 16.0,
+        lineHeight: 16.0,
+        letterSpacing: 0.125
+    )
+
     /// Subtitle
     ///
-    /// Font: Roboto (Roboto-Medium); weight 500.0; size 14.0
+    /// Font: SF Pro Display (SFProDisplay-Regular); weight 400.0; size 15.0
     /// Color: Eclipse; hex #393939FF; rgba 57 57 57, 100%
     /// Strikethrough: false
     /// Underline: false
     /// Paragraph spacing: default
     /// Paragraph indent: default
-    /// Line height: 16.4
-    /// Letter spacing: 0.0
+    /// Line height: 17.575
+    /// Letter spacing: 0.2
     public static let subtitle = TextStyle(
         font: UIFont(
-            name: "Roboto-Medium",
-            size: 14.0
+            name: "SFProDisplay-Regular",
+            size: 15.0
         ),
         color: UIColor(
             red: 0.2235294133424759,
@@ -94,24 +94,24 @@ public struct TextStyle: Equatable {
         underline: false,
         paragraphSpacing: nil,
         paragraphIndent: nil,
-        lineHeight: 16.4,
-        letterSpacing: 0.0
+        lineHeight: 17.575,
+        letterSpacing: 0.2
     )
 
     /// Title
     ///
-    /// Font: Roboto (Roboto-Regular); weight 400.0; size 18.0
+    /// Font: SF Pro Display (SFProDisplay-Medium); weight 500.0; size 17.0
     /// Color: Eclipse; hex #393939FF; rgba 57 57 57, 100%
     /// Strikethrough: false
     /// Underline: false
     /// Paragraph spacing: default
     /// Paragraph indent: default
-    /// Line height: 21.1
-    /// Letter spacing: 0.0
+    /// Line height: 19.925
+    /// Letter spacing: 0.125
     public static let title = TextStyle(
         font: UIFont(
-            name: "Roboto-Regular",
-            size: 18.0
+            name: "SFProDisplay-Medium",
+            size: 17.0
         ),
         color: UIColor(
             red: 0.2235294133424759,
@@ -123,24 +123,24 @@ public struct TextStyle: Equatable {
         underline: false,
         paragraphSpacing: nil,
         paragraphIndent: nil,
-        lineHeight: 21.1,
-        letterSpacing: 0.0
+        lineHeight: 19.925,
+        letterSpacing: 0.125
     )
 
     /// Large Title
     ///
-    /// Font: Roboto (Roboto-Regular); weight 400.0; size 30.0
+    /// Font: SF Pro Display (SFProDisplay-Bold); weight 700.0; size 34.0
     /// Color: Eclipse; hex #393939FF; rgba 57 57 57, 100%
     /// Strikethrough: false
     /// Underline: false
     /// Paragraph spacing: default
     /// Paragraph indent: default
-    /// Line height: 35.15
-    /// Letter spacing: 0.0
+    /// Line height: 39.85
+    /// Letter spacing: 0.1
     public static let largeTitle = TextStyle(
         font: UIFont(
-            name: "Roboto-Regular",
-            size: 30.0
+            name: "SFProDisplay-Bold",
+            size: 34.0
         ),
         color: UIColor(
             red: 0.2235294133424759,
@@ -152,8 +152,8 @@ public struct TextStyle: Equatable {
         underline: false,
         paragraphSpacing: nil,
         paragraphIndent: nil,
-        lineHeight: 35.15,
-        letterSpacing: 0.0
+        lineHeight: 39.85,
+        letterSpacing: 0.1
     )
 
     // MARK: - Instance Properties

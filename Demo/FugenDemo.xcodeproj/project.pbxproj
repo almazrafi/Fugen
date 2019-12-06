@@ -8,13 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		2AACCA0388F9FF9E4AF322F1 /* Pods_FugenDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5892121F1D00E978F9A770E /* Pods_FugenDemo.framework */; };
+		C08A96482399C8420052F04C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08A96452399C8410052F04C /* Colors.xcassets */; };
+		C08A96492399C8420052F04C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08A96462399C8410052F04C /* Images.xcassets */; };
+		C08A964D2399C9840052F04C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08A964C2399C9840052F04C /* Images.swift */; };
+		C08A96552399CAAD0052F04C /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C08A96502399CAAD0052F04C /* SF-Pro-Display-Light.otf */; };
+		C08A96562399CAAD0052F04C /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C08A96512399CAAD0052F04C /* SF-Pro-Display-Regular.otf */; };
+		C08A96572399CAAD0052F04C /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C08A96522399CAAD0052F04C /* SF-Pro-Display-Bold.otf */; };
+		C08A96582399CAAD0052F04C /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C08A96532399CAAD0052F04C /* SF-Pro-Display-Medium.otf */; };
+		C08A96592399CAAD0052F04C /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C08A96542399CAAD0052F04C /* SF-Pro-Display-Semibold.otf */; };
 		C08DB57B2380983E00391F14 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DB5792380983E00391F14 /* TextStyle.swift */; };
 		C08DB57C2380983E00391F14 /* ColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DB57A2380983E00391F14 /* ColorStyle.swift */; };
 		C0E6B5FB238096C500083ADB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E6B5FA238096C500083ADB /* AppDelegate.swift */; };
-		C0E6B5FD238096C500083ADB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E6B5FC238096C500083ADB /* SceneDelegate.swift */; };
 		C0E6B5FF238096C500083ADB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E6B5FE238096C500083ADB /* ViewController.swift */; };
 		C0E6B602238096C500083ADB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E6B600238096C500083ADB /* Main.storyboard */; };
-		C0E6B604238096C500083ADB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E6B603238096C500083ADB /* Assets.xcassets */; };
 		C0E6B607238096C500083ADB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E6B605238096C500083ADB /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -23,14 +29,20 @@
 		8FC235E00E36DC62C4755546 /* Pods-Fugen Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fugen Demo.debug.xcconfig"; path = "Target Support Files/Pods-Fugen Demo/Pods-Fugen Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		A5892121F1D00E978F9A770E /* Pods_FugenDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FugenDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEAAC6E1082665BBB49FA803 /* Pods-FugenDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FugenDemo.release.xcconfig"; path = "Target Support Files/Pods-FugenDemo/Pods-FugenDemo.release.xcconfig"; sourceTree = "<group>"; };
+		C08A96452399C8410052F04C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		C08A96462399C8410052F04C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C08A964C2399C9840052F04C /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		C08A96502399CAAD0052F04C /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
+		C08A96512399CAAD0052F04C /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
+		C08A96522399CAAD0052F04C /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
+		C08A96532399CAAD0052F04C /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
+		C08A96542399CAAD0052F04C /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
 		C08DB5792380983E00391F14 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		C08DB57A2380983E00391F14 /* ColorStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorStyle.swift; sourceTree = "<group>"; };
 		C0E6B5F7238096C500083ADB /* Fugen Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fugen Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E6B5FA238096C500083ADB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C0E6B5FC238096C500083ADB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C0E6B5FE238096C500083ADB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C0E6B601238096C500083ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C0E6B603238096C500083ADB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0E6B606238096C500083ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0E6B608238096C500083ADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C670EBD294B45540406F27CE /* Pods-Fugen Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fugen Demo.release.xcconfig"; path = "Target Support Files/Pods-Fugen Demo/Pods-Fugen Demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -59,21 +71,36 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C08A96442399C8410052F04C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C08A964F2399CAAD0052F04C /* Fonts */,
+				C08A96452399C8410052F04C /* Colors.xcassets */,
+				C08A96462399C8410052F04C /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C08A964F2399CAAD0052F04C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C08A96502399CAAD0052F04C /* SF-Pro-Display-Light.otf */,
+				C08A96512399CAAD0052F04C /* SF-Pro-Display-Regular.otf */,
+				C08A96522399CAAD0052F04C /* SF-Pro-Display-Bold.otf */,
+				C08A96532399CAAD0052F04C /* SF-Pro-Display-Medium.otf */,
+				C08A96542399CAAD0052F04C /* SF-Pro-Display-Semibold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		C08DB5772380978C00391F14 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
 				C08DB57A2380983E00391F14 /* ColorStyle.swift */,
+				C08A964C2399C9840052F04C /* Images.swift */,
 				C08DB5792380983E00391F14 /* TextStyle.swift */,
 			);
 			path = Generated;
-			sourceTree = "<group>";
-		};
-		C08DB5782380979900391F14 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				C0E6B603238096C500083ADB /* Assets.xcassets */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		C08DB57D2380991800391F14 /* Storyboards */ = {
@@ -107,11 +134,10 @@
 			isa = PBXGroup;
 			children = (
 				C08DB5772380978C00391F14 /* Generated */,
-				C08DB5782380979900391F14 /* Resources */,
+				C08A96442399C8410052F04C /* Resources */,
 				C08DB57D2380991800391F14 /* Storyboards */,
 				C0E6B5FA238096C500083ADB /* AppDelegate.swift */,
 				C0E6B608238096C500083ADB /* Info.plist */,
-				C0E6B5FC238096C500083ADB /* SceneDelegate.swift */,
 				C0E6B5FE238096C500083ADB /* ViewController.swift */,
 			);
 			path = FugenDemo;
@@ -133,6 +159,7 @@
 			buildConfigurationList = C0E6B60B238096C500083ADB /* Build configuration list for PBXNativeTarget "FugenDemo" */;
 			buildPhases = (
 				2F36647D95B78805F756F3F1 /* [CP] Check Pods Manifest.lock */,
+				C08A964B2399C9200052F04C /* Fugen */,
 				C0E6B5F3238096C500083ADB /* Sources */,
 				C0E6B5F4238096C500083ADB /* Frameworks */,
 				C0E6B5F5238096C500083ADB /* Resources */,
@@ -184,8 +211,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C08A96582399CAAD0052F04C /* SF-Pro-Display-Medium.otf in Resources */,
+				C08A96482399C8420052F04C /* Colors.xcassets in Resources */,
+				C08A96552399CAAD0052F04C /* SF-Pro-Display-Light.otf in Resources */,
 				C0E6B607238096C500083ADB /* LaunchScreen.storyboard in Resources */,
-				C0E6B604238096C500083ADB /* Assets.xcassets in Resources */,
+				C08A96492399C8420052F04C /* Images.xcassets in Resources */,
+				C08A96572399CAAD0052F04C /* SF-Pro-Display-Bold.otf in Resources */,
+				C08A96592399CAAD0052F04C /* SF-Pro-Display-Semibold.otf in Resources */,
+				C08A96562399CAAD0052F04C /* SF-Pro-Display-Regular.otf in Resources */,
 				C0E6B602238096C500083ADB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,6 +248,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C08A964B2399C9200052F04C /* Fugen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Fugen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$PODS_ROOT/Fugen/fugen generate\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -224,9 +275,9 @@
 			files = (
 				C08DB57B2380983E00391F14 /* TextStyle.swift in Sources */,
 				C0E6B5FF238096C500083ADB /* ViewController.swift in Sources */,
+				C08A964D2399C9840052F04C /* Images.swift in Sources */,
 				C0E6B5FB238096C500083ADB /* AppDelegate.swift in Sources */,
 				C08DB57C2380983E00391F14 /* ColorStyle.swift in Sources */,
-				C0E6B5FD238096C500083ADB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +353,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -356,7 +407,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
