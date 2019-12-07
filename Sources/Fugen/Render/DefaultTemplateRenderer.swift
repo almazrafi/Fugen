@@ -21,11 +21,14 @@ final class DefaultTemplateRenderer: TemplateRenderer {
         switch templateType {
         case let .native(name: templateName):
             let templateFileName = templateName.appending(String.templatesFileExtension)
-            let projectTemplatesPath = Path(#file).appending(.templatesFileRelativePath)
 
-            if projectTemplatesPath.exists {
-                return projectTemplatesPath.appending(templateFileName)
+            #if DEBUG
+            let xcodeTemplatesPath = Path.current.appending(.templatesXcodeRelativePath)
+
+            if xcodeTemplatesPath.exists {
+                return xcodeTemplatesPath.appending(templateFileName)
             }
+            #endif
 
             var executablePath = Path(ProcessInfo.processInfo.executablePath)
 
@@ -97,7 +100,7 @@ private extension String {
     // MARK: - Type Properties
 
     static let templatesFileExtension = ".stencil"
-    static let templatesFileRelativePath = "../../../../Templates"
+    static let templatesXcodeRelativePath = "../Templates"
     static let templatesPodsRelativePath = "../Templates"
     static let templatesShareRelativePath = "../../share/fugen"
     static let templateOptionsKey = "options"
