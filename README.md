@@ -6,7 +6,7 @@
 [![Platforms](https://img.shields.io/badge/platforms-macOS%20%7C%20Linux-lightgrey)](https://swift.org/about/#platform-support)
 [![License](https://img.shields.io/github/license/almazrafi/Fugen.svg?style=flat)](https://github.com/almazrafi/Fugen/blob/master/LICENSE)
 
-Fugen is a command line tool that is used to generate code from [Figma](http://figma.com/) files,
+Fugen is a command line tool to auto-generate code and resources for your [Figma](http://figma.com/) files,
 completely written in [Swift](https://swift.org).
 
 Currently, it supports generating the following entities:
@@ -37,7 +37,7 @@ Currently, it supports generating the following entities:
 
 ## Installation:
 ### CocoaPods
-To install Fugen using [CocoaPods](http://cocoapods.org) dependency manager, add the line to `Podfile`:
+To install Fugen using [CocoaPods](http://cocoapods.org) dependency manager, add this line to your `Podfile`:
 ```ruby
 pod 'Fugen', '~> 1.0.0'
 ```
@@ -47,7 +47,7 @@ Then run this command:
 $ pod install --repo-update
 ```
 
-**N.B.:** if installing using CocoaPods, the generate command should include a relative path to `Pods/Fugen` folder:
+**N.B.:** if installing using CocoaPods, the generate command should include a relative path to the `Pods/Fugen` folder:
 ```sh
 $ Pods/Fugen/fugen generate
 ```
@@ -62,14 +62,14 @@ $ brew install almazrafi/tap/fugen
 ```
 
 > It's impossible to set a specific package version via Homebrew.
-> In case this method was chosen, it's recommended to control that all team members use the same version of Fugen.
+> If you chose this method, make sure all team members use the same version of Fugen.
 
 ### ZIP archive
 Every release in the repo has a ZIP archive which can be used to integrate Fugen into a project.
-For using that method, the following steps should be taken:
+To use that method, the following steps should be taken:
 - Open [repository release page](https://github.com/almazrafi/Fugen/releases).
-- Download an archive 'fugen-x.y.z.zip' attached to the latest release.
-- Unarchive the ZIP into a convenient project folder
+- Download the 'fugen-x.y.z.zip' archive attached to the latest release.
+- Unarchive files into a convenient project folder
 
 **N.B.:** if this integration method was chosen,
 the generation command should include a relative path to the folder with the ZIP-archive content, for example:
@@ -89,37 +89,37 @@ $ fugen generate
 As the result, the source code files will be received according to the configuration (see [Configuration](#configuration)),
 which by default should be placed to `.fugen.yml` file.
 
-A specific path to the configuration could be used by passing it in `--config` parameter if needed, for example:
+If you need, you can use a specific path to the configuration, just pass it in the `--config` parameter. For example:
 ```sh
 $ fugen generate --config 'Folder/fugen.yml'
 ```
 
 Fugen requests files data using [Figma API](https://www.figma.com/developers/api),
-so the internet connection is necessary to generate the code.
+so make sure you have the internet connection on while generating the code.
 
 The resulting code could be easily customized with [Stencil-templates](https://github.com/stencilproject/Stencil).
-If standard templates are not enough, a custom template could be used,
+If standard templates are not enough, a custom template could be used. Just
 specify its path in the [configuration](#configuration).
 
 ### Integration
 There is no point to run `fugen generate` at the build stage, as Fugen doesn't work with local resources,
 which can be changed during development. All data for code generation is in Figma.
-Also, there will be no merge conflicts, if using design versioning.
+Also, there won't be any merge conflicts, if you use design versioning.
 
-Because of that, it is much better to generate code just once and keep it in the Git index,
-while running `fugen generate` when necessary:
+So, it is much better to generate code just once and keep it in the Git index.
+Also run `fugen generate` for the following reasons:
 - to upgrade to a new design version in Figma
 - after updating Fugen version
 
-There are also certain recommendations for integration, taking into account the technologies used in the project,
-all of them are listed in this section and will be updated as feedback is received
+There are also some recommendations on integration based on technologies used in a project.
+All of them are listed in this section and will be updated as feedback is received.
 
-In case you have any difficulties or wishes related to integration,
+In case you have any problems or suggestions related to integration,
 please open the corresponding request in [Issues](https://github.com/almazrafi/Fugen/issues).
 
 #### CocoaPods
-If using [CocoaPods](http://cocoapods.org) dependency manager,
-it's recommended to run code generating command from `pre-install` event handler in `Podfile`:
+If you are using [CocoaPods](http://cocoapods.org) dependency manager,
+run code generating command from `pre-install` event handler in `Podfile`:
 ```ruby
 pre_install do |installer|
   system "Pods/Fugen/fugen generate"
@@ -129,13 +129,14 @@ end
 That will allow connecting the code generation command with updating Fugen version
 and will reduce the number of commands executed while cloning the project.
 
-**N.B.:** This integration is ideal if the generated files should be held in the Development Pod,
-as in this case the generation should be run after loading Fugen and before installing all Pods.
+**N.B.:** If you want to keep the generated files in the Development Pod, this integration method is ideal.
+In this case the generation should be run after loading Fugen and before installing all Pods.
 Otherwise, new files will not be indexed on time and won't get included into the Xcode-project.
+ 
 
 ## Configuration
 [YAML](https://yaml.org) file is used for Fugen configuration.
-In this file all necessary parameters of code generation should be defined.
+Define all necessary parameters of code generation in this file.
 
 Configuration is divided into several sections:
 - `base`: base parameters that are actual for all other configuration sections (see [Base parameters](#base-parameters)
@@ -152,8 +153,8 @@ Each step of generation is using the following base parameters:
 - `accessToken`: an access token string that is needed to execute Figma API requests (see [Figma access token](#figma-access-token)).
 - `file`: URL of a Figma file, which data will be used to generate code (see [Figma file](#figma-file)).
 
-In order not to duplicate these fields in the configuration, they can be specified in the `base` section.
-Then they will be used by those generation steps for which these parameters are not defined.
+In order not to duplicate these fields in the configuration, you can specify them in the `base` section.
+They will be used by those generation steps for which these parameters are not defined.
 For example:
 ```yaml
 base:
@@ -194,7 +195,7 @@ If for a certain file you need to use a different access token,
 it should be specified in the corresponding section of the configuration (see [Base parameters](#base-parameters)).
 
 ### Figma file
-Fugen requests Figma file, using the identifier from its URL, which should be placed in a `file`  field of configuration.
+Fugen requests Figma file by using the identifier from its URL. This URL should be placed in the `file` field of the configuration.
 For example:
 ```yaml
 base:
@@ -224,7 +225,7 @@ Then the wrong data will be used for generation.
 
 #### Alternative configuration
 Sometimes using the file URL is not flexible enough.
-Then instead of URL parameter in `file`, an object with the following fields can be defined:
+In this case you can define an object with the following fields instead of the URL in the `file` parameter:
 - `key`: a string with the file's identifier. Is required.
 - `version`: a string with the file's version.
 If this parameter is omitted, the current file version will be used.
@@ -251,7 +252,7 @@ For example, when it is necessary to exclude several elements specific to anothe
 
 ### Generation configuration
 Besides [base parameters](#base-parameters),
-for each step of the generation the following configuration should be defined:
+for each generation step the following configuration should be defined:
 - `template`: a path to the Stencil-template file.
 If omitted, the standard template will be used.
 - `templateOptions`: a dictionary with additional options that will be used for generation in Stencil-template.
@@ -264,8 +265,8 @@ The description of them and examples could be found in corresponding sections be
 ---
 
 ## Color styles
-To generate color styles [standard configuration set](#generation-configuration) is used with an additional parameter:
-- `assets`: a path to Xcode assets folder, in which all colors will be saved as Color Set.
+To generate color styles [standard configuration set](#generation-configuration) with an additional parameter  is used:
+- `assets`: a path to the Xcode assets folder, in which all colors will be saved as a Color Set.
 The parameter can be omitted if there is no need for assets.
 
 Sample configuration:
@@ -301,8 +302,8 @@ The template could be configured using different options that are specified in `
 
 Key  | Type | Default value | Description
 ---- | -----| ------------- | -----------
-`styleTypeName` | string | ColorStyle | Style type name
-`colorTypeName` | string | UIColor | Color type name. If the target platform is macOS, specify `NSColor`.
+`styleTypeName` | String | ColorStyle | Style type name
+`colorTypeName` | String | UIColor | Color type name. If the target platform is macOS, specify `NSColor`.
 `publicAccess` | Boolean | false | Flag that adds `public` access modifier to the declarations in the generated file.
 
 ## Text styles
@@ -336,9 +337,9 @@ The template could be configured using additional options that specified in `tem
 
 Key  | Type | Default value | Description
 ---- | -----| ------------- | -----------
-`styleTypeName` | string | TextStyle | Style type name
-`colorTypeName` | string | UICOlor | Color type name. If the target platform is macOS, specify `NSColor`.
-`fontTypeName` | string | UIFont | Font type name. If the target platform is macOS, specify `NSFont`.
+`styleTypeName` | String | TextStyle | Style type name
+`colorTypeName` | String | UICOlor | Color type name. If the target platform is macOS, specify `NSColor`.
+`fontTypeName` | String | UIFont | Font type name. If the target platform is macOS, specify `NSFont`.
 `publicAccess` | Boolean | false | Flag that adds `public` access modifier to the declarations in the generated file.
 
 ## Images
@@ -402,8 +403,8 @@ The template could be configured using additional options specified in `template
 
 Key  | Type | Default value | Description
 ---- | -----| ------------- | -----------
-`imagesEnumName` | string | Images | Name of a generated enum with static image fields
-`imageTypeName` | string | UIImage | Image type name. If the target platform is macOS, specify `NSImage`.
+`imagesEnumName` | String | Images | Name of a generated enum with static image fields
+`imageTypeName` | String | UIImage | Image type name. If the target platform is macOS, specify `NSImage`.
 `publicAccess` | Boolean | false | Flag that adds `public` access modifier to the declarations in the generated file.
 
 ---
