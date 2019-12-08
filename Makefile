@@ -52,6 +52,7 @@ test_demo: build
 
 	cd $(DEMO_PATH); \
 		./fugen generate; \
+		bundle exec pod install; \
 		xcodebuild clean build -workspace "$(DEMO_WORKSPACE)" -scheme "$(DEMO_TEST_SCHEME)" -destination "$(DEMO_TEST_DESTINATION)" | XCPRETTY_JSON_FILE_OUTPUT="../$(DEMO_TEST_LOG_PATH)" xcpretty -f `xcpretty-json-formatter`
 
 install: build
