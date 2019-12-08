@@ -19,55 +19,62 @@ final class DefaultImageAssetsProvider: ImageAssetsProvider {
 
     // MARK: - Instance Methods
 
-    private func makeAssetImageContext(
-        info: ImageNodeInfo,
+    private func makeAssetInfo(
+        for info: ImageNodeInfo,
         format: ImageFormat,
         folderPath: Path
-    ) -> AssetImageContext {
+    ) -> ImageAssetInfo {
         let name = info.base.name.camelized
 
         let filePaths = info.urls.keys.reduce(into: [:]) { result, scale in
             result[scale] = folderPath
                 .appending(fileName: name, extension: AssetImageSet.pathExtension)
                 .appending(fileName: name.appending(scale.fileNameSuffix), extension: format.fileExtension)
+                .string
         }
 
-        return AssetImageContext(info: info, name: name, filePaths: filePaths)
+        return ImageAssetInfo(name: name, filePaths: filePaths)
     }
 
-    private func makeAssetImageContexts(
-        info: [ImageNodeInfo],
+    private func makeAssetsInfo(
+        for info: [ImageNodeInfo],
         format: ImageFormat,
         folderPath: Path
-    ) -> [AssetImageContext] {
-        return info.map { makeAssetImageContext(info: $0, format: format, folderPath: folderPath) }
+    ) -> [ImageNodeInfo: ImageAssetInfo] {
+        var assetInfo: [ImageNodeInfo: ImageAssetInfo] = [:]
+
+        info.forEach { info in
+            assetInfo[info] = makeAssetInfo(for: info, format: format, folderPath: folderPath)
+        }
+
+        return assetInfo
     }
 
-    private func makeAssetImageSet(for context: AssetImageContext) -> AssetImageSet {
-        let assetImages = context.filePaths.map { scale, filePath in
-            AssetImage(fileName: filePath.lastComponent, scale: scale.assetImageScale)
+    private func makeAssetImageSet(assetInfo: ImageAssetInfo) -> AssetImageSet {
+        let assetImages = assetInfo.filePaths.map { scale, filePath in
+            AssetImage(fileName: Path(filePath).lastComponent, scale: scale.assetImageScale)
         }
 
         return AssetImageSet(contents: AssetImageSetContents(info: .defaultFugen, images: assetImages))
     }
 
-    private func makeAssetImageSets(for contexts: [AssetImageContext]) -> [String: AssetImageSet] {
-        return contexts.reduce(into: [:]) { result, context in
-            result[context.name] = makeAssetImageSet(for: context)
+    private func makeAssetImageSets(assetsInfo: [ImageNodeInfo: ImageAssetInfo]) -> [String: AssetImageSet] {
+        return assetsInfo.values.reduce(into: [:]) { result, assetInfo in
+            result[assetInfo.name] = makeAssetImageSet(assetInfo: assetInfo)
         }
     }
 
-    private func saveAssetImageFiles(context: AssetImageContext) -> Promise<Void> {
-        let promises = context.info.urls.compactMap { scale, url in
-            context.filePaths[scale].map { self.dataProvider.saveData(from: url, to: $0.string) }
+    private func saveImageFiles(info: ImageNodeInfo, assetInfo: ImageAssetInfo) -> Promise<Void> {
+        let promises = info.urls.compactMap { scale, url in
+            assetInfo.filePaths[scale].map { self.dataProvider.saveData(from: url, to: $0) }
         }
 
         return when(fulfilled: promises)
     }
 
-    private func saveAssetImageFiles(contexts: [AssetImageContext]) -> Promise<Void> {
-        let promises = contexts.map { context in
-            saveAssetImageFiles(context: context)
+    private func saveImageFiles(assetsInfo: [ImageNodeInfo: ImageAssetInfo]) -> Promise<Void> {
+        let promises = assetsInfo.map { info, assetInfo in
+            saveImageFiles(info: info, assetInfo: assetInfo)
         }
 
         return when(fulfilled: promises)
@@ -81,37 +88,24 @@ final class DefaultImageAssetsProvider: ImageAssetsProvider {
         in folderPath: String
     ) -> Promise<[ImageNodeInfo: ImageAssetInfo]> {
         return perform(on: DispatchQueue.global(qos: .userInitiated)) {
-            self.makeAssetImageContexts(
-                info: info,
+            self.makeAssetsInfo(
+                for: info,
                 format: format,
                 folderPath: Path(folderPath)
             )
-        }.nest { contexts in
+        }.nest { assetsInfo in
             perform(on: DispatchQueue.global(qos: .userInitiated)) {
                 AssetFolder(
-                    imageSets: self.makeAssetImageSets(for: contexts),
+                    imageSets: self.makeAssetImageSets(assetsInfo: assetsInfo),
                     contents: AssetFolderContents(info: .defaultFugen)
                 )
             }.then { folder in
                 self.assetsProvider.saveAssetFolder(folder, in: folderPath)
             }.then {
-                self.saveAssetImageFiles(contexts: contexts)
+                self.saveImageFiles(assetsInfo: assetsInfo)
             }
-        }.mapValues { context in
-            (context.info, ImageAssetInfo(name: context.name))
-        }.map { items in
-            Dictionary(items) { $1 }
         }
     }
-}
-
-private struct AssetImageContext {
-
-    // MARK: - Instance Properties
-
-    let info: ImageNodeInfo
-    let name: String
-    let filePaths: [ImageScale: Path]
 }
 
 private extension ImageScale {
