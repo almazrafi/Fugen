@@ -338,7 +338,7 @@ The template could be configured using additional options that specified in `tem
 Key  | Type | Default value | Description
 ---- | -----| ------------- | -----------
 `styleTypeName` | String | TextStyle | Style type name
-`colorTypeName` | String | UICOlor | Color type name. If the target platform is macOS, specify `NSColor`.
+`colorTypeName` | String | UIColor | Color type name. If the target platform is macOS, specify `NSColor`.
 `fontTypeName` | String | UIFont | Font type name. If the target platform is macOS, specify `NSFont`.
 `publicAccess` | Boolean | false | Flag that adds `public` access modifier to the declarations in the generated file.
 
