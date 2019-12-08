@@ -6,11 +6,14 @@ TEMPLATES_NAME=Templates
 README_NAME=README.md
 LICENSE_NAME=LICENSE
 
-SOURCES_MAIN_PATH=Sources/Fugen/main.swift
-DEMO_PODFILE_PATH=Demo/Podfile
+DEMO_PATH=Demo
+DEMO_WORKSPACE=FugenDemo.xcworkspace
+DEMO_TEST_SCHEME=FugenDemo
+DEMO_TEST_DESTINATION=platform=iOS Simulator,name=iPhone 11
+DEMO_TEST_LOG_PATH=.build/demo_test.json
 
 RELEASE_PATH=.build/release/$(PRODUCT_NAME)-$(PRODUCT_VERSION)
-RELEASE_ZIP_PATH = ./$(PRODUCT_NAME)-$(PRODUCT_VERSION).zip
+RELEASE_ZIP_PATH=$(PRODUCT_NAME)-$(PRODUCT_VERSION).zip
 PRODUCT_PATH=.build/release/$(PRODUCT_NAME)
 TEMPLATES_PATH=$(TEMPLATES_NAME)
 
@@ -21,7 +24,10 @@ BIN_PATH=$(PREFIX)/bin
 BIN_PRODUCT_PATH=$(BIN_PATH)/$(PRODUCT_NAME)
 SHARE_PRODUCT_PATH=$(PREFIX)/share/$(PRODUCT_NAME)
 
-.PHONY: all version bootstrap lint build install uninstall update_version release
+SOURCES_MAIN_PATH=Sources/Fugen/main.swift
+DEMO_PODFILE_PATH=$(DEMO_PATH)/Podfile
+
+.PHONY: all version bootstrap lint build test test_demo install uninstall update_version release
 
 version:
 	@echo $(PRODUCT_VERSION)
@@ -33,12 +39,24 @@ lint:
 	Scripts/swiftlint.sh
 
 build:
+	swift package clean
 	swift build --disable-sandbox -c release
+
+test:
+	swift package clean
+	swift test
+
+test_demo: build
+	cp -f $(PRODUCT_PATH) $(DEMO_PATH)
+	cp -r $(TEMPLATES_PATH) $(DEMO_PATH)
+
+	cd $(DEMO_PATH); \
+		./fugen generate; \
+		xcodebuild clean build -workspace "$(DEMO_WORKSPACE)" -scheme "$(DEMO_TEST_SCHEME)" -destination "$(DEMO_TEST_DESTINATION)" | XCPRETTY_JSON_FILE_OUTPUT="../$(DEMO_TEST_LOG_PATH)" xcpretty -f `xcpretty-json-formatter`
 
 install: build
 	mkdir -p $(BIN_PATH)
 	cp -f $(PRODUCT_PATH) $(BIN_PRODUCT_PATH)
-
 	mkdir -p $(SHARE_PRODUCT_PATH)
 	cp -r $(TEMPLATES_PATH)/. $(SHARE_PRODUCT_PATH)
 
