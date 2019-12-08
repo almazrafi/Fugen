@@ -17,42 +17,47 @@ final class DefaultImageResourcesProvider: ImageResourcesProvider {
 
     // MARK: - Instance Methods
 
-    private func makeResourceImageContext(
-        info: ImageNodeInfo,
+    private func makeResourceInfo(
+        for info: ImageNodeInfo,
         format: ImageFormat,
         folderPath: Path
-    ) -> ResourceImageContext {
+    ) -> ImageResourceInfo {
         let name = info.base.name.camelized
 
         let filePaths = info.urls.keys.reduce(into: [:]) { result, scale in
-            result[scale] = folderPath.appending(
-                fileName: name.appending(scale.fileNameSuffix),
-                extension: format.fileExtension
-            )
+            result[scale] = folderPath
+                .appending(fileName: name.appending(scale.fileNameSuffix), extension: format.fileExtension)
+                .string
         }
 
-        return ResourceImageContext(info: info, name: name, filePaths: filePaths)
+        return ImageResourceInfo(name: name, filePaths: filePaths)
     }
 
-    private func makeResourceImageContexts(
+    private func makeResourcesInfo(
         info: [ImageNodeInfo],
         format: ImageFormat,
         folderPath: Path
-    ) -> [ResourceImageContext] {
-        return info.map { makeResourceImageContext(info: $0, format: format, folderPath: folderPath) }
+    ) -> [ImageNodeInfo: ImageResourceInfo] {
+        var resourceInfo: [ImageNodeInfo: ImageResourceInfo] = [:]
+
+        info.forEach { info in
+            resourceInfo[info] = makeResourceInfo(for: info, format: format, folderPath: folderPath)
+        }
+
+        return resourceInfo
     }
 
-    private func saveResourceImageFiles(context: ResourceImageContext) -> Promise<Void> {
-        let promises = context.info.urls.compactMap { scale, url in
-            context.filePaths[scale].map { self.dataProvider.saveData(from: url, to: $0.string) }
+    private func saveImageFiles(info: ImageNodeInfo, resourceInfo: ImageResourceInfo) -> Promise<Void> {
+        let promises = info.urls.compactMap { scale, url in
+            resourceInfo.filePaths[scale].map { self.dataProvider.saveData(from: url, to: $0) }
         }
 
         return when(fulfilled: promises)
     }
 
-    private func saveResourceImageFiles(contexts: [ResourceImageContext]) -> Promise<Void> {
-        let promises = contexts.map { context in
-            saveResourceImageFiles(context: context)
+    private func saveImageFiles(resourcesInfo: [ImageNodeInfo: ImageResourceInfo]) -> Promise<Void> {
+        let promises = resourcesInfo.map { info, resourceInfo in
+            saveImageFiles(info: info, resourceInfo: resourceInfo)
         }
 
         return when(fulfilled: promises)
@@ -66,26 +71,13 @@ final class DefaultImageResourcesProvider: ImageResourcesProvider {
         in folderPath: String
     ) -> Promise<[ImageNodeInfo: ImageResourceInfo]> {
         return perform(on: DispatchQueue.global(qos: .userInitiated)) {
-            self.makeResourceImageContexts(
+            self.makeResourcesInfo(
                 info: info,
                 format: format,
                 folderPath: Path(folderPath)
             )
-        }.nest { contexts in
-            self.saveResourceImageFiles(contexts: contexts)
-        }.mapValues { context in
-            (context.info, ImageResourceInfo(name: context.name))
-        }.map { items in
-            Dictionary(items) { $1 }
+        }.nest { resourcesInfo in
+            self.saveImageFiles(resourcesInfo: resourcesInfo)
         }
     }
-}
-
-private struct ResourceImageContext {
-
-    // MARK: - Instance Properties
-
-    let info: ImageNodeInfo
-    let name: String
-    let filePaths: [ImageScale: Path]
 }
