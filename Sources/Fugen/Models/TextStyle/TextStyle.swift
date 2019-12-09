@@ -4,16 +4,6 @@ struct TextStyle: Hashable {
 
     // MARK: - Instance Properties
 
-    let id: String
-    let name: String
-    let description: String?
-    let font: Font
-    let colorStyle: String?
-    let color: Color
-    let strikethrough: Bool
-    let underline: Bool
-    let paragraphSpacing: Double?
-    let paragraphIndent: Double?
-    let lineHeight: Double?
-    let letterSpacing: Double?
+    let info: TextStyleNodeInfo
+    let colorInfo: TextStyleColorInfo
 }
