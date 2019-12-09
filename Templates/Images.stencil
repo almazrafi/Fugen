@@ -5,6 +5,8 @@
 {% set imageTypeName %}{{ options.imageTypeName|default:"UIImage" }}{% endset %}
 {% macro propertyName name %}{{ name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords }}{% endmacro %}
 {% macro assetImage asset %}{{ imageTypeName }}(named: "{{ asset.name }}")!{% endmacro %}
+{% macro resourceFileName resource %}{{ resource.fileName }}.{{ resource.fileExtension }}{% endmacro %}
+{% macro resourceImage resource %}{{ imageTypeName }}(named: "{% call resourceFileName resource %}")!{% endmacro %}
 #if canImport(UIKit)
 import UIKit
 #else
@@ -16,13 +18,16 @@ import AppKit
     // MARK: - Enumeration Cases
 {% for image in images %}
 
-{% if image.asset.name %}
+{% if image.asset %}
     /// {{ image.name }}
-    {% if image.description %}
     ///
-    /// {{ image.description }}
-    {% endif %}
+    /// Asset: {{ image.asset.name }}
     {{ accessModifier }} static let {% call propertyName image.name %} = {% call assetImage image.asset %}
+{% elif image.resource %}
+	/// {{ image.name }}
+	///
+	/// Resource: {% call resourceFileName image.resource %}
+    {{ accessModifier }} static let {% call propertyName image.name %} = {% call resourceImage image.resource %}
 {% endif %}
 {% endfor %}
 }

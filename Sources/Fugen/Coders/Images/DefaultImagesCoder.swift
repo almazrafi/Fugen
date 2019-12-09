@@ -9,7 +9,10 @@ final class DefaultImagesCoder: ImagesCoder {
     }
 
     private func encodeImageResourceInfo(_ resourceInfo: ImageResourceInfo) -> [String: Any] {
-        return ["name": resourceInfo.name]
+        return [
+            "fileName": resourceInfo.fileName,
+            "fileExtension": resourceInfo.fileExtension
+        ]
     }
 
     // MARK: -

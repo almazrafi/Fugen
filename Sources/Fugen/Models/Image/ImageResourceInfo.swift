@@ -4,6 +4,7 @@ struct ImageResourceInfo: Hashable {
 
     // MARK: - Instance Properties
 
-    let name: String
+    let fileName: String
+    let fileExtension: String
     let filePaths: [ImageScale: String]
 }
