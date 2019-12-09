@@ -50,14 +50,16 @@ test_demo: build
 	cp -f $(PRODUCT_PATH) $(DEMO_PATH)
 	cp -r $(TEMPLATES_PATH) $(DEMO_PATH)
 
+	set -euo pipefail; \
 	cd $(DEMO_PATH); \
-		./fugen generate; \
-		bundle exec pod install; \
-		xcodebuild clean build -workspace "$(DEMO_WORKSPACE)" -scheme "$(DEMO_TEST_SCHEME)" -destination "$(DEMO_TEST_DESTINATION)" | XCPRETTY_JSON_FILE_OUTPUT="../$(DEMO_TEST_LOG_PATH)" xcpretty -f `xcpretty-json-formatter`
+	./fugen generate; \
+	bundle exec pod install; \
+	xcodebuild clean build -workspace "$(DEMO_WORKSPACE)" -scheme "$(DEMO_TEST_SCHEME)" -destination "$(DEMO_TEST_DESTINATION)" | XCPRETTY_JSON_FILE_OUTPUT="../$(DEMO_TEST_LOG_PATH)" xcpretty -f `xcpretty-json-formatter`
 
 install: build
 	mkdir -p $(BIN_PATH)
 	cp -f $(PRODUCT_PATH) $(BIN_PRODUCT_PATH)
+
 	mkdir -p $(SHARE_PRODUCT_PATH)
 	cp -r $(TEMPLATES_PATH)/. $(SHARE_PRODUCT_PATH)
 
@@ -71,8 +73,10 @@ update_version:
 
 release: update_version build
 	mkdir -p $(RELEASE_PATH)
+
 	cp -f $(PRODUCT_PATH) $(RELEASE_PATH)
 	cp -r $(TEMPLATES_PATH) $(RELEASE_PATH)
 	cp -f $(README_PATH) $(RELEASE_PATH)
 	cp -f $(LICENSE_PATH) $(RELEASE_PATH)
+
 	(cd $(RELEASE_PATH); zip -yr - $(PRODUCT_NAME) $(TEMPLATES_NAME) $(README_NAME) $(LICENSE_NAME)) > $(RELEASE_ZIP_PATH)

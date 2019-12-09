@@ -22,6 +22,7 @@ jobs:
   - os: osx
     osx_image: xcode11
     script:
+    - set -e
     - swift --version
     - make test_demo
     - bundle exec pod lib lint --skip-tests --allow-warnings
@@ -31,7 +32,7 @@ jobs:
   - os: linux
     dist: trusty
     script:
-    - set -o pipefail
+    - set -e
     - swift --version
     - make test
 
