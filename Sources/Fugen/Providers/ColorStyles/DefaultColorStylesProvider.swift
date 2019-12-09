@@ -68,9 +68,9 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
         return try nodes
             .lazy
             .compactMap { try extractColorStyleInfo(from: $0, styles: styles) }
-            .reduce(into: []) { result, colorStyle in
-                if !result.contains(colorStyle) {
-                    result.append(colorStyle)
+            .reduce(into: []) { result, info in
+                if !result.contains(info) {
+                    result.append(info)
                 }
             }
     }

@@ -20,35 +20,38 @@ final class DefaultTextStylesCoder: TextStylesCoder {
     // MARK: - Instance Methods
 
     func encodeTextStyle(_ textStyle: TextStyle) -> [String: Any] {
+        let info = textStyle.info
+        let colorInfo = textStyle.colorInfo
+
         var encodedTextStyle: [String: Any] = [
-            "name": textStyle.name,
-            "font": fontCoder.encodeFont(textStyle.font),
-            "color": colorCoder.encodeColor(textStyle.color),
-            "strikethrough": textStyle.strikethrough,
-            "underline": textStyle.underline
+            "name": info.name,
+            "font": fontCoder.encodeFont(info.font),
+            "color": colorCoder.encodeColor(colorInfo.color),
+            "strikethrough": info.strikethrough,
+            "underline": info.underline
         ]
 
-        if let description = textStyle.description {
+        if let description = info.description {
             encodedTextStyle["description"] = description
         }
 
-        if let colorStyle = textStyle.colorStyle {
-            encodedTextStyle["colorStyle"] = colorStyle
+        if let colorStyleName = colorInfo.styleName {
+            encodedTextStyle["colorStyleName"] = colorStyleName
         }
 
-        if let paragraphSpacing = textStyle.paragraphSpacing {
+        if let paragraphSpacing = info.paragraphSpacing {
             encodedTextStyle["paragraphSpacing"] = paragraphSpacing.rounded(precision: 4)
         }
 
-        if let paragraphIndent = textStyle.paragraphIndent {
+        if let paragraphIndent = info.paragraphIndent {
             encodedTextStyle["paragraphIndent"] = paragraphIndent.rounded(precision: 4)
         }
 
-        if let lineHeight = textStyle.lineHeight {
+        if let lineHeight = info.lineHeight {
             encodedTextStyle["lineHeight"] = lineHeight.rounded(precision: 4)
         }
 
-        if let letterSpacing = textStyle.letterSpacing {
+        if let letterSpacing = info.letterSpacing {
             encodedTextStyle["letterSpacing"] = letterSpacing.rounded(precision: 4)
         }
 

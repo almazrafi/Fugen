@@ -55,9 +55,9 @@ final class DefaultImagesProvider: ImagesProvider {
         return try nodes
             .lazy
             .compactMap { try extractImageInfo(from: $0, components: components) }
-            .reduce(into: []) { result, imageNodeID in
-                if !result.contains(imageNodeID) {
-                    result.append(imageNodeID)
+            .reduce(into: []) { result, info in
+                if !result.contains(info) {
+                    result.append(info)
                 }
             }
     }

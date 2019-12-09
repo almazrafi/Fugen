@@ -42,7 +42,7 @@ import AppKit
     /// {{ style.name }}
     ///
     /// {{ style.font|fontInfo }}
-    /// Color: {% if style.colorStyle %}{{ style.colorStyle }}; {% endif %}{{ style.color|colorInfo|lowerFirstWord }}
+    /// Color: {% if style.colorStyleName %}{{ style.colorStyleName }}; {% endif %}{{ style.color|colorInfo|lowerFirstWord }}
     /// Strikethrough: {{ style.strikethrough }}
     /// Underline: {{ style.underline }}
     /// Paragraph spacing: {{ style.paragraphSpacing|default:"default" }}

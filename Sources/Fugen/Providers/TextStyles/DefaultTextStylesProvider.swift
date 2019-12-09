@@ -17,7 +17,7 @@ final class DefaultTextStylesProvider: TextStylesProvider {
 
     // MARK: - Instance Methods
 
-    private func extractColorStyle(
+    private func extractColorStyleName(
         from nodeInfo: FigmaVectorNodeInfo,
         of node: FigmaNode,
         styles: [String: FigmaStyle]
@@ -100,13 +100,11 @@ final class DefaultTextStylesProvider: TextStylesProvider {
             throw TextStylesProviderError(code: .typeStyleNotFound, nodeID: node.id, nodeName: node.name)
         }
 
-        return TextStyle(
+        let info = TextStyleNodeInfo(
             id: node.id,
             name: nodeStyleName,
             description: nodeStyle.description,
             font: try extractFont(from: nodeTypeStyle, of: node),
-            colorStyle: try extractColorStyle(from: nodeInfo, of: node, styles: styles),
-            color: try extractColor(from: nodeInfo, of: node),
             strikethrough: nodeTypeStyle.textDecoration == .strikethrough,
             underline: nodeTypeStyle.textDecoration == .underline,
             paragraphSpacing: nodeTypeStyle.paragraphSpacing,
@@ -114,6 +112,13 @@ final class DefaultTextStylesProvider: TextStylesProvider {
             lineHeight: nodeTypeStyle.lineHeight,
             letterSpacing: nodeTypeStyle.letterSpacing
         )
+
+        let colorInfo = TextStyleColorInfo(
+            styleName: try extractColorStyleName(from: nodeInfo, of: node, styles: styles),
+            color: try extractColor(from: nodeInfo, of: node)
+        )
+
+        return TextStyle(info: info, colorInfo: colorInfo)
     }
 
     private func extractTextStyles(from nodes: [FigmaNode], of file: FigmaFile) throws -> [TextStyle] {
@@ -123,7 +128,7 @@ final class DefaultTextStylesProvider: TextStylesProvider {
             .lazy
             .compactMap { try extractTextStyle(from: $0, styles: styles) }
             .reduce(into: []) { result, textStyle in
-                if !result.contains(textStyle) {
+                if !result.contains(where: { $0.info == textStyle.info }) {
                     result.append(textStyle)
                 }
             }

@@ -21,12 +21,14 @@ final class DefaultColorStylesCoder: ColorStylesCoder {
     // MARK: -
 
     func encodeColorStyle(_ colorStyle: ColorStyle) -> [String: Any] {
+        let info = colorStyle.info
+
         var encodedColorStyle: [String: Any] = [
-            "name": colorStyle.info.name,
-            "color": colorCoder.encodeColor(colorStyle.info.color)
+            "name": info.name,
+            "color": colorCoder.encodeColor(info.color)
         ]
 
-        if let description = colorStyle.info.description {
+        if let description = info.description {
             encodedColorStyle["description"] = description
         }
 
