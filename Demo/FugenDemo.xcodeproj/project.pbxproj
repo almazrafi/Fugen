@@ -6,6 +6,20 @@
 	objectVersion = 51;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		C0F8CD4D239DA83F009EDF98 /* Fugen */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = C0F8CD4E239DA83F009EDF98 /* Build configuration list for PBXAggregateTarget "Fugen" */;
+			buildPhases = (
+				C0F8CD51239DA84A009EDF98 /* Fugen */,
+			);
+			dependencies = (
+			);
+			name = Fugen;
+			productName = Fugen;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		2AACCA0388F9FF9E4AF322F1 /* Pods_FugenDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5892121F1D00E978F9A770E /* Pods_FugenDemo.framework */; };
 		C08A96482399C8420052F04C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08A96452399C8410052F04C /* Colors.xcassets */; };
@@ -159,7 +173,6 @@
 			buildConfigurationList = C0E6B60B238096C500083ADB /* Build configuration list for PBXNativeTarget "FugenDemo" */;
 			buildPhases = (
 				2F36647D95B78805F756F3F1 /* [CP] Check Pods Manifest.lock */,
-				C08A964B2399C9200052F04C /* Fugen */,
 				C0E6B5F3238096C500083ADB /* Sources */,
 				C0E6B5F4238096C500083ADB /* Frameworks */,
 				C0E6B5F5238096C500083ADB /* Resources */,
@@ -186,6 +199,9 @@
 					C0E6B5F6238096C500083ADB = {
 						CreatedOnToolsVersion = 11.0;
 					};
+					C0F8CD4D239DA83F009EDF98 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
 				};
 			};
 			buildConfigurationList = C0E6B5F2238096C500083ADB /* Build configuration list for PBXProject "FugenDemo" */;
@@ -202,6 +218,7 @@
 			projectRoot = "";
 			targets = (
 				C0E6B5F6238096C500083ADB /* FugenDemo */,
+				C0F8CD4D239DA83F009EDF98 /* Fugen */,
 			);
 		};
 /* End PBXProject section */
@@ -248,7 +265,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C08A964B2399C9200052F04C /* Fugen */ = {
+		C0F8CD51239DA84A009EDF98 /* Fugen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -264,7 +281,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$PODS_ROOT/Fugen/fugen generate\n";
+			shellScript = "Pods/Fugen/fugen generate\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -335,6 +352,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -395,6 +413,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -423,6 +442,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FugenDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -430,8 +450,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.almazrafi.Fugen-Demo";
 				PRODUCT_NAME = "Fugen Demo";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -441,6 +462,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FugenDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -448,8 +470,25 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.almazrafi.Fugen-Demo";
 				PRODUCT_NAME = "Fugen Demo";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		C0F8CD4F239DA83F009EDF98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C0F8CD50239DA83F009EDF98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -470,6 +509,15 @@
 			buildConfigurations = (
 				C0E6B60C238096C500083ADB /* Debug */,
 				C0E6B60D238096C500083ADB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0F8CD4E239DA83F009EDF98 /* Build configuration list for PBXAggregateTarget "Fugen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0F8CD4F239DA83F009EDF98 /* Debug */,
+				C0F8CD50239DA83F009EDF98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

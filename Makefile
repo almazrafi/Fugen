@@ -6,13 +6,17 @@ TEMPLATES_NAME=Templates
 README_NAME=README.md
 LICENSE_NAME=LICENSE
 
-SOURCES_MAIN_PATH=Sources/Fugen/main.swift
-DEMO_PODFILE_PATH=Demo/Podfile
-
-RELEASE_PATH=.build/release/$(PRODUCT_NAME)-$(PRODUCT_VERSION)
-RELEASE_ZIP_PATH = ./$(PRODUCT_NAME)-$(PRODUCT_VERSION).zip
-PRODUCT_PATH=.build/release/$(PRODUCT_NAME)
+BUILD_PATH=.build
+RELEASE_PATH=$(BUILD_PATH)/release/$(PRODUCT_NAME)-$(PRODUCT_VERSION)
+RELEASE_ZIP_PATH=$(PRODUCT_NAME)-$(PRODUCT_VERSION).zip
+PRODUCT_PATH=$(BUILD_PATH)/release/$(PRODUCT_NAME)
 TEMPLATES_PATH=$(TEMPLATES_NAME)
+
+DEMO_PATH=Demo
+DEMO_WORKSPACE=FugenDemo.xcworkspace
+DEMO_TEST_SCHEME=FugenDemo
+DEMO_TEST_DESTINATION=platform=iOS Simulator,name=iPhone 11
+DEMO_TEST_LOG_PATH=$(BUILD_PATH)/demo_test.json
 
 README_PATH=$(README_NAME)
 LICENSE_PATH=$(LICENSE_NAME)
@@ -21,7 +25,10 @@ BIN_PATH=$(PREFIX)/bin
 BIN_PRODUCT_PATH=$(BIN_PATH)/$(PRODUCT_NAME)
 SHARE_PRODUCT_PATH=$(PREFIX)/share/$(PRODUCT_NAME)
 
-.PHONY: all version bootstrap lint build install uninstall update_version release
+SOURCES_MAIN_PATH=Sources/Fugen/main.swift
+DEMO_PODFILE_PATH=$(DEMO_PATH)/Podfile
+
+.PHONY: all version bootstrap lint build test test_demo install uninstall update_version release
 
 version:
 	@echo $(PRODUCT_VERSION)
@@ -33,7 +40,22 @@ lint:
 	Scripts/swiftlint.sh
 
 build:
+	swift package clean
 	swift build --disable-sandbox -c release
+
+test:
+	swift package clean
+	swift test
+
+test_demo: build
+	cp -f $(PRODUCT_PATH) $(DEMO_PATH)
+	cp -r $(TEMPLATES_PATH) $(DEMO_PATH)
+
+	set -euo pipefail; \
+	cd $(DEMO_PATH); \
+	./fugen generate; \
+	bundle exec pod install; \
+	xcodebuild clean build -workspace "$(DEMO_WORKSPACE)" -scheme "$(DEMO_TEST_SCHEME)" -destination "$(DEMO_TEST_DESTINATION)" | XCPRETTY_JSON_FILE_OUTPUT="../$(DEMO_TEST_LOG_PATH)" xcpretty -f `xcpretty-json-formatter`
 
 install: build
 	mkdir -p $(BIN_PATH)
@@ -52,8 +74,10 @@ update_version:
 
 release: update_version build
 	mkdir -p $(RELEASE_PATH)
+
 	cp -f $(PRODUCT_PATH) $(RELEASE_PATH)
 	cp -r $(TEMPLATES_PATH) $(RELEASE_PATH)
 	cp -f $(README_PATH) $(RELEASE_PATH)
 	cp -f $(LICENSE_PATH) $(RELEASE_PATH)
+
 	(cd $(RELEASE_PATH); zip -yr - $(PRODUCT_NAME) $(TEMPLATES_NAME) $(README_NAME) $(LICENSE_NAME)) > $(RELEASE_ZIP_PATH)

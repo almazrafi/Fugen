@@ -54,4 +54,6 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 
 # Fugen
+Demo/fugen
+Demo/Templates
 fugen-*.zip
