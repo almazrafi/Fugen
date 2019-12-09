@@ -10,9 +10,9 @@ Fugen is a command line tool to auto-generate code and resources for your [Figma
 completely written in [Swift](https://swift.org).
 
 Currently, it supports generating the following entities:
-- Color styles
-- Text styles
-- Images
+- ✅ Color styles
+- ✅ Text styles
+- ✅ Images
 
 #### Watch the video
 [![Watch the video](Docs/PlayVideo.png)](https://youtu.be/SfZb8iu2bWY)
@@ -47,7 +47,7 @@ Then run this command:
 $ pod install --repo-update
 ```
 
-**N.B.:** if installing using CocoaPods, the generate command should include a relative path to the `Pods/Fugen` folder:
+🚨 If installing using CocoaPods, the generate command should include a relative path to the `Pods/Fugen` folder:
 ```sh
 $ Pods/Fugen/fugen generate
 ```
@@ -71,7 +71,7 @@ To use that method, the following steps should be taken:
 - Download the 'fugen-x.y.z.zip' archive attached to the latest release.
 - Unarchive files into a convenient project folder
 
-**N.B.:** if this integration method was chosen,
+🚨 If this integration method was chosen,
 the generation command should include a relative path to the folder with the ZIP-archive content, for example:
 ```sh
 $ MyFolder/fugen generate
@@ -129,7 +129,7 @@ end
 That will allow connecting the code generation command with updating Fugen version
 and will reduce the number of commands executed while cloning the project.
 
-**N.B.:** If you want to keep the generated files in the Development Pod, this integration method is ideal.
+🚨 If you want to keep the generated files in the Development Pod, this integration method is ideal.
 In this case the generation should be run after loading Fugen and before installing all Pods.
 Otherwise, new files will not be indexed on time and won't get included into the Xcode-project.
  
@@ -220,7 +220,7 @@ The URL of the Figma file opened in the browser can be easily obtained from the 
 
 ![](Docs/FileURL.png)
 
-**N.B.:** Be careful with the `node-id` parameter, as in Figma the wrong frame could be selected.
+🚨 Be careful with the `node-id` parameter, as in Figma the wrong frame could be selected.
 Then the wrong data will be used for generation.
 
 #### Alternative configuration
@@ -285,7 +285,7 @@ It's recommended to specify the path to a subfolder inside the Xcode-assets fold
 so all colors are saved in this subfolder. For example `Sources/Assets.xcasset/Colors`.
 The whole assets structure be created if it was missing.
 
-**N.B.:** Folder specified in the `assets` parameter will be emptied before saving colors there.
+🚨 Folder specified in the `assets` parameter will be emptied before saving colors there.
 You shouldn't use the same path for different generation steps,
 but you can use different subfolders of the assets folder,
 for example `Sources/Assets.xcasset/Colors` and `Sources/Assets.xcasset/Images`.
@@ -374,7 +374,7 @@ It's recommended to specify the path to a subfolder inside the Xcode-assets fold
 so all colors are saved in this subfolder. For example  `Sources/Assets.xcasset/Images`.
 The whole assets structure be created if it was missing.
 
-**N.B.:** Folder specified in the `assets` parameter will be emptied before saving colors there.
+🚨 Folder specified in the `assets` parameter will be emptied before saving colors there.
 You shouldn't use the same path for different generation steps,
 but you can use different subfolders of the assets folder,
 for example `Sources/Assets.xcasset/Colors` and `Sources/Assets.xcasset/Images`.
