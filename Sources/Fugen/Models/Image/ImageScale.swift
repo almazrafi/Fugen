@@ -8,7 +8,6 @@ enum ImageScale {
     case scale1x
     case scale2x
     case scale3x
-    case scale4x
 
     // MARK: - Instance Properties
 
@@ -22,9 +21,6 @@ enum ImageScale {
 
         case .scale3x:
             return "@3x"
-
-        case .scale4x:
-            return "@4x"
         }
     }
 }

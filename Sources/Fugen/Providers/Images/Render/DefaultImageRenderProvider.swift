@@ -138,9 +138,6 @@ private extension ImageScale {
 
         case .scale3x:
             return 3.0
-
-        case .scale4x:
-            return 4.0
         }
     }
 }

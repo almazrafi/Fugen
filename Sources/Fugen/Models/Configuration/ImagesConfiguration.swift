@@ -100,7 +100,6 @@ private enum ImageRawScale: Int, Codable {
     case scale1x = 1
     case scale2x
     case scale3x
-    case scale4x
 
     // MARK: - Instance Properties
 
@@ -114,9 +113,6 @@ private enum ImageRawScale: Int, Codable {
 
         case .scale3x:
             return .scale3x
-
-        case .scale4x:
-            return .scale4x
         }
     }
 }
