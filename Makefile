@@ -6,6 +6,8 @@ TEMPLATES_NAME=Templates
 README_NAME=README.md
 LICENSE_NAME=LICENSE
 
+SOURCES_MAIN_PATH=Sources/Fugen/main.swift
+
 BUILD_PATH=.build
 RELEASE_PATH=$(BUILD_PATH)/release/$(PRODUCT_NAME)-$(PRODUCT_VERSION)
 RELEASE_ZIP_PATH=$(PRODUCT_NAME)-$(PRODUCT_VERSION).zip
@@ -24,9 +26,6 @@ LICENSE_PATH=$(LICENSE_NAME)
 BIN_PATH=$(PREFIX)/bin
 BIN_PRODUCT_PATH=$(BIN_PATH)/$(PRODUCT_NAME)
 SHARE_PRODUCT_PATH=$(PREFIX)/share/$(PRODUCT_NAME)
-
-SOURCES_MAIN_PATH=Sources/Fugen/main.swift
-DEMO_PODFILE_PATH=$(DEMO_PATH)/Podfile
 
 .PHONY: all version bootstrap lint build test test_demo install uninstall update_version release
 
@@ -70,7 +69,6 @@ uninstall:
 
 update_version:
 	sed -i '' 's|\(let version = "\)\(.*\)\("\)|\1$(PRODUCT_VERSION)\3|' $(SOURCES_MAIN_PATH)
-	sed -i '' 's|\(pod '\''Fugen'\'', '\''~> \)\(.*\)\('\''\)|\1$(PRODUCT_VERSION)\3|' $(DEMO_PODFILE_PATH)
 
 release: update_version build
 	mkdir -p $(RELEASE_PATH)
