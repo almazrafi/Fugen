@@ -1,16 +1,16 @@
 PODS:
-  - Fugen (1.0.0)
+  - Fugen (1.0.1)
 
 DEPENDENCIES:
-  - Fugen (~> 1.0.0)
+  - Fugen (~> 1.0.1)
 
 SPEC REPOS:
   trunk:
     - Fugen
 
 SPEC CHECKSUMS:
-  Fugen: ca0edb31eebc2d3a3c639856b89b5207f75b201b
+  Fugen: 28792e0bc92b08acdcba79e079984a26eec97750
 
-PODFILE CHECKSUM: 89a44fdb77f098a81facf3ca4c2679e60a35c847
+PODFILE CHECKSUM: f7569f82c5fcde920b9b21534ac0354a00600ab1
 
 COCOAPODS: 1.8.4

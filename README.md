@@ -39,7 +39,7 @@ Currently, it supports generating the following entities:
 ### CocoaPods
 To install Fugen using [CocoaPods](http://cocoapods.org) dependency manager, add this line to your `Podfile`:
 ```ruby
-pod 'Fugen', '~> 1.0.0'
+pod 'Fugen', '~> 1.0.1'
 ```
 
 Then run this command:
@@ -132,7 +132,7 @@ and will reduce the number of commands executed while cloning the project.
 🚨 If you want to keep the generated files in the Development Pod, this integration method is ideal.
 In this case the generation should be run after loading Fugen and before installing all Pods.
 Otherwise, new files will not be indexed on time and won't get included into the Xcode-project.
- 
+
 
 ## Configuration
 [YAML](https://yaml.org) file is used for Fugen configuration.

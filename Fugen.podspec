@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
   spec.name = 'Fugen'
   spec.version = `make version`
-  spec.summary = 'A tool to automate resources using the Figma API.'
+  spec.summary = 'The Swift code & resources generator for your Figma files.'
 
   spec.homepage = 'https://github.com/almazrafi/Fugen'
   spec.license = { :type => 'MIT', :file => 'LICENSE' }

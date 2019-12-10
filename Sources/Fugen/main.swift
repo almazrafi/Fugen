@@ -11,7 +11,7 @@ let version = "1.0.1"
 let fugen = CLI(
     name: "fugen",
     version: version,
-    description: "A tool to generate code from Figma files"
+    description: "The Swift code & resources generator for your Figma files"
 )
 
 fugen.commands = [
