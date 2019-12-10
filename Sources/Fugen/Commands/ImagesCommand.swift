@@ -124,51 +124,40 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
 
     // MARK: - Instance Methods
 
-    private func resolveImagesConfiguration() -> ImagesConfiguration {
-        let format: ImageFormat
+    private func resolveImageFormat() -> ImageFormat {
+        switch format.value {
+        case nil:
+            return .pdf
 
-        switch self.format.value {
-        case "pdf", nil:
-            format = .pdf
-
-        case "png":
-            format = .png
-
-        case "jpg":
-            format = .jpg
-
-        case "svg":
-            format = .svg
-
-        default:
-            self.fail(message: "Failed to generate images: Invalid format (\(String(describing: self.format.value)))")
-        }
-
-        let scales: [ImageScale] = self.scales.value?.components(separatedBy: ",").map { scale in
-            switch scale {
-            case "1":
-                return .scale1x
-
-            case "2":
-                return .scale2x
-
-            case "3":
-                return .scale3x
-
-            case "4":
-                return .scale4x
-
-            default:
-                self.fail(message: "Failed to generate images: Invalid scaling factor (\(String(describing: scale)))")
+        case let rawFormat?:
+            guard let format = ImageFormat(rawValue: rawFormat) else {
+                fail(message: "Failed to generate images: Invalid format (\(rawFormat))")
             }
-        } ?? [.single]
 
+            return format
+        }
+    }
+
+    private func resolveImageScales() -> [ImageScale] {
+        return scales
+            .value?
+            .components(separatedBy: String.scaleSeparator)
+            .map { rawScale in
+                guard let scale = ImageScale(rawValue: rawScale) else {
+                    fail(message: "Failed to generate images: Invalid scaling factor (\(rawScale))")
+                }
+
+                return scale
+            } ?? [.single]
+    }
+
+    private func resolveImagesConfiguration() -> ImagesConfiguration {
         return ImagesConfiguration(
             generatation: generationConfiguration,
             assets: assets.value,
             resources: resources.value,
-            format: format,
-            scales: scales
+            format: resolveImageFormat(),
+            scales: resolveImageScales()
         )
     }
 
@@ -183,4 +172,56 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
             self.fail(message: "Failed to generate images: \(error)")
         }
     }
+}
+
+private extension ImageFormat {
+
+    // MARK: - Initializers
+
+    init?(rawValue: String) {
+        switch rawValue {
+        case "pdf":
+            self = .pdf
+
+        case "png":
+            self = .png
+
+        case "jpg":
+            self = .jpg
+
+        case "svg":
+            self = .svg
+
+        default:
+            return nil
+        }
+    }
+}
+
+private extension ImageScale {
+
+    // MARK: - Initializers
+
+    init?(rawValue: String) {
+        switch rawValue {
+        case "1":
+            self = .scale1x
+
+        case "2":
+            self = .scale2x
+
+        case "3":
+            self = .scale3x
+
+        default:
+            return nil
+        }
+    }
+}
+
+private extension String {
+
+    // MARK: - Type Properties
+
+    static let scaleSeparator = ","
 }

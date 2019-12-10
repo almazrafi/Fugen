@@ -114,7 +114,7 @@ private extension ImageScale {
 
     var assetImageScale: AssetImageScale? {
         switch self {
-        case .single, .scale4x:
+        case .single:
             return nil
 
         case .scale1x:
