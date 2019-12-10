@@ -22,15 +22,16 @@ final class DefaultImageResourcesProvider: ImageResourcesProvider {
         format: ImageFormat,
         folderPath: Path
     ) -> ImageResourceInfo {
-        let name = info.base.name.camelized
+        let fileName = info.base.name.camelized
+        let fileExtension = format.fileExtension
 
         let filePaths = info.urls.keys.reduce(into: [:]) { result, scale in
             result[scale] = folderPath
-                .appending(fileName: name.appending(scale.fileNameSuffix), extension: format.fileExtension)
+                .appending(fileName: fileName.appending(scale.fileNameSuffix), extension: fileExtension)
                 .string
         }
 
-        return ImageResourceInfo(name: name, filePaths: filePaths)
+        return ImageResourceInfo(fileName: fileName, fileExtension: fileExtension, filePaths: filePaths)
     }
 
     private func makeResourcesInfo(
