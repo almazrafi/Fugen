@@ -47,7 +47,7 @@ Then run this command:
 $ pod install --repo-update
 ```
 
-🚨 If installing using CocoaPods, the generate command should include a relative path to the `Pods/Fugen` folder:
+If installing using CocoaPods, the generate command should include a relative path to the `Pods/Fugen` folder:
 ```sh
 $ Pods/Fugen/fugen generate
 ```
@@ -71,13 +71,13 @@ To use that method, the following steps should be taken:
 - Download the 'fugen-x.y.z.zip' archive attached to the latest release.
 - Unarchive files into a convenient project folder
 
-🚨 If this integration method was chosen,
+If this integration method was chosen,
 the generation command should include a relative path to the folder with the ZIP-archive content, for example:
 ```sh
-$ MyFolder/fugen generate
+$ Fugen/fugen generate
 ```
 
-> It's recommended to include unarchived files into the Git index (`git add MyFolder`).
+> It's recommended to include unarchived files into the Git index (`git add Fugen`).
 > It will guarantee that all team members are using the same version of Fugen for the project.
 
 
@@ -348,8 +348,8 @@ To load and generate code for images, the [standard configuration set](#generati
 The parameter could be omitted if there is no need for assets.
 - `resources`: a path to the resources folder in which the image files will be saved.
 The parameter can be skipped, if, for example, you only want to save assets.
-- `format`: string with images extension. `pdf`, `png`, `svg`, `jpg` are allowed.
-The default extension is `pdf`.
+- `format`: string with images format. `pdf`, `png`, `svg`, `jpg` are allowed.
+The default format is `pdf`.
 - `scales`: array with integer scaling factors from 1 to 3.
 The default scaling factor is 1, so the image will have the original size.
 
