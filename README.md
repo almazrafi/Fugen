@@ -158,13 +158,13 @@ They will be used by those generation steps for which these parameters are not d
 For example:
 ```yaml
 base:
-  accessToken: '25961-4ac9fbc9-3bd8-4c43-bbe2-95e477f8a067'
-  file: 'https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo'
+  accessToken: 25961-4ac9fbc9-3bd8-4c43-bbe2-95e477f8a067
+  file: https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo
 
 colorStyles: { }
 
 textStyles:
-  file: 'https://www.figma.com/file/SSeboI2x0jmeG4QO8iBMqX/Fugen-Demo-iOS'
+  file: https://www.figma.com/file/SSeboI2x0jmeG4QO8iBMqX/Fugen-Demo-iOS
 ```
 
 If a base parameter is missing for both the generation step section and in the `base` section,
@@ -187,7 +187,7 @@ which appear in the configuration.
 For example:
 ```yaml
 base:
-  accessToken: '25961-4ac9fbc9-3bd8-4c43-bbe2-95e477f8a067'
+  accessToken: 25961-4ac9fbc9-3bd8-4c43-bbe2-95e477f8a067
 ...
 ```
 
@@ -199,7 +199,7 @@ Fugen requests Figma file by using the identifier from its URL. This URL should 
 For example:
 ```yaml
 base:
-  file: 'https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo'
+  file: https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo
 ...
 ```
 
@@ -240,10 +240,10 @@ the configuration will look like:
 ```yaml
 base:
   file:
-    key: '61xw2FQn61Xr7VVFYwiHHy'
-    version: '201889163'
+    key: 61xw2FQn61Xr7VVFYwiHHy
+    version: 201889163
     includedNodes:
-      - '0%3A1'
+      - 0%3A1
 ...
 ```
 
@@ -272,10 +272,10 @@ The parameter can be omitted if there is no need for assets.
 Sample configuration:
 ```yaml
 colorStyles:
-  accessToken: '25961-4ac9fbc9-3bd8-4c43-bbe2-95e477f8a067'
-  file: 'https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo'
-  assets: 'Sources/Assets.xcasset/Colors'
-  destination: 'Sources/ColorStyle.swift'
+  accessToken: 25961-4ac9fbc9-3bd8-4c43-bbe2-95e477f8a067
+  file: https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo
+  assets: Sources/Assets.xcasset/Colors
+  destination: Sources/ColorStyle.swift
   templateOptions:
     publicAccess: true
 ```
@@ -312,9 +312,9 @@ To generate text styles [standard configuration set](#generation-configuration) 
 Sample configuration:
 ```yaml
 textStyles:
-  accessToken: '25961-4ac9fbc9-3bd8-4c43-bbe2-95e477f8a067'
-  file: 'https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo'
-  destination: 'Sources/TextStyle.swift'
+  accessToken: 25961-4ac9fbc9-3bd8-4c43-bbe2-95e477f8a067
+  file: https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo
+  destination: Sources/TextStyle.swift
   templateOptions:
     publicAccess: true
 ```
@@ -356,10 +356,10 @@ The default scaling factor is 1, so the image will have the original size.
 Sample configuration:
 ```yaml
 images:
-  accessToken: '25961-4ac9fbc9-3bd8-4c43-bbe2-95e477f8a067'
-  file: 'https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo'
-  assets: 'Sources/Assets.xcasset/Images'
-  destination: 'Sources/Images.swift'
+  accessToken: 25961-4ac9fbc9-3bd8-4c43-bbe2-95e477f8a067
+  file: https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo
+  assets: Sources/Assets.xcasset/Images
+  destination: Sources/Images.swift
   templateOptions:
     publicAccess: true
 ```
@@ -380,7 +380,7 @@ but you can use different subfolders of the assets folder,
 for example `Sources/Assets.xcasset/Colors` and `Sources/Assets.xcasset/Images`.
 
 #### Formats
-For Xcode projects, it is recommended to use vector PDF format without additional scaling factors,
+For Xcode projects, it is recommended to use PDF format without additional scaling factors,
 for that it is enough not to specify the `format` and `scales` parameter.
 
 There is no point to use SVG for Xcode projects, as it only could be used in other platforms (for example in Android).
