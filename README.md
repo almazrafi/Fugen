@@ -4,7 +4,7 @@
 [![Xcode](https://img.shields.io/badge/Xcode-11-blue.svg)](https://developer.apple.com/xcode)
 [![Swift](https://img.shields.io/badge/Swift-5.1-orange.svg)](https://swift.org)
 [![Platforms](https://img.shields.io/badge/platforms-macOS%20%7C%20Linux-lightgrey)](https://swift.org/about/#platform-support)
-[![License](https://img.shields.io/github/license/almazrafi/Fugen.svg?style=flat)](https://github.com/almazrafi/Fugen/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/almazrafi/Fugen.svg)](https://github.com/almazrafi/Fugen/blob/master/LICENSE)
 
 Fugen is a command line tool to auto-generate code and resources for your [Figma](http://figma.com/) files,
 completely written in [Swift](https://swift.org).
