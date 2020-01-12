@@ -59,7 +59,6 @@ whitelist_rules:
   - identifier_name
   - implicit_getter
   - implicit_return
-  - indentation_width
   - inert_defer
   - is_disjoint
   - joined_default_parameter
@@ -289,12 +288,7 @@ identifier_name:
 implicit_return:
   included:
     - closure
-    - function
     - getter
-
-indentation_width:
-  indentation_width: 4
-  include_comments: true
 
 large_tuple:
   warning: 3

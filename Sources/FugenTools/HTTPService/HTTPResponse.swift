@@ -41,7 +41,7 @@ public struct HTTPResponse<T>: CustomStringConvertible {
     }
 
     public var isFailure: Bool {
-        return !isSuccess
+        !isSuccess
     }
 
     // MARK: - CustomStringConvertible

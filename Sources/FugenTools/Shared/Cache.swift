@@ -32,7 +32,7 @@ private final class CacheKey<T: Hashable>: NSObject {
     let key: T
 
     override var hash: Int {
-        return key.hashValue
+        key.hashValue
     }
 
     // MARK: - Initializers

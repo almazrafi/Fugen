@@ -2,7 +2,7 @@ base:
   accessToken: 25961-4ac9fbc9-3bd8-4c43-bbe2-95e477f8a067
 
 colorStyles:
-  file: https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo?version-id=213227359&node-id=91%3A3
+  file: https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo?node-id=91%3A3
   assets: FugenDemo/Resources/Colors.xcassets
   destination: FugenDemo/Generated/ColorStyle.swift
   templateOptions:
@@ -11,7 +11,6 @@ colorStyles:
 textStyles:
   file:
     key: 61xw2FQn61Xr7VVFYwiHHy
-    version: 213227359
     includedNodes:
       - 91%3A38
   destination: FugenDemo/Generated/TextStyle.swift
@@ -19,7 +18,7 @@ textStyles:
     publicAccess: true
 
 images:
-  file: https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo?version-id=213227359&node-id=91%3A63
+  file: https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo?node-id=91%3A63
   assets: FugenDemo/Resources/Images.xcassets/Generated
   destination: FugenDemo/Generated/Images.swift
   templateOptions:

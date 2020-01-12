@@ -60,7 +60,7 @@ extension HTTPTask {
     // MARK: - Instance Properties
 
     public var isFinished: Bool {
-        return response != nil
+        response != nil
     }
 
     // MARK: - Instance Methods
