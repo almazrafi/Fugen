@@ -43,6 +43,7 @@ whitelist_rules:
   - empty_parentheses_with_trailing_closure
   - empty_string
   - empty_xctest_method
+  - enum_case_associated_values_count
   - explicit_init
   - extension_access_modifier
   - file_header
@@ -57,6 +58,8 @@ whitelist_rules:
   - identical_operands
   - identifier_name
   - implicit_getter
+  - implicit_return
+  - indentation_width
   - inert_defer
   - is_disjoint
   - joined_default_parameter
@@ -89,9 +92,12 @@ whitelist_rules:
   - opening_brace
   - operator_usage_whitespace
   - operator_whitespace
+  - optional_enum_case_matching
+  - orphaned_doc_comment
   - overridden_super_call
   - override_in_extension
   - pattern_matching_keywords
+  - prefer_self_type_over_type_of_self
   - private_action
   - private_outlet
   - private_over_fileprivate
@@ -101,6 +107,7 @@ whitelist_rules:
   - quick_discouraged_call
   - quick_discouraged_focused_test
   - quick_discouraged_pending_test
+  - raw_value_for_camel_cased_codable_enum
   - reduce_boolean
   - redundant_discardable_let
   - redundant_nil_coalescing
@@ -220,6 +227,10 @@ dynamic_inline:
 empty_count:
   severity: warning
 
+enum_case_associated_values_count:
+  warning: 4
+  error: 40
+
 file_header:
   forbidden_pattern: ".?"
 
@@ -274,6 +285,16 @@ identifier_name:
     - y
     - z
     - w
+
+implicit_return:
+  included:
+    - closure
+    - function
+    - getter
+
+indentation_width:
+  indentation_width: 4
+  include_comments: true
 
 large_tuple:
   warning: 3
