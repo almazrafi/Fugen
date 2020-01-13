@@ -108,7 +108,7 @@ public struct HTTPHeader: Equatable, CustomStringConvertible {
     // MARK: - CustomStringConvertible
 
     public var description: String {
-        return "\(name): \(value)"
+        "\(name): \(value)"
     }
 
     // MARK: - Initializers
@@ -124,6 +124,6 @@ extension Collection where Element == HTTPHeader {
     // MARK: - Instance Properties
 
     public var rawHTTPHeaders: [String: String] {
-        return Dictionary(map { ($0.name, $0.value) }) { $1 }
+        Dictionary(map { ($0.name, $0.value) }) { $1 }
     }
 }

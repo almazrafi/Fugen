@@ -18,6 +18,6 @@ extension URLError: HTTPErrorStringConvertible {
     // MARK: - Instance Properties
 
     public var httpErrorDescription: String {
-        return "\(type(of: self)).\(self.code.rawValue)"
+        "\(type(of: self)).\(self.code.rawValue)"
     }
 }

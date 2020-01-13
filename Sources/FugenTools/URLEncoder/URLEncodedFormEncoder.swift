@@ -13,7 +13,7 @@ internal final class URLEncodedFormEncoder: Encoder {
     internal var codingPath: [CodingKey]
 
     internal var userInfo: [CodingUserInfoKey: Any] {
-        return [:]
+        [:]
     }
 
     // MARK: - Initializers

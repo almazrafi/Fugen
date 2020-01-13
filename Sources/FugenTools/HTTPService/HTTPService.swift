@@ -13,7 +13,7 @@ public final class HTTPService {
     // MARK: -
 
     public var sessionConfiguration: URLSessionConfiguration {
-        return session.configuration
+        session.configuration
     }
 
     public var activityIndicator: HTTPActivityIndicator?
