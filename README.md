@@ -139,7 +139,7 @@ Otherwise, new files will not be indexed on time and won't get included into the
 Define all necessary parameters of code generation in this file.
 
 Configuration is divided into several sections:
-- `base`: base parameters that are actual for all other configuration sections (see [Base parameters](#base-parameters)
+- `base`: base parameters that are actual for all other configuration sections (see [Base parameters](#base-parameters))
 - `colorStyles`: parameters of color styles generation step (see [Color styles](#color-styles)).
 - `textStyles`: parameters of text styles generation step (see [Text styles](#text-styles)).
 - `images`: parameters of the step of loading and generating code for images (see [Images](#images)).
