@@ -119,6 +119,14 @@
 		C040A724238A91A700A3F918 /* StencilTagNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040A721238A91A700A3F918 /* StencilTagNode.swift */; };
 		C04614E42385B76100E12C1F /* StencilFilterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04614E32385B76100E12C1F /* StencilFilterError.swift */; };
 		C05B3B7323935B810042A8AA /* DefaultImageResourcesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05B3B7223935B810042A8AA /* DefaultImageResourcesProvider.swift */; };
+		C064037623DCD279005ECA12 /* DictionaryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AE81B923D49A6A00B9A31F /* DictionaryEncoder.swift */; };
+		C064037723DCD279005ECA12 /* DictionaryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0420E0623D8FFF80057BE10 /* DictionaryComponent.swift */; };
+		C064037823DCD279005ECA12 /* DictionaryComponentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0420E0723D8FFF80057BE10 /* DictionaryComponentContainer.swift */; };
+		C064037923DCD279005ECA12 /* DictionaryComponentEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0420E0A23D8FFF80057BE10 /* DictionaryComponentEncoder.swift */; };
+		C064037A23DCD279005ECA12 /* DictionaryEncodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0420E0923D8FFF80057BE10 /* DictionaryEncodingOptions.swift */; };
+		C064037C23DCD279005ECA12 /* DictionaryKeyedEncodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0420E0B23D8FFF80057BE10 /* DictionaryKeyedEncodingContainer.swift */; };
+		C064037D23DCD279005ECA12 /* DictionarySingleValueEncodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0420E0523D8FFF80057BE10 /* DictionarySingleValueEncodingContainer.swift */; };
+		C064037E23DCD279005ECA12 /* DictionaryUnkeyedEncodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0420E0823D8FFF80057BE10 /* DictionaryUnkeyedEncodingContainer.swift */; };
 		C07C1C20239051A3007CF12E /* AssetImageSetContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C1C1F239051A3007CF12E /* AssetImageSetContents.swift */; };
 		C07C1C21239055C0007CF12E /* AssetColorContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040A6C1238A892000A3F918 /* AssetColorContent.swift */; };
 		C07C1C22239055C0007CF12E /* AssetSystemColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040A6C2238A892000A3F918 /* AssetSystemColor.swift */; };
@@ -153,6 +161,7 @@
 		C07C1C582390777C007CF12E /* AssetImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C1C572390777C007CF12E /* AssetImageSet.swift */; };
 		C07C1C5A23907AC7007CF12E /* AssetNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C1C5923907AC7007CF12E /* AssetNode.swift */; };
 		C09AD2DD238F25E7005C787A /* ImageScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09AD2DC238F25E7005C787A /* ImageScale.swift */; };
+		C0A2C7B023D651D700BCFC77 /* DictionaryEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A2C7AF23D651D700BCFC77 /* DictionaryEncoderTests.swift */; };
 		C0A7A301236918D00087A369 /* RenderTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A2E22368EA520087A369 /* RenderTemplate.swift */; };
 		C0A7A30223691A990087A369 /* RenderTemplateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A2E92368F5EE0087A369 /* RenderTemplateType.swift */; };
 		C0A7A43D2369EF380087A369 /* TemplateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A43C2369EF380087A369 /* TemplateRenderer.swift */; };
@@ -160,6 +169,15 @@
 		C0A7A442236A1AED0087A369 /* RenderDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A441236A1AED0087A369 /* RenderDestination.swift */; };
 		C0A7A44C236A356B0087A369 /* DefaultColorStylesCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A44B236A356B0087A369 /* DefaultColorStylesCoder.swift */; };
 		C0A7A44F236A4B750087A369 /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = OBJ_282 /* Templates */; };
+		C0AE81B023D48EED00B9A31F /* DictionaryDateEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AE81AF23D48EED00B9A31F /* DictionaryDateEncodingStrategy.swift */; };
+		C0AE81B223D48F3100B9A31F /* DictionaryDataEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AE81B123D48F3100B9A31F /* DictionaryDataEncodingStrategy.swift */; };
+		C0AE81B623D4973100B9A31F /* DictionaryNonConformingFloatEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AE81B523D4973100B9A31F /* DictionaryNonConformingFloatEncodingStrategy.swift */; };
+		C0AE81B823D499BA00B9A31F /* DictionaryKeyEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AE81B723D499BA00B9A31F /* DictionaryKeyEncodingStrategy.swift */; };
+		C0B44F3B23DCE5CD0042BE16 /* DictionaryAnyKeyedEncodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F3A23DCE5CD0042BE16 /* DictionaryAnyKeyedEncodingContainer.swift */; };
+		C0B44F4023DD08460042BE16 /* URLBoolEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F3C23DD08460042BE16 /* URLBoolEncodingStrategy.swift */; };
+		C0B44F4123DD08460042BE16 /* URLSpaceEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F3D23DD08460042BE16 /* URLSpaceEncodingStrategy.swift */; };
+		C0B44F4223DD08460042BE16 /* URLArrayEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F3E23DD08460042BE16 /* URLArrayEncodingStrategy.swift */; };
+		C0B44F4323DD08460042BE16 /* URLDateEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F3F23DD08460042BE16 /* URLDateEncodingStrategy.swift */; };
 		C0D3361C2381C03B0041F571 /* ColorCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A449236A34FE0087A369 /* ColorCoder.swift */; };
 		C0D3361D2381C03F0041F571 /* DefaultColorCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC2FF236BB35D00A3F746 /* DefaultColorCoder.swift */; };
 		C0D3361E2381C0420041F571 /* ColorStylesCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC2F9236BB28800A3F746 /* ColorStylesCoder.swift */; };
@@ -309,9 +327,6 @@
 		OBJ_478 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_117 /* AnyCodable.swift */; };
 		OBJ_479 /* AnyCodingKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_118 /* AnyCodingKey.swift */; };
 		OBJ_480 /* MessageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_119 /* MessageError.swift */; };
-		OBJ_481 /* URLArrayEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_121 /* URLArrayEncodingStrategy.swift */; };
-		OBJ_482 /* URLBoolEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_122 /* URLBoolEncodingStrategy.swift */; };
-		OBJ_483 /* URLDateEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_123 /* URLDateEncodingStrategy.swift */; };
 		OBJ_484 /* URLEncodedForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_124 /* URLEncodedForm.swift */; };
 		OBJ_485 /* URLEncodedFormComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_125 /* URLEncodedFormComponent.swift */; };
 		OBJ_486 /* URLEncodedFormContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_126 /* URLEncodedFormContext.swift */; };
@@ -321,11 +336,9 @@
 		OBJ_490 /* URLEncodedFormSingleValueEncodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_130 /* URLEncodedFormSingleValueEncodingContainer.swift */; };
 		OBJ_491 /* URLEncodedFormUnkeyedEncodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_131 /* URLEncodedFormUnkeyedEncodingContainer.swift */; };
 		OBJ_492 /* URLEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_132 /* URLEncoder.swift */; };
-		OBJ_493 /* URLSpaceEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_133 /* URLSpaceEncodingStrategy.swift */; };
 		OBJ_495 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "PromiseKit::PromiseKit::Product" /* PromiseKit.framework */; };
 		OBJ_496 /* PathKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "PathKit::PathKit::Product" /* PathKit.framework */; };
 		OBJ_497 /* SwiftCLI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */; };
-		OBJ_505 /* FugenToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_141 /* FugenToolsTests.swift */; };
 		OBJ_506 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_142 /* XCTestManifests.swift */; };
 		OBJ_508 /* FugenTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Fugen::FugenTools::Product" /* FugenTools.framework */; };
 		OBJ_509 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "PromiseKit::PromiseKit::Product" /* PromiseKit.framework */; };
@@ -745,6 +758,13 @@
 		C040A71F238A91A700A3F918 /* StencilTagError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StencilTagError.swift; sourceTree = "<group>"; };
 		C040A720238A91A700A3F918 /* StencilTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StencilTag.swift; sourceTree = "<group>"; };
 		C040A721238A91A700A3F918 /* StencilTagNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StencilTagNode.swift; sourceTree = "<group>"; };
+		C0420E0523D8FFF80057BE10 /* DictionarySingleValueEncodingContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionarySingleValueEncodingContainer.swift; sourceTree = "<group>"; };
+		C0420E0623D8FFF80057BE10 /* DictionaryComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryComponent.swift; sourceTree = "<group>"; };
+		C0420E0723D8FFF80057BE10 /* DictionaryComponentContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryComponentContainer.swift; sourceTree = "<group>"; };
+		C0420E0823D8FFF80057BE10 /* DictionaryUnkeyedEncodingContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryUnkeyedEncodingContainer.swift; sourceTree = "<group>"; };
+		C0420E0923D8FFF80057BE10 /* DictionaryEncodingOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryEncodingOptions.swift; sourceTree = "<group>"; };
+		C0420E0A23D8FFF80057BE10 /* DictionaryComponentEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryComponentEncoder.swift; sourceTree = "<group>"; };
+		C0420E0B23D8FFF80057BE10 /* DictionaryKeyedEncodingContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryKeyedEncodingContainer.swift; sourceTree = "<group>"; };
 		C045AD8E2374AC1C00BDA9E8 /* FloatingPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FloatingPoint+Extensions.swift"; sourceTree = "<group>"; };
 		C045AD902374DC3D00BDA9E8 /* GenerateCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateCommand.swift; sourceTree = "<group>"; };
 		C04614E32385B76100E12C1F /* StencilFilterError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StencilFilterError.swift; sourceTree = "<group>"; };
@@ -764,6 +784,7 @@
 		C07C1C572390777C007CF12E /* AssetImageSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetImageSet.swift; sourceTree = "<group>"; };
 		C07C1C5923907AC7007CF12E /* AssetNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetNode.swift; sourceTree = "<group>"; };
 		C09AD2DC238F25E7005C787A /* ImageScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScale.swift; sourceTree = "<group>"; };
+		C0A2C7AF23D651D700BCFC77 /* DictionaryEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEncoderTests.swift; sourceTree = "<group>"; };
 		C0A7A2E22368EA520087A369 /* RenderTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderTemplate.swift; sourceTree = "<group>"; };
 		C0A7A2E92368F5EE0087A369 /* RenderTemplateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderTemplateType.swift; sourceTree = "<group>"; };
 		C0A7A43C2369EF380087A369 /* TemplateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateRenderer.swift; sourceTree = "<group>"; };
@@ -771,6 +792,16 @@
 		C0A7A441236A1AED0087A369 /* RenderDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderDestination.swift; sourceTree = "<group>"; };
 		C0A7A449236A34FE0087A369 /* ColorCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCoder.swift; sourceTree = "<group>"; };
 		C0A7A44B236A356B0087A369 /* DefaultColorStylesCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColorStylesCoder.swift; sourceTree = "<group>"; };
+		C0AE81AF23D48EED00B9A31F /* DictionaryDateEncodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDateEncodingStrategy.swift; sourceTree = "<group>"; };
+		C0AE81B123D48F3100B9A31F /* DictionaryDataEncodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDataEncodingStrategy.swift; sourceTree = "<group>"; };
+		C0AE81B523D4973100B9A31F /* DictionaryNonConformingFloatEncodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryNonConformingFloatEncodingStrategy.swift; sourceTree = "<group>"; };
+		C0AE81B723D499BA00B9A31F /* DictionaryKeyEncodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryKeyEncodingStrategy.swift; sourceTree = "<group>"; };
+		C0AE81B923D49A6A00B9A31F /* DictionaryEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEncoder.swift; sourceTree = "<group>"; };
+		C0B44F3A23DCE5CD0042BE16 /* DictionaryAnyKeyedEncodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryAnyKeyedEncodingContainer.swift; sourceTree = "<group>"; };
+		C0B44F3C23DD08460042BE16 /* URLBoolEncodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLBoolEncodingStrategy.swift; sourceTree = "<group>"; };
+		C0B44F3D23DD08460042BE16 /* URLSpaceEncodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSpaceEncodingStrategy.swift; sourceTree = "<group>"; };
+		C0B44F3E23DD08460042BE16 /* URLArrayEncodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLArrayEncodingStrategy.swift; sourceTree = "<group>"; };
+		C0B44F3F23DD08460042BE16 /* URLDateEncodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLDateEncodingStrategy.swift; sourceTree = "<group>"; };
 		C0D336182381C02A0041F571 /* StencilExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StencilExtension.swift; sourceTree = "<group>"; };
 		C0D4B88E23734875006C0F64 /* ConfigurationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationProvider.swift; sourceTree = "<group>"; };
 		C0D4B891237348FF006C0F64 /* DefaultConfigurationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConfigurationProvider.swift; sourceTree = "<group>"; };
@@ -783,20 +814,6 @@
 		C0DCC2AD236B7EA900A3F746 /* TextStylesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylesProvider.swift; sourceTree = "<group>"; };
 		C0DCC2AF236B7EE400A3F746 /* TextStylesCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylesCommand.swift; sourceTree = "<group>"; };
 		C0DCC2B3236B7F5100A3F746 /* TextStylesCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylesCoder.swift; sourceTree = "<group>"; };
-		C0DCC2B8236B82C600A3F746 /* PathKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PathKit.framework; sourceTree = "<group>"; };
-		C0DCC2BA236B82C600A3F746 /* x86_64-apple-macos.swiftdoc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "x86_64-apple-macos.swiftdoc"; sourceTree = "<group>"; };
-		C0DCC2BB236B82C600A3F746 /* x86_64.swiftdoc */ = {isa = PBXFileReference; lastKnownFileType = file; path = x86_64.swiftdoc; sourceTree = "<group>"; };
-		C0DCC2BC236B82C600A3F746 /* x86_64.swiftmodule */ = {isa = PBXFileReference; lastKnownFileType = file; path = x86_64.swiftmodule; sourceTree = "<group>"; };
-		C0DCC2BD236B82C600A3F746 /* x86_64-apple-macos.swiftmodule */ = {isa = PBXFileReference; lastKnownFileType = file; path = "x86_64-apple-macos.swiftmodule"; sourceTree = "<group>"; };
-		C0DCC2BE236B82C600A3F746 /* FugenTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FugenTools.framework; sourceTree = "<group>"; };
-		C0DCC2BF236B82C600A3F746 /* Rainbow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Rainbow.framework; sourceTree = "<group>"; };
-		C0DCC2C0236B82C600A3F746 /* CYaml.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CYaml.framework; sourceTree = "<group>"; };
-		C0DCC2C1236B82C600A3F746 /* Fugen */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = Fugen; sourceTree = "<group>"; };
-		C0DCC2C2236B82C600A3F746 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = "<group>"; };
-		C0DCC2C3236B82C600A3F746 /* SwiftCLI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftCLI.framework; sourceTree = "<group>"; };
-		C0DCC2C4236B82C600A3F746 /* StencilSwiftKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StencilSwiftKit.framework; sourceTree = "<group>"; };
-		C0DCC2C5236B82C600A3F746 /* Yams.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Yams.framework; sourceTree = "<group>"; };
-		C0DCC2C6236B82C600A3F746 /* Stencil.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Stencil.framework; sourceTree = "<group>"; };
 		C0DCC2C7236B835200A3F746 /* DefaultTextStylesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextStylesProvider.swift; sourceTree = "<group>"; };
 		C0DCC2C9236B838200A3F746 /* DefaultTextStylesCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextStylesCoder.swift; sourceTree = "<group>"; };
 		C0DCC2EF236BA91A00A3F746 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -848,10 +865,10 @@
 		C0FBA829239272CA00FAB045 /* DefaultImagesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImagesProvider.swift; sourceTree = "<group>"; };
 		C0FBA82B2392756200FAB045 /* NodesParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodesParameters.swift; sourceTree = "<group>"; };
 		C0FFBFB42379B6FD0060AACB /* BaseConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConfiguration.swift; sourceTree = "<group>"; };
-		"Fugen::Fugen::Product" /* Fugen */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fugen; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Fugen::Fugen::Product" /* Fugen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = Fugen; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Fugen::FugenTests::Product" /* FugenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FugenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Fugen::FugenTools::Product" /* FugenTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FugenTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Fugen::FugenToolsTests::Product" /* FugenToolsTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = FugenToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Fugen::FugenTools::Product" /* FugenTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FugenTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Fugen::FugenToolsTests::Product" /* FugenToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FugenToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_100 /* HTTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPService.swift; sourceTree = "<group>"; };
 		OBJ_101 /* HTTPServiceTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPServiceTask.swift; sourceTree = "<group>"; };
 		OBJ_102 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
@@ -871,9 +888,6 @@
 		OBJ_118 /* AnyCodingKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCodingKey.swift; sourceTree = "<group>"; };
 		OBJ_119 /* MessageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageError.swift; sourceTree = "<group>"; };
 		OBJ_12 /* FigmaBooleanOperationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaBooleanOperationType.swift; sourceTree = "<group>"; };
-		OBJ_121 /* URLArrayEncodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLArrayEncodingStrategy.swift; sourceTree = "<group>"; };
-		OBJ_122 /* URLBoolEncodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBoolEncodingStrategy.swift; sourceTree = "<group>"; };
-		OBJ_123 /* URLDateEncodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLDateEncodingStrategy.swift; sourceTree = "<group>"; };
 		OBJ_124 /* URLEncodedForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncodedForm.swift; sourceTree = "<group>"; };
 		OBJ_125 /* URLEncodedFormComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncodedFormComponent.swift; sourceTree = "<group>"; };
 		OBJ_126 /* URLEncodedFormContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncodedFormContext.swift; sourceTree = "<group>"; };
@@ -884,13 +898,11 @@
 		OBJ_130 /* URLEncodedFormSingleValueEncodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncodedFormSingleValueEncodingContainer.swift; sourceTree = "<group>"; };
 		OBJ_131 /* URLEncodedFormUnkeyedEncodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncodedFormUnkeyedEncodingContainer.swift; sourceTree = "<group>"; };
 		OBJ_132 /* URLEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncoder.swift; sourceTree = "<group>"; };
-		OBJ_133 /* URLSpaceEncodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSpaceEncodingStrategy.swift; sourceTree = "<group>"; };
 		OBJ_136 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		OBJ_137 /* FugenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FugenTests.swift; sourceTree = "<group>"; };
 		OBJ_138 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_14 /* FigmaColorStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaColorStop.swift; sourceTree = "<group>"; };
 		OBJ_140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		OBJ_141 /* FugenToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FugenToolsTests.swift; sourceTree = "<group>"; };
 		OBJ_142 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_145 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = /Users/almaz/Development/Almazrafi/Fugen/.build/checkouts/PromiseKit/Package.swift; sourceTree = "<group>"; };
 		OBJ_146 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
@@ -1451,6 +1463,14 @@
 			path = ImageSet;
 			sourceTree = "<group>";
 		};
+		C0A2C7B123D659E200BCFC77 /* DictionaryEncoder */ = {
+			isa = PBXGroup;
+			children = (
+				C0A2C7AF23D651D700BCFC77 /* DictionaryEncoderTests.swift */,
+			);
+			path = DictionaryEncoder;
+			sourceTree = "<group>";
+		};
 		C0A7A446236A1CEC0087A369 /* Render */ = {
 			isa = PBXGroup;
 			children = (
@@ -1462,6 +1482,34 @@
 				C0A7A43C2369EF380087A369 /* TemplateRenderer.swift */,
 			);
 			path = Render;
+			sourceTree = "<group>";
+		};
+		C0AE81AC23D48DD700B9A31F /* DictionaryEncoder */ = {
+			isa = PBXGroup;
+			children = (
+				C0AE81C123D4A0D300B9A31F /* Strategies */,
+				C0420E0623D8FFF80057BE10 /* DictionaryComponent.swift */,
+				C0420E0723D8FFF80057BE10 /* DictionaryComponentContainer.swift */,
+				C0420E0A23D8FFF80057BE10 /* DictionaryComponentEncoder.swift */,
+				C0AE81B923D49A6A00B9A31F /* DictionaryEncoder.swift */,
+				C0420E0923D8FFF80057BE10 /* DictionaryEncodingOptions.swift */,
+				C0B44F3A23DCE5CD0042BE16 /* DictionaryAnyKeyedEncodingContainer.swift */,
+				C0420E0B23D8FFF80057BE10 /* DictionaryKeyedEncodingContainer.swift */,
+				C0420E0523D8FFF80057BE10 /* DictionarySingleValueEncodingContainer.swift */,
+				C0420E0823D8FFF80057BE10 /* DictionaryUnkeyedEncodingContainer.swift */,
+			);
+			path = DictionaryEncoder;
+			sourceTree = "<group>";
+		};
+		C0AE81C123D4A0D300B9A31F /* Strategies */ = {
+			isa = PBXGroup;
+			children = (
+				C0AE81B123D48F3100B9A31F /* DictionaryDataEncodingStrategy.swift */,
+				C0AE81AF23D48EED00B9A31F /* DictionaryDateEncodingStrategy.swift */,
+				C0AE81B723D499BA00B9A31F /* DictionaryKeyEncodingStrategy.swift */,
+				C0AE81B523D4973100B9A31F /* DictionaryNonConformingFloatEncodingStrategy.swift */,
+			);
+			path = Strategies;
 			sourceTree = "<group>";
 		};
 		C0D336152381C02A0041F571 /* StencilExtensions */ = {
@@ -1510,36 +1558,6 @@
 				C0D6B9EF238AEB060054D818 /* FigmaFilesProvider.swift */,
 			);
 			path = FigmaFiles;
-			sourceTree = "<group>";
-		};
-		C0DCC2B7236B82C600A3F746 /* Debug */ = {
-			isa = PBXGroup;
-			children = (
-				C0DCC2B8236B82C600A3F746 /* PathKit.framework */,
-				C0DCC2B9236B82C600A3F746 /* Fugen.swiftmodule */,
-				C0DCC2BE236B82C600A3F746 /* FugenTools.framework */,
-				C0DCC2BF236B82C600A3F746 /* Rainbow.framework */,
-				C0DCC2C0236B82C600A3F746 /* CYaml.framework */,
-				C0DCC2C1236B82C600A3F746 /* Fugen */,
-				C0DCC2C2236B82C600A3F746 /* PromiseKit.framework */,
-				C0DCC2C3236B82C600A3F746 /* SwiftCLI.framework */,
-				C0DCC2C4236B82C600A3F746 /* StencilSwiftKit.framework */,
-				C0DCC2C5236B82C600A3F746 /* Yams.framework */,
-				C0DCC2C6236B82C600A3F746 /* Stencil.framework */,
-			);
-			name = Debug;
-			path = "../../../Library/Developer/Xcode/DerivedData/Fugen-dwyvmihzsulaqthfkkvlqawexaac/Build/Products/Debug";
-			sourceTree = "<group>";
-		};
-		C0DCC2B9236B82C600A3F746 /* Fugen.swiftmodule */ = {
-			isa = PBXGroup;
-			children = (
-				C0DCC2BA236B82C600A3F746 /* x86_64-apple-macos.swiftdoc */,
-				C0DCC2BB236B82C600A3F746 /* x86_64.swiftdoc */,
-				C0DCC2BC236B82C600A3F746 /* x86_64.swiftmodule */,
-				C0DCC2BD236B82C600A3F746 /* x86_64-apple-macos.swiftmodule */,
-			);
-			path = Fugen.swiftmodule;
 			sourceTree = "<group>";
 		};
 		C0DCC2F6236BB18000A3F746 /* Models */ = {
@@ -1790,9 +1808,9 @@
 		OBJ_120 /* URLEncoder */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_121 /* URLArrayEncodingStrategy.swift */,
-				OBJ_122 /* URLBoolEncodingStrategy.swift */,
-				OBJ_123 /* URLDateEncodingStrategy.swift */,
+				C0B44F3E23DD08460042BE16 /* URLArrayEncodingStrategy.swift */,
+				C0B44F3C23DD08460042BE16 /* URLBoolEncodingStrategy.swift */,
+				C0B44F3F23DD08460042BE16 /* URLDateEncodingStrategy.swift */,
 				OBJ_124 /* URLEncodedForm.swift */,
 				OBJ_125 /* URLEncodedFormComponent.swift */,
 				OBJ_126 /* URLEncodedFormContext.swift */,
@@ -1802,7 +1820,7 @@
 				OBJ_130 /* URLEncodedFormSingleValueEncodingContainer.swift */,
 				OBJ_131 /* URLEncodedFormUnkeyedEncodingContainer.swift */,
 				OBJ_132 /* URLEncoder.swift */,
-				OBJ_133 /* URLSpaceEncodingStrategy.swift */,
+				C0B44F3D23DD08460042BE16 /* URLSpaceEncodingStrategy.swift */,
 			);
 			path = URLEncoder;
 			sourceTree = "<group>";
@@ -1810,7 +1828,6 @@
 		OBJ_134 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C0DCC2B7236B82C600A3F746 /* Debug */,
 				OBJ_135 /* FugenTests */,
 				OBJ_139 /* FugenToolsTests */,
 				C0F838D023665EBD00D42813 /* .swiftlint.yml */,
@@ -1833,8 +1850,8 @@
 		OBJ_139 /* FugenToolsTests */ = {
 			isa = PBXGroup;
 			children = (
+				C0A2C7B123D659E200BCFC77 /* DictionaryEncoder */,
 				OBJ_140 /* Info.plist */,
-				OBJ_141 /* FugenToolsTests.swift */,
 				OBJ_142 /* XCTestManifests.swift */,
 			);
 			name = FugenToolsTests;
@@ -2162,6 +2179,7 @@
 			isa = PBXGroup;
 			children = (
 				C040A6B6238A892000A3F918 /* Assets */,
+				C0AE81AC23D48DD700B9A31F /* DictionaryEncoder */,
 				OBJ_73 /* Extensions */,
 				OBJ_87 /* HTTPService */,
 				OBJ_116 /* Shared */,
@@ -2908,9 +2926,11 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_453 /* HTTPBodyEncoder.swift in Sources */,
+				C0AE81B023D48EED00B9A31F /* DictionaryDateEncodingStrategy.swift in Sources */,
 				OBJ_454 /* HTTPBodyJSONEncoder.swift in Sources */,
 				C07C1C452390686A007CF12E /* AssetImageLanguageDirection.swift in Sources */,
 				C07C1C56239071FE007CF12E /* AssetImageAutoScaling.swift in Sources */,
+				C0B44F4323DD08460042BE16 /* URLDateEncodingStrategy.swift in Sources */,
 				C07C1C5A23907AC7007CF12E /* AssetNode.swift in Sources */,
 				C07C1C26239055C0007CF12E /* AssetSystemColorPlatform.swift in Sources */,
 				OBJ_455 /* HTTPBodyURLEncoder.swift in Sources */,
@@ -2918,12 +2938,15 @@
 				C07C1C432390669E007CF12E /* AssetImageScale.swift in Sources */,
 				C07C1C3923905AD1007CF12E /* AssetImageProperties.swift in Sources */,
 				OBJ_457 /* HTTPAnyEncodable.swift in Sources */,
+				C064037623DCD279005ECA12 /* DictionaryEncoder.swift in Sources */,
 				C07C1C36239056F5007CF12E /* AssetImage.swift in Sources */,
 				C07C1C2A239055C5007CF12E /* AssetFolderContents.swift in Sources */,
 				C07C1C30239055CB007CF12E /* AssetCompressionType.swift in Sources */,
+				C064037C23DCD279005ECA12 /* DictionaryKeyedEncodingContainer.swift in Sources */,
 				OBJ_458 /* HTTPError.swift in Sources */,
 				C040A708238A8A1200A3F918 /* FloatingPoint+Extensions.swift in Sources */,
 				C07C1C472390694C007CF12E /* AssetImageSizeClass.swift in Sources */,
+				C0B44F3B23DCE5CD0042BE16 /* DictionaryAnyKeyedEncodingContainer.swift in Sources */,
 				C07C1C25239055C0007CF12E /* AssetColorSetContents.swift in Sources */,
 				OBJ_459 /* HTTPErrorStringConvertible.swift in Sources */,
 				C07C1C3C23905BBD007CF12E /* AssetImageTemplateRenderingIntent.swift in Sources */,
@@ -2947,9 +2970,11 @@
 				OBJ_469 /* HTTPQueryEncoder.swift in Sources */,
 				OBJ_470 /* HTTPQueryURLEncoder.swift in Sources */,
 				C040A707238A8A1200A3F918 /* CLI+Extensions.swift in Sources */,
+				C0AE81B223D48F3100B9A31F /* DictionaryDataEncodingStrategy.swift in Sources */,
 				OBJ_471 /* HTTPDataResponseSerializer.swift in Sources */,
 				C07C1C582390777C007CF12E /* AssetImageSet.swift in Sources */,
 				C07C1C4A23906C4B007CF12E /* AssetImageGraphicsFeatureSet.swift in Sources */,
+				C0AE81B823D499BA00B9A31F /* DictionaryKeyEncodingStrategy.swift in Sources */,
 				OBJ_472 /* HTTPDecodableResponseSerializer.swift in Sources */,
 				OBJ_473 /* HTTPEmptyResponse.swift in Sources */,
 				C07C1C41239061BF007CF12E /* AssetIdiomIPadSubtype.swift in Sources */,
@@ -2959,13 +2984,19 @@
 				C07C1C2F239055CB007CF12E /* AssetAppearanceLuminosity.swift in Sources */,
 				C040A705238A8A1200A3F918 /* JSONEncoder+Extensions.swift in Sources */,
 				OBJ_475 /* HTTPResponseDecoder.swift in Sources */,
+				C064037823DCD279005ECA12 /* DictionaryComponentContainer.swift in Sources */,
 				OBJ_476 /* HTTPResponseSerializer.swift in Sources */,
 				OBJ_477 /* HTTPStringResponseSerializer.swift in Sources */,
+				C064037723DCD279005ECA12 /* DictionaryComponent.swift in Sources */,
 				C040A70C238A8A1200A3F918 /* Path+Extensions.swift in Sources */,
 				C07C1C22239055C0007CF12E /* AssetSystemColor.swift in Sources */,
 				OBJ_478 /* AnyCodable.swift in Sources */,
+				C0B44F4123DD08460042BE16 /* URLSpaceEncodingStrategy.swift in Sources */,
 				C07C1C23239055C0007CF12E /* AssetColor.swift in Sources */,
+				C064037A23DCD279005ECA12 /* DictionaryEncodingOptions.swift in Sources */,
 				C07C1C2B239055C5007CF12E /* AssetFolderProperties.swift in Sources */,
+				C0B44F4223DD08460042BE16 /* URLArrayEncodingStrategy.swift in Sources */,
+				C064037D23DCD279005ECA12 /* DictionarySingleValueEncodingContainer.swift in Sources */,
 				OBJ_479 /* AnyCodingKey.swift in Sources */,
 				OBJ_480 /* MessageError.swift in Sources */,
 				C040A70A238A8A1200A3F918 /* OperatingSystemVersion+Extensions.swift in Sources */,
@@ -2974,16 +3005,15 @@
 				C040A712238A8A1200A3F918 /* String+Extensions.swift in Sources */,
 				C07C1C5223906EC6007CF12E /* AssetImageMemory.swift in Sources */,
 				C040A710238A8A1200A3F918 /* Sequence+Extensions.swift in Sources */,
-				OBJ_481 /* URLArrayEncodingStrategy.swift in Sources */,
 				C07C1C542390708B007CF12E /* AssetImageAlignmentInsets.swift in Sources */,
-				OBJ_482 /* URLBoolEncodingStrategy.swift in Sources */,
+				C064037923DCD279005ECA12 /* DictionaryComponentEncoder.swift in Sources */,
 				C07C1C2C239055C5007CF12E /* AssetFolder.swift in Sources */,
-				OBJ_483 /* URLDateEncodingStrategy.swift in Sources */,
 				C040A70B238A8A1200A3F918 /* Optional+Extensions.swift in Sources */,
 				OBJ_484 /* URLEncodedForm.swift in Sources */,
 				OBJ_485 /* URLEncodedFormComponent.swift in Sources */,
 				C040A706238A8A1200A3F918 /* Bundle+Extensions.swift in Sources */,
 				C07C1C24239055C0007CF12E /* AssetColorSet.swift in Sources */,
+				C0AE81B623D4973100B9A31F /* DictionaryNonConformingFloatEncodingStrategy.swift in Sources */,
 				C040A711238A8A1200A3F918 /* SingleValueDecodingContainer+Extensions.swift in Sources */,
 				OBJ_486 /* URLEncodedFormContext.swift in Sources */,
 				OBJ_487 /* URLEncodedFormEncoder.swift in Sources */,
@@ -2995,9 +3025,10 @@
 				OBJ_490 /* URLEncodedFormSingleValueEncodingContainer.swift in Sources */,
 				OBJ_491 /* URLEncodedFormUnkeyedEncodingContainer.swift in Sources */,
 				OBJ_492 /* URLEncoder.swift in Sources */,
+				C0B44F4023DD08460042BE16 /* URLBoolEncodingStrategy.swift in Sources */,
 				C07C1C29239055C0007CF12E /* AssetCustomColor.swift in Sources */,
+				C064037E23DCD279005ECA12 /* DictionaryUnkeyedEncodingContainer.swift in Sources */,
 				C07C1C31239055CB007CF12E /* AssetDisplayGamut.swift in Sources */,
-				OBJ_493 /* URLSpaceEncodingStrategy.swift in Sources */,
 				C040A70D238A8A1200A3F918 /* ProcessInfo+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3006,7 +3037,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_505 /* FugenToolsTests.swift in Sources */,
+				C0A2C7B023D651D700BCFC77 /* DictionaryEncoderTests.swift in Sources */,
 				OBJ_506 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3522,6 +3553,7 @@
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
+				GCC_OPTIMIZATION_LEVEL = fast;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/.build/checkouts/Yams/Sources/CYaml/include",
@@ -3669,7 +3701,7 @@
 		OBJ_437 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTABILITY = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -3700,11 +3732,12 @@
 		OBJ_438 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTABILITY = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
+				GCC_OPTIMIZATION_LEVEL = fast;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Fugen.xcodeproj/FugenTools_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
