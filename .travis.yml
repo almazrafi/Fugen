@@ -35,7 +35,7 @@ jobs:
       script:
         - set -e
         - swift --version
-        - make test
+        - make build
 
 branches:
   only:
