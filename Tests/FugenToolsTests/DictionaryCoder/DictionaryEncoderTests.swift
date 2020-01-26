@@ -1059,6 +1059,7 @@ private extension DictionaryKeyEncodingStrategy {
         }
     }
 }
+
 private extension DictionaryDateEncodingStrategy {
 
     // MARK: - Instance Properties

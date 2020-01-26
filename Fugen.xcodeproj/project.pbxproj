@@ -77,6 +77,7 @@
 		C00CB5BA2393536B0080D412 /* ImageRenderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00CB5632392927D0080D412 /* ImageRenderProvider.swift */; };
 		C00CB5BB2393559F0080D412 /* DefaultImageRenderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00CB5682392957F0080D412 /* DefaultImageRenderProvider.swift */; };
 		C00CB5BE23935B170080D412 /* ImageResourcesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00CB5BD23935B170080D412 /* ImageResourcesProvider.swift */; };
+		C019138D23DE232900E7F8F8 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C019138C23DE232900E7F8F8 /* Collection+Extensions.swift */; };
 		C0195F49238DA5C9006BA2F3 /* FigmaImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0195F48238DA5C9006BA2F3 /* FigmaImages.swift */; };
 		C0195F52238DB15B006BA2F3 /* FigmaAPIFileRouteQueryParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0195F51238DB15B006BA2F3 /* FigmaAPIFileRouteQueryParameters.swift */; };
 		C0195F54238DB1CB006BA2F3 /* FigmaAPIImagesRouteQueryParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0195F53238DB1CB006BA2F3 /* FigmaAPIImagesRouteQueryParameters.swift */; };
@@ -178,6 +179,18 @@
 		C0B44F4123DD08460042BE16 /* URLSpaceEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F3D23DD08460042BE16 /* URLSpaceEncodingStrategy.swift */; };
 		C0B44F4223DD08460042BE16 /* URLArrayEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F3E23DD08460042BE16 /* URLArrayEncodingStrategy.swift */; };
 		C0B44F4323DD08460042BE16 /* URLDateEncodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F3F23DD08460042BE16 /* URLDateEncodingStrategy.swift */; };
+		C0B44F4823DD13190042BE16 /* DictionaryDateDecodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F4723DD13190042BE16 /* DictionaryDateDecodingStrategy.swift */; };
+		C0B44F4A23DD134E0042BE16 /* DictionaryDataDecodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F4923DD134E0042BE16 /* DictionaryDataDecodingStrategy.swift */; };
+		C0B44F4C23DD13830042BE16 /* DictionaryNonConformingFloatDecodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F4B23DD13830042BE16 /* DictionaryNonConformingFloatDecodingStrategy.swift */; };
+		C0B44F4E23DD13D40042BE16 /* DictionaryKeyDecodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F4D23DD13D40042BE16 /* DictionaryKeyDecodingStrategy.swift */; };
+		C0B44F5023DD14310042BE16 /* DictionaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F4F23DD14310042BE16 /* DictionaryDecoder.swift */; };
+		C0B44F5223DD14D80042BE16 /* DictionaryDecodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F5123DD14D80042BE16 /* DictionaryDecodingOptions.swift */; };
+		C0B44F5423DDA27B0042BE16 /* DictionarySingleValueDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F5323DDA27B0042BE16 /* DictionarySingleValueDecodingContainer.swift */; };
+		C0B44F5623DDC92A0042BE16 /* DictionaryComponentDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F5523DDC92A0042BE16 /* DictionaryComponentDecoder.swift */; };
+		C0B44F5823DDDF750042BE16 /* DictionaryUnkeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F5723DDDF750042BE16 /* DictionaryUnkeyedDecodingContainer.swift */; };
+		C0B44F5C23DDF45A0042BE16 /* DecodingError+DictionaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F5B23DDF45A0042BE16 /* DecodingError+DictionaryDecoder.swift */; };
+		C0B44F5E23DDFD390042BE16 /* DictionaryKeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F5D23DDFD390042BE16 /* DictionaryKeyedDecodingContainer.swift */; };
+		C0B44F6123DE094B0042BE16 /* DictionaryDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F5F23DE09200042BE16 /* DictionaryDecoderTests.swift */; };
 		C0D3361C2381C03B0041F571 /* ColorCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A449236A34FE0087A369 /* ColorCoder.swift */; };
 		C0D3361D2381C03F0041F571 /* DefaultColorCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC2FF236BB35D00A3F746 /* DefaultColorCoder.swift */; };
 		C0D3361E2381C0420041F571 /* ColorStylesCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC2F9236BB28800A3F746 /* ColorStylesCoder.swift */; };
@@ -708,6 +721,7 @@
 		C00CB5B3239342CF0080D412 /* ColorStyleNodeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStyleNodeInfo.swift; sourceTree = "<group>"; };
 		C00CB5BD23935B170080D412 /* ImageResourcesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResourcesProvider.swift; sourceTree = "<group>"; };
 		C01046D7237572BE00ED7C6E /* LibraryGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryGenerator.swift; sourceTree = "<group>"; };
+		C019138C23DE232900E7F8F8 /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		C0195F48238DA5C9006BA2F3 /* FigmaImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaImages.swift; sourceTree = "<group>"; };
 		C0195F4A238DA7C2006BA2F3 /* FigmaAPIImagesRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaAPIImagesRoute.swift; sourceTree = "<group>"; };
 		C0195F51238DB15B006BA2F3 /* FigmaAPIFileRouteQueryParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaAPIFileRouteQueryParameters.swift; sourceTree = "<group>"; };
@@ -802,6 +816,18 @@
 		C0B44F3D23DD08460042BE16 /* URLSpaceEncodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSpaceEncodingStrategy.swift; sourceTree = "<group>"; };
 		C0B44F3E23DD08460042BE16 /* URLArrayEncodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLArrayEncodingStrategy.swift; sourceTree = "<group>"; };
 		C0B44F3F23DD08460042BE16 /* URLDateEncodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLDateEncodingStrategy.swift; sourceTree = "<group>"; };
+		C0B44F4723DD13190042BE16 /* DictionaryDateDecodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDateDecodingStrategy.swift; sourceTree = "<group>"; };
+		C0B44F4923DD134E0042BE16 /* DictionaryDataDecodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDataDecodingStrategy.swift; sourceTree = "<group>"; };
+		C0B44F4B23DD13830042BE16 /* DictionaryNonConformingFloatDecodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryNonConformingFloatDecodingStrategy.swift; sourceTree = "<group>"; };
+		C0B44F4D23DD13D40042BE16 /* DictionaryKeyDecodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryKeyDecodingStrategy.swift; sourceTree = "<group>"; };
+		C0B44F4F23DD14310042BE16 /* DictionaryDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDecoder.swift; sourceTree = "<group>"; };
+		C0B44F5123DD14D80042BE16 /* DictionaryDecodingOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDecodingOptions.swift; sourceTree = "<group>"; };
+		C0B44F5323DDA27B0042BE16 /* DictionarySingleValueDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionarySingleValueDecodingContainer.swift; sourceTree = "<group>"; };
+		C0B44F5523DDC92A0042BE16 /* DictionaryComponentDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryComponentDecoder.swift; sourceTree = "<group>"; };
+		C0B44F5723DDDF750042BE16 /* DictionaryUnkeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryUnkeyedDecodingContainer.swift; sourceTree = "<group>"; };
+		C0B44F5B23DDF45A0042BE16 /* DecodingError+DictionaryDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DecodingError+DictionaryDecoder.swift"; sourceTree = "<group>"; };
+		C0B44F5D23DDFD390042BE16 /* DictionaryKeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryKeyedDecodingContainer.swift; sourceTree = "<group>"; };
+		C0B44F5F23DE09200042BE16 /* DictionaryDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDecoderTests.swift; sourceTree = "<group>"; };
 		C0D336182381C02A0041F571 /* StencilExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StencilExtension.swift; sourceTree = "<group>"; };
 		C0D4B88E23734875006C0F64 /* ConfigurationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationProvider.swift; sourceTree = "<group>"; };
 		C0D4B891237348FF006C0F64 /* DefaultConfigurationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConfigurationProvider.swift; sourceTree = "<group>"; };
@@ -1463,12 +1489,13 @@
 			path = ImageSet;
 			sourceTree = "<group>";
 		};
-		C0A2C7B123D659E200BCFC77 /* DictionaryEncoder */ = {
+		C0A2C7B123D659E200BCFC77 /* DictionaryCoder */ = {
 			isa = PBXGroup;
 			children = (
 				C0A2C7AF23D651D700BCFC77 /* DictionaryEncoderTests.swift */,
+				C0B44F5F23DE09200042BE16 /* DictionaryDecoderTests.swift */,
 			);
-			path = DictionaryEncoder;
+			path = DictionaryCoder;
 			sourceTree = "<group>";
 		};
 		C0A7A446236A1CEC0087A369 /* Render */ = {
@@ -1484,7 +1511,27 @@
 			path = Render;
 			sourceTree = "<group>";
 		};
-		C0AE81AC23D48DD700B9A31F /* DictionaryEncoder */ = {
+		C0AE81AC23D48DD700B9A31F /* DictionaryCoder */ = {
+			isa = PBXGroup;
+			children = (
+				C0B44F4523DD12E70042BE16 /* Decoder */,
+				C0B44F4423DD12DD0042BE16 /* Encoder */,
+			);
+			path = DictionaryCoder;
+			sourceTree = "<group>";
+		};
+		C0AE81C123D4A0D300B9A31F /* Strategies */ = {
+			isa = PBXGroup;
+			children = (
+				C0AE81B123D48F3100B9A31F /* DictionaryDataEncodingStrategy.swift */,
+				C0AE81AF23D48EED00B9A31F /* DictionaryDateEncodingStrategy.swift */,
+				C0AE81B723D499BA00B9A31F /* DictionaryKeyEncodingStrategy.swift */,
+				C0AE81B523D4973100B9A31F /* DictionaryNonConformingFloatEncodingStrategy.swift */,
+			);
+			path = Strategies;
+			sourceTree = "<group>";
+		};
+		C0B44F4423DD12DD0042BE16 /* Encoder */ = {
 			isa = PBXGroup;
 			children = (
 				C0AE81C123D4A0D300B9A31F /* Strategies */,
@@ -1498,16 +1545,31 @@
 				C0420E0523D8FFF80057BE10 /* DictionarySingleValueEncodingContainer.swift */,
 				C0420E0823D8FFF80057BE10 /* DictionaryUnkeyedEncodingContainer.swift */,
 			);
-			path = DictionaryEncoder;
+			path = Encoder;
 			sourceTree = "<group>";
 		};
-		C0AE81C123D4A0D300B9A31F /* Strategies */ = {
+		C0B44F4523DD12E70042BE16 /* Decoder */ = {
 			isa = PBXGroup;
 			children = (
-				C0AE81B123D48F3100B9A31F /* DictionaryDataEncodingStrategy.swift */,
-				C0AE81AF23D48EED00B9A31F /* DictionaryDateEncodingStrategy.swift */,
-				C0AE81B723D499BA00B9A31F /* DictionaryKeyEncodingStrategy.swift */,
-				C0AE81B523D4973100B9A31F /* DictionaryNonConformingFloatEncodingStrategy.swift */,
+				C0B44F4623DD12F20042BE16 /* Strategies */,
+				C0B44F5B23DDF45A0042BE16 /* DecodingError+DictionaryDecoder.swift */,
+				C0B44F5523DDC92A0042BE16 /* DictionaryComponentDecoder.swift */,
+				C0B44F4F23DD14310042BE16 /* DictionaryDecoder.swift */,
+				C0B44F5123DD14D80042BE16 /* DictionaryDecodingOptions.swift */,
+				C0B44F5D23DDFD390042BE16 /* DictionaryKeyedDecodingContainer.swift */,
+				C0B44F5323DDA27B0042BE16 /* DictionarySingleValueDecodingContainer.swift */,
+				C0B44F5723DDDF750042BE16 /* DictionaryUnkeyedDecodingContainer.swift */,
+			);
+			path = Decoder;
+			sourceTree = "<group>";
+		};
+		C0B44F4623DD12F20042BE16 /* Strategies */ = {
+			isa = PBXGroup;
+			children = (
+				C0B44F4723DD13190042BE16 /* DictionaryDateDecodingStrategy.swift */,
+				C0B44F4923DD134E0042BE16 /* DictionaryDataDecodingStrategy.swift */,
+				C0B44F4B23DD13830042BE16 /* DictionaryNonConformingFloatDecodingStrategy.swift */,
+				C0B44F4D23DD13D40042BE16 /* DictionaryKeyDecodingStrategy.swift */,
 			);
 			path = Strategies;
 			sourceTree = "<group>";
@@ -1850,7 +1912,7 @@
 		OBJ_139 /* FugenToolsTests */ = {
 			isa = PBXGroup;
 			children = (
-				C0A2C7B123D659E200BCFC77 /* DictionaryEncoder */,
+				C0A2C7B123D659E200BCFC77 /* DictionaryCoder */,
 				OBJ_140 /* Info.plist */,
 				OBJ_142 /* XCTestManifests.swift */,
 			);
@@ -2179,7 +2241,7 @@
 			isa = PBXGroup;
 			children = (
 				C040A6B6238A892000A3F918 /* Assets */,
-				C0AE81AC23D48DD700B9A31F /* DictionaryEncoder */,
+				C0AE81AC23D48DD700B9A31F /* DictionaryCoder */,
 				OBJ_73 /* Extensions */,
 				OBJ_87 /* HTTPService */,
 				OBJ_116 /* Shared */,
@@ -2195,6 +2257,7 @@
 			children = (
 				OBJ_74 /* Bundle+Extensions.swift */,
 				OBJ_75 /* CLI+Extensions.swift */,
+				C019138C23DE232900E7F8F8 /* Collection+Extensions.swift */,
 				C0FBA8142391958F00FAB045 /* DispatchQueue+Extensions.swift */,
 				C045AD8E2374AC1C00BDA9E8 /* FloatingPoint+Extensions.swift */,
 				C040A6F1238A8A0900A3F918 /* JSONDecoder+Extensions.swift */,
@@ -2949,9 +3012,12 @@
 				C0B44F3B23DCE5CD0042BE16 /* DictionaryAnyKeyedEncodingContainer.swift in Sources */,
 				C07C1C25239055C0007CF12E /* AssetColorSetContents.swift in Sources */,
 				OBJ_459 /* HTTPErrorStringConvertible.swift in Sources */,
+				C0B44F5C23DDF45A0042BE16 /* DecodingError+DictionaryDecoder.swift in Sources */,
 				C07C1C3C23905BBD007CF12E /* AssetImageTemplateRenderingIntent.swift in Sources */,
 				OBJ_460 /* HTTPHeader.swift in Sources */,
 				C07C1C2D239055CB007CF12E /* AssetAppearance.swift in Sources */,
+				C0B44F4823DD13190042BE16 /* DictionaryDateDecodingStrategy.swift in Sources */,
+				C0B44F5423DDA27B0042BE16 /* DictionarySingleValueDecodingContainer.swift in Sources */,
 				C040A70E238A8A1200A3F918 /* Promise+Extensions.swift in Sources */,
 				OBJ_461 /* HTTPMethod.swift in Sources */,
 				OBJ_462 /* HTTPResponse.swift in Sources */,
@@ -2969,6 +3035,7 @@
 				C07C1C20239051A3007CF12E /* AssetImageSetContents.swift in Sources */,
 				OBJ_469 /* HTTPQueryEncoder.swift in Sources */,
 				OBJ_470 /* HTTPQueryURLEncoder.swift in Sources */,
+				C0B44F5223DD14D80042BE16 /* DictionaryDecodingOptions.swift in Sources */,
 				C040A707238A8A1200A3F918 /* CLI+Extensions.swift in Sources */,
 				C0AE81B223D48F3100B9A31F /* DictionaryDataEncodingStrategy.swift in Sources */,
 				OBJ_471 /* HTTPDataResponseSerializer.swift in Sources */,
@@ -2978,6 +3045,7 @@
 				OBJ_472 /* HTTPDecodableResponseSerializer.swift in Sources */,
 				OBJ_473 /* HTTPEmptyResponse.swift in Sources */,
 				C07C1C41239061BF007CF12E /* AssetIdiomIPadSubtype.swift in Sources */,
+				C0B44F5E23DDFD390042BE16 /* DictionaryKeyedDecodingContainer.swift in Sources */,
 				C0FBA817239195AE00FAB045 /* Cache.swift in Sources */,
 				OBJ_474 /* HTTPJSONResponseSerializer.swift in Sources */,
 				C040A704238A8A1200A3F918 /* JSONDecoder+Extensions.swift in Sources */,
@@ -2995,7 +3063,9 @@
 				C07C1C23239055C0007CF12E /* AssetColor.swift in Sources */,
 				C064037A23DCD279005ECA12 /* DictionaryEncodingOptions.swift in Sources */,
 				C07C1C2B239055C5007CF12E /* AssetFolderProperties.swift in Sources */,
+				C0B44F4C23DD13830042BE16 /* DictionaryNonConformingFloatDecodingStrategy.swift in Sources */,
 				C0B44F4223DD08460042BE16 /* URLArrayEncodingStrategy.swift in Sources */,
+				C0B44F5623DDC92A0042BE16 /* DictionaryComponentDecoder.swift in Sources */,
 				C064037D23DCD279005ECA12 /* DictionarySingleValueEncodingContainer.swift in Sources */,
 				OBJ_479 /* AnyCodingKey.swift in Sources */,
 				OBJ_480 /* MessageError.swift in Sources */,
@@ -3014,7 +3084,10 @@
 				C040A706238A8A1200A3F918 /* Bundle+Extensions.swift in Sources */,
 				C07C1C24239055C0007CF12E /* AssetColorSet.swift in Sources */,
 				C0AE81B623D4973100B9A31F /* DictionaryNonConformingFloatEncodingStrategy.swift in Sources */,
+				C0B44F4A23DD134E0042BE16 /* DictionaryDataDecodingStrategy.swift in Sources */,
 				C040A711238A8A1200A3F918 /* SingleValueDecodingContainer+Extensions.swift in Sources */,
+				C019138D23DE232900E7F8F8 /* Collection+Extensions.swift in Sources */,
+				C0B44F4E23DD13D40042BE16 /* DictionaryKeyDecodingStrategy.swift in Sources */,
 				OBJ_486 /* URLEncodedFormContext.swift in Sources */,
 				OBJ_487 /* URLEncodedFormEncoder.swift in Sources */,
 				C0FBA8152391958F00FAB045 /* DispatchQueue+Extensions.swift in Sources */,
@@ -3024,7 +3097,9 @@
 				OBJ_489 /* URLEncodedFormSerializer.swift in Sources */,
 				OBJ_490 /* URLEncodedFormSingleValueEncodingContainer.swift in Sources */,
 				OBJ_491 /* URLEncodedFormUnkeyedEncodingContainer.swift in Sources */,
+				C0B44F5823DDDF750042BE16 /* DictionaryUnkeyedDecodingContainer.swift in Sources */,
 				OBJ_492 /* URLEncoder.swift in Sources */,
+				C0B44F5023DD14310042BE16 /* DictionaryDecoder.swift in Sources */,
 				C0B44F4023DD08460042BE16 /* URLBoolEncodingStrategy.swift in Sources */,
 				C07C1C29239055C0007CF12E /* AssetCustomColor.swift in Sources */,
 				C064037E23DCD279005ECA12 /* DictionaryUnkeyedEncodingContainer.swift in Sources */,
@@ -3039,6 +3114,7 @@
 			files = (
 				C0A2C7B023D651D700BCFC77 /* DictionaryEncoderTests.swift in Sources */,
 				OBJ_506 /* XCTestManifests.swift in Sources */,
+				C0B44F6123DE094B0042BE16 /* DictionaryDecoderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
