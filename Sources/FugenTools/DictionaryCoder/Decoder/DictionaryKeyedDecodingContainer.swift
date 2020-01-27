@@ -23,12 +23,21 @@ internal class DictionaryKeyedDecodingContainer<Key: CodingKey>:
         userInfo: [CodingUserInfoKey: Any],
         codingPath: [CodingKey]
     ) {
-        self.components = components
+        switch options.keyDecodingStrategy {
+        case .useDefaultKeys:
+            self.components = components
+
+        case let.custom(closure):
+            let componentKeysAndValues = components.map { key, value in
+                (closure(codingPath.appending(AnyCodingKey(key))).stringValue, value)
+            }
+
+            self.components = Dictionary(componentKeysAndValues) { $1 }
+        }
+
         self.options = options
         self.userInfo = userInfo
         self.codingPath = codingPath
-
-        // TODO: transfrom key with keyDecodingStrategy
     }
 
     // MARK: - Instance Methods

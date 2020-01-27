@@ -231,10 +231,10 @@ final class DictionaryDecoderTests: XCTestCase {
 
     func testThatDecoderSucceedsWhenDecodingStructWithMultipleProperties() {
         struct DecodableStruct: Decodable, Equatable {
-            let foo = true
-            let bar: Int? = 123
-            let baz: Int? = nil
-            let bat = "qwe"
+            let foo: Bool
+            let bar: Int?
+            let baz: Int?
+            let bat: String
         }
 
         let decoder = DictionaryDecoder()
@@ -250,8 +250,8 @@ final class DictionaryDecoderTests: XCTestCase {
     func testThatDecoderSucceedsWhenDecodingStructWithNestedStruct() {
         struct DecodableStruct: Decodable, Equatable {
             struct NestedStruct: Decodable, Equatable {
-                let bar = 123
-                let baz = 456
+                let bar: Int
+                let baz: Int
             }
 
             let foo: NestedStruct

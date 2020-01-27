@@ -15,6 +15,7 @@ final class DictionaryDecoderStrategiesTests: XCTestCase {
     ) throws -> T {
         let decoder = JSONDecoder()
 
+        decoder.keyDecodingStrategy = keyDecodingStrategy.jsonDecodingStrategy
         decoder.dateDecodingStrategy = dateDecodingStrategy.jsonDecodingStrategy
         decoder.dataDecodingStrategy = dataDecodingStrategy.jsonDecodingStrategy
         decoder.nonConformingFloatDecodingStrategy = nonConformingFloatDecodingStrategy.jsonDecodingStrategy
@@ -23,6 +24,67 @@ final class DictionaryDecoderStrategiesTests: XCTestCase {
         let value = try decoder.decode(T.self, from: data)
 
         return value
+    }
+
+    // MARK: -
+
+    func testThatDecoderSucceedsWhenDecodingStructUsingDefaultKeys() {
+        struct DecodableStruct: Decodable, Equatable {
+            let foo: Int
+            let bar: Int
+        }
+
+        let keyDecodingStrategy = DictionaryKeyDecodingStrategy.useDefaultKeys
+        let decoder = DictionaryDecoder(keyDecodingStrategy: keyDecodingStrategy)
+        let dictionary = ["foo": 123, "bar": 456]
+        let valueType = DecodableStruct.self
+
+        do {
+            let expectedValue = try makeExpectedValue(
+                valueType,
+                from: dictionary,
+                keyDecodingStrategy: keyDecodingStrategy
+            )
+
+            let decodedValue = try decoder.decode(valueType, from: dictionary)
+
+            XCTAssertEqual(expectedValue, decodedValue)
+        } catch {
+            XCTFail("Test encountered unexpected error: \(error)")
+        }
+    }
+
+    func testThatDecoderSucceedsWhenDecodingStructUsingCustomFunctionForKeys() {
+        struct DecodableStruct: Decodable, Equatable {
+            let foo: Int
+            let bar: Int
+        }
+
+        let keyDecodingStrategy = DictionaryKeyDecodingStrategy.custom { codingPath in
+            if let codingKey = codingPath.last?.stringValue.components(separatedBy: ".").first {
+                return AnyCodingKey(codingKey)
+            } else {
+                return AnyCodingKey("unknown")
+            }
+        }
+
+        let decoder = DictionaryDecoder(keyDecodingStrategy: keyDecodingStrategy)
+        let dictionary = ["foo.value": 123, "bar.value": 456]
+        let valueType = DecodableStruct.self
+
+        do {
+            let expectedValue = try makeExpectedValue(
+                valueType,
+                from: dictionary,
+                keyDecodingStrategy: keyDecodingStrategy
+            )
+
+            let decodedValue = try decoder.decode(valueType, from: dictionary)
+
+            XCTAssertEqual(expectedValue, decodedValue)
+        } catch {
+            XCTFail("Test encountered unexpected error: \(error)")
+        }
     }
 
     // MARK: -
@@ -525,6 +587,21 @@ final class DictionaryDecoderStrategiesTests: XCTestCase {
             default:
                 XCTFail("Test encountered unexpected error: \(error)")
             }
+        }
+    }
+}
+
+private extension DictionaryKeyDecodingStrategy {
+
+    // MARK: - Instance Properties
+
+    var jsonDecodingStrategy: JSONDecoder.KeyDecodingStrategy {
+        switch self {
+        case .useDefaultKeys:
+            return .useDefaultKeys
+
+        case let .custom(closure):
+            return .custom(closure)
         }
     }
 }
