@@ -190,6 +190,8 @@
 		C0B44F5823DDDF750042BE16 /* DictionaryUnkeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F5723DDDF750042BE16 /* DictionaryUnkeyedDecodingContainer.swift */; };
 		C0B44F5E23DDFD390042BE16 /* DictionaryKeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F5D23DDFD390042BE16 /* DictionaryKeyedDecodingContainer.swift */; };
 		C0B44F6123DE094B0042BE16 /* DictionaryDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F5F23DE09200042BE16 /* DictionaryDecoderTests.swift */; };
+		C0B6DA0823DFA2450012CD27 /* DictionaryDecoderStrategiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B6DA0723DFA2450012CD27 /* DictionaryDecoderStrategiesTests.swift */; };
+		C0B6DA0A23DFA2AE0012CD27 /* DictionaryEncoderStrategiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B6DA0923DFA2AE0012CD27 /* DictionaryEncoderStrategiesTests.swift */; };
 		C0D3361C2381C03B0041F571 /* ColorCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A449236A34FE0087A369 /* ColorCoder.swift */; };
 		C0D3361D2381C03F0041F571 /* DefaultColorCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC2FF236BB35D00A3F746 /* DefaultColorCoder.swift */; };
 		C0D3361E2381C0420041F571 /* ColorStylesCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCC2F9236BB28800A3F746 /* ColorStylesCoder.swift */; };
@@ -826,6 +828,8 @@
 		C0B44F5723DDDF750042BE16 /* DictionaryUnkeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryUnkeyedDecodingContainer.swift; sourceTree = "<group>"; };
 		C0B44F5D23DDFD390042BE16 /* DictionaryKeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryKeyedDecodingContainer.swift; sourceTree = "<group>"; };
 		C0B44F5F23DE09200042BE16 /* DictionaryDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDecoderTests.swift; sourceTree = "<group>"; };
+		C0B6DA0723DFA2450012CD27 /* DictionaryDecoderStrategiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDecoderStrategiesTests.swift; sourceTree = "<group>"; };
+		C0B6DA0923DFA2AE0012CD27 /* DictionaryEncoderStrategiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEncoderStrategiesTests.swift; sourceTree = "<group>"; };
 		C0D336182381C02A0041F571 /* StencilExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StencilExtension.swift; sourceTree = "<group>"; };
 		C0D4B88E23734875006C0F64 /* ConfigurationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationProvider.swift; sourceTree = "<group>"; };
 		C0D4B891237348FF006C0F64 /* DefaultConfigurationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConfigurationProvider.swift; sourceTree = "<group>"; };
@@ -1490,8 +1494,10 @@
 		C0A2C7B123D659E200BCFC77 /* DictionaryCoder */ = {
 			isa = PBXGroup;
 			children = (
-				C0A2C7AF23D651D700BCFC77 /* DictionaryEncoderTests.swift */,
+				C0B6DA0723DFA2450012CD27 /* DictionaryDecoderStrategiesTests.swift */,
 				C0B44F5F23DE09200042BE16 /* DictionaryDecoderTests.swift */,
+				C0B6DA0923DFA2AE0012CD27 /* DictionaryEncoderStrategiesTests.swift */,
+				C0A2C7AF23D651D700BCFC77 /* DictionaryEncoderTests.swift */,
 			);
 			path = DictionaryCoder;
 			sourceTree = "<group>";
@@ -3109,8 +3115,10 @@
 			buildActionMask = 0;
 			files = (
 				C0A2C7B023D651D700BCFC77 /* DictionaryEncoderTests.swift in Sources */,
+				C0B6DA0A23DFA2AE0012CD27 /* DictionaryEncoderStrategiesTests.swift in Sources */,
 				OBJ_506 /* XCTestManifests.swift in Sources */,
 				C0B44F6123DE094B0042BE16 /* DictionaryDecoderTests.swift in Sources */,
+				C0B6DA0823DFA2450012CD27 /* DictionaryDecoderStrategiesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
