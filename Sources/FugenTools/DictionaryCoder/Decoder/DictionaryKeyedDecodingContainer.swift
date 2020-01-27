@@ -43,6 +43,17 @@ internal class DictionaryKeyedDecodingContainer<Key: CodingKey>:
         return component
     }
 
+    private func superDecoder(forAnyKey key: CodingKey) throws -> Decoder {
+        let decoder = DictionarySingleValueDecodingContainer(
+            component: components[key.stringValue],
+            options: options,
+            userInfo: userInfo,
+            codingPath: codingPath.appending(key)
+        )
+
+        return decoder
+    }
+
     // MARK: -
 
     internal func contains(_ key: Key) -> Bool {
@@ -117,26 +128,19 @@ internal class DictionaryKeyedDecodingContainer<Key: CodingKey>:
         keyedBy keyType: NestedKey.Type,
         forKey key: Key
     ) throws -> KeyedDecodingContainer<NestedKey> {
-        return try superDecoder(forKey: key).container(keyedBy: keyType)
+        return try superDecoder(forAnyKey: key).container(keyedBy: keyType)
     }
 
     internal func nestedUnkeyedContainer(forKey key: Key) throws -> UnkeyedDecodingContainer {
-        return try superDecoder(forKey: key).unkeyedContainer()
+        return try superDecoder(forAnyKey: key).unkeyedContainer()
     }
 
     internal func superDecoder(forKey key: Key) throws -> Decoder {
-        let encoder = DictionarySingleValueDecodingContainer(
-            component: try component(forKey: key),
-            options: options,
-            userInfo: userInfo,
-            codingPath: codingPath.appending(key)
-        )
-
-        return encoder
+        return try superDecoder(forAnyKey: key)
     }
 
     internal func superDecoder() throws -> Decoder {
-        return try superDecoder(forKey: Key(stringValue: .superCodingKey)!)
+        return try superDecoder(forAnyKey: AnyCodingKey.super)
     }
 }
 
@@ -170,9 +174,9 @@ private extension DecodingError {
     }
 }
 
-private extension String {
+private extension AnyCodingKey {
 
     // MARK: - Type Properties
 
-    static let superCodingKey = "super"
+    static let `super` = AnyCodingKey("super")
 }

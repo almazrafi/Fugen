@@ -188,7 +188,6 @@
 		C0B44F5423DDA27B0042BE16 /* DictionarySingleValueDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F5323DDA27B0042BE16 /* DictionarySingleValueDecodingContainer.swift */; };
 		C0B44F5623DDC92A0042BE16 /* DictionaryComponentDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F5523DDC92A0042BE16 /* DictionaryComponentDecoder.swift */; };
 		C0B44F5823DDDF750042BE16 /* DictionaryUnkeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F5723DDDF750042BE16 /* DictionaryUnkeyedDecodingContainer.swift */; };
-		C0B44F5C23DDF45A0042BE16 /* DecodingError+DictionaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F5B23DDF45A0042BE16 /* DecodingError+DictionaryDecoder.swift */; };
 		C0B44F5E23DDFD390042BE16 /* DictionaryKeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F5D23DDFD390042BE16 /* DictionaryKeyedDecodingContainer.swift */; };
 		C0B44F6123DE094B0042BE16 /* DictionaryDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B44F5F23DE09200042BE16 /* DictionaryDecoderTests.swift */; };
 		C0D3361C2381C03B0041F571 /* ColorCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7A449236A34FE0087A369 /* ColorCoder.swift */; };
@@ -825,7 +824,6 @@
 		C0B44F5323DDA27B0042BE16 /* DictionarySingleValueDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionarySingleValueDecodingContainer.swift; sourceTree = "<group>"; };
 		C0B44F5523DDC92A0042BE16 /* DictionaryComponentDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryComponentDecoder.swift; sourceTree = "<group>"; };
 		C0B44F5723DDDF750042BE16 /* DictionaryUnkeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryUnkeyedDecodingContainer.swift; sourceTree = "<group>"; };
-		C0B44F5B23DDF45A0042BE16 /* DecodingError+DictionaryDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DecodingError+DictionaryDecoder.swift"; sourceTree = "<group>"; };
 		C0B44F5D23DDFD390042BE16 /* DictionaryKeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryKeyedDecodingContainer.swift; sourceTree = "<group>"; };
 		C0B44F5F23DE09200042BE16 /* DictionaryDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDecoderTests.swift; sourceTree = "<group>"; };
 		C0D336182381C02A0041F571 /* StencilExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StencilExtension.swift; sourceTree = "<group>"; };
@@ -1552,7 +1550,6 @@
 			isa = PBXGroup;
 			children = (
 				C0B44F4623DD12F20042BE16 /* Strategies */,
-				C0B44F5B23DDF45A0042BE16 /* DecodingError+DictionaryDecoder.swift */,
 				C0B44F5523DDC92A0042BE16 /* DictionaryComponentDecoder.swift */,
 				C0B44F4F23DD14310042BE16 /* DictionaryDecoder.swift */,
 				C0B44F5123DD14D80042BE16 /* DictionaryDecodingOptions.swift */,
@@ -3012,7 +3009,6 @@
 				C0B44F3B23DCE5CD0042BE16 /* DictionaryAnyKeyedEncodingContainer.swift in Sources */,
 				C07C1C25239055C0007CF12E /* AssetColorSetContents.swift in Sources */,
 				OBJ_459 /* HTTPErrorStringConvertible.swift in Sources */,
-				C0B44F5C23DDF45A0042BE16 /* DecodingError+DictionaryDecoder.swift in Sources */,
 				C07C1C3C23905BBD007CF12E /* AssetImageTemplateRenderingIntent.swift in Sources */,
 				OBJ_460 /* HTTPHeader.swift in Sources */,
 				C07C1C2D239055CB007CF12E /* AssetAppearance.swift in Sources */,

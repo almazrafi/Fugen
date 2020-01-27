@@ -15,7 +15,7 @@ extension DictionaryComponentDecoder {
 
     private func decodePrimitiveValue<T: Decodable>(from component: Any?, as type: T.Type = T.self) throws -> T {
         guard let value = component as? T else {
-            throw DecodingError.typeMismatch(at: codingPath, expectation: T.self, reality: component)
+            throw DecodingError.invalidComponent(component, at: codingPath, expectation: T.self)
         }
 
         return value
@@ -151,7 +151,7 @@ extension DictionaryComponentDecoder {
             break
         }
 
-        throw DecodingError.typeMismatch(at: codingPath, expectation: T.self, reality: component)
+        throw DecodingError.invalidComponent(component, at: codingPath, expectation: T.self)
     }
 
     // MARK: -
@@ -227,5 +227,30 @@ extension DictionaryComponentDecoder {
         default:
             return try decodeNonPrimitiveValue(from: component)
         }
+    }
+}
+
+private extension DecodingError {
+
+    // MARK: - Type Methods
+
+    static func invalidComponent(
+        _ component: Any?,
+        at codingPath: [CodingKey],
+        expectation: Any.Type
+    ) -> DecodingError {
+        let typeDescription: String
+
+        switch component {
+        case let component?:
+            typeDescription = "\(type(of: component))"
+
+        case nil:
+            typeDescription = "nil"
+        }
+
+        let debugDescription = "Expected to decode \(expectation) but found \(typeDescription) instead."
+
+        return .typeMismatch(expectation, Context(codingPath: codingPath, debugDescription: debugDescription))
     }
 }

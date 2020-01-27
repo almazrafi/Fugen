@@ -649,6 +649,34 @@ final class DictionaryEncoderTests: XCTestCase {
         )
     }
 
+    func testThatEncoderSucceedsWhenEncodingStructInSeparateKeyedContainers() {
+        struct EncodableStruct: Encodable {
+            enum CodingKeys: String, CodingKey {
+                case foo
+                case bar
+            }
+
+            let foo = 123
+            let bar = 456
+
+            func encode(to encoder: Encoder) throws {
+                var fooContainer = encoder.container(keyedBy: CodingKeys.self)
+                var barContainer = encoder.container(keyedBy: CodingKeys.self)
+
+                try fooContainer.encode(foo, forKey: .foo)
+                try barContainer.encode(bar, forKey: .bar)
+            }
+        }
+
+        let encoder = DictionaryEncoder()
+        let value = EncodableStruct()
+
+        XCTAssertEqual(
+            NSDictionary(dictionary: try makeExpectedDictionary(for: value)),
+            NSDictionary(dictionary: try encoder.encode(value))
+        )
+    }
+
     func testThatEncoderSucceedsWhenEncodingStructInSeparateUnkeyedContainers() {
         struct EncodableStruct: Encodable {
             enum CodingKeys: String, CodingKey {
@@ -666,34 +694,6 @@ final class DictionaryEncoderTests: XCTestCase {
 
                 try barContainer.encode(bar)
                 try bazContainer.encode(baz)
-            }
-        }
-
-        let encoder = DictionaryEncoder()
-        let value = EncodableStruct()
-
-        XCTAssertEqual(
-            NSDictionary(dictionary: try makeExpectedDictionary(for: value)),
-            NSDictionary(dictionary: try encoder.encode(value))
-        )
-    }
-
-    func testThatEncoderSucceedsWhenEncodingStructInSeparateKeyedContainers() {
-        struct EncodableStruct: Encodable {
-            enum CodingKeys: String, CodingKey {
-                case bar
-                case baz
-            }
-
-            let bar = 123
-            let baz = 456
-
-            func encode(to encoder: Encoder) throws {
-                var barContainer = encoder.container(keyedBy: CodingKeys.self)
-                var bazContainer = encoder.container(keyedBy: CodingKeys.self)
-
-                try barContainer.encode(bar, forKey: .bar)
-                try bazContainer.encode(baz, forKey: .baz)
             }
         }
 

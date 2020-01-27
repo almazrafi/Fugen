@@ -139,14 +139,14 @@ internal final class DictionaryUnkeyedDecodingContainer:
     }
 
     internal func superDecoder() throws -> Decoder {
-        let encoder = DictionarySingleValueDecodingContainer(
+        let decoder = DictionarySingleValueDecodingContainer(
             component: try popNextComponent(),
             options: options,
             userInfo: userInfo,
             codingPath: codingPath.appending(AnyCodingKey(currentIndex))
         )
 
-        return encoder
+        return decoder
     }
 }
 
@@ -162,8 +162,8 @@ private extension DecodingError {
         let typeDescription: String
 
         switch component {
-        case let value?:
-            typeDescription = "\(type(of: value))"
+        case let component?:
+            typeDescription = "\(type(of: component))"
 
         case nil:
             typeDescription = "nil"
