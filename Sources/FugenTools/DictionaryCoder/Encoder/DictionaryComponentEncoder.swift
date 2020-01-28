@@ -29,7 +29,7 @@ extension DictionaryComponentEncoder {
         return .value(encoder.resolveValue())
     }
 
-    private func encodeCustomEncodedValue<T: Encodable>(
+    private func encodeCustomizedValue<T: Encodable>(
         _ value: T,
         closure: (_ value: T, _ encoder: Encoder) throws -> Void
     ) throws -> DictionaryComponent {
@@ -72,7 +72,7 @@ extension DictionaryComponentEncoder {
             return encodePrimitiveValue(dateFormatter.string(from: date))
 
         case let .custom(closure):
-            return try encodeCustomEncodedValue(date, closure: closure)
+            return try encodeCustomizedValue(date, closure: closure)
         }
     }
 
@@ -85,93 +85,93 @@ extension DictionaryComponentEncoder {
             return encodePrimitiveValue(data.base64EncodedString())
 
         case let .custom(closure):
-            return try encodeCustomEncodedValue(data, closure: closure)
+            return try encodeCustomizedValue(data, closure: closure)
         }
     }
 
     private func encodeFloatingPoint<T: FloatingPoint & Encodable>(_ value: T) throws -> DictionaryComponent {
-        if value.isInfinite || value.isNaN {
-            switch options.nonConformingFloatEncodingStrategy {
-            case let .convertToString(positiveInfinity, _, _) where value == T.infinity:
-                return encodePrimitiveValue(positiveInfinity)
-
-            case let .convertToString(_, negativeInfinity, _) where value == -T.infinity:
-                return encodePrimitiveValue(negativeInfinity)
-
-            case let .convertToString(_, _, nan):
-                return encodePrimitiveValue(nan)
-
-            case .throw:
-                throw EncodingError.invalidFloatingPointValue(value, at: codingPath)
-            }
-        } else {
+        if value.isFinite {
             return encodePrimitiveValue(value)
+        }
+
+        switch options.nonConformingFloatEncodingStrategy {
+        case let .convertToString(positiveInfinity, _, _) where value == T.infinity:
+            return encodePrimitiveValue(positiveInfinity)
+
+        case let .convertToString(_, negativeInfinity, _) where value == -T.infinity:
+            return encodePrimitiveValue(negativeInfinity)
+
+        case let .convertToString(_, _, nan):
+            return encodePrimitiveValue(nan)
+
+        case .throw:
+            throw EncodingError.invalidFloatingPointValue(value, at: codingPath)
         }
     }
 
     // MARK: -
 
-    internal func encodeNilToComponent() -> DictionaryComponent {
+    internal func encodeNilComponent() -> DictionaryComponent {
         return encodePrimitiveValue(nil)
     }
 
-    internal func encodeToComponent(_ value: Bool) -> DictionaryComponent {
+    internal func encodeComponentValue(_ value: Bool) -> DictionaryComponent {
         return encodePrimitiveValue(value)
     }
 
-    internal func encodeToComponent(_ value: Int) -> DictionaryComponent {
+    internal func encodeComponentValue(_ value: Int) -> DictionaryComponent {
         return encodePrimitiveValue(value)
     }
 
-    internal func encodeToComponent(_ value: Int8) -> DictionaryComponent {
+    internal func encodeComponentValue(_ value: Int8) -> DictionaryComponent {
         return encodePrimitiveValue(value)
     }
 
-    internal func encodeToComponent(_ value: Int16) -> DictionaryComponent {
+    internal func encodeComponentValue(_ value: Int16) -> DictionaryComponent {
         return encodePrimitiveValue(value)
     }
 
-    internal func encodeToComponent(_ value: Int32) -> DictionaryComponent {
+    internal func encodeComponentValue(_ value: Int32) -> DictionaryComponent {
         return encodePrimitiveValue(value)
     }
 
-    internal func encodeToComponent(_ value: Int64) -> DictionaryComponent {
+    internal func encodeComponentValue(_ value: Int64) -> DictionaryComponent {
         return encodePrimitiveValue(value)
     }
 
-    internal func encodeToComponent(_ value: UInt) -> DictionaryComponent {
+    internal func encodeComponentValue(_ value: UInt) -> DictionaryComponent {
         return encodePrimitiveValue(value)
     }
 
-    internal func encodeToComponent(_ value: UInt8) -> DictionaryComponent {
+    internal func encodeComponentValue(_ value: UInt8) -> DictionaryComponent {
         return encodePrimitiveValue(value)
     }
 
-    internal func encodeToComponent(_ value: UInt16) -> DictionaryComponent {
+    internal func encodeComponentValue(_ value: UInt16) -> DictionaryComponent {
         return encodePrimitiveValue(value)
     }
 
-    internal func encodeToComponent(_ value: UInt32) -> DictionaryComponent {
+    internal func encodeComponentValue(_ value: UInt32) -> DictionaryComponent {
         return encodePrimitiveValue(value)
     }
 
-    internal func encodeToComponent(_ value: UInt64) -> DictionaryComponent {
+    internal func encodeComponentValue(_ value: UInt64) -> DictionaryComponent {
         return encodePrimitiveValue(value)
     }
 
-    internal func encodeToComponent(_ value: Double) throws -> DictionaryComponent {
+    internal func encodeComponentValue(_ value: Double) throws -> DictionaryComponent {
         return try encodeFloatingPoint(value)
     }
 
-    internal func encodeToComponent(_ value: Float) throws -> DictionaryComponent {
+    internal func encodeComponentValue(_ value: Float) throws -> DictionaryComponent {
         return try encodeFloatingPoint(value)
     }
 
-    internal func encodeToComponent(_ value: String) -> DictionaryComponent {
+    internal func encodeComponentValue(_ value: String) -> DictionaryComponent {
         return encodePrimitiveValue(value)
     }
 
-    internal func encodeToComponent<T: Encodable>(_ value: T) throws -> DictionaryComponent {
+    internal func encodeComponentValue<T: Encodable>(_ value: T) throws -> DictionaryComponent {
         switch value {
         case let date as Date:
             return try encodeDate(date)
