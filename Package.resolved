@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "DictionaryCoder",
+        "repositoryURL": "https://github.com/almazrafi/DictionaryCoder.git",
+        "state": {
+          "branch": null,
+          "revision": "add9b142a1f715374aa118ea25306f3710cc4c31",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "PathKit",
         "repositoryURL": "https://github.com/kylef/PathKit.git",
         "state": {
@@ -15,8 +24,8 @@
         "repositoryURL": "https://github.com/mxcl/PromiseKit.git",
         "state": {
           "branch": null,
-          "revision": "80963d4317bcdc03891e0fbaa744f20511d1bc08",
-          "version": "6.12.0"
+          "revision": "f14f16cc2602afec1030e4f492100d6d43dca544",
+          "version": "6.13.1"
         }
       },
       {
