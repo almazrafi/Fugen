@@ -30,10 +30,10 @@ final class DefaultImagesProvider: ImagesProvider {
 
     // MARK: - Instance Methods
 
-    private func extractImageInfo(
+    private func extractImageNode(
         from node: FigmaNode,
         components: [String: FigmaComponent]
-    ) throws -> ImageNodeBaseInfo? {
+    ) throws -> ImageNode? {
         guard case .component = node.type else {
             return nil
         }
@@ -46,50 +46,40 @@ final class DefaultImagesProvider: ImagesProvider {
             throw ImagesProviderError(code: .invalidComponentName, nodeID: node.id, nodeName: node.name)
         }
 
-        return ImageNodeBaseInfo(id: node.id, name: nodeComponentName, description: nodeComponent.description)
+        return ImageNode(id: node.id, name: nodeComponentName, description: nodeComponent.description)
     }
 
-    private func extractImagesInfo(from nodes: [FigmaNode], of file: FigmaFile) throws -> [ImageNodeBaseInfo] {
+    private func extractImageNodes(from nodes: [FigmaNode], of file: FigmaFile) throws -> [ImageNode] {
         let components = file.components ?? [:]
 
         return try nodes
             .lazy
-            .compactMap { try extractImageInfo(from: $0, components: components) }
-            .reduce(into: []) { result, info in
-                if !result.contains(info) {
-                    result.append(info)
+            .compactMap { try extractImageNode(from: $0, components: components) }
+            .reduce(into: []) { result, node in
+                if !result.contains(node) {
+                    result.append(node)
                 }
             }
     }
 
-    private func saveImages(
-        info: [ImageNodeInfo],
+    private func saveAssetImagesIfNeeded(
+        nodes: [ImageRenderedNode],
         format: ImageFormat,
-        assets: String?
-    ) -> Promise<[ImageNodeInfo: ImageAssetInfo]> {
+        in assets: String?
+    ) -> Promise<[ImageRenderedNode: ImageAsset]> {
         return assets.map { folderPath in
-            imageAssetsProvider.saveImages(info: info, format: format, in: folderPath)
+            imageAssetsProvider.saveImages(nodes: nodes, format: format, in: folderPath)
         } ?? .value([:])
     }
 
-    private func saveImages(
-        info: [ImageNodeInfo],
+    private func saveResourceImagesIfNeeded(
+        nodes: [ImageRenderedNode],
         format: ImageFormat,
-        resources: String?
-    ) -> Promise<[ImageNodeInfo: ImageResourceInfo]> {
+        in resources: String?
+    ) -> Promise<[ImageRenderedNode: ImageResource]> {
         return resources.map { folderPath in
-            imageResourcesProvider.saveImages(info: info, format: format, in: folderPath)
+            imageResourcesProvider.saveImages(nodes: nodes, format: format, in: folderPath)
         } ?? .value([:])
-    }
-
-    private func makeImages(
-        info: [ImageNodeInfo],
-        assetsInfo: [ImageNodeInfo: ImageAssetInfo],
-        resourcesInfo: [ImageNodeInfo: ImageResourceInfo]
-    ) -> [Image] {
-        return info.map { info in
-            Image(info: info, assetInfo: assetsInfo[info], resourceInfo: resourcesInfo[info])
-        }
     }
 
     // MARK: -
@@ -103,23 +93,38 @@ final class DefaultImagesProvider: ImagesProvider {
             self.filesProvider.fetchFile(file)
         }.then { figmaFile in
             self.nodesProvider.fetchNodes(nodes, from: figmaFile).map { figmaNodes in
-                try self.extractImagesInfo(from: figmaNodes, of: figmaFile)
+                try self.extractImageNodes(from: figmaNodes, of: figmaFile)
             }
-        }.then { info in
+        }.then { nodes in
             self.imageRenderProvider.renderImages(
                 of: file,
-                info: info,
+                nodes: nodes,
                 format: parameters.format,
                 scales: parameters.scales
             )
-        }.then { info in
+        }.then { nodes in
             firstly {
                 when(
-                    fulfilled: self.saveImages(info: info, format: parameters.format, assets: parameters.assets),
-                    self.saveImages(info: info, format: parameters.format, resources: parameters.resources)
+                    fulfilled: self.saveAssetImagesIfNeeded(
+                        nodes: nodes,
+                        format: parameters.format,
+                        in: parameters.assets
+                    ),
+                    self.saveResourceImagesIfNeeded(
+                        nodes: nodes,
+                        format: parameters.format,
+                        in: parameters.resources
+                    )
                 )
-            }.map { assetsInfo, resourcesInfo in
-                self.makeImages(info: info, assetsInfo: assetsInfo, resourcesInfo: resourcesInfo)
+            }.map { assets, resources in
+                nodes.map { node in
+                    Image(
+                        node: node,
+                        format: parameters.format,
+                        asset: assets[node],
+                        resource: resources[node]
+                    )
+                }
             }
         }
     }

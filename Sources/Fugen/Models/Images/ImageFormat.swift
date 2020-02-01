@@ -1,6 +1,6 @@
 import Foundation
 
-enum ImageFormat {
+enum ImageFormat: String, Codable {
 
     // MARK: - Enumeration Cases
 
@@ -12,19 +12,7 @@ enum ImageFormat {
     // MARK: - Instance Properties
 
     var fileExtension: String {
-        switch self {
-        case .pdf:
-            return "pdf"
-
-        case .png:
-            return "png"
-
-        case .jpg:
-            return "jpg"
-
-        case .svg:
-            return "svg"
-        }
+        rawValue
     }
 
     // MARK: - Instance Methods

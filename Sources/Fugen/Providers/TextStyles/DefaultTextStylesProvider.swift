@@ -100,25 +100,25 @@ final class DefaultTextStylesProvider: TextStylesProvider {
             throw TextStylesProviderError(code: .typeStyleNotFound, nodeID: node.id, nodeName: node.name)
         }
 
-        let info = TextStyleNodeInfo(
+        let textStyleNode = TextStyleNode(
             id: node.id,
             name: nodeStyleName,
             description: nodeStyle.description,
             font: try extractFont(from: nodeTypeStyle, of: node),
             strikethrough: nodeTypeStyle.textDecoration == .strikethrough,
             underline: nodeTypeStyle.textDecoration == .underline,
-            paragraphSpacing: nodeTypeStyle.paragraphSpacing,
-            paragraphIndent: nodeTypeStyle.paragraphIndent,
-            lineHeight: nodeTypeStyle.lineHeight,
-            letterSpacing: nodeTypeStyle.letterSpacing
+            paragraphSpacing: nodeTypeStyle.paragraphSpacing?.rounded(precision: 4),
+            paragraphIndent: nodeTypeStyle.paragraphIndent?.rounded(precision: 4),
+            lineHeight: nodeTypeStyle.lineHeight?.rounded(precision: 4),
+            letterSpacing: nodeTypeStyle.letterSpacing?.rounded(precision: 4)
         )
 
-        let colorInfo = TextStyleColorInfo(
+        let textStyleColor = TextStyleColor(
             styleName: try extractColorStyleName(from: nodeInfo, of: node, styles: styles),
             color: try extractColor(from: nodeInfo, of: node)
         )
 
-        return TextStyle(info: info, colorInfo: colorInfo)
+        return TextStyle(node: textStyleNode, color: textStyleColor)
     }
 
     private func extractTextStyles(from nodes: [FigmaNode], of file: FigmaFile) throws -> [TextStyle] {
@@ -128,7 +128,7 @@ final class DefaultTextStylesProvider: TextStylesProvider {
             .lazy
             .compactMap { try extractTextStyle(from: $0, styles: styles) }
             .reduce(into: []) { result, textStyle in
-                if !result.contains(where: { $0.info == textStyle.info }) {
+                if !result.contains(where: { $0.node == textStyle.node }) {
                     result.append(textStyle)
                 }
             }

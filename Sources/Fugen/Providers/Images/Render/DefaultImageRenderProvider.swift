@@ -15,55 +15,52 @@ final class DefaultImageRenderProvider: ImageRenderProvider {
 
     // MARK: - Instance Methods
 
-    private func extractImageURL(from rawURLs: [String: String?], info: ImageNodeBaseInfo) throws -> URL {
-        guard let rawURL = rawURLs[info.id]?.flatMap({ $0 }) else {
-            throw ImageRenderProviderError(code: .invalidImage, nodeID: info.id, nodeName: info.name)
+    private func extractImageURL(from rawURLs: [String: String?], node: ImageNode) throws -> URL {
+        guard let rawURL = rawURLs[node.id]?.flatMap({ $0 }) else {
+            throw ImageRenderProviderError(code: .invalidImage, nodeID: node.id, nodeName: node.name)
         }
 
         guard let url = URL(string: rawURL) else {
-            throw ImageRenderProviderError(code: .invalidImageURL, nodeID: info.id, nodeName: info.name)
+            throw ImageRenderProviderError(code: .invalidImageURL, nodeID: node.id, nodeName: node.name)
         }
 
         return url
     }
 
-    private func extractImageURLs(
-        from rawURLs: [String: String?],
-        info: [ImageNodeBaseInfo]
-    ) throws -> [ImageNodeBaseInfo: URL] {
-        var urls: [ImageNodeBaseInfo: URL] = [:]
+    private func extractImageURLs(from rawURLs: [String: String?], nodes: [ImageNode]) throws -> [ImageNode: URL] {
+        var urls: [ImageNode: URL] = [:]
 
-        try info.forEach { info in
-            urls[info] = try self.extractImageURL(from: rawURLs, info: info)
+        try nodes.forEach { node in
+            urls[node] = try self.extractImageURL(from: rawURLs, node: node)
         }
 
         return urls
     }
 
     private func makeImageRenderedNode(
-        info: ImageNodeBaseInfo,
-        imageURLs: [ImageScale: [ImageNodeBaseInfo: URL]]
-    ) -> ImageNodeInfo {
+        for node: ImageNode,
+        imageURLs: [ImageScale: [ImageNode: URL]]
+    ) -> ImageRenderedNode {
         let scales = imageURLs.keys
 
         let nodeImageURLs = scales.reduce(into: [:]) { result, scale in
-            result[scale] = imageURLs[scale]?[info]
+            result[scale] = imageURLs[scale]?[node]
         }
 
-        return ImageNodeInfo(base: info, urls: nodeImageURLs)
+        return ImageRenderedNode(base: node, urls: nodeImageURLs)
     }
 
     private func renderImages(
         of file: FileParameters,
-        info: [ImageNodeBaseInfo],
+        nodes: [ImageNode],
         format: ImageFormat,
         scale: ImageScale
-    ) -> Promise<[ImageNodeBaseInfo: URL]> {
+    ) -> Promise<[ImageNode: URL]> {
         let route = FigmaAPIImagesRoute(
             accessToken: file.accessToken,
             fileKey: file.key,
             fileVersion: file.version,
-            nodeIDs: info.map { $0.id },
+            nodeIDs: nodes.map { $0.id },
             format: format.figmaFormat,
             scale: scale.figmaScale
         )
@@ -71,7 +68,7 @@ final class DefaultImageRenderProvider: ImageRenderProvider {
         return firstly {
             self.apiProvider.request(route: route)
         }.map(on: DispatchQueue.global(qos: .userInitiated)) { images in
-            try self.extractImageURLs(from: images.urls, info: info)
+            try self.extractImageURLs(from: images.urls, nodes: nodes)
         }
     }
 
@@ -79,16 +76,16 @@ final class DefaultImageRenderProvider: ImageRenderProvider {
 
     func renderImages(
         of file: FileParameters,
-        info: [ImageNodeBaseInfo],
+        nodes: [ImageNode],
         format: ImageFormat,
         scales: [ImageScale]
-    ) -> Promise<[ImageNodeInfo]> {
-        guard !info.isEmpty else {
+    ) -> Promise<[ImageRenderedNode]> {
+        guard !nodes.isEmpty else {
             return .value([])
         }
 
         let promises = scales.map { scale in
-            renderImages(of: file, info: info, format: format, scale: scale).map { imageURLs in
+            renderImages(of: file, nodes: nodes, format: format, scale: scale).map { imageURLs in
                 (scale: scale, imageURLs: imageURLs)
             }
         }
@@ -98,7 +95,7 @@ final class DefaultImageRenderProvider: ImageRenderProvider {
         }.map(on: DispatchQueue.global(qos: .userInitiated)) { imageURLs in
             Dictionary(imageURLs) { $1 }
         }.map(on: DispatchQueue.global(qos: .userInitiated)) { imageURLs in
-            info.map { self.makeImageRenderedNode(info: $0, imageURLs: imageURLs) }
+            nodes.map { self.makeImageRenderedNode(for: $0, imageURLs: imageURLs) }
         }
     }
 }
@@ -130,7 +127,7 @@ private extension ImageScale {
 
     var figmaScale: Double {
         switch self {
-        case .single, .scale1x:
+        case .none, .scale1x:
             return 1.0
 
         case .scale2x:

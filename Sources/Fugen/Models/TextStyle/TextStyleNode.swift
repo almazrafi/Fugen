@@ -1,6 +1,6 @@
 import Foundation
 
-struct TextStyleNodeInfo: Hashable {
+struct TextStyleNode: Encodable, Hashable {
 
     // MARK: - Instance Properties
 

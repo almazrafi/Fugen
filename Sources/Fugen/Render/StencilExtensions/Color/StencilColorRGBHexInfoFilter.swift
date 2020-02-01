@@ -6,12 +6,12 @@ final class StencilColorRGBHexInfoFilter: StencilColorFilter {
 
     let name = "colorRGBHexInfo"
 
-    let colorCoder: ColorCoder
+    let contextCoder: TemplateContextCoder
 
     // MARK: - Initializers
 
-    init(colorCoder: ColorCoder) {
-        self.colorCoder = colorCoder
+    init(contextCoder: TemplateContextCoder) {
+        self.contextCoder = contextCoder
     }
 
     // MARK: - Instance Methods

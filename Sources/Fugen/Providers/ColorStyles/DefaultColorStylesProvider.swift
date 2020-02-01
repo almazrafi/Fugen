@@ -23,10 +23,7 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
 
     // MARK: - Instance Methods
 
-    private func extractColorStyleInfo(
-        from node: FigmaNode,
-        styles: [String: FigmaStyle]
-    ) throws -> ColorStyleNodeInfo? {
+    private func extractColorStyleNode(from node: FigmaNode, styles: [String: FigmaStyle]) throws -> ColorStyleNode? {
         guard let nodeInfo = node.vectorInfo, let nodeStyleID = nodeInfo.styleID(of: .fill) else {
             return nil
         }
@@ -49,7 +46,7 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
             throw ColorStylesProviderError(code: .invalidStyleName, nodeID: node.id, nodeName: node.name)
         }
 
-        return ColorStyleNodeInfo(
+        return ColorStyleNode(
             id: node.id,
             name: nodeStyleName,
             description: nodeStyle.description,
@@ -62,37 +59,28 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
         )
     }
 
-    private func extractColorStylesInfo(from nodes: [FigmaNode], of file: FigmaFile) throws -> [ColorStyleNodeInfo] {
+    private func extractColorStylesNodes(from nodes: [FigmaNode], of file: FigmaFile) throws -> [ColorStyleNode] {
         let styles = file.styles ?? [:]
 
         return try nodes
             .lazy
-            .compactMap { try extractColorStyleInfo(from: $0, styles: styles) }
-            .reduce(into: []) { result, info in
-                if !result.contains(info) {
-                    result.append(info)
+            .compactMap { try extractColorStyleNode(from: $0, styles: styles) }
+            .reduce(into: []) { result, node in
+                if !result.contains(node) {
+                    result.append(node)
                 }
             }
     }
 
-    private func saveColorStyles(
-        info: [ColorStyleNodeInfo],
-        assets: String?
-    ) -> Promise<[ColorStyleNodeInfo: ColorStyleAssetInfo]> {
+    private func saveAssetColorStylesIfNeeded(
+        nodes: [ColorStyleNode],
+        in assets: String?
+    ) -> Promise<[ColorStyleNode: ColorStyleAsset]> {
         guard let folderPath = assets else {
             return .value([:])
         }
 
-        return colorStyleAssetsProvider.saveColorStyles(info: info, in: folderPath)
-    }
-
-    private func makeColorStyles(
-        info: [ColorStyleNodeInfo],
-        assetsInfo: [ColorStyleNodeInfo: ColorStyleAssetInfo]
-    ) -> [ColorStyle] {
-        return info.map { info in
-            ColorStyle(info: info, assetInfo: assetsInfo[info])
-        }
+        return colorStyleAssetsProvider.saveColorStyles(nodes: nodes, in: folderPath)
     }
 
     // MARK: -
@@ -102,13 +90,15 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
             self.filesProvider.fetchFile(file)
         }.then { figmaFile in
             self.nodesProvider.fetchNodes(nodes, from: figmaFile).map { figmaNodes in
-                try self.extractColorStylesInfo(from: figmaNodes, of: figmaFile)
+                try self.extractColorStylesNodes(from: figmaNodes, of: figmaFile)
             }
-        }.then { info in
+        }.then { nodes in
             firstly {
-                self.saveColorStyles(info: info, assets: assets)
-            }.map { assetsInfo in
-                self.makeColorStyles(info: info, assetsInfo: assetsInfo)
+                self.saveAssetColorStylesIfNeeded(nodes: nodes, in: assets)
+            }.map { assets in
+                nodes.map { node in
+                    ColorStyle(node: node, asset: assets[node])
+                }
             }
         }
     }

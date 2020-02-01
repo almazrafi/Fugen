@@ -7,8 +7,8 @@ protocol ImageRenderProvider {
 
     func renderImages(
         of file: FileParameters,
-        info: [ImageNodeBaseInfo],
+        nodes: [ImageNode],
         format: ImageFormat,
         scales: [ImageScale]
-    ) -> Promise<[ImageNodeInfo]>
+    ) -> Promise<[ImageRenderedNode]>
 }

@@ -10,16 +10,16 @@ struct ColorStylesConfiguration: Decodable {
 
     // MARK: - Instance Properties
 
-    let generatation: GenerationConfiguration
+    let generation: GenerationConfiguration
     let assets: String?
 
     // MARK: - Initializers
 
     init(
-        generatation: GenerationConfiguration,
+        generation: GenerationConfiguration,
         assets: String?
     ) {
-        self.generatation = generatation
+        self.generation = generation
         self.assets = assets
     }
 
@@ -28,14 +28,14 @@ struct ColorStylesConfiguration: Decodable {
             .container(keyedBy: CodingKeys.self)
             .decodeIfPresent(forKey: .assets)
 
-        generatation = try GenerationConfiguration(from: decoder)
+        generation = try GenerationConfiguration(from: decoder)
     }
 
     // MARK: - Instance Methods
 
     func resolve(base: BaseConfiguration?) -> ColorStylesConfiguration {
         return ColorStylesConfiguration(
-            generatation: generatation.resolve(base: base),
+            generation: generation.resolve(base: base),
             assets: assets
         )
     }

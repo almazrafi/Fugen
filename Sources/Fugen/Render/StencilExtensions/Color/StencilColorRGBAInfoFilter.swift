@@ -6,18 +6,18 @@ final class StencilColorRGBAInfoFilter: StencilColorFilter {
 
     let name = "colorRGBAInfo"
 
-    let colorCoder: ColorCoder
+    let contextCoder: TemplateContextCoder
 
     // MARK: - Initializers
 
-    init(colorCoder: ColorCoder) {
-        self.colorCoder = colorCoder
+    init(contextCoder: TemplateContextCoder) {
+        self.contextCoder = contextCoder
     }
 
     // MARK: - Instance Methods
 
     func filter(color: Color) throws -> String {
-        let rgbInfoFilter = StencilColorRGBInfoFilter(colorCoder: colorCoder)
+        let rgbInfoFilter = StencilColorRGBInfoFilter(contextCoder: contextCoder)
         let rgbInfo = try rgbInfoFilter.filter(color: color)
 
         return "\(rgbInfo), \(Int(color.alpha * 100.0))%"

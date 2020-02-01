@@ -6,18 +6,18 @@ final class StencilColorRGBAHexInfoFilter: StencilColorFilter {
 
     let name = "colorRGBAHexInfo"
 
-    let colorCoder: ColorCoder
+    let contextCoder: TemplateContextCoder
 
     // MARK: - Initializers
 
-    init(colorCoder: ColorCoder) {
-        self.colorCoder = colorCoder
+    init(contextCoder: TemplateContextCoder) {
+        self.contextCoder = contextCoder
     }
 
     // MARK: - Instance Methods
 
     func filter(color: Color) throws -> String {
-        let rgbHexInfoFilter = StencilColorRGBHexInfoFilter(colorCoder: colorCoder)
+        let rgbHexInfoFilter = StencilColorRGBHexInfoFilter(contextCoder: contextCoder)
         let rgbHexInfo = try rgbHexInfoFilter.filter(color: color)
 
         guard let alpha = colorComponentHexByte(color.alpha) else {

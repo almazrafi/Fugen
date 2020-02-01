@@ -8,7 +8,7 @@ protocol StencilFontFilter: StencilFilter where Input == [String: Any], Output =
 
     // MARK: - Instance Properties
 
-    var fontCoder: FontCoder { get }
+    var contextCoder: TemplateContextCoder { get }
 
     // MARK: - Instance Methods
 
@@ -20,7 +20,7 @@ extension StencilFontFilter {
     // MARK: - Instance Methods
 
     func filter(input: [String: Any]) throws -> FontFilterOutput {
-        guard let font = fontCoder.decodeFont(from: input) else {
+        guard let font = try? contextCoder.decode(Font.self, from: input) else {
             throw StencilFilterError(code: .invalidValue(input), filter: name)
         }
 

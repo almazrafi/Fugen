@@ -7,7 +7,6 @@ final class DefaultColorStylesGenerator: ColorStylesGenerator, GenerationParamet
     // MARK: - Instance Properties
 
     let colorStylesProvider: ColorStylesProvider
-    let colorStylesCoder: ColorStylesCoder
     let templateRenderer: TemplateRenderer
 
     let defaultTemplateType = RenderTemplateType.native(name: "ColorStyles")
@@ -15,13 +14,8 @@ final class DefaultColorStylesGenerator: ColorStylesGenerator, GenerationParamet
 
     // MARK: - Initializers
 
-    init(
-        colorStylesProvider: ColorStylesProvider,
-        colorStylesCoder: ColorStylesCoder,
-        templateRenderer: TemplateRenderer
-    ) {
+    init(colorStylesProvider: ColorStylesProvider, templateRenderer: TemplateRenderer) {
         self.colorStylesProvider = colorStylesProvider
-        self.colorStylesCoder = colorStylesCoder
         self.templateRenderer = templateRenderer
     }
 
@@ -29,10 +23,14 @@ final class DefaultColorStylesGenerator: ColorStylesGenerator, GenerationParamet
 
     private func generate(parameters: GenerationParameters, assets: String?) -> Promise<Void> {
         return firstly {
-            self.colorStylesProvider.fetchColorStyles(from: parameters.file, nodes: parameters.nodes, assets: assets)
-        }.done { colorStyles in
-            let context = self.colorStylesCoder.encodeColorStyles(colorStyles)
-
+            self.colorStylesProvider.fetchColorStyles(
+                from: parameters.file,
+                nodes: parameters.nodes,
+                assets: assets
+            )
+        }.map { colorStyles in
+            ColorStylesContext(colorStyles: colorStyles)
+        }.done { context in
             try self.templateRenderer.renderTemplate(
                 parameters.render.template,
                 to: parameters.render.destination,
@@ -45,7 +43,7 @@ final class DefaultColorStylesGenerator: ColorStylesGenerator, GenerationParamet
 
     func generate(configuration: ColorStylesConfiguration) -> Promise<Void> {
         return perform(on: DispatchQueue.global(qos: .userInitiated)) {
-            try self.resolveGenerationParameters(from: configuration.generatation)
+            try self.resolveGenerationParameters(from: configuration.generation)
         }.then { parameters in
             self.generate(parameters: parameters, assets: configuration.assets)
         }

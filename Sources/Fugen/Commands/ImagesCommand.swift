@@ -84,7 +84,7 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
         "-s",
         description: #"""
             A comma separated list of integer image scaling factors.
-            Each scaling factor should be between 1 and 4: -s "1,2,3".
+            Each scaling factor should be between 1 and 3: -s "1,2,3".
             If omitted, images will be rendered with the original sizes.
             """#
     )
@@ -148,7 +148,7 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
                 }
 
                 return scale
-            } ?? [.single]
+            } ?? [.none]
     }
 
     private func resolveImagesConfiguration() -> ImagesConfiguration {
@@ -170,51 +170,6 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
             self.succeed(message: "Color styles generated successfully!")
         }.catch { error in
             self.fail(message: "Failed to generate images: \(error)")
-        }
-    }
-}
-
-private extension ImageFormat {
-
-    // MARK: - Initializers
-
-    init?(rawValue: String) {
-        switch rawValue {
-        case "pdf":
-            self = .pdf
-
-        case "png":
-            self = .png
-
-        case "jpg":
-            self = .jpg
-
-        case "svg":
-            self = .svg
-
-        default:
-            return nil
-        }
-    }
-}
-
-private extension ImageScale {
-
-    // MARK: - Initializers
-
-    init?(rawValue: String) {
-        switch rawValue {
-        case "1":
-            self = .scale1x
-
-        case "2":
-            self = .scale2x
-
-        case "3":
-            self = .scale3x
-
-        default:
-            return nil
         }
     }
 }

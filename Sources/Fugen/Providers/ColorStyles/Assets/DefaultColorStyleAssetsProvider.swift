@@ -17,22 +17,22 @@ final class DefaultColorStyleAssetsProvider: ColorStyleAssetsProvider {
 
     // MARK: - Instance Methods
 
-    private func makeAssetInfo(for info: ColorStyleNodeInfo) -> ColorStyleAssetInfo {
-        return ColorStyleAssetInfo(name: info.name.camelized)
+    private func makeAsset(for node: ColorStyleNode) -> ColorStyleAsset {
+        return ColorStyleAsset(name: node.name.camelized)
     }
 
-    private func makeAssetsInfo(for info: [ColorStyleNodeInfo]) -> [ColorStyleNodeInfo: ColorStyleAssetInfo] {
-        var assetInfo: [ColorStyleNodeInfo: ColorStyleAssetInfo] = [:]
+    private func makeAssets(for nodes: [ColorStyleNode]) -> [ColorStyleNode: ColorStyleAsset] {
+        var assets: [ColorStyleNode: ColorStyleAsset] = [:]
 
-        info.forEach { info in
-            assetInfo[info] = makeAssetInfo(for: info)
+        nodes.forEach { node in
+            assets[node] = makeAsset(for: node)
         }
 
-        return assetInfo
+        return assets
     }
 
-    private func makeAssetColorSet(info: ColorStyleNodeInfo) -> AssetColorSet {
-        let color = info.color
+    private func makeAssetColorSet(for node: ColorStyleNode) -> AssetColorSet {
+        let color = node.color
 
         let assetColorComponents = AssetColorComponents(
             red: color.red,
@@ -51,24 +51,21 @@ final class DefaultColorStyleAssetsProvider: ColorStyleAssetsProvider {
         return AssetColorSet(contents: assetColorSetContents)
     }
 
-    private func makeAssetColorSets(assetInfo: [ColorStyleNodeInfo: ColorStyleAssetInfo]) -> [String: AssetColorSet] {
-        return assetInfo.reduce(into: [:]) { result, assetsInfo in
-            result[assetsInfo.value.name] = makeAssetColorSet(info: assetsInfo.key)
+    private func makeAssetColorSets(for assets: [ColorStyleNode: ColorStyleAsset]) -> [String: AssetColorSet] {
+        return assets.reduce(into: [:]) { result, asset in
+            result[asset.value.name] = makeAssetColorSet(for: asset.key)
         }
     }
 
     // MARK: -
 
-    func saveColorStyles(
-        info: [ColorStyleNodeInfo],
-        in folderPath: String
-    ) -> Promise<[ColorStyleNodeInfo: ColorStyleAssetInfo]> {
+    func saveColorStyles(nodes: [ColorStyleNode], in folderPath: String) -> Promise<[ColorStyleNode: ColorStyleAsset]> {
         return perform(on: DispatchQueue.global(qos: .userInitiated)) {
-            self.makeAssetsInfo(for: info)
-        }.nest { assetsInfo in
+            self.makeAssets(for: nodes)
+        }.nest { assets in
             perform(on: DispatchQueue.global(qos: .userInitiated)) {
                 AssetFolder(
-                    colorSets: self.makeAssetColorSets(assetInfo: assetsInfo),
+                    colorSets: self.makeAssetColorSets(for: assets),
                     contents: AssetFolderContents(info: .defaultFugen)
                 )
             }.then { folder in
