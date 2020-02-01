@@ -1376,6 +1376,7 @@
 		OBJ_102 /* File */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_138 /* Nodes */,
 				OBJ_103 /* FigmaBlendMode.swift */,
 				OBJ_104 /* FigmaBooleanOperationType.swift */,
 				OBJ_105 /* FigmaColor.swift */,
@@ -1411,7 +1412,6 @@
 				OBJ_135 /* FigmaTextVerticalAlignment.swift */,
 				OBJ_136 /* FigmaTypeStyle.swift */,
 				OBJ_137 /* FigmaVector.swift */,
-				OBJ_138 /* Nodes */,
 			);
 			path = File;
 			sourceTree = "<group>";
@@ -2295,6 +2295,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_99 /* DTOs */,
+				OBJ_158 /* Routes */,
 				OBJ_151 /* DefaultFigmaAPIProvider.swift */,
 				OBJ_152 /* FigmaAPIEmptyParameters.swift */,
 				OBJ_153 /* FigmaAPIEmptyResponse.swift */,
@@ -2302,7 +2303,6 @@
 				OBJ_155 /* FigmaAPIRoute.swift */,
 				OBJ_156 /* FigmaAPIVersion.swift */,
 				OBJ_157 /* FigmaHTTPService.swift */,
-				OBJ_158 /* Routes */,
 			);
 			path = FigmaAPI;
 			sourceTree = "<group>";
@@ -2310,9 +2310,9 @@
 		OBJ_99 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_102 /* File */,
 				OBJ_100 /* FigmaError.swift */,
 				OBJ_101 /* FigmaImages.swift */,
-				OBJ_102 /* File */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
