@@ -5,8 +5,5 @@ protocol ColorStyleAssetsProvider {
 
     // MARK: - Instance Methods
 
-    func saveColorStyles(
-        info: [ColorStyleNodeInfo],
-        in folderPath: String
-    ) -> Promise<[ColorStyleNodeInfo: ColorStyleAssetInfo]>
+    func saveColorStyles(nodes: [ColorStyleNode], in folderPath: String) -> Promise<[ColorStyleNode: ColorStyleAsset]>
 }

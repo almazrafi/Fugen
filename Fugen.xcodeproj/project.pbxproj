@@ -33,6 +33,46 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		C03731A123E4AD52007E2F31 /* TemplateContextCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C037319E23E4ABD2007E2F31 /* TemplateContextCoder.swift */; };
+		C03731A723E4B60E007E2F31 /* DefaultTemplateContextCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03731A623E4B60E007E2F31 /* DefaultTemplateContextCoder.swift */; };
+		C03731A923E4BC2E007E2F31 /* ColorStylesContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03731A823E4BC2E007E2F31 /* ColorStylesContext.swift */; };
+		C03731B123E5B295007E2F31 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03731B023E5B295007E2F31 /* Font.swift */; };
+		C03731B423E5C9F3007E2F31 /* TextStylesConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03731B323E5C9F3007E2F31 /* TextStylesConfiguration.swift */; };
+		C03731B923E5CA06007E2F31 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03731B623E5CA06007E2F31 /* TextStyle.swift */; };
+		C03731BA23E5CA06007E2F31 /* TextStyleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03731B723E5CA06007E2F31 /* TextStyleNode.swift */; };
+		C03731BB23E5CA06007E2F31 /* TextStyleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03731B823E5CA06007E2F31 /* TextStyleColor.swift */; };
+		C03731BF23E5CEEC007E2F31 /* TextStylesProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03731BC23E5CEEC007E2F31 /* TextStylesProviderError.swift */; };
+		C03731C023E5CEEC007E2F31 /* DefaultTextStylesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03731BD23E5CEEC007E2F31 /* DefaultTextStylesProvider.swift */; };
+		C03731C123E5CEEC007E2F31 /* TextStylesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03731BE23E5CEEC007E2F31 /* TextStylesProvider.swift */; };
+		C03731C323E5D6B2007E2F31 /* TextStylesCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03731C223E5D6B2007E2F31 /* TextStylesCommand.swift */; };
+		C03731C823E5D6BC007E2F31 /* DefaultTextStylesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03731C523E5D6BB007E2F31 /* DefaultTextStylesGenerator.swift */; };
+		C03731C923E5D6BC007E2F31 /* TextStylesContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03731C623E5D6BB007E2F31 /* TextStylesContext.swift */; };
+		C03731CA23E5D6BC007E2F31 /* TextStylesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03731C723E5D6BB007E2F31 /* TextStylesGenerator.swift */; };
+		C088409323E5DAA8002DFA65 /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C088409223E5DAA8002DFA65 /* Encodable+Extensions.swift */; };
+		C088409523E5DACC002DFA65 /* Decodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C088409423E5DACC002DFA65 /* Decodable+Extensions.swift */; };
+		C088409E23E5E1ED002DFA65 /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C088409723E5E1EC002DFA65 /* ImageFormat.swift */; };
+		C088409F23E5E1ED002DFA65 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C088409823E5E1EC002DFA65 /* ImageAsset.swift */; };
+		C08840A123E5E1ED002DFA65 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C088409A23E5E1EC002DFA65 /* Image.swift */; };
+		C08840A223E5E1ED002DFA65 /* ImageResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C088409B23E5E1EC002DFA65 /* ImageResource.swift */; };
+		C08840A323E5E1ED002DFA65 /* ImageRenderedNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C088409C23E5E1EC002DFA65 /* ImageRenderedNode.swift */; };
+		C08840A423E5E1ED002DFA65 /* ImageScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C088409D23E5E1ED002DFA65 /* ImageScale.swift */; };
+		C08840A623E5EC60002DFA65 /* ImagesConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08840A523E5EC5F002DFA65 /* ImagesConfiguration.swift */; };
+		C08840A823E5F018002DFA65 /* ImageNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08840A723E5F018002DFA65 /* ImageNode.swift */; };
+		C08840BE23E5F1A6002DFA65 /* ImageAssetsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08840B423E5F1A6002DFA65 /* ImageAssetsProvider.swift */; };
+		C08840BF23E5F1A6002DFA65 /* DefaultImageAssetsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08840B523E5F1A6002DFA65 /* DefaultImageAssetsProvider.swift */; };
+		C08840C123E5F6E1002DFA65 /* ImageRenderProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08840AF23E5F1A6002DFA65 /* ImageRenderProviderError.swift */; };
+		C08840C223E5F6E4002DFA65 /* ImageRenderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08840B023E5F1A6002DFA65 /* ImageRenderProvider.swift */; };
+		C08840C323E5F6FD002DFA65 /* DefaultImageRenderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08840AE23E5F1A6002DFA65 /* DefaultImageRenderProvider.swift */; };
+		C08840C423E5F82E002DFA65 /* ImageResourcesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08840AC23E5F1A6002DFA65 /* ImageResourcesProvider.swift */; };
+		C08840C523E5F84C002DFA65 /* DefaultImageResourcesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08840AB23E5F1A6002DFA65 /* DefaultImageResourcesProvider.swift */; };
+		C08840C623E5FAF4002DFA65 /* ImagesProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08840B123E5F1A6002DFA65 /* ImagesProviderError.swift */; };
+		C08840C723E5FB5A002DFA65 /* ImagesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08840B623E5F1A6002DFA65 /* ImagesProvider.swift */; };
+		C08840C923E5FBA8002DFA65 /* ImagesParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08840C823E5FBA8002DFA65 /* ImagesParameters.swift */; };
+		C08840CA23E5FBD0002DFA65 /* DefaultImagesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08840B223E5F1A6002DFA65 /* DefaultImagesProvider.swift */; };
+		C08840D123E5FE25002DFA65 /* ImagesContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08840CE23E5FE25002DFA65 /* ImagesContext.swift */; };
+		C08840D223E5FE25002DFA65 /* DefaultImagesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08840CF23E5FE25002DFA65 /* DefaultImagesGenerator.swift */; };
+		C08840D323E5FE25002DFA65 /* ImagesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08840D023E5FE25002DFA65 /* ImagesGenerator.swift */; };
+		C08840D423E5FEB0002DFA65 /* ImagesCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08840CB23E5FE16002DFA65 /* ImagesCommand.swift */; };
 		OBJ_1000 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_451 /* Package.swift */; };
 		OBJ_1005 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_399 /* Box.swift */; };
 		OBJ_1006 /* Catchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_400 /* Catchable.swift */; };
@@ -174,60 +214,30 @@
 		OBJ_592 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_395 /* Optional+Extensions.swift */; };
 		OBJ_593 /* RangeReplaceableCollection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_396 /* RangeReplaceableCollection+Extensions.swift */; };
 		OBJ_600 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_365 /* Package.swift */; };
-		OBJ_606 /* ColorCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* ColorCoder.swift */; };
-		OBJ_607 /* DefaultColorCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* DefaultColorCoder.swift */; };
-		OBJ_608 /* ColorStylesCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* ColorStylesCoder.swift */; };
-		OBJ_609 /* DefaultColorStylesCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* DefaultColorStylesCoder.swift */; };
-		OBJ_610 /* DefaultFontCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* DefaultFontCoder.swift */; };
-		OBJ_611 /* FontCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* FontCoder.swift */; };
-		OBJ_612 /* DefaultImagesCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* DefaultImagesCoder.swift */; };
-		OBJ_613 /* ImagesCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* ImagesCoder.swift */; };
-		OBJ_614 /* DefaultTextStylesCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* DefaultTextStylesCoder.swift */; };
-		OBJ_615 /* TextStylesCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* TextStylesCoder.swift */; };
 		OBJ_616 /* AsyncExecutableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* AsyncExecutableCommand.swift */; };
 		OBJ_617 /* ColorStylesCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* ColorStylesCommand.swift */; };
 		OBJ_618 /* GenerateCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* GenerateCommand.swift */; };
 		OBJ_619 /* GenerationConfigurableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* GenerationConfigurableCommand.swift */; };
-		OBJ_620 /* ImagesCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* ImagesCommand.swift */; };
-		OBJ_621 /* TextStylesCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* TextStylesCommand.swift */; };
 		OBJ_622 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* Dependencies.swift */; };
 		OBJ_623 /* ColorStylesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* ColorStylesGenerator.swift */; };
 		OBJ_624 /* DefaultColorStylesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* DefaultColorStylesGenerator.swift */; };
 		OBJ_625 /* GenerationParametersError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* GenerationParametersError.swift */; };
 		OBJ_626 /* GenerationParametersResolving.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* GenerationParametersResolving.swift */; };
-		OBJ_627 /* DefaultImagesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* DefaultImagesGenerator.swift */; };
-		OBJ_628 /* ImagesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* ImagesGenerator.swift */; };
 		OBJ_629 /* DefaultLibraryGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* DefaultLibraryGenerator.swift */; };
 		OBJ_630 /* LibraryGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* LibraryGenerator.swift */; };
-		OBJ_631 /* DefaultTextStylesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* DefaultTextStylesGenerator.swift */; };
-		OBJ_632 /* TextStylesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* TextStylesGenerator.swift */; };
 		OBJ_633 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* Color.swift */; };
 		OBJ_634 /* ColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* ColorStyle.swift */; };
-		OBJ_635 /* ColorStyleAssetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* ColorStyleAssetInfo.swift */; };
-		OBJ_636 /* ColorStyleNodeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* ColorStyleNodeInfo.swift */; };
+		OBJ_635 /* ColorStyleAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* ColorStyleAsset.swift */; };
+		OBJ_636 /* ColorStyleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* ColorStyleNode.swift */; };
 		OBJ_637 /* BaseConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* BaseConfiguration.swift */; };
 		OBJ_638 /* ColorStylesConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* ColorStylesConfiguration.swift */; };
 		OBJ_639 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* Configuration.swift */; };
 		OBJ_640 /* FileConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* FileConfiguration.swift */; };
 		OBJ_641 /* GenerationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* GenerationConfiguration.swift */; };
-		OBJ_642 /* ImagesConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* ImagesConfiguration.swift */; };
-		OBJ_643 /* TextStylesConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* TextStylesConfiguration.swift */; };
-		OBJ_644 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_62 /* Font.swift */; };
-		OBJ_645 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_64 /* Image.swift */; };
-		OBJ_646 /* ImageAssetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_65 /* ImageAssetInfo.swift */; };
-		OBJ_647 /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* ImageFormat.swift */; };
-		OBJ_648 /* ImageNodeBaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_67 /* ImageNodeBaseInfo.swift */; };
-		OBJ_649 /* ImageNodeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* ImageNodeInfo.swift */; };
-		OBJ_650 /* ImageResourceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* ImageResourceInfo.swift */; };
-		OBJ_651 /* ImageScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* ImageScale.swift */; };
 		OBJ_652 /* FileParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* FileParameters.swift */; };
 		OBJ_653 /* GenerationParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* GenerationParameters.swift */; };
-		OBJ_654 /* ImagesParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_74 /* ImagesParameters.swift */; };
 		OBJ_655 /* NodesParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_75 /* NodesParameters.swift */; };
 		OBJ_656 /* RenderParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_76 /* RenderParameters.swift */; };
-		OBJ_657 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_78 /* TextStyle.swift */; };
-		OBJ_658 /* TextStyleColorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* TextStyleColorInfo.swift */; };
-		OBJ_659 /* TextStyleNodeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* TextStyleNodeInfo.swift */; };
 		OBJ_660 /* AssetsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* AssetsProvider.swift */; };
 		OBJ_661 /* DefaultAssetsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* DefaultAssetsProvider.swift */; };
 		OBJ_662 /* ColorStyleAssetsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_87 /* ColorStyleAssetsProvider.swift */; };
@@ -304,19 +314,6 @@
 		OBJ_733 /* DefaultFigmaNodesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_167 /* DefaultFigmaNodesProvider.swift */; };
 		OBJ_734 /* FigmaNodesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_168 /* FigmaNodesProvider.swift */; };
 		OBJ_735 /* FigmaNodesProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_169 /* FigmaNodesProviderError.swift */; };
-		OBJ_736 /* DefaultImageAssetsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_172 /* DefaultImageAssetsProvider.swift */; };
-		OBJ_737 /* ImageAssetsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_173 /* ImageAssetsProvider.swift */; };
-		OBJ_738 /* DefaultImagesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_174 /* DefaultImagesProvider.swift */; };
-		OBJ_739 /* ImagesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_175 /* ImagesProvider.swift */; };
-		OBJ_740 /* ImagesProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_176 /* ImagesProviderError.swift */; };
-		OBJ_741 /* DefaultImageRenderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_178 /* DefaultImageRenderProvider.swift */; };
-		OBJ_742 /* ImageRenderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_179 /* ImageRenderProvider.swift */; };
-		OBJ_743 /* ImageRenderProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_180 /* ImageRenderProviderError.swift */; };
-		OBJ_744 /* DefaultImageResourcesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_182 /* DefaultImageResourcesProvider.swift */; };
-		OBJ_745 /* ImageResourcesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_183 /* ImageResourcesProvider.swift */; };
-		OBJ_746 /* DefaultTextStylesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* DefaultTextStylesProvider.swift */; };
-		OBJ_747 /* TextStylesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_186 /* TextStylesProvider.swift */; };
-		OBJ_748 /* TextStylesProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_187 /* TextStylesProviderError.swift */; };
 		OBJ_749 /* DefaultTemplateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_189 /* DefaultTemplateRenderer.swift */; };
 		OBJ_750 /* RenderDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_190 /* RenderDestination.swift */; };
 		OBJ_751 /* RenderTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_191 /* RenderTemplate.swift */; };
@@ -726,9 +723,49 @@
 		C037319623E4A366007E2F31 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = .swiftlint.yml; path = Tests/.swiftlint.yml; sourceTree = "<group>"; };
 		C037319923E4A422007E2F31 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LinuxMain.swift; path = Tests/LinuxMain.swift; sourceTree = "<group>"; };
 		C037319A23E4A460007E2F31 /* FugenToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FugenToolsTests.swift; sourceTree = "<group>"; };
+		C037319E23E4ABD2007E2F31 /* TemplateContextCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateContextCoder.swift; sourceTree = "<group>"; };
+		C03731A623E4B60E007E2F31 /* DefaultTemplateContextCoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultTemplateContextCoder.swift; sourceTree = "<group>"; };
+		C03731A823E4BC2E007E2F31 /* ColorStylesContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStylesContext.swift; sourceTree = "<group>"; };
+		C03731B023E5B295007E2F31 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		C03731B323E5C9F3007E2F31 /* TextStylesConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylesConfiguration.swift; sourceTree = "<group>"; };
+		C03731B623E5CA06007E2F31 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
+		C03731B723E5CA06007E2F31 /* TextStyleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyleNode.swift; sourceTree = "<group>"; };
+		C03731B823E5CA06007E2F31 /* TextStyleColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyleColor.swift; sourceTree = "<group>"; };
+		C03731BC23E5CEEC007E2F31 /* TextStylesProviderError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylesProviderError.swift; sourceTree = "<group>"; };
+		C03731BD23E5CEEC007E2F31 /* DefaultTextStylesProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultTextStylesProvider.swift; sourceTree = "<group>"; };
+		C03731BE23E5CEEC007E2F31 /* TextStylesProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylesProvider.swift; sourceTree = "<group>"; };
+		C03731C223E5D6B2007E2F31 /* TextStylesCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylesCommand.swift; sourceTree = "<group>"; };
+		C03731C523E5D6BB007E2F31 /* DefaultTextStylesGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultTextStylesGenerator.swift; sourceTree = "<group>"; };
+		C03731C623E5D6BB007E2F31 /* TextStylesContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylesContext.swift; sourceTree = "<group>"; };
+		C03731C723E5D6BB007E2F31 /* TextStylesGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylesGenerator.swift; sourceTree = "<group>"; };
+		C088409223E5DAA8002DFA65 /* Encodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
+		C088409423E5DACC002DFA65 /* Decodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extensions.swift"; sourceTree = "<group>"; };
+		C088409723E5E1EC002DFA65 /* ImageFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFormat.swift; sourceTree = "<group>"; };
+		C088409823E5E1EC002DFA65 /* ImageAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
+		C088409A23E5E1EC002DFA65 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		C088409B23E5E1EC002DFA65 /* ImageResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResource.swift; sourceTree = "<group>"; };
+		C088409C23E5E1EC002DFA65 /* ImageRenderedNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRenderedNode.swift; sourceTree = "<group>"; };
+		C088409D23E5E1ED002DFA65 /* ImageScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScale.swift; sourceTree = "<group>"; };
+		C08840A523E5EC5F002DFA65 /* ImagesConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesConfiguration.swift; sourceTree = "<group>"; };
+		C08840A723E5F018002DFA65 /* ImageNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNode.swift; sourceTree = "<group>"; };
+		C08840AB23E5F1A6002DFA65 /* DefaultImageResourcesProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultImageResourcesProvider.swift; sourceTree = "<group>"; };
+		C08840AC23E5F1A6002DFA65 /* ImageResourcesProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResourcesProvider.swift; sourceTree = "<group>"; };
+		C08840AE23E5F1A6002DFA65 /* DefaultImageRenderProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultImageRenderProvider.swift; sourceTree = "<group>"; };
+		C08840AF23E5F1A6002DFA65 /* ImageRenderProviderError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRenderProviderError.swift; sourceTree = "<group>"; };
+		C08840B023E5F1A6002DFA65 /* ImageRenderProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRenderProvider.swift; sourceTree = "<group>"; };
+		C08840B123E5F1A6002DFA65 /* ImagesProviderError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesProviderError.swift; sourceTree = "<group>"; };
+		C08840B223E5F1A6002DFA65 /* DefaultImagesProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultImagesProvider.swift; sourceTree = "<group>"; };
+		C08840B423E5F1A6002DFA65 /* ImageAssetsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAssetsProvider.swift; sourceTree = "<group>"; };
+		C08840B523E5F1A6002DFA65 /* DefaultImageAssetsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultImageAssetsProvider.swift; sourceTree = "<group>"; };
+		C08840B623E5F1A6002DFA65 /* ImagesProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesProvider.swift; sourceTree = "<group>"; };
+		C08840C823E5FBA8002DFA65 /* ImagesParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesParameters.swift; sourceTree = "<group>"; };
+		C08840CB23E5FE16002DFA65 /* ImagesCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesCommand.swift; sourceTree = "<group>"; };
+		C08840CE23E5FE25002DFA65 /* ImagesContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesContext.swift; sourceTree = "<group>"; };
+		C08840CF23E5FE25002DFA65 /* DefaultImagesGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultImagesGenerator.swift; sourceTree = "<group>"; };
+		C08840D023E5FE25002DFA65 /* ImagesGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesGenerator.swift; sourceTree = "<group>"; };
 		"DictionaryCoder::DictionaryCoder::Product" /* DictionaryCoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DictionaryCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Fugen::Fugen::Product" /* Fugen */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fugen; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Fugen::FugenTests::Product" /* FugenTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = FugenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Fugen::FugenTests::Product" /* FugenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FugenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Fugen::FugenTools::Product" /* FugenTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FugenTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Fugen::FugenToolsTests::Product" /* FugenToolsTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = FugenToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_100 /* FigmaError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaError.swift; sourceTree = "<group>"; };
@@ -740,7 +777,6 @@
 		OBJ_107 /* FigmaComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaComponent.swift; sourceTree = "<group>"; };
 		OBJ_108 /* FigmaConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaConstraint.swift; sourceTree = "<group>"; };
 		OBJ_109 /* FigmaConstraintType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaConstraintType.swift; sourceTree = "<group>"; };
-		OBJ_11 /* ColorCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCoder.swift; sourceTree = "<group>"; };
 		OBJ_110 /* FigmaEasingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaEasingType.swift; sourceTree = "<group>"; };
 		OBJ_111 /* FigmaEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaEffect.swift; sourceTree = "<group>"; };
 		OBJ_112 /* FigmaEffectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaEffectType.swift; sourceTree = "<group>"; };
@@ -751,7 +787,6 @@
 		OBJ_117 /* FigmaLayoutGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaLayoutGrid.swift; sourceTree = "<group>"; };
 		OBJ_118 /* FigmaLayoutGridAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaLayoutGridAlignment.swift; sourceTree = "<group>"; };
 		OBJ_119 /* FigmaLayoutGridPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaLayoutGridPattern.swift; sourceTree = "<group>"; };
-		OBJ_12 /* DefaultColorCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColorCoder.swift; sourceTree = "<group>"; };
 		OBJ_120 /* FigmaLayoutHorizontalConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaLayoutHorizontalConstraint.swift; sourceTree = "<group>"; };
 		OBJ_121 /* FigmaLayoutVerticalConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaLayoutVerticalConstraint.swift; sourceTree = "<group>"; };
 		OBJ_122 /* FigmaLineHeightUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaLineHeightUnit.swift; sourceTree = "<group>"; };
@@ -771,7 +806,6 @@
 		OBJ_136 /* FigmaTypeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaTypeStyle.swift; sourceTree = "<group>"; };
 		OBJ_137 /* FigmaVector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaVector.swift; sourceTree = "<group>"; };
 		OBJ_139 /* FigmaBooleanOperationNodePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaBooleanOperationNodePayload.swift; sourceTree = "<group>"; };
-		OBJ_14 /* ColorStylesCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStylesCoder.swift; sourceTree = "<group>"; };
 		OBJ_140 /* FigmaCanvasNodeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaCanvasNodeInfo.swift; sourceTree = "<group>"; };
 		OBJ_141 /* FigmaDocumentNodeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaDocumentNodeInfo.swift; sourceTree = "<group>"; };
 		OBJ_142 /* FigmaFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaFile.swift; sourceTree = "<group>"; };
@@ -782,7 +816,6 @@
 		OBJ_147 /* FigmaRectangleNodePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaRectangleNodePayload.swift; sourceTree = "<group>"; };
 		OBJ_148 /* FigmaSliceNodeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaSliceNodeInfo.swift; sourceTree = "<group>"; };
 		OBJ_149 /* FigmaTextNodePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaTextNodePayload.swift; sourceTree = "<group>"; };
-		OBJ_15 /* DefaultColorStylesCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColorStylesCoder.swift; sourceTree = "<group>"; };
 		OBJ_150 /* FigmaVectorNodeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaVectorNodeInfo.swift; sourceTree = "<group>"; };
 		OBJ_151 /* DefaultFigmaAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFigmaAPIProvider.swift; sourceTree = "<group>"; };
 		OBJ_152 /* FigmaAPIEmptyParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaAPIEmptyParameters.swift; sourceTree = "<group>"; };
@@ -800,21 +833,6 @@
 		OBJ_167 /* DefaultFigmaNodesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFigmaNodesProvider.swift; sourceTree = "<group>"; };
 		OBJ_168 /* FigmaNodesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaNodesProvider.swift; sourceTree = "<group>"; };
 		OBJ_169 /* FigmaNodesProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigmaNodesProviderError.swift; sourceTree = "<group>"; };
-		OBJ_17 /* DefaultFontCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFontCoder.swift; sourceTree = "<group>"; };
-		OBJ_172 /* DefaultImageAssetsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageAssetsProvider.swift; sourceTree = "<group>"; };
-		OBJ_173 /* ImageAssetsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssetsProvider.swift; sourceTree = "<group>"; };
-		OBJ_174 /* DefaultImagesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImagesProvider.swift; sourceTree = "<group>"; };
-		OBJ_175 /* ImagesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesProvider.swift; sourceTree = "<group>"; };
-		OBJ_176 /* ImagesProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesProviderError.swift; sourceTree = "<group>"; };
-		OBJ_178 /* DefaultImageRenderProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageRenderProvider.swift; sourceTree = "<group>"; };
-		OBJ_179 /* ImageRenderProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRenderProvider.swift; sourceTree = "<group>"; };
-		OBJ_18 /* FontCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCoder.swift; sourceTree = "<group>"; };
-		OBJ_180 /* ImageRenderProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRenderProviderError.swift; sourceTree = "<group>"; };
-		OBJ_182 /* DefaultImageResourcesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageResourcesProvider.swift; sourceTree = "<group>"; };
-		OBJ_183 /* ImageResourcesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResourcesProvider.swift; sourceTree = "<group>"; };
-		OBJ_185 /* DefaultTextStylesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextStylesProvider.swift; sourceTree = "<group>"; };
-		OBJ_186 /* TextStylesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylesProvider.swift; sourceTree = "<group>"; };
-		OBJ_187 /* TextStylesProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylesProviderError.swift; sourceTree = "<group>"; };
 		OBJ_189 /* DefaultTemplateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTemplateRenderer.swift; sourceTree = "<group>"; };
 		OBJ_190 /* RenderDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderDestination.swift; sourceTree = "<group>"; };
 		OBJ_191 /* RenderTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderTemplate.swift; sourceTree = "<group>"; };
@@ -824,7 +842,6 @@
 		OBJ_197 /* StencilColorRGBAHexInfoFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StencilColorRGBAHexInfoFilter.swift; sourceTree = "<group>"; };
 		OBJ_198 /* StencilColorRGBAInfoFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StencilColorRGBAInfoFilter.swift; sourceTree = "<group>"; };
 		OBJ_199 /* StencilColorRGBHexInfoFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StencilColorRGBHexInfoFilter.swift; sourceTree = "<group>"; };
-		OBJ_20 /* DefaultImagesCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImagesCoder.swift; sourceTree = "<group>"; };
 		OBJ_200 /* StencilColorRGBInfoFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StencilColorRGBInfoFilter.swift; sourceTree = "<group>"; };
 		OBJ_202 /* StencilFontFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StencilFontFilter.swift; sourceTree = "<group>"; };
 		OBJ_203 /* StencilFontInfoFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StencilFontInfoFilter.swift; sourceTree = "<group>"; };
@@ -833,7 +850,6 @@
 		OBJ_207 /* StencilFloatToByteFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StencilFloatToByteFilter.swift; sourceTree = "<group>"; };
 		OBJ_208 /* StencilHexToByteFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StencilHexToByteFilter.swift; sourceTree = "<group>"; };
 		OBJ_209 /* StencilExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StencilExtension.swift; sourceTree = "<group>"; };
-		OBJ_21 /* ImagesCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCoder.swift; sourceTree = "<group>"; };
 		OBJ_210 /* StencilFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StencilFilter.swift; sourceTree = "<group>"; };
 		OBJ_211 /* StencilFilterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StencilFilterError.swift; sourceTree = "<group>"; };
 		OBJ_212 /* StencilTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StencilTag.swift; sourceTree = "<group>"; };
@@ -851,7 +867,6 @@
 		OBJ_226 /* AssetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetInfo.swift; sourceTree = "<group>"; };
 		OBJ_227 /* AssetNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetNode.swift; sourceTree = "<group>"; };
 		OBJ_229 /* AssetColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetColor.swift; sourceTree = "<group>"; };
-		OBJ_23 /* DefaultTextStylesCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextStylesCoder.swift; sourceTree = "<group>"; };
 		OBJ_230 /* AssetColorComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetColorComponents.swift; sourceTree = "<group>"; };
 		OBJ_231 /* AssetColorContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetColorContent.swift; sourceTree = "<group>"; };
 		OBJ_232 /* AssetColorGrayscale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetColorGrayscale.swift; sourceTree = "<group>"; };
@@ -861,7 +876,6 @@
 		OBJ_236 /* AssetSystemColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetSystemColor.swift; sourceTree = "<group>"; };
 		OBJ_237 /* AssetSystemColorPlatform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetSystemColorPlatform.swift; sourceTree = "<group>"; };
 		OBJ_239 /* AssetFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetFolder.swift; sourceTree = "<group>"; };
-		OBJ_24 /* TextStylesCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylesCoder.swift; sourceTree = "<group>"; };
 		OBJ_240 /* AssetFolderContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetFolderContents.swift; sourceTree = "<group>"; };
 		OBJ_241 /* AssetFolderProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetFolderProperties.swift; sourceTree = "<group>"; };
 		OBJ_243 /* AssetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetImage.swift; sourceTree = "<group>"; };
@@ -896,7 +910,6 @@
 		OBJ_297 /* RangeReplaceableCollection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+Extensions.swift"; sourceTree = "<group>"; };
 		OBJ_298 /* Sequence+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extensions.swift"; sourceTree = "<group>"; };
 		OBJ_299 /* SingleValueDecodingContainer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleValueDecodingContainer+Extensions.swift"; sourceTree = "<group>"; };
-		OBJ_30 /* ImagesCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCommand.swift; sourceTree = "<group>"; };
 		OBJ_300 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		OBJ_301 /* UnkeyedDecodingContainer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnkeyedDecodingContainer+Extensions.swift"; sourceTree = "<group>"; };
 		OBJ_304 /* HTTPBodyEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPBodyEncoder.swift; sourceTree = "<group>"; };
@@ -905,7 +918,6 @@
 		OBJ_307 /* HTTPActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPActivityIndicator.swift; sourceTree = "<group>"; };
 		OBJ_308 /* HTTPAnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPAnyEncodable.swift; sourceTree = "<group>"; };
 		OBJ_309 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
-		OBJ_31 /* TextStylesCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylesCommand.swift; sourceTree = "<group>"; };
 		OBJ_310 /* HTTPErrorStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPErrorStringConvertible.swift; sourceTree = "<group>"; };
 		OBJ_311 /* HTTPHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
 		OBJ_312 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -981,7 +993,6 @@
 		OBJ_396 /* RangeReplaceableCollection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+Extensions.swift"; sourceTree = "<group>"; };
 		OBJ_398 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = /Users/almaz/Development/Almazrafi/Fugen/Master/.build/checkouts/PromiseKit/Package.swift; sourceTree = "<group>"; };
 		OBJ_399 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
-		OBJ_40 /* DefaultImagesGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImagesGenerator.swift; sourceTree = "<group>"; };
 		OBJ_400 /* Catchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catchable.swift; sourceTree = "<group>"; };
 		OBJ_401 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		OBJ_402 /* CustomStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStringConvertible.swift; sourceTree = "<group>"; };
@@ -992,7 +1003,6 @@
 		OBJ_407 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		OBJ_408 /* Thenable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thenable.swift; sourceTree = "<group>"; };
 		OBJ_409 /* after.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = after.swift; sourceTree = "<group>"; };
-		OBJ_41 /* ImagesGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesGenerator.swift; sourceTree = "<group>"; };
 		OBJ_410 /* firstly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstly.swift; sourceTree = "<group>"; };
 		OBJ_411 /* hang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hang.swift; sourceTree = "<group>"; };
 		OBJ_412 /* race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = race.swift; sourceTree = "<group>"; };
@@ -1038,7 +1048,6 @@
 		OBJ_457 /* emitter.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = emitter.c; sourceTree = "<group>"; };
 		OBJ_458 /* parser.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = parser.c; sourceTree = "<group>"; };
 		OBJ_459 /* reader.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = reader.c; sourceTree = "<group>"; };
-		OBJ_46 /* DefaultTextStylesGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextStylesGenerator.swift; sourceTree = "<group>"; };
 		OBJ_460 /* scanner.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = scanner.c; sourceTree = "<group>"; };
 		OBJ_461 /* writer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = writer.c; sourceTree = "<group>"; };
 		OBJ_463 /* CYaml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYaml.h; sourceTree = "<group>"; };
@@ -1047,7 +1056,6 @@
 		OBJ_467 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
 		OBJ_468 /* Emitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emitter.swift; sourceTree = "<group>"; };
 		OBJ_469 /* Encoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encoder.swift; sourceTree = "<group>"; };
-		OBJ_47 /* TextStylesGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylesGenerator.swift; sourceTree = "<group>"; };
 		OBJ_470 /* Mark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mark.swift; sourceTree = "<group>"; };
 		OBJ_471 /* Node.Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.Mapping.swift; sourceTree = "<group>"; };
 		OBJ_472 /* Node.Scalar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.Scalar.swift; sourceTree = "<group>"; };
@@ -1097,9 +1105,9 @@
 		OBJ_517 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		OBJ_518 /* ValueBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueBox.swift; sourceTree = "<group>"; };
 		OBJ_519 /* VersionCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCommand.swift; sourceTree = "<group>"; };
-		OBJ_52 /* ColorStyleAssetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStyleAssetInfo.swift; sourceTree = "<group>"; };
+		OBJ_52 /* ColorStyleAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStyleAsset.swift; sourceTree = "<group>"; };
 		OBJ_520 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = /Users/almaz/Development/Almazrafi/Fugen/Master/.build/checkouts/SwiftCLI/Package.swift; sourceTree = "<group>"; };
-		OBJ_53 /* ColorStyleNodeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStyleNodeInfo.swift; sourceTree = "<group>"; };
+		OBJ_53 /* ColorStyleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStyleNode.swift; sourceTree = "<group>"; };
 		OBJ_535 /* Demo */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Demo; sourceTree = SOURCE_ROOT; };
 		OBJ_536 /* Docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Docs; sourceTree = SOURCE_ROOT; };
 		OBJ_537 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = SOURCE_ROOT; };
@@ -1119,24 +1127,10 @@
 		OBJ_58 /* FileConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileConfiguration.swift; sourceTree = "<group>"; };
 		OBJ_59 /* GenerationConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationConfiguration.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		OBJ_60 /* ImagesConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesConfiguration.swift; sourceTree = "<group>"; };
-		OBJ_61 /* TextStylesConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylesConfiguration.swift; sourceTree = "<group>"; };
-		OBJ_62 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		OBJ_64 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
-		OBJ_65 /* ImageAssetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssetInfo.swift; sourceTree = "<group>"; };
-		OBJ_66 /* ImageFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFormat.swift; sourceTree = "<group>"; };
-		OBJ_67 /* ImageNodeBaseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNodeBaseInfo.swift; sourceTree = "<group>"; };
-		OBJ_68 /* ImageNodeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNodeInfo.swift; sourceTree = "<group>"; };
-		OBJ_69 /* ImageResourceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResourceInfo.swift; sourceTree = "<group>"; };
-		OBJ_70 /* ImageScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScale.swift; sourceTree = "<group>"; };
 		OBJ_72 /* FileParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileParameters.swift; sourceTree = "<group>"; };
 		OBJ_73 /* GenerationParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationParameters.swift; sourceTree = "<group>"; };
-		OBJ_74 /* ImagesParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesParameters.swift; sourceTree = "<group>"; };
 		OBJ_75 /* NodesParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodesParameters.swift; sourceTree = "<group>"; };
 		OBJ_76 /* RenderParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderParameters.swift; sourceTree = "<group>"; };
-		OBJ_78 /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
-		OBJ_79 /* TextStyleColorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyleColorInfo.swift; sourceTree = "<group>"; };
-		OBJ_80 /* TextStyleNodeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyleNodeInfo.swift; sourceTree = "<group>"; };
 		OBJ_83 /* AssetsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsProvider.swift; sourceTree = "<group>"; };
 		OBJ_84 /* DefaultAssetsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAssetsProvider.swift; sourceTree = "<group>"; };
 		OBJ_87 /* ColorStyleAssetsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStyleAssetsProvider.swift; sourceTree = "<group>"; };
@@ -1154,7 +1148,7 @@
 		"Stencil::Stencil::Product" /* Stencil.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Stencil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"StencilSwiftKit::StencilSwiftKit::Product" /* StencilSwiftKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StencilSwiftKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftCLI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Yams::CYaml::Product" /* CYaml.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CYaml.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Yams::CYaml::Product" /* CYaml.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CYaml.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Yams::Yams::Product" /* Yams.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Yams.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1284,13 +1278,99 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		OBJ_10 /* Color */ = {
+		C03731B223E5C9B6007E2F31 /* TextStyles */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_11 /* ColorCoder.swift */,
-				OBJ_12 /* DefaultColorCoder.swift */,
+				C03731BD23E5CEEC007E2F31 /* DefaultTextStylesProvider.swift */,
+				C03731BE23E5CEEC007E2F31 /* TextStylesProvider.swift */,
+				C03731BC23E5CEEC007E2F31 /* TextStylesProviderError.swift */,
 			);
-			path = Color;
+			path = TextStyles;
+			sourceTree = "<group>";
+		};
+		C03731B523E5CA06007E2F31 /* TextStyle */ = {
+			isa = PBXGroup;
+			children = (
+				C03731B623E5CA06007E2F31 /* TextStyle.swift */,
+				C03731B723E5CA06007E2F31 /* TextStyleNode.swift */,
+				C03731B823E5CA06007E2F31 /* TextStyleColor.swift */,
+			);
+			path = TextStyle;
+			sourceTree = "<group>";
+		};
+		C03731C423E5D6BB007E2F31 /* TextStyles */ = {
+			isa = PBXGroup;
+			children = (
+				C03731C523E5D6BB007E2F31 /* DefaultTextStylesGenerator.swift */,
+				C03731C623E5D6BB007E2F31 /* TextStylesContext.swift */,
+				C03731C723E5D6BB007E2F31 /* TextStylesGenerator.swift */,
+			);
+			path = TextStyles;
+			sourceTree = "<group>";
+		};
+		C088409623E5E008002DFA65 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C088409A23E5E1EC002DFA65 /* Image.swift */,
+				C088409823E5E1EC002DFA65 /* ImageAsset.swift */,
+				C088409723E5E1EC002DFA65 /* ImageFormat.swift */,
+				C08840A723E5F018002DFA65 /* ImageNode.swift */,
+				C088409C23E5E1EC002DFA65 /* ImageRenderedNode.swift */,
+				C088409B23E5E1EC002DFA65 /* ImageResource.swift */,
+				C088409D23E5E1ED002DFA65 /* ImageScale.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		C08840A923E5F1A6002DFA65 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C08840B323E5F1A6002DFA65 /* Assets */,
+				C08840AD23E5F1A6002DFA65 /* Render */,
+				C08840AA23E5F1A6002DFA65 /* Resources */,
+				C08840B223E5F1A6002DFA65 /* DefaultImagesProvider.swift */,
+				C08840B623E5F1A6002DFA65 /* ImagesProvider.swift */,
+				C08840B123E5F1A6002DFA65 /* ImagesProviderError.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		C08840AA23E5F1A6002DFA65 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C08840AB23E5F1A6002DFA65 /* DefaultImageResourcesProvider.swift */,
+				C08840AC23E5F1A6002DFA65 /* ImageResourcesProvider.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C08840AD23E5F1A6002DFA65 /* Render */ = {
+			isa = PBXGroup;
+			children = (
+				C08840AE23E5F1A6002DFA65 /* DefaultImageRenderProvider.swift */,
+				C08840AF23E5F1A6002DFA65 /* ImageRenderProviderError.swift */,
+				C08840B023E5F1A6002DFA65 /* ImageRenderProvider.swift */,
+			);
+			path = Render;
+			sourceTree = "<group>";
+		};
+		C08840B323E5F1A6002DFA65 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C08840B423E5F1A6002DFA65 /* ImageAssetsProvider.swift */,
+				C08840B523E5F1A6002DFA65 /* DefaultImageAssetsProvider.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		C08840CD23E5FE25002DFA65 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C08840CF23E5FE25002DFA65 /* DefaultImagesGenerator.swift */,
+				C08840CE23E5FE25002DFA65 /* ImagesContext.swift */,
+				C08840D023E5FE25002DFA65 /* ImagesGenerator.swift */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		OBJ_102 /* File */ = {
@@ -1336,15 +1416,6 @@
 			path = File;
 			sourceTree = "<group>";
 		};
-		OBJ_13 /* ColorStyles */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_14 /* ColorStylesCoder.swift */,
-				OBJ_15 /* DefaultColorStylesCoder.swift */,
-			);
-			path = ColorStyles;
-			sourceTree = "<group>";
-		};
 		OBJ_138 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1375,15 +1446,6 @@
 			path = Routes;
 			sourceTree = "<group>";
 		};
-		OBJ_16 /* Font */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_17 /* DefaultFontCoder.swift */,
-				OBJ_18 /* FontCoder.swift */,
-			);
-			path = Font;
-			sourceTree = "<group>";
-		};
 		OBJ_163 /* FigmaFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -1403,77 +1465,19 @@
 			path = FigmaNodes;
 			sourceTree = "<group>";
 		};
-		OBJ_170 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_171 /* Assets */,
-				OBJ_174 /* DefaultImagesProvider.swift */,
-				OBJ_175 /* ImagesProvider.swift */,
-				OBJ_176 /* ImagesProviderError.swift */,
-				OBJ_177 /* Render */,
-				OBJ_181 /* Resources */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
-		OBJ_171 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_172 /* DefaultImageAssetsProvider.swift */,
-				OBJ_173 /* ImageAssetsProvider.swift */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		OBJ_177 /* Render */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_178 /* DefaultImageRenderProvider.swift */,
-				OBJ_179 /* ImageRenderProvider.swift */,
-				OBJ_180 /* ImageRenderProviderError.swift */,
-			);
-			path = Render;
-			sourceTree = "<group>";
-		};
-		OBJ_181 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_182 /* DefaultImageResourcesProvider.swift */,
-				OBJ_183 /* ImageResourcesProvider.swift */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		OBJ_184 /* TextStyles */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_185 /* DefaultTextStylesProvider.swift */,
-				OBJ_186 /* TextStylesProvider.swift */,
-				OBJ_187 /* TextStylesProviderError.swift */,
-			);
-			path = TextStyles;
-			sourceTree = "<group>";
-		};
 		OBJ_188 /* Render */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_193 /* StencilExtensions */,
 				OBJ_189 /* DefaultTemplateRenderer.swift */,
+				C03731A623E4B60E007E2F31 /* DefaultTemplateContextCoder.swift */,
 				OBJ_190 /* RenderDestination.swift */,
 				OBJ_191 /* RenderTemplate.swift */,
 				OBJ_192 /* RenderTemplateType.swift */,
+				C037319E23E4ABD2007E2F31 /* TemplateContextCoder.swift */,
 				OBJ_215 /* TemplateRenderer.swift */,
 			);
 			path = Render;
-			sourceTree = "<group>";
-		};
-		OBJ_19 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_20 /* DefaultImagesCoder.swift */,
-				OBJ_21 /* ImagesCoder.swift */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 		OBJ_193 /* StencilExtensions */ = {
@@ -1541,6 +1545,9 @@
 		OBJ_218 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_228 /* ColorSet */,
+				OBJ_238 /* Folder */,
+				OBJ_242 /* ImageSet */,
 				OBJ_219 /* AssetAppearance.swift */,
 				OBJ_220 /* AssetAppearanceContrast.swift */,
 				OBJ_221 /* AssetAppearanceLuminosity.swift */,
@@ -1550,20 +1557,8 @@
 				OBJ_225 /* AssetIdiomIPadSubtype.swift */,
 				OBJ_226 /* AssetInfo.swift */,
 				OBJ_227 /* AssetNode.swift */,
-				OBJ_228 /* ColorSet */,
-				OBJ_238 /* Folder */,
-				OBJ_242 /* ImageSet */,
 			);
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		OBJ_22 /* TextStyles */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_23 /* DefaultTextStylesCoder.swift */,
-				OBJ_24 /* TextStylesCoder.swift */,
-			);
-			path = TextStyles;
 			sourceTree = "<group>";
 		};
 		OBJ_228 /* ColorSet */ = {
@@ -1618,8 +1613,8 @@
 				OBJ_27 /* ColorStylesCommand.swift */,
 				OBJ_28 /* GenerateCommand.swift */,
 				OBJ_29 /* GenerationConfigurableCommand.swift */,
-				OBJ_30 /* ImagesCommand.swift */,
-				OBJ_31 /* TextStylesCommand.swift */,
+				C08840CB23E5FE16002DFA65 /* ImagesCommand.swift */,
+				C03731C223E5D6B2007E2F31 /* TextStylesCommand.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -1630,7 +1625,9 @@
 				OBJ_284 /* Bundle+Extensions.swift */,
 				OBJ_285 /* CLI+Extensions.swift */,
 				OBJ_286 /* Collection+Extensions.swift */,
+				C088409423E5DACC002DFA65 /* Decodable+Extensions.swift */,
 				OBJ_287 /* DispatchQueue+Extensions.swift */,
+				C088409223E5DAA8002DFA65 /* Encodable+Extensions.swift */,
 				OBJ_288 /* FloatingPoint+Extensions.swift */,
 				OBJ_289 /* JSONDecoder+Extensions.swift */,
 				OBJ_290 /* JSONEncoder+Extensions.swift */,
@@ -1653,6 +1650,8 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_303 /* BodyEncoders */,
+				OBJ_320 /* QueryEncoders */,
+				OBJ_323 /* ResponseSerializers */,
 				OBJ_307 /* HTTPActivityIndicator.swift */,
 				OBJ_308 /* HTTPAnyEncodable.swift */,
 				OBJ_309 /* HTTPError.swift */,
@@ -1666,8 +1665,6 @@
 				OBJ_317 /* HTTPStatusCode.swift */,
 				OBJ_318 /* HTTPTask.swift */,
 				OBJ_319 /* HTTPUIActivityIndicator.swift */,
-				OBJ_320 /* QueryEncoders */,
-				OBJ_323 /* ResponseSerializers */,
 			);
 			path = HTTPService;
 			sourceTree = "<group>";
@@ -1709,9 +1706,9 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_34 /* ColorStyles */,
-				OBJ_39 /* Images */,
+				C08840CD23E5FE25002DFA65 /* Images */,
 				OBJ_42 /* Library */,
-				OBJ_45 /* TextStyles */,
+				C03731C423E5D6BB007E2F31 /* TextStyles */,
 				OBJ_37 /* GenerationParametersError.swift */,
 				OBJ_38 /* GenerationParametersResolving.swift */,
 			);
@@ -1752,6 +1749,7 @@
 		OBJ_34 /* ColorStyles */ = {
 			isa = PBXGroup;
 			children = (
+				C03731A823E4BC2E007E2F31 /* ColorStylesContext.swift */,
 				OBJ_35 /* ColorStylesGenerator.swift */,
 				OBJ_36 /* DefaultColorStylesGenerator.swift */,
 			);
@@ -1871,15 +1869,6 @@
 			path = Strategies;
 			sourceTree = "<group>";
 		};
-		OBJ_39 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_40 /* DefaultImagesGenerator.swift */,
-				OBJ_41 /* ImagesGenerator.swift */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
 		OBJ_393 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -1980,15 +1969,6 @@
 			path = .build/checkouts/Stencil/Sources;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_45 /* TextStyles */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_46 /* DefaultTextStylesGenerator.swift */,
-				OBJ_47 /* TextStylesGenerator.swift */,
-			);
-			path = TextStyles;
-			sourceTree = "<group>";
-		};
 		OBJ_450 /* PathKit 0.9.2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2070,11 +2050,11 @@
 			children = (
 				OBJ_50 /* ColorStyle */,
 				OBJ_54 /* Configuration */,
-				OBJ_63 /* Image */,
+				C088409623E5E008002DFA65 /* Images */,
 				OBJ_71 /* Parameters */,
-				OBJ_77 /* TextStyle */,
+				C03731B523E5CA06007E2F31 /* TextStyle */,
 				OBJ_49 /* Color.swift */,
-				OBJ_62 /* Font.swift */,
+				C03731B023E5B295007E2F31 /* Font.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2138,7 +2118,7 @@
 			path = .build/checkouts/SwiftCLI/Sources/SwiftCLI;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_7 /* Sources */,
@@ -2165,15 +2145,14 @@
 				OBJ_6 /* Package.swift */,
 				OBJ_542 /* README.md */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_50 /* ColorStyle */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_51 /* ColorStyle.swift */,
-				OBJ_52 /* ColorStyleAssetInfo.swift */,
-				OBJ_53 /* ColorStyleNodeInfo.swift */,
+				OBJ_52 /* ColorStyleAsset.swift */,
+				OBJ_53 /* ColorStyleNode.swift */,
 			);
 			path = ColorStyle;
 			sourceTree = "<group>";
@@ -2206,24 +2185,10 @@
 				OBJ_57 /* Configuration.swift */,
 				OBJ_58 /* FileConfiguration.swift */,
 				OBJ_59 /* GenerationConfiguration.swift */,
-				OBJ_60 /* ImagesConfiguration.swift */,
-				OBJ_61 /* TextStylesConfiguration.swift */,
+				C08840A523E5EC5F002DFA65 /* ImagesConfiguration.swift */,
+				C03731B323E5C9F3007E2F31 /* TextStylesConfiguration.swift */,
 			);
 			path = Configuration;
-			sourceTree = "<group>";
-		};
-		OBJ_63 /* Image */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_64 /* Image.swift */,
-				OBJ_65 /* ImageAssetInfo.swift */,
-				OBJ_66 /* ImageFormat.swift */,
-				OBJ_67 /* ImageNodeBaseInfo.swift */,
-				OBJ_68 /* ImageNodeInfo.swift */,
-				OBJ_69 /* ImageResourceInfo.swift */,
-				OBJ_70 /* ImageScale.swift */,
-			);
-			path = Image;
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -2241,27 +2206,16 @@
 			children = (
 				OBJ_72 /* FileParameters.swift */,
 				OBJ_73 /* GenerationParameters.swift */,
-				OBJ_74 /* ImagesParameters.swift */,
+				C08840C823E5FBA8002DFA65 /* ImagesParameters.swift */,
 				OBJ_75 /* NodesParameters.swift */,
 				OBJ_76 /* RenderParameters.swift */,
 			);
 			path = Parameters;
 			sourceTree = "<group>";
 		};
-		OBJ_77 /* TextStyle */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_78 /* TextStyle.swift */,
-				OBJ_79 /* TextStyleColorInfo.swift */,
-				OBJ_80 /* TextStyleNodeInfo.swift */,
-			);
-			path = TextStyle;
-			sourceTree = "<group>";
-		};
 		OBJ_8 /* Fugen */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_9 /* Coders */,
 				OBJ_25 /* Commands */,
 				OBJ_33 /* Generators */,
 				OBJ_48 /* Models */,
@@ -2284,8 +2238,8 @@
 				OBJ_98 /* FigmaAPI */,
 				OBJ_163 /* FigmaFiles */,
 				OBJ_166 /* FigmaNodes */,
-				OBJ_170 /* Images */,
-				OBJ_184 /* TextStyles */,
+				C08840A923E5F1A6002DFA65 /* Images */,
+				C03731B223E5C9B6007E2F31 /* TextStyles */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -2317,18 +2271,6 @@
 				OBJ_88 /* DefaultColorStyleAssetsProvider.swift */,
 			);
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		OBJ_9 /* Coders */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_10 /* Color */,
-				OBJ_13 /* ColorStyles */,
-				OBJ_16 /* Font */,
-				OBJ_19 /* Images */,
-				OBJ_22 /* TextStyles */,
-			);
-			path = Coders;
 			sourceTree = "<group>";
 		};
 		OBJ_92 /* Configuration */ = {
@@ -2766,6 +2708,11 @@
 			attributes = {
 				LastSwiftMigration = 9999;
 				LastUpgradeCheck = 9999;
+				TargetAttributes = {
+					"Yams::CYaml" = {
+						LastSwiftMigration = 1130;
+					};
+				};
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Fugen" */;
 			compatibilityVersion = "Xcode 11.0";
@@ -2774,7 +2721,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_521 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -3072,60 +3019,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_606 /* ColorCoder.swift in Sources */,
-				OBJ_607 /* DefaultColorCoder.swift in Sources */,
-				OBJ_608 /* ColorStylesCoder.swift in Sources */,
-				OBJ_609 /* DefaultColorStylesCoder.swift in Sources */,
-				OBJ_610 /* DefaultFontCoder.swift in Sources */,
-				OBJ_611 /* FontCoder.swift in Sources */,
-				OBJ_612 /* DefaultImagesCoder.swift in Sources */,
-				OBJ_613 /* ImagesCoder.swift in Sources */,
-				OBJ_614 /* DefaultTextStylesCoder.swift in Sources */,
-				OBJ_615 /* TextStylesCoder.swift in Sources */,
+				C03731A923E4BC2E007E2F31 /* ColorStylesContext.swift in Sources */,
 				OBJ_616 /* AsyncExecutableCommand.swift in Sources */,
 				OBJ_617 /* ColorStylesCommand.swift in Sources */,
 				OBJ_618 /* GenerateCommand.swift in Sources */,
+				C088409E23E5E1ED002DFA65 /* ImageFormat.swift in Sources */,
 				OBJ_619 /* GenerationConfigurableCommand.swift in Sources */,
-				OBJ_620 /* ImagesCommand.swift in Sources */,
-				OBJ_621 /* TextStylesCommand.swift in Sources */,
 				OBJ_622 /* Dependencies.swift in Sources */,
 				OBJ_623 /* ColorStylesGenerator.swift in Sources */,
 				OBJ_624 /* DefaultColorStylesGenerator.swift in Sources */,
+				C03731C123E5CEEC007E2F31 /* TextStylesProvider.swift in Sources */,
 				OBJ_625 /* GenerationParametersError.swift in Sources */,
 				OBJ_626 /* GenerationParametersResolving.swift in Sources */,
-				OBJ_627 /* DefaultImagesGenerator.swift in Sources */,
-				OBJ_628 /* ImagesGenerator.swift in Sources */,
 				OBJ_629 /* DefaultLibraryGenerator.swift in Sources */,
 				OBJ_630 /* LibraryGenerator.swift in Sources */,
-				OBJ_631 /* DefaultTextStylesGenerator.swift in Sources */,
-				OBJ_632 /* TextStylesGenerator.swift in Sources */,
 				OBJ_633 /* Color.swift in Sources */,
+				C08840C623E5FAF4002DFA65 /* ImagesProviderError.swift in Sources */,
+				C03731C923E5D6BC007E2F31 /* TextStylesContext.swift in Sources */,
 				OBJ_634 /* ColorStyle.swift in Sources */,
-				OBJ_635 /* ColorStyleAssetInfo.swift in Sources */,
-				OBJ_636 /* ColorStyleNodeInfo.swift in Sources */,
+				OBJ_635 /* ColorStyleAsset.swift in Sources */,
+				C03731B423E5C9F3007E2F31 /* TextStylesConfiguration.swift in Sources */,
+				OBJ_636 /* ColorStyleNode.swift in Sources */,
+				C03731C323E5D6B2007E2F31 /* TextStylesCommand.swift in Sources */,
 				OBJ_637 /* BaseConfiguration.swift in Sources */,
+				C08840A623E5EC60002DFA65 /* ImagesConfiguration.swift in Sources */,
 				OBJ_638 /* ColorStylesConfiguration.swift in Sources */,
 				OBJ_639 /* Configuration.swift in Sources */,
 				OBJ_640 /* FileConfiguration.swift in Sources */,
 				OBJ_641 /* GenerationConfiguration.swift in Sources */,
-				OBJ_642 /* ImagesConfiguration.swift in Sources */,
-				OBJ_643 /* TextStylesConfiguration.swift in Sources */,
-				OBJ_644 /* Font.swift in Sources */,
-				OBJ_645 /* Image.swift in Sources */,
-				OBJ_646 /* ImageAssetInfo.swift in Sources */,
-				OBJ_647 /* ImageFormat.swift in Sources */,
-				OBJ_648 /* ImageNodeBaseInfo.swift in Sources */,
-				OBJ_649 /* ImageNodeInfo.swift in Sources */,
-				OBJ_650 /* ImageResourceInfo.swift in Sources */,
-				OBJ_651 /* ImageScale.swift in Sources */,
 				OBJ_652 /* FileParameters.swift in Sources */,
 				OBJ_653 /* GenerationParameters.swift in Sources */,
-				OBJ_654 /* ImagesParameters.swift in Sources */,
 				OBJ_655 /* NodesParameters.swift in Sources */,
 				OBJ_656 /* RenderParameters.swift in Sources */,
-				OBJ_657 /* TextStyle.swift in Sources */,
-				OBJ_658 /* TextStyleColorInfo.swift in Sources */,
-				OBJ_659 /* TextStyleNodeInfo.swift in Sources */,
 				OBJ_660 /* AssetsProvider.swift in Sources */,
 				OBJ_661 /* DefaultAssetsProvider.swift in Sources */,
 				OBJ_662 /* ColorStyleAssetsProvider.swift in Sources */,
@@ -3134,11 +3059,15 @@
 				OBJ_665 /* ColorStylesProviderError.swift in Sources */,
 				OBJ_666 /* DefaultColorStylesProvider.swift in Sources */,
 				OBJ_667 /* ConfigurationProvider.swift in Sources */,
+				C08840C723E5FB5A002DFA65 /* ImagesProvider.swift in Sources */,
+				C08840D123E5FE25002DFA65 /* ImagesContext.swift in Sources */,
 				OBJ_668 /* DefaultConfigurationProvider.swift in Sources */,
+				C08840CA23E5FBD0002DFA65 /* DefaultImagesProvider.swift in Sources */,
 				OBJ_669 /* DataProvider.swift in Sources */,
 				OBJ_670 /* DefaultDataProvider.swift in Sources */,
 				OBJ_671 /* FigmaError.swift in Sources */,
 				OBJ_672 /* FigmaImages.swift in Sources */,
+				C03731BF23E5CEEC007E2F31 /* TextStylesProviderError.swift in Sources */,
 				OBJ_673 /* FigmaBlendMode.swift in Sources */,
 				OBJ_674 /* FigmaBooleanOperationType.swift in Sources */,
 				OBJ_675 /* FigmaColor.swift in Sources */,
@@ -3151,32 +3080,46 @@
 				OBJ_682 /* FigmaEffectType.swift in Sources */,
 				OBJ_683 /* FigmaExportSetting.swift in Sources */,
 				OBJ_684 /* FigmaFrameOffset.swift in Sources */,
+				C08840C123E5F6E1002DFA65 /* ImageRenderProviderError.swift in Sources */,
+				C03731CA23E5D6BC007E2F31 /* TextStylesGenerator.swift in Sources */,
 				OBJ_685 /* FigmaImageFormat.swift in Sources */,
+				C03731C023E5CEEC007E2F31 /* DefaultTextStylesProvider.swift in Sources */,
 				OBJ_686 /* FigmaLayoutConstraint.swift in Sources */,
 				OBJ_687 /* FigmaLayoutGrid.swift in Sources */,
 				OBJ_688 /* FigmaLayoutGridAlignment.swift in Sources */,
+				C08840A823E5F018002DFA65 /* ImageNode.swift in Sources */,
+				C08840C923E5FBA8002DFA65 /* ImagesParameters.swift in Sources */,
 				OBJ_689 /* FigmaLayoutGridPattern.swift in Sources */,
 				OBJ_690 /* FigmaLayoutHorizontalConstraint.swift in Sources */,
 				OBJ_691 /* FigmaLayoutVerticalConstraint.swift in Sources */,
 				OBJ_692 /* FigmaLineHeightUnit.swift in Sources */,
+				C08840A423E5E1ED002DFA65 /* ImageScale.swift in Sources */,
 				OBJ_693 /* FigmaPaint.swift in Sources */,
 				OBJ_694 /* FigmaPaintType.swift in Sources */,
 				OBJ_695 /* FigmaRectangle.swift in Sources */,
 				OBJ_696 /* FigmaScaleMode.swift in Sources */,
 				OBJ_697 /* FigmaStrokeAlignment.swift in Sources */,
+				C08840D223E5FE25002DFA65 /* DefaultImagesGenerator.swift in Sources */,
+				C08840A323E5E1ED002DFA65 /* ImageRenderedNode.swift in Sources */,
 				OBJ_698 /* FigmaStrokeCap.swift in Sources */,
 				OBJ_699 /* FigmaStrokeJoin.swift in Sources */,
+				C08840A223E5E1ED002DFA65 /* ImageResource.swift in Sources */,
 				OBJ_700 /* FigmaStyle.swift in Sources */,
 				OBJ_701 /* FigmaStyleType.swift in Sources */,
 				OBJ_702 /* FigmaTextCase.swift in Sources */,
 				OBJ_703 /* FigmaTextDecoration.swift in Sources */,
+				C03731B923E5CA06007E2F31 /* TextStyle.swift in Sources */,
 				OBJ_704 /* FigmaTextHorizontalAlignment.swift in Sources */,
+				C03731B123E5B295007E2F31 /* Font.swift in Sources */,
 				OBJ_705 /* FigmaTextVerticalAlignment.swift in Sources */,
 				OBJ_706 /* FigmaTypeStyle.swift in Sources */,
 				OBJ_707 /* FigmaVector.swift in Sources */,
 				OBJ_708 /* FigmaBooleanOperationNodePayload.swift in Sources */,
+				C08840BF23E5F1A6002DFA65 /* DefaultImageAssetsProvider.swift in Sources */,
 				OBJ_709 /* FigmaCanvasNodeInfo.swift in Sources */,
+				C08840C323E5F6FD002DFA65 /* DefaultImageRenderProvider.swift in Sources */,
 				OBJ_710 /* FigmaDocumentNodeInfo.swift in Sources */,
+				C088409F23E5E1ED002DFA65 /* ImageAsset.swift in Sources */,
 				OBJ_711 /* FigmaFile.swift in Sources */,
 				OBJ_712 /* FigmaFrameNodeInfo.swift in Sources */,
 				OBJ_713 /* FigmaInstanceNodePayload.swift in Sources */,
@@ -3186,10 +3129,15 @@
 				OBJ_717 /* FigmaSliceNodeInfo.swift in Sources */,
 				OBJ_718 /* FigmaTextNodePayload.swift in Sources */,
 				OBJ_719 /* FigmaVectorNodeInfo.swift in Sources */,
+				C08840A123E5E1ED002DFA65 /* Image.swift in Sources */,
 				OBJ_720 /* DefaultFigmaAPIProvider.swift in Sources */,
+				C03731A123E4AD52007E2F31 /* TemplateContextCoder.swift in Sources */,
+				C08840C223E5F6E4002DFA65 /* ImageRenderProvider.swift in Sources */,
+				C03731BA23E5CA06007E2F31 /* TextStyleNode.swift in Sources */,
 				OBJ_721 /* FigmaAPIEmptyParameters.swift in Sources */,
 				OBJ_722 /* FigmaAPIEmptyResponse.swift in Sources */,
 				OBJ_723 /* FigmaAPIProvider.swift in Sources */,
+				C08840BE23E5F1A6002DFA65 /* ImageAssetsProvider.swift in Sources */,
 				OBJ_724 /* FigmaAPIRoute.swift in Sources */,
 				OBJ_725 /* FigmaAPIVersion.swift in Sources */,
 				OBJ_726 /* FigmaHTTPService.swift in Sources */,
@@ -3202,25 +3150,18 @@
 				OBJ_733 /* DefaultFigmaNodesProvider.swift in Sources */,
 				OBJ_734 /* FigmaNodesProvider.swift in Sources */,
 				OBJ_735 /* FigmaNodesProviderError.swift in Sources */,
-				OBJ_736 /* DefaultImageAssetsProvider.swift in Sources */,
-				OBJ_737 /* ImageAssetsProvider.swift in Sources */,
-				OBJ_738 /* DefaultImagesProvider.swift in Sources */,
-				OBJ_739 /* ImagesProvider.swift in Sources */,
-				OBJ_740 /* ImagesProviderError.swift in Sources */,
-				OBJ_741 /* DefaultImageRenderProvider.swift in Sources */,
-				OBJ_742 /* ImageRenderProvider.swift in Sources */,
-				OBJ_743 /* ImageRenderProviderError.swift in Sources */,
-				OBJ_744 /* DefaultImageResourcesProvider.swift in Sources */,
-				OBJ_745 /* ImageResourcesProvider.swift in Sources */,
-				OBJ_746 /* DefaultTextStylesProvider.swift in Sources */,
-				OBJ_747 /* TextStylesProvider.swift in Sources */,
-				OBJ_748 /* TextStylesProviderError.swift in Sources */,
+				C03731A723E4B60E007E2F31 /* DefaultTemplateContextCoder.swift in Sources */,
+				C08840C423E5F82E002DFA65 /* ImageResourcesProvider.swift in Sources */,
 				OBJ_749 /* DefaultTemplateRenderer.swift in Sources */,
 				OBJ_750 /* RenderDestination.swift in Sources */,
 				OBJ_751 /* RenderTemplate.swift in Sources */,
+				C03731C823E5D6BC007E2F31 /* DefaultTextStylesGenerator.swift in Sources */,
 				OBJ_752 /* RenderTemplateType.swift in Sources */,
+				C08840C523E5F84C002DFA65 /* DefaultImageResourcesProvider.swift in Sources */,
 				OBJ_753 /* StencilColorFilter.swift in Sources */,
+				C03731BB23E5CA06007E2F31 /* TextStyleColor.swift in Sources */,
 				OBJ_754 /* StencilColorInfoFilter.swift in Sources */,
+				C08840D323E5FE25002DFA65 /* ImagesGenerator.swift in Sources */,
 				OBJ_755 /* StencilColorRGBAHexInfoFilter.swift in Sources */,
 				OBJ_756 /* StencilColorRGBAInfoFilter.swift in Sources */,
 				OBJ_757 /* StencilColorRGBHexInfoFilter.swift in Sources */,
@@ -3235,6 +3176,7 @@
 				OBJ_766 /* StencilFilter.swift in Sources */,
 				OBJ_767 /* StencilFilterError.swift in Sources */,
 				OBJ_768 /* StencilTag.swift in Sources */,
+				C08840D423E5FEB0002DFA65 /* ImagesCommand.swift in Sources */,
 				OBJ_769 /* StencilTagError.swift in Sources */,
 				OBJ_770 /* StencilTagNode.swift in Sources */,
 				OBJ_771 /* TemplateRenderer.swift in Sources */,
@@ -3322,6 +3264,7 @@
 				OBJ_927 /* HTTPError.swift in Sources */,
 				OBJ_928 /* HTTPErrorStringConvertible.swift in Sources */,
 				OBJ_929 /* HTTPHeader.swift in Sources */,
+				C088409523E5DACC002DFA65 /* Decodable+Extensions.swift in Sources */,
 				OBJ_930 /* HTTPMethod.swift in Sources */,
 				OBJ_931 /* HTTPResponse.swift in Sources */,
 				OBJ_932 /* HTTPRoute.swift in Sources */,
@@ -3356,6 +3299,7 @@
 				OBJ_961 /* URLEncodedFormUnkeyedEncodingContainer.swift in Sources */,
 				OBJ_962 /* URLEncoder.swift in Sources */,
 				OBJ_963 /* URLSpaceEncodingStrategy.swift in Sources */,
+				C088409323E5DAA8002DFA65 /* Encodable+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4111,6 +4055,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = CYaml;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
@@ -4146,6 +4092,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = CYaml;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;

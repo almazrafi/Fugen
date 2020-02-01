@@ -1,6 +1,6 @@
 import Foundation
 
-struct ColorStyleAssetInfo: Hashable {
+struct ColorStyleAsset: Encodable, Hashable {
 
     // MARK: - Instance Properties
 

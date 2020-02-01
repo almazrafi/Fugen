@@ -7,7 +7,6 @@ final class DefaultImagesGenerator: ImagesGenerator, GenerationParametersResolvi
     // MARK: - Instance Properties
 
     let imagesProvider: ImagesProvider
-    let imagesCoder: ImagesCoder
     let templateRenderer: TemplateRenderer
 
     let defaultTemplateType = RenderTemplateType.native(name: "Images")
@@ -15,13 +14,8 @@ final class DefaultImagesGenerator: ImagesGenerator, GenerationParametersResolvi
 
     // MARK: - Initializers
 
-    init(
-        imagesProvider: ImagesProvider,
-        imagesCoder: ImagesCoder,
-        templateRenderer: TemplateRenderer
-    ) {
+    init(imagesProvider: ImagesProvider, templateRenderer: TemplateRenderer) {
         self.imagesProvider = imagesProvider
-        self.imagesCoder = imagesCoder
         self.templateRenderer = templateRenderer
     }
 
@@ -34,9 +28,9 @@ final class DefaultImagesGenerator: ImagesGenerator, GenerationParametersResolvi
                 nodes: parameters.nodes,
                 parameters: imagesParameters
             )
-        }.done { images in
-            let context = self.imagesCoder.encodeImages(images)
-
+        }.map { images in
+            ImagesContext(images: images)
+        }.done { context in
             try self.templateRenderer.renderTemplate(
                 parameters.render.template,
                 to: parameters.render.destination,

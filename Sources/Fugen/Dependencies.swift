@@ -53,52 +53,40 @@ enum Dependencies {
 
     // MARK: -
 
-    static let colorCoder: ColorCoder = DefaultColorCoder()
-    static let fontCoder: FontCoder = DefaultFontCoder()
-
-    static let colorStylesCoder: ColorStylesCoder = DefaultColorStylesCoder(colorCoder: colorCoder)
-
-    static let textStylesCoder: TextStylesCoder = DefaultTextStylesCoder(
-        fontCoder: fontCoder,
-        colorCoder: colorCoder
-    )
-
-    static let imagesCoder: ImagesCoder = DefaultImagesCoder()
-
-    // MARK: -
+    static let templateContextCoder: TemplateContextCoder = DefaultTemplateContextCoder()
 
     static let stencilExtensions: [StencilExtension] = [
         StencilByteToHexFilter(),
         StencilHexToByteFilter(),
         StencilByteToFloatFilter(),
         StencilFloatToByteFilter(),
-        StencilColorRGBHexInfoFilter(colorCoder: colorCoder),
-        StencilColorRGBAHexInfoFilter(colorCoder: colorCoder),
-        StencilColorRGBInfoFilter(colorCoder: colorCoder),
-        StencilColorRGBAInfoFilter(colorCoder: colorCoder),
-        StencilColorInfoFilter(colorCoder: colorCoder),
-        StencilFontInfoFilter(fontCoder: fontCoder)
+        StencilColorRGBHexInfoFilter(contextCoder: templateContextCoder),
+        StencilColorRGBAHexInfoFilter(contextCoder: templateContextCoder),
+        StencilColorRGBInfoFilter(contextCoder: templateContextCoder),
+        StencilColorRGBAInfoFilter(contextCoder: templateContextCoder),
+        StencilColorInfoFilter(contextCoder: templateContextCoder),
+        StencilFontInfoFilter(contextCoder: templateContextCoder)
     ]
 
-    static let templateRenderer: TemplateRenderer = DefaultTemplateRenderer(stencilExtensions: stencilExtensions)
+    static let templateRenderer: TemplateRenderer = DefaultTemplateRenderer(
+        contextCoder: templateContextCoder,
+        stencilExtensions: stencilExtensions
+    )
 
     // MARK: -
 
     static let colorStylesGenerator: ColorStylesGenerator = DefaultColorStylesGenerator(
         colorStylesProvider: colorStylesProvider,
-        colorStylesCoder: colorStylesCoder,
         templateRenderer: templateRenderer
     )
 
     static let textStylesGenerator: TextStylesGenerator = DefaultTextStylesGenerator(
         textStylesProvider: textStylesProvider,
-        textStylesCoder: textStylesCoder,
         templateRenderer: templateRenderer
     )
 
     static let imagesGenerator: ImagesGenerator = DefaultImagesGenerator(
         imagesProvider: imagesProvider,
-        imagesCoder: imagesCoder,
         templateRenderer: templateRenderer
     )
 

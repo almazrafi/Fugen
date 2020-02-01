@@ -99,7 +99,7 @@ final class ColorStylesCommand: AsyncExecutableCommand, GenerationConfigurableCo
 
     private func resolveColorStylesConfiguration() -> ColorStylesConfiguration {
         return ColorStylesConfiguration(
-            generatation: generationConfiguration,
+            generation: generationConfiguration,
             assets: assets.value
         )
     }

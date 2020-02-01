@@ -6,12 +6,12 @@ final class StencilFontInfoFilter: StencilFontFilter {
 
     let name = "fontInfo"
 
-    let fontCoder: FontCoder
+    let contextCoder: TemplateContextCoder
 
     // MARK: - Initializers
 
-    init(fontCoder: FontCoder) {
-        self.fontCoder = fontCoder
+    init(contextCoder: TemplateContextCoder) {
+        self.contextCoder = contextCoder
     }
 
     // MARK: - Instance Methods

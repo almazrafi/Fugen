@@ -7,11 +7,13 @@ final class DefaultTemplateRenderer: TemplateRenderer {
 
     // MARK: - Instance Properties
 
+    let contextCoder: TemplateContextCoder
     let stencilExtensions: [StencilExtension]
 
     // MARK: - Initializers
 
-    init(stencilExtensions: [StencilExtension]) {
+    init(contextCoder: TemplateContextCoder, stencilExtensions: [StencilExtension]) {
+        self.contextCoder = contextCoder
         self.stencilExtensions = stencilExtensions
     }
 
@@ -66,7 +68,11 @@ final class DefaultTemplateRenderer: TemplateRenderer {
 
     // MARK: -
 
-    func renderTemplate(_ template: RenderTemplate, to destination: RenderDestination, context: [String: Any]) throws {
+    func renderTemplate<Context: Encodable>(
+        _ template: RenderTemplate,
+        to destination: RenderDestination,
+        context: Context
+    ) throws {
         let stencilExtensionRegistry = ExtensionRegistry()
 
         stencilExtensionRegistry.registerStencilSwiftExtensions()
@@ -88,8 +94,11 @@ final class DefaultTemplateRenderer: TemplateRenderer {
             environment: stencilEnvironment
         )
 
-        let context = context.merging([.templateOptionsKey: template.options]) { $1 }
-        let output = try stencilTemplate.render(context)
+        let templateContext = try contextCoder
+            .encode(context)
+            .merging([.templateOptionsKey: template.options]) { $1 }
+
+        let output = try stencilTemplate.render(templateContext)
 
         try writeOutput(output, to: destination)
     }

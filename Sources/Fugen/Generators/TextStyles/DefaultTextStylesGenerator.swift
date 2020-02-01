@@ -7,7 +7,6 @@ final class DefaultTextStylesGenerator: TextStylesGenerator, GenerationParameter
     // MARK: - Instance Properties
 
     let textStylesProvider: TextStylesProvider
-    let textStylesCoder: TextStylesCoder
     let templateRenderer: TemplateRenderer
 
     let defaultTemplateType = RenderTemplateType.native(name: "TextStyles")
@@ -15,13 +14,8 @@ final class DefaultTextStylesGenerator: TextStylesGenerator, GenerationParameter
 
     // MARK: - Initializers
 
-    init(
-        textStylesProvider: TextStylesProvider,
-        textStylesCoder: TextStylesCoder,
-        templateRenderer: TemplateRenderer
-    ) {
+    init(textStylesProvider: TextStylesProvider, templateRenderer: TemplateRenderer) {
         self.textStylesProvider = textStylesProvider
-        self.textStylesCoder = textStylesCoder
         self.templateRenderer = templateRenderer
     }
 
@@ -30,9 +24,9 @@ final class DefaultTextStylesGenerator: TextStylesGenerator, GenerationParameter
     private func generate(parameters: GenerationParameters) -> Promise<Void> {
         return firstly {
             self.textStylesProvider.fetchTextStyles(from: parameters.file, nodes: parameters.nodes)
-        }.done { textStyles in
-            let context = self.textStylesCoder.encodeTextStyles(textStyles)
-
+        }.map { textStyles in
+            TextStylesContext(textStyles: textStyles)
+        }.done { context in
             try self.templateRenderer.renderTemplate(
                 parameters.render.template,
                 to: parameters.render.destination,

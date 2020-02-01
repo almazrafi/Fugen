@@ -41,13 +41,8 @@ struct ImagesConfiguration: Decodable {
         assets = try container.decodeIfPresent(forKey: .assets)
         resources = try container.decodeIfPresent(forKey: .resources)
 
-        format = try container
-            .decodeIfPresent(ImageRawFormat.self, forKey: .format)?
-            .imageFormat ?? .pdf
-
-        scales = try container
-            .decodeIfPresent([ImageRawScale].self, forKey: .scales)?
-            .map { $0.imageScale } ?? [.single]
+        format = try container.decodeIfPresent(ImageFormat.self, forKey: .format) ?? .pdf
+        scales = try container.decodeIfPresent([ImageScale].self, forKey: .scales) ?? [.none]
 
         generatation = try GenerationConfiguration(from: decoder)
     }
@@ -62,57 +57,5 @@ struct ImagesConfiguration: Decodable {
             format: format,
             scales: scales
         )
-    }
-}
-
-private enum ImageRawFormat: String, Codable {
-
-    // MARK: - Enumeration Cases
-
-    case pdf
-    case png
-    case jpg
-    case svg
-
-    // MARK: - Instance Properties
-
-    var imageFormat: ImageFormat {
-        switch self {
-        case .pdf:
-            return .pdf
-
-        case .png:
-            return .png
-
-        case .jpg:
-            return .jpg
-
-        case .svg:
-            return .svg
-        }
-    }
-}
-
-private enum ImageRawScale: Int, Codable {
-
-    // MARK: - Enumeration Cases
-
-    case scale1x = 1
-    case scale2x
-    case scale3x
-
-    // MARK: - Instance Properties
-
-    var imageScale: ImageScale {
-        switch self {
-        case .scale1x:
-            return .scale1x
-
-        case .scale2x:
-            return .scale2x
-
-        case .scale3x:
-            return .scale3x
-        }
     }
 }

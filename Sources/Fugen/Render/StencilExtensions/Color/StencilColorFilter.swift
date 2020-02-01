@@ -8,7 +8,7 @@ protocol StencilColorFilter: StencilFilter where Input == [String: Any], Output 
 
     // MARK: - Instance Properties
 
-    var colorCoder: ColorCoder { get }
+    var contextCoder: TemplateContextCoder { get }
 
     // MARK: - Instance Methods
 
@@ -39,7 +39,7 @@ extension StencilColorFilter {
     }
 
     func filter(input: [String: Any]) throws -> ColorFilterOutput {
-        guard let color = colorCoder.decodeColor(from: input) else {
+        guard let color = try? contextCoder.decode(Color.self, from: input) else {
             throw StencilFilterError(code: .invalidValue(input), filter: name)
         }
 

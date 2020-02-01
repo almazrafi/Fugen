@@ -1,6 +1,6 @@
 import Foundation
 
-struct ImageResourceInfo: Hashable {
+struct ImageResource: Encodable, Hashable {
 
     // MARK: - Instance Properties
 

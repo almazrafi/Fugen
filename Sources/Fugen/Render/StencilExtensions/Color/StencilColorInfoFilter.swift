@@ -6,21 +6,21 @@ final class StencilColorInfoFilter: StencilColorFilter {
 
     let name = "colorInfo"
 
-    let colorCoder: ColorCoder
+    let contextCoder: TemplateContextCoder
 
     // MARK: - Initializers
 
-    init(colorCoder: ColorCoder) {
-        self.colorCoder = colorCoder
+    init(contextCoder: TemplateContextCoder) {
+        self.contextCoder = contextCoder
     }
 
     // MARK: - Instance Methods
 
     func filter(color: Color) throws -> String {
-        let rgbaHexInfoFilter = StencilColorRGBAHexInfoFilter(colorCoder: colorCoder)
+        let rgbaHexInfoFilter = StencilColorRGBAHexInfoFilter(contextCoder: contextCoder)
         let rgbaHexInfo = try rgbaHexInfoFilter.filter(color: color)
 
-        let rgbaInfoFilter = StencilColorRGBAInfoFilter(colorCoder: colorCoder)
+        let rgbaInfoFilter = StencilColorRGBAInfoFilter(contextCoder: contextCoder)
         let rgbaInfo = try rgbaInfoFilter.filter(color: color)
 
         return "Hex \(rgbaHexInfo); rgba \(rgbaInfo)"

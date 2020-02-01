@@ -42,7 +42,7 @@ import AppKit
     /// {{ style.name }}
     ///
     /// {{ style.font|fontInfo }}
-    /// Color: {% if style.colorStyleName %}{{ style.colorStyleName }}; {% endif %}{{ style.color|colorInfo|lowerFirstWord }}
+    /// Color: {% if style.color.styleName %}{{ style.color.styleName }}; {% endif %}{{ style.color.color|colorInfo|lowerFirstWord }}
     /// Strikethrough: {{ style.strikethrough }}
     /// Underline: {{ style.underline }}
     /// Paragraph spacing: {{ style.paragraphSpacing|default:"default" }}
@@ -55,10 +55,10 @@ import AppKit
             size: {{ style.font.size }}
         ),
         color: {{ colorTypeName }}(
-            red: {{ style.color.red }},
-            green: {{ style.color.green }},
-            blue: {{ style.color.blue }},
-            alpha: {{ style.color.alpha }}
+            red: {{ style.color.color.red }},
+            green: {{ style.color.color.green }},
+            blue: {{ style.color.color.blue }},
+            alpha: {{ style.color.color.alpha }}
         ),
         strikethrough: {{ style.strikethrough }},
         underline: {{ style.underline }},
