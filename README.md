@@ -203,6 +203,15 @@ base:
 ...
 ```
 
+You can also set the name of the environment variable in the `env` field instead of the access token value itself.
+For example:
+```yaml
+base:
+  accessToken:
+    env: FUGEN_ACCESS_TOKEN
+...
+```
+
 In addition to the file identifier itself, the URL could also contain additional parameters
 and generally has the following format:
 ```url

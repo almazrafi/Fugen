@@ -38,10 +38,13 @@ struct GenerationConfiguration: Decodable {
     }
 
     init(from decoder: Decoder) throws {
+        let base = try BaseConfiguration(from: decoder)
+
+        file = base.file
+        accessToken = base.accessToken
+
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        file = try container.decodeIfPresent(forKey: .file)
-        accessToken = try container.decodeIfPresent(forKey: .accessToken)
         template = try container.decodeIfPresent(forKey: .template)
 
         templateOptions = try container
