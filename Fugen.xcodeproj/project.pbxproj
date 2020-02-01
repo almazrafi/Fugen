@@ -1469,8 +1469,8 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_193 /* StencilExtensions */,
-				OBJ_189 /* DefaultTemplateRenderer.swift */,
 				C03731A623E4B60E007E2F31 /* DefaultTemplateContextCoder.swift */,
+				OBJ_189 /* DefaultTemplateRenderer.swift */,
 				OBJ_190 /* RenderDestination.swift */,
 				OBJ_191 /* RenderTemplate.swift */,
 				OBJ_192 /* RenderTemplateType.swift */,
