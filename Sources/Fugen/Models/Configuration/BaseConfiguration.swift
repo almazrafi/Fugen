@@ -48,6 +48,8 @@ private enum AccessToken: Decodable {
     case environmentVariable(String)
     case value(String)
 
+    // MARK: - Initializers
+
     init(from decoder: Decoder) throws {
         if let container = try? decoder.container(keyedBy: CodingKeys.self) {
             self = .environmentVariable(try container.decode(String.self, forKey: .environmentVariable))
