@@ -191,6 +191,15 @@ base:
 ...
 ```
 
+You can also set the name of the environment variable in the `env` field instead of the access token value itself.
+For example:
+```yaml
+base:
+  accessToken:
+    env: FUGEN_ACCESS_TOKEN
+...
+```
+
 If for a certain file you need to use a different access token,
 it should be specified in the corresponding section of the configuration (see [Base parameters](#base-parameters)).
 
@@ -200,15 +209,6 @@ For example:
 ```yaml
 base:
   file: https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo
-...
-```
-
-You can also set the name of the environment variable in the `env` field instead of the access token value itself.
-For example:
-```yaml
-base:
-  accessToken:
-    env: FUGEN_ACCESS_TOKEN
 ...
 ```
 
