@@ -17,6 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+//        do {
+//            try Images.validate()
+//        } catch {
+//            fatalError("\(error)")
+//        }
+
         return true
     }
 }

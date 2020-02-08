@@ -32,11 +32,22 @@
 		C08A96592399CAAD0052F04C /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C08A96542399CAAD0052F04C /* SF-Pro-Display-Semibold.otf */; };
 		C08DB57B2380983E00391F14 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DB5792380983E00391F14 /* TextStyle.swift */; };
 		C08DB57C2380983E00391F14 /* ColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08DB57A2380983E00391F14 /* ColorStyle.swift */; };
+		C0D5EB5E23EEBE92000AB1B0 /* FugenDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D5EB5D23EEBE92000AB1B0 /* FugenDemoTests.swift */; };
 		C0E6B5FB238096C500083ADB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E6B5FA238096C500083ADB /* AppDelegate.swift */; };
 		C0E6B5FF238096C500083ADB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E6B5FE238096C500083ADB /* ViewController.swift */; };
 		C0E6B602238096C500083ADB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E6B600238096C500083ADB /* Main.storyboard */; };
 		C0E6B607238096C500083ADB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E6B605238096C500083ADB /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C0D5EB6023EEBE92000AB1B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0E6B5EF238096C500083ADB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0E6B5F6238096C500083ADB;
+			remoteInfo = FugenDemo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		29B6BD966DD89C853A1AFFD2 /* Pods-FugenDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FugenDemo.debug.xcconfig"; path = "Target Support Files/Pods-FugenDemo/Pods-FugenDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -53,7 +64,10 @@
 		C08A96542399CAAD0052F04C /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
 		C08DB5792380983E00391F14 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		C08DB57A2380983E00391F14 /* ColorStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorStyle.swift; sourceTree = "<group>"; };
-		C0E6B5F7238096C500083ADB /* Fugen Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fugen Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0D5EB5B23EEBE92000AB1B0 /* FugenDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FugenDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0D5EB5D23EEBE92000AB1B0 /* FugenDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FugenDemoTests.swift; sourceTree = "<group>"; };
+		C0D5EB5F23EEBE92000AB1B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0E6B5F7238096C500083ADB /* FugenDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FugenDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E6B5FA238096C500083ADB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0E6B5FE238096C500083ADB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C0E6B601238096C500083ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +77,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C0D5EB5823EEBE92000AB1B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C0E6B5F4238096C500083ADB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -126,10 +147,20 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		C0D5EB5C23EEBE92000AB1B0 /* FugenDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				C0D5EB5D23EEBE92000AB1B0 /* FugenDemoTests.swift */,
+				C0D5EB5F23EEBE92000AB1B0 /* Info.plist */,
+			);
+			path = FugenDemoTests;
+			sourceTree = "<group>";
+		};
 		C0E6B5EE238096C500083ADB = {
 			isa = PBXGroup;
 			children = (
 				C0E6B5F9238096C500083ADB /* FugenDemo */,
+				C0D5EB5C23EEBE92000AB1B0 /* FugenDemoTests */,
 				C0E6B5F8238096C500083ADB /* Products */,
 				45BFC2FE748FBFC15ABD446E /* Pods */,
 				CB1DDE6FE90E7C3F902816CB /* Frameworks */,
@@ -139,7 +170,8 @@
 		C0E6B5F8238096C500083ADB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C0E6B5F7238096C500083ADB /* Fugen Demo.app */,
+				C0E6B5F7238096C500083ADB /* FugenDemo.app */,
+				C0D5EB5B23EEBE92000AB1B0 /* FugenDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,6 +200,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C0D5EB5A23EEBE92000AB1B0 /* FugenDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0D5EB6423EEBE92000AB1B0 /* Build configuration list for PBXNativeTarget "FugenDemoTests" */;
+			buildPhases = (
+				C0D5EB5723EEBE92000AB1B0 /* Sources */,
+				C0D5EB5823EEBE92000AB1B0 /* Frameworks */,
+				C0D5EB5923EEBE92000AB1B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C0D5EB6123EEBE92000AB1B0 /* PBXTargetDependency */,
+			);
+			name = FugenDemoTests;
+			productName = FugenDemoTests;
+			productReference = C0D5EB5B23EEBE92000AB1B0 /* FugenDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C0E6B5F6238096C500083ADB /* FugenDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0E6B60B238096C500083ADB /* Build configuration list for PBXNativeTarget "FugenDemo" */;
@@ -183,7 +233,7 @@
 			);
 			name = FugenDemo;
 			productName = "Fugen Demo";
-			productReference = C0E6B5F7238096C500083ADB /* Fugen Demo.app */;
+			productReference = C0E6B5F7238096C500083ADB /* FugenDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -192,10 +242,14 @@
 		C0E6B5EF238096C500083ADB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Almaz Ibragimov";
 				TargetAttributes = {
+					C0D5EB5A23EEBE92000AB1B0 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = C0E6B5F6238096C500083ADB;
+					};
 					C0E6B5F6238096C500083ADB = {
 						CreatedOnToolsVersion = 11.0;
 					};
@@ -218,12 +272,20 @@
 			projectRoot = "";
 			targets = (
 				C0E6B5F6238096C500083ADB /* FugenDemo */,
+				C0D5EB5A23EEBE92000AB1B0 /* FugenDemoTests */,
 				C0F8CD4D239DA83F009EDF98 /* Fugen */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C0D5EB5923EEBE92000AB1B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C0E6B5F5238096C500083ADB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -286,6 +348,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C0D5EB5723EEBE92000AB1B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0D5EB5E23EEBE92000AB1B0 /* FugenDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C0E6B5F3238096C500083ADB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -299,6 +369,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C0D5EB6123EEBE92000AB1B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0E6B5F6238096C500083ADB /* FugenDemo */;
+			targetProxy = C0D5EB6023EEBE92000AB1B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C0E6B600238096C500083ADB /* Main.storyboard */ = {
@@ -320,6 +398,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C0D5EB6223EEBE92000AB1B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FugenDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.almazrafi.Fugen-Demo.Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FugenDemo.app/FugenDemo";
+			};
+			name = Debug;
+		};
+		C0D5EB6323EEBE92000AB1B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FugenDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.almazrafi.Fugen-Demo.Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FugenDemo.app/FugenDemo";
+			};
+			name = Release;
+		};
 		C0E6B609238096C500083ADB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -449,7 +567,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.almazrafi.Fugen-Demo";
-				PRODUCT_NAME = "Fugen Demo";
+				PRODUCT_NAME = FugenDemo;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -469,7 +587,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.almazrafi.Fugen-Demo";
-				PRODUCT_NAME = "Fugen Demo";
+				PRODUCT_NAME = FugenDemo;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -495,6 +613,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C0D5EB6423EEBE92000AB1B0 /* Build configuration list for PBXNativeTarget "FugenDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0D5EB6223EEBE92000AB1B0 /* Debug */,
+				C0D5EB6323EEBE92000AB1B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C0E6B5F2238096C500083ADB /* Build configuration list for PBXProject "FugenDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
