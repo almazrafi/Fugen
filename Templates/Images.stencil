@@ -4,9 +4,9 @@
 {% set imagesEnumName %}{{ options.imagesEnumName|default:"Images" }}{% endset %}
 {% set imageTypeName %}{{ options.imageTypeName|default:"UIImage" }}{% endset %}
 {% macro propertyName name %}{{ name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords }}{% endmacro %}
-{% macro assetImage asset %}{{ imageTypeName }}(named: "{{ asset.name }}")!{% endmacro %}
+{% macro assetImage asset %}{{ imageTypeName }}(named: "{{ asset.name }}"){% endmacro %}
 {% macro resourceFileName resource %}{{ resource.fileName }}.{{ resource.fileExtension }}{% endmacro %}
-{% macro resourceImage resource %}{{ imageTypeName }}(named: "{% call resourceFileName resource %}")!{% endmacro %}
+{% macro resourceImage resource %}{{ imageTypeName }}(named: "{% call resourceFileName resource %}"){% endmacro %}
 #if canImport(UIKit)
 import UIKit
 #else
@@ -15,21 +15,60 @@ import AppKit
 
 {{ accessModifier }} enum {{ imagesEnumName }} {
 
-    // MARK: - Enumeration Cases
+    // MARK: - Nested Types
+
+    {{ accessModifier }} enum ValidationError: Error, CustomStringConvertible {
+        case assetNotFound(name: String)
+        case resourceNotFound(name: String)
+
+        {{ accessModifier }} var description: String {
+            switch self {
+            case let .assetNotFound(name):
+                return "Image asset '\(name)' couldn't be loaded"
+
+            case let .resourceNotFound(name):
+                return "Image resource file '\(name)' couldn't be loaded"
+            }
+        }
+    }
+
+    // MARK: - Type Properties
 {% for image in images %}
 
 {% if image.asset %}
     /// {{ image.name }}
     ///
     /// Asset: {{ image.asset.name }}
-    {{ accessModifier }} static let {% call propertyName image.name %} = {% call assetImage image.asset %}
+    {{ accessModifier }} static var {% call propertyName image.name %}: {{ imageTypeName }} {
+        return {% call assetImage image.asset %}!
+    }
 {% elif image.resource %}
 	/// {{ image.name }}
 	///
 	/// Resource: {% call resourceFileName image.resource %}
-    {{ accessModifier }} static let {% call propertyName image.name %} = {% call resourceImage image.resource %}
+    {{ accessModifier }} static var {% call propertyName image.name %}: {{ imageTypeName }} {
+        return {% call resourceImage image.resource %}!
+    }
 {% endif %}
 {% endfor %}
+
+    // MARK: - Type Methods
+
+    {{ accessModifier }} static func validate() throws {
+        {% for image in images %}
+        {% if image.asset %}
+        guard {% call assetImage image.asset %} != nil else {
+            throw ValidationError.assetNotFound(name: "{{ image.asset.name }}")
+        }
+        {% elif image.resource %}
+        guard {% call resourceImage image.resource %} != nil else {
+            throw ValidationError.resourceNotFound(name: "{% call resourceFileName image.resource %}")
+        }
+        {% endif %}
+
+        {% endfor %}
+        print("All images are valid")
+    }
 }
 {% else %}
 // No text style found

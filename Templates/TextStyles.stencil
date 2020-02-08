@@ -36,6 +36,19 @@ import AppKit
 
 {{ accessModifier }} struct {{ styleTypeName }}: Equatable {
 
+    // MARK: - Nested Types
+
+    {{ accessModifier }} enum ValidationError: Error, CustomStringConvertible {
+        case fontNotFound(name: String, size: Double)
+
+        {{ accessModifier }} var description: String {
+            switch self {
+            case let .fontNotFound(name, size):
+                return "Font '\(name) \(size)' couldn't be loaded"
+            }
+        }
+    }
+
     // MARK: - Type Properties
 {% for style in textStyles %}
 
@@ -50,10 +63,7 @@ import AppKit
     /// Line height: {{ style.lineHeight|default:"default" }}
     /// Letter spacing: {{ style.letterSpacing|default:"default" }}
     {{ accessModifier }} static let {% call propertyName style.name %} = {{ styleTypeName }}(
-        font: {{ fontTypeName }}(
-            name: "{{ style.font.name }}",
-            size: {{ style.font.size }}
-        ),
+        font: {{ fontTypeName }}(name: "{{ style.font.name }}", size: {{ style.font.size }}),
         color: {{ colorTypeName }}(
             red: {{ style.color.color.red }},
             green: {{ style.color.color.green }},
@@ -68,6 +78,18 @@ import AppKit
         letterSpacing: {{ style.letterSpacing|default:"nil" }}
     )
 {% endfor %}
+
+    // MARK: - Type Methods
+
+    {{ accessModifier }} static func validate() throws {
+        {% for style in textStyles %}
+        guard {{ fontTypeName }}(name: "{{ style.font.name }}", size: {{ style.font.size }}) != nil else {
+            throw ValidationError.fontNotFound(name: "{{ style.font.name }}", size: {{ style.font.size }})
+        }
+
+        {% endfor %}
+        print("All text styles are valid")
+    }
 
     // MARK: - Instance Properties
 
