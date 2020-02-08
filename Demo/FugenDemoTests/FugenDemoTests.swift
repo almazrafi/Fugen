@@ -11,11 +11,19 @@ import FugenDemo
 
 class FugenDemoTests: XCTestCase {
 
-    func testImages() throws {
-        try Images.validate()
+    func testImages() {
+        do {
+            try Images.validate()
+        } catch {
+            XCTFail("Test encountered unexpected error: \(error)")
+        }
     }
 
-    func testTextStyles() throws {
-        try TextStyle.validate()
+    func testTextStyles() {
+        do {
+            try TextStyle.validate()
+        } catch {
+            XCTFail("Test encountered unexpected error: \(error)")
+        }
     }
 }
