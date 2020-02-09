@@ -48,6 +48,7 @@
 		C03731C823E5D6BC007E2F31 /* DefaultTextStylesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03731C523E5D6BB007E2F31 /* DefaultTextStylesGenerator.swift */; };
 		C03731C923E5D6BC007E2F31 /* TextStylesContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03731C623E5D6BB007E2F31 /* TextStylesContext.swift */; };
 		C03731CA23E5D6BC007E2F31 /* TextStylesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03731C723E5D6BB007E2F31 /* TextStylesGenerator.swift */; };
+		C0750FB723F0181400E1B454 /* AccessTokenConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0750FB623F0181400E1B454 /* AccessTokenConfiguration.swift */; };
 		C088409323E5DAA8002DFA65 /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C088409223E5DAA8002DFA65 /* Encodable+Extensions.swift */; };
 		C088409523E5DACC002DFA65 /* Decodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C088409423E5DACC002DFA65 /* Decodable+Extensions.swift */; };
 		C088409E23E5E1ED002DFA65 /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C088409723E5E1EC002DFA65 /* ImageFormat.swift */; };
@@ -738,6 +739,7 @@
 		C03731C523E5D6BB007E2F31 /* DefaultTextStylesGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultTextStylesGenerator.swift; sourceTree = "<group>"; };
 		C03731C623E5D6BB007E2F31 /* TextStylesContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylesContext.swift; sourceTree = "<group>"; };
 		C03731C723E5D6BB007E2F31 /* TextStylesGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylesGenerator.swift; sourceTree = "<group>"; };
+		C0750FB623F0181400E1B454 /* AccessTokenConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenConfiguration.swift; sourceTree = "<group>"; };
 		C088409223E5DAA8002DFA65 /* Encodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
 		C088409423E5DACC002DFA65 /* Decodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extensions.swift"; sourceTree = "<group>"; };
 		C088409723E5E1EC002DFA65 /* ImageFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFormat.swift; sourceTree = "<group>"; };
@@ -2180,6 +2182,7 @@
 		OBJ_54 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				C0750FB623F0181400E1B454 /* AccessTokenConfiguration.swift */,
 				OBJ_55 /* BaseConfiguration.swift */,
 				OBJ_56 /* ColorStylesConfiguration.swift */,
 				OBJ_57 /* Configuration.swift */,
@@ -3125,6 +3128,7 @@
 				OBJ_713 /* FigmaInstanceNodePayload.swift in Sources */,
 				OBJ_714 /* FigmaNode.swift in Sources */,
 				OBJ_715 /* FigmaNodeType.swift in Sources */,
+				C0750FB723F0181400E1B454 /* AccessTokenConfiguration.swift in Sources */,
 				OBJ_716 /* FigmaRectangleNodePayload.swift in Sources */,
 				OBJ_717 /* FigmaSliceNodeInfo.swift in Sources */,
 				OBJ_718 /* FigmaTextNodePayload.swift in Sources */,

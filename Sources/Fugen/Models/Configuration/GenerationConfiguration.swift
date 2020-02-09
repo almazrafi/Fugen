@@ -16,7 +16,7 @@ struct GenerationConfiguration: Decodable {
     // MARK: - Instance Properties
 
     let file: FileConfiguration?
-    let accessToken: String?
+    let accessToken: AccessTokenConfiguration?
     let template: String?
     let templateOptions: [String: Any]?
     let destination: String?
@@ -25,7 +25,7 @@ struct GenerationConfiguration: Decodable {
 
     init(
         file: FileConfiguration?,
-        accessToken: String?,
+        accessToken: AccessTokenConfiguration?,
         template: String?,
         templateOptions: [String: Any]?,
         destination: String?

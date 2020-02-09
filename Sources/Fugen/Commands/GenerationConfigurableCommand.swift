@@ -26,7 +26,7 @@ extension GenerationConfigurableCommand {
     var generationConfiguration: GenerationConfiguration {
         GenerationConfiguration(
             file: resolveFileConfiguration(),
-            accessToken: accessToken.value,
+            accessToken: resolveAccessTokenConfiguration(),
             template: template.value,
             templateOptions: resolveTemplateOptions(),
             destination: destination.value
@@ -46,6 +46,14 @@ extension GenerationConfigurableCommand {
             includedNodes: includedNodes.value,
             excludedNodes: excludedNodes.value
         )
+    }
+
+    private func resolveAccessTokenConfiguration() -> AccessTokenConfiguration? {
+        guard let accessToken = accessToken.value else {
+            return nil
+        }
+
+        return .value(accessToken)
     }
 
     private func resolveTemplateOptions() -> [String: Any] {
