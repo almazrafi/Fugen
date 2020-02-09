@@ -1,7 +1,7 @@
 PREFIX?=/usr/local
 
 PRODUCT_NAME=fugen
-PRODUCT_VERSION=1.0.1
+PRODUCT_VERSION=1.0.2
 TEMPLATES_NAME=Templates
 README_NAME=README.md
 LICENSE_NAME=LICENSE
@@ -69,6 +69,7 @@ uninstall:
 
 update_version:
 	sed -i '' 's|\(let version = "\)\(.*\)\("\)|\1$(PRODUCT_VERSION)\3|' $(SOURCES_MAIN_PATH)
+	sed -i '' 's|\(pod '\''Fugen'\'', '\''~> \)\(.*\)\('\''\)|\1$(PRODUCT_VERSION)\3|' $(README_PATH)
 
 release: update_version build
 	mkdir -p $(RELEASE_PATH)
