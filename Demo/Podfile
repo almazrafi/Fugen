@@ -3,5 +3,5 @@ platform :ios, '11.0'
 target 'FugenDemo' do
   use_frameworks!
 
-  pod 'Fugen', '~> 1.0.1'
+  pod 'Fugen', '~> 1.0.2'
 end

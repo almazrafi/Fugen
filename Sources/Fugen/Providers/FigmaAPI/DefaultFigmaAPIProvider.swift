@@ -25,6 +25,7 @@ final class DefaultFigmaAPIProvider: FigmaAPIProvider {
 
         urlEncoder.dateEncodingStrategy = .formatted(.figmaAPI(withMilliseconds: true))
         jsonEncoder.dateEncodingStrategy = .formatted(.figmaAPI(withMilliseconds: true))
+
         jsonDecoder.dateDecodingStrategy = .custom { decoder in
             let container = try decoder.singleValueContainer()
             let dateString = try container.decode(String.self)
