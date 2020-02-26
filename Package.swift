@@ -24,9 +24,9 @@ let package = Package(
         .target(
             name: "Fugen",
             dependencies: [
+                "Yams",
                 "SwiftCLI",
                 "Rainbow",
-                "Yams",
                 "PathKit",
                 "Stencil",
                 "StencilSwiftKit",

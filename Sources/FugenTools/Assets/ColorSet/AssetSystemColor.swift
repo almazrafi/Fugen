@@ -9,10 +9,7 @@ public struct AssetSystemColor: Codable, Hashable {
 
     // MARK: - Initializers
 
-    public init(
-        platform: AssetSystemColorPlatform?,
-        reference: String?
-    ) {
+    public init(platform: AssetSystemColorPlatform?, reference: String?) {
         self.platform = platform
         self.reference = reference
     }

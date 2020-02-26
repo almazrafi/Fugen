@@ -9,6 +9,15 @@ public enum AssetCustomColor: Codable, Hashable {
         case components
     }
 
+    private enum CodingColorSpace: String, Codable {
+        case sRGB = "srgb"
+        case extendedSRGB = "extended-srgb"
+        case extendedLinearSRGB = "extended-linear-srgb"
+        case displayP3 = "display-p3"
+        case grayGamma = "gray-gamma-22"
+        case extendedGray = "extended-gray"
+    }
+
     // MARK: - Enumeration Cases
 
     case sRGB(components: AssetColorComponents?)
@@ -23,31 +32,24 @@ public enum AssetCustomColor: Codable, Hashable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        switch try container.decode(String.self, forKey: .colorSpace) {
-        case .sRGBColorSpaceCodingValue:
+        switch try container.decode(CodingColorSpace.self, forKey: .colorSpace) {
+        case .sRGB:
             self = .sRGB(components: try container.decodeIfPresent(forKey: .components))
 
-        case .extendedSRGBColorSpaceCodingValue:
+        case .extendedSRGB:
             self = .extendedSRGB(components: try container.decodeIfPresent(forKey: .components))
 
-        case .extendedLinearSRGBColorSpaceCodingValue:
+        case .extendedLinearSRGB:
             self = .extendedLinearSRGB(components: try container.decodeIfPresent(forKey: .components))
 
-        case .displayP3ColorSpaceCodingValue:
+        case .displayP3:
             self = .displayP3(components: try container.decodeIfPresent(forKey: .components))
 
-        case .grayGammaColorSpaceCodingValue:
+        case .grayGamma:
             self = .grayGamma(grayscale: try container.decodeIfPresent(forKey: .components))
 
-        case .extendedGrayColorSpaceCodingValue:
+        case .extendedGray:
             self = .extendedGray(grayscale: try container.decodeIfPresent(forKey: .components))
-
-        default:
-            throw DecodingError.dataCorruptedError(
-                forKey: .colorSpace,
-                in: container,
-                debugDescription: "Unknown color space"
-            )
         }
     }
 
@@ -58,40 +60,28 @@ public enum AssetCustomColor: Codable, Hashable {
 
         switch self {
         case let .sRGB(components):
-            try container.encode(String.sRGBColorSpaceCodingValue, forKey: .colorSpace)
+            try container.encode(CodingColorSpace.sRGB, forKey: .colorSpace)
             try container.encodeIfPresent(components, forKey: .components)
 
         case let .extendedSRGB(components):
-            try container.encode(String.extendedSRGBColorSpaceCodingValue, forKey: .colorSpace)
+            try container.encode(CodingColorSpace.extendedSRGB, forKey: .colorSpace)
             try container.encodeIfPresent(components, forKey: .components)
 
         case let .extendedLinearSRGB(components):
-            try container.encode(String.extendedLinearSRGBColorSpaceCodingValue, forKey: .colorSpace)
+            try container.encode(CodingColorSpace.extendedLinearSRGB, forKey: .colorSpace)
             try container.encodeIfPresent(components, forKey: .components)
 
         case let .displayP3(components):
-            try container.encode(String.displayP3ColorSpaceCodingValue, forKey: .colorSpace)
+            try container.encode(CodingColorSpace.displayP3, forKey: .colorSpace)
             try container.encodeIfPresent(components, forKey: .components)
 
         case let .grayGamma(grayscale):
-            try container.encode(String.grayGammaColorSpaceCodingValue, forKey: .colorSpace)
+            try container.encode(CodingColorSpace.grayGamma, forKey: .colorSpace)
             try container.encodeIfPresent(grayscale, forKey: .components)
 
         case let .extendedGray(grayscale):
-            try container.encode(String.extendedGrayColorSpaceCodingValue, forKey: .colorSpace)
+            try container.encode(CodingColorSpace.extendedGray, forKey: .colorSpace)
             try container.encodeIfPresent(grayscale, forKey: .components)
         }
     }
-}
-
-private extension String {
-
-    // MARK: - Type Properties
-
-    static let sRGBColorSpaceCodingValue = "srgb"
-    static let extendedSRGBColorSpaceCodingValue = "extended-srgb"
-    static let extendedLinearSRGBColorSpaceCodingValue = "extended-linear-srgb"
-    static let displayP3ColorSpaceCodingValue = "display-p3"
-    static let grayGammaColorSpaceCodingValue = "gray-gamma-22"
-    static let extendedGrayColorSpaceCodingValue = "extended-gray"
 }
