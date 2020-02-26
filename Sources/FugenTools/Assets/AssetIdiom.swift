@@ -10,6 +10,16 @@ public enum AssetIdiom: Codable, Hashable {
         case screenWidth = "screen-width"
     }
 
+    private enum CodingType: String, Codable {
+        case universal
+        case iPhone = "iphone"
+        case iPad = "ipad"
+        case mac
+        case watch
+        case tv
+        case car
+    }
+
     // MARK: - Enumeration Cases
 
     case universal
@@ -25,7 +35,7 @@ public enum AssetIdiom: Codable, Hashable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        switch try container.decode(AssetIdiomRawType.self, forKey: .idiom) {
+        switch try container.decode(CodingType.self, forKey: .idiom) {
         case .universal:
             self = .universal
 
@@ -56,40 +66,27 @@ public enum AssetIdiom: Codable, Hashable {
 
         switch self {
         case .universal:
-            try container.encode(AssetIdiomRawType.universal, forKey: .idiom)
+            try container.encode(CodingType.universal, forKey: .idiom)
 
         case .iPhone:
-            try container.encode(AssetIdiomRawType.iPhone, forKey: .idiom)
+            try container.encode(CodingType.iPhone, forKey: .idiom)
 
         case let .iPad(subtype):
-            try container.encode(AssetIdiomRawType.iPad, forKey: .idiom)
+            try container.encode(CodingType.iPad, forKey: .idiom)
             try container.encodeIfPresent(subtype, forKey: .idiomSubtype)
 
         case .mac:
-            try container.encode(AssetIdiomRawType.mac, forKey: .idiom)
+            try container.encode(CodingType.mac, forKey: .idiom)
 
         case let .watch(screenWidth):
-            try container.encode(AssetIdiomRawType.watch, forKey: .idiom)
+            try container.encode(CodingType.watch, forKey: .idiom)
             try container.encodeIfPresent(screenWidth, forKey: .screenWidth)
 
         case .tv:
-            try container.encode(AssetIdiomRawType.tv, forKey: .idiom)
+            try container.encode(CodingType.tv, forKey: .idiom)
 
         case .car:
-            try container.encode(AssetIdiomRawType.car, forKey: .idiom)
+            try container.encode(CodingType.car, forKey: .idiom)
         }
     }
-}
-
-private enum AssetIdiomRawType: String, Codable {
-
-    // MARK: - Enumeration Cases
-
-    case universal
-    case iPhone = "iphone"
-    case iPad = "ipad"
-    case mac
-    case watch
-    case tv
-    case car
 }

@@ -9,6 +9,11 @@ public enum AssetAppearance: Codable, Hashable {
         case value = "value"
     }
 
+    private enum CodingType: String, Codable {
+        case luminosity
+        case contrast
+    }
+
     // MARK: - Enumeration Cases
 
     case luminosity(AssetAppearanceLuminosity)
@@ -19,19 +24,12 @@ public enum AssetAppearance: Codable, Hashable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        switch try container.decode(String.self, forKey: .type) {
-        case .luminosityAppearanceCodingValue:
+        switch try container.decode(CodingType.self, forKey: .type) {
+        case .luminosity:
             self = .luminosity(try container.decode(forKey: .value))
 
-        case .contrastAppearanceCodingValue:
+        case .contrast:
             self = .contrast(try container.decode(forKey: .value))
-
-        default:
-            throw DecodingError.dataCorruptedError(
-                forKey: .value,
-                in: container,
-                debugDescription: "Unknown appearance type"
-            )
         }
     }
 
@@ -42,20 +40,12 @@ public enum AssetAppearance: Codable, Hashable {
 
         switch self {
         case let .luminosity(luminosity):
-            try container.encode(String.luminosityAppearanceCodingValue, forKey: .type)
+            try container.encode(CodingType.luminosity, forKey: .type)
             try container.encode(luminosity, forKey: .value)
 
         case let .contrast(contrast):
-            try container.encode(String.contrastAppearanceCodingValue, forKey: .type)
+            try container.encode(CodingType.contrast, forKey: .type)
             try container.encode(contrast, forKey: .value)
         }
     }
-}
-
-private extension String {
-
-    // MARK: - Type Properties
-
-    static let luminosityAppearanceCodingValue = "luminosity"
-    static let contrastAppearanceCodingValue = "contrast"
 }

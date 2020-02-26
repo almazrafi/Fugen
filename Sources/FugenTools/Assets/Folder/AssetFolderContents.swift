@@ -9,10 +9,7 @@ public struct AssetFolderContents: Codable, Hashable {
 
     // MARK: - Initializers
 
-    public init(
-        info: AssetInfo? = AssetInfo(),
-        properties: AssetFolderProperties? = nil
-    ) {
+    public init(info: AssetInfo? = AssetInfo(), properties: AssetFolderProperties? = nil) {
         self.info = info
         self.properties = properties
     }
