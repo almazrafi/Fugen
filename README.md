@@ -283,7 +283,7 @@ Sample configuration:
 colorStyles:
   accessToken: 25961-4ac9fbc9-3bd8-4c43-bbe2-95e477f8a067
   file: https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo
-  assets: Sources/Assets.xcasset/Colors
+  assets: Sources/Assets.xcassets/Colors
   destination: Sources/ColorStyle.swift
   templateOptions:
     publicAccess: true
@@ -291,13 +291,13 @@ colorStyles:
 
 #### Xcode-assets
 It's recommended to specify the path to a subfolder inside the Xcode-assets folder in the `assets` parameter,
-so all colors are saved in this subfolder. For example `Sources/Assets.xcasset/Colors`.
+so all colors are saved in this subfolder. For example `Sources/Assets.xcassets/Colors`.
 The whole assets structure be created if it was missing.
 
 🚨 Folder specified in the `assets` parameter will be emptied before saving colors there.
 You shouldn't use the same path for different generation steps,
 but you can use different subfolders of the assets folder,
-for example `Sources/Assets.xcasset/Colors` and `Sources/Assets.xcasset/Images`.
+for example `Sources/Assets.xcassets/Colors` and `Sources/Assets.xcassets/Colors`.
 
 #### Standard template
 Examples of usage of the generated code:
@@ -367,7 +367,7 @@ Sample configuration:
 images:
   accessToken: 25961-4ac9fbc9-3bd8-4c43-bbe2-95e477f8a067
   file: https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo
-  assets: Sources/Assets.xcasset/Images
+  assets: Sources/Assets.xcassets/Images
   destination: Sources/Images.swift
   templateOptions:
     publicAccess: true
@@ -380,13 +380,13 @@ allows to filter out the components that should not render images in Figma file.
 
 #### Xcode-assets
 It's recommended to specify the path to a subfolder inside the Xcode-assets folder in the `assets` parameter,
-so all colors are saved in this subfolder. For example  `Sources/Assets.xcasset/Images`.
+so all colors are saved in this subfolder. For example  `Sources/Assets.xcassets/Images`.
 The whole assets structure be created if it was missing.
 
 🚨 Folder specified in the `assets` parameter will be emptied before saving colors there.
 You shouldn't use the same path for different generation steps,
 but you can use different subfolders of the assets folder,
-for example `Sources/Assets.xcasset/Colors` and `Sources/Assets.xcasset/Images`.
+for example `Sources/Assets.xcassets/Colors` and `Sources/Assets.xcassets/Images`.
 
 #### Formats
 For Xcode projects, it is recommended to use PDF format without additional scaling factors,
