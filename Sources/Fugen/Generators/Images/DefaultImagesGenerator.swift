@@ -55,6 +55,12 @@ private extension ImagesConfiguration {
     // MARK: - Instance Properties
 
     var imagesParameters: ImagesParameters {
-        ImagesParameters(format: format, scales: scales, assets: assets, resources: resources)
+        ImagesParameters(
+            format: format,
+            scales: scales,
+            assets: assets,
+            resources: resources,
+            onlyExportables: onlyExportables
+        )
     }
 }

@@ -116,6 +116,14 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
             """
     )
 
+    let onlyExportables = Key<Bool>(
+        "--onlyExportables",
+        description: """
+            Indicates if it will fetch only exportable components, true or false
+            By default false
+            """
+    )
+
     // MARK: - Initializers
 
     init(generator: ImagesGenerator) {
@@ -157,7 +165,8 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
             assets: assets.value,
             resources: resources.value,
             format: resolveImageFormat(),
-            scales: resolveImageScales()
+            scales: resolveImageScales(),
+            onlyExportables: onlyExportables.value ?? false
         )
     }
 
