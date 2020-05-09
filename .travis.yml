@@ -20,13 +20,13 @@ install:
 jobs:
   include:
     - os: osx
-      osx_image: xcode11
+      osx_image: xcode11.4
       script:
         - set -e
         - swift --version
         - make test
         - make test_demo
-        - bundle exec pod lib lint --skip-tests --allow-warnings --verbose
+        - bundle exec pod lib lint --skip-tests --allow-warnings
       after_script:
         - bundle exec danger --remove-previous-comments
 
