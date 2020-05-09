@@ -67,8 +67,6 @@ jobs:
         run: make build        
       - name: Test
         run: make test
-      - name: Test Demo
-        run: make test_demo
 
   CocoaPods:
     name: CocoaPods
