@@ -9,6 +9,7 @@ struct Configuration: Decodable {
     let colorStyles: ColorStylesConfiguration?
     let textStyles: TextStylesConfiguration?
     let images: ImagesConfiguration?
+    let shadowStyles: ShadowStylesConfiguration?
 
     // MARK: - Instance Methods
 
@@ -22,5 +23,9 @@ struct Configuration: Decodable {
 
     func resolveImages() -> ImagesConfiguration? {
         return images?.resolve(base: base)
+    }
+
+    func resolveShadowStyles() -> ShadowStylesConfiguration? {
+        return shadowStyles?.resolve(base: base)
     }
 }

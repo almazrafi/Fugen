@@ -95,15 +95,16 @@ enum Dependencies {
         templateRenderer: templateRenderer
     )
 
+    static let shadowStylesGenerator: ShadowStylesGenerator = DefaultShadowStylesGenerator(
+        shadowStylesProvider: shadowStylesProvider,
+        templateRenderer: templateRenderer
+    )
+
     static let libraryGenerator: LibraryGenerator = DefaultLibraryGenerator(
         configurationProvider: configurationProvider,
         colorStylesGenerator: colorStylesGenerator,
         textStylesGenerator: textStylesGenerator,
-        imagesGenerator: imagesGenerator
-    )
-
-    static let shadowStylesGenerator: ShadowStylesGenerator = DefaultShadowStylesGenerator(
-        shadowStylesProvider: shadowStylesProvider,
-        templateRenderer: templateRenderer
+        imagesGenerator: imagesGenerator,
+        shadowStylesGenerator: shadowStylesGenerator
     )
 }
