@@ -1,4 +1,5 @@
 # Fugen
+![Build Status](https://github.com/almazrafi/Fugen/workflows/CI/badge.svg?branch=master)
 [![Travis CI](https://travis-ci.com/almazrafi/Fugen.svg?branch=master)](https://travis-ci.com/almazrafi/Fugen)
 [![Version](https://img.shields.io/github/v/release/almazrafi/Fugen)](https://github.com/almazrafi/Fugen/releases)
 [![Xcode](https://img.shields.io/badge/Xcode-11-blue.svg)](https://developer.apple.com/xcode)
@@ -382,7 +383,7 @@ So, make sure that the chosen frame in the file URL (see [Figma file](#figma-fil
 allows to filter out the components that should not render images in Figma file.
 
 #### Only Exportables
-If this option is `true` only the component marked as exportable on figma will be render in file and assets.
+If this option is `true` only the component marked as exportable on Figma will be render in file and assets.
 
 #### Xcode-assets
 It's recommended to specify the path to a subfolder inside the Xcode-assets folder in the `assets` parameter,
