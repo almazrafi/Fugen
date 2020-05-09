@@ -8,4 +8,5 @@ struct ImagesParameters {
     let scales: [ImageScale]
     let assets: String?
     let resources: String?
+    let onlyExportables: Bool
 }

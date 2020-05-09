@@ -9,6 +9,7 @@ struct ImagesConfiguration: Decodable {
         case resources
         case format
         case scales
+        case onlyExportables
     }
 
     // MARK: - Instance Properties
@@ -18,6 +19,7 @@ struct ImagesConfiguration: Decodable {
     let resources: String?
     let format: ImageFormat
     let scales: [ImageScale]
+    let onlyExportables: Bool
 
     // MARK: - Initializers
 
@@ -26,13 +28,15 @@ struct ImagesConfiguration: Decodable {
         assets: String?,
         resources: String?,
         format: ImageFormat,
-        scales: [ImageScale]
+        scales: [ImageScale],
+        onlyExportables: Bool
     ) {
         self.generatation = generatation
         self.assets = assets
         self.resources = resources
         self.format = format
         self.scales = scales
+        self.onlyExportables = onlyExportables
     }
 
     init(from decoder: Decoder) throws {
@@ -43,7 +47,7 @@ struct ImagesConfiguration: Decodable {
 
         format = try container.decodeIfPresent(ImageFormat.self, forKey: .format) ?? .pdf
         scales = try container.decodeIfPresent([ImageScale].self, forKey: .scales) ?? [.none]
-
+        onlyExportables = try container.decodeIfPresent(Bool.self, forKey: .onlyExportables) ?? false
         generatation = try GenerationConfiguration(from: decoder)
     }
 
@@ -55,7 +59,8 @@ struct ImagesConfiguration: Decodable {
             assets: assets,
             resources: resources,
             format: format,
-            scales: scales
+            scales: scales,
+            onlyExportables: onlyExportables
         )
     }
 }
