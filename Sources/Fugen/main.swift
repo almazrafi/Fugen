@@ -18,7 +18,8 @@ fugen.commands = [
     ColorStylesCommand(generator: Dependencies.colorStylesGenerator),
     TextStylesCommand(generator: Dependencies.textStylesGenerator),
     ImagesCommand(generator: Dependencies.imagesGenerator),
-    GenerateCommand(generator: Dependencies.libraryGenerator)
+    GenerateCommand(generator: Dependencies.libraryGenerator),
+    ShadowStylesCommand(generator: Dependencies.shadowStylesGenerator)
 ]
 
 fugen.goAndExitOnError()
