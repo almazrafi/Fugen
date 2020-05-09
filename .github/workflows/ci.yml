@@ -1,0 +1,88 @@
+name: "CI"
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+env:
+  LC_CTYPE: en_US.UTF-8
+  LANG: en_US.UTF-8
+  RUBY_VERSION: 2.6.x
+
+jobs:
+  macOS:
+    name: macOS
+    runs-on: macOS-latest
+      DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+      - name: Bundler
+        run: |
+          gem install bundler
+          bundle install --without=documentation
+      - name: Swift
+        run: |
+          eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
+          swift --version
+      - name: Preparation
+        run: set -o pipefail
+      - name: Build
+        run: make build
+      - name: Test
+        run: make test
+      - name: Test Demo
+        run: make test_demo
+      - name: Danger
+        run: bundle exec danger --remove-previous-comments
+
+  linux:
+    name: Linux
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+      - name: Bundler
+        run: |
+          gem install bundler
+          bundle install --without=documentation
+      - name: Swift
+        run: |
+          eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
+          swift --version
+      - name: Preparation
+        run: set -o pipefail
+      - name: Build
+        run: make build        
+      - name: Test
+        run: make test
+      - name: Test Demo
+        run: make test_demo
+
+  CocoaPods:
+    name: CocoaPods
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+      - name: Bundler
+        run: |
+          gem install bundler
+          bundle install --without=documentation
+      - name: Spec Lint
+        run: bundle exec pod spec lint
+      - name: Lib Lint
+        run: bundle exec pod lib lint --skip-tests --allow-warnings
