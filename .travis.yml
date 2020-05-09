@@ -26,7 +26,7 @@ jobs:
         - swift --version
         - make test
         - make test_demo
-        - bundle exec pod lib lint --skip-tests --allow-warnings
+        - bundle exec pod lib lint --skip-tests --allow-warnings --verbose
       after_script:
         - bundle exec danger --remove-previous-comments
 
