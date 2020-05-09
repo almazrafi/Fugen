@@ -17,6 +17,7 @@ jobs:
   macOS:
     name: macOS
     runs-on: macOS-latest
+    env:
       DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
     steps:
       - uses: actions/checkout@v2
