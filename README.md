@@ -1,5 +1,5 @@
 # Fugen
-[![Travis CI](https://travis-ci.com/almazrafi/Fugen.svg?branch=master)](https://travis-ci.com/almazrafi/Fugen)
+![Build Status](https://github.com/almazrafi/Fugen/workflows/CI/badge.svg?branch=master)
 [![Version](https://img.shields.io/github/v/release/almazrafi/Fugen)](https://github.com/almazrafi/Fugen/releases)
 [![Xcode](https://img.shields.io/badge/Xcode-11-blue.svg)](https://developer.apple.com/xcode)
 [![Swift](https://img.shields.io/badge/Swift-5.1-orange.svg)](https://swift.org)
@@ -400,6 +400,8 @@ The parameter can be skipped, if, for example, you only want to save assets.
 The default format is `pdf`.
 - `scales`: array with integer scaling factors from 1 to 3.
 The default scaling factor is 1, so the image will have the original size.
+- `onlyExportables`: Indicates if it will fetch only exportable components, `true` or `false`.
+The default value its `false`
 
 Sample configuration:
 ```yaml
@@ -408,6 +410,7 @@ images:
   file: https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo
   assets: Sources/Assets.xcassets/Images
   destination: Sources/Images.swift
+  onlyExportables: true
   templateOptions:
     publicAccess: true
 ```
@@ -416,6 +419,9 @@ images:
 Fugen only uses nodes that are [components](https://help.figma.com/article/66-components) as images.
 So, make sure that the chosen frame in the file URL (see [Figma file](#figma-file))
 allows to filter out the components that should not render images in Figma file.
+
+#### Only Exportables
+If this option is `true` only the component marked as exportable on Figma will be render in file and assets.
 
 #### Xcode-assets
 It's recommended to specify the path to a subfolder inside the Xcode-assets folder in the `assets` parameter,
