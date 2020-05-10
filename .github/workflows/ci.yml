@@ -19,7 +19,7 @@ jobs:
     runs-on: macOS-latest
     env:
       SWIFTLINT_VERSION: 0.39.2
-      DANGER_GITHUB_API_TOKEN: c90371ac3d27e81967af2f722755b7e0eec98293
+      DANGER_GITHUB_API_TOKEN: 7ff06c6192e151a3c5a94321dd32afd1931d57f1
     steps:
       - uses: actions/checkout@v2
       - name: Ruby
