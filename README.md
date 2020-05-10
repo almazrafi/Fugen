@@ -1,5 +1,5 @@
 # Fugen
-![Build Status](https://github.com/almazrafi/Fugen/workflows/CI/badge.svg?branch=master)
+[![Build Status](https://github.com/almazrafi/Fugen/workflows/CI/badge.svg?branch=master)](https://github.com/almazrafi/Fugen/actions)
 [![Version](https://img.shields.io/github/v/release/almazrafi/Fugen)](https://github.com/almazrafi/Fugen/releases)
 [![Xcode](https://img.shields.io/badge/Xcode-11-blue.svg)](https://developer.apple.com/xcode)
 [![Swift](https://img.shields.io/badge/Swift-5.1-orange.svg)](https://swift.org)

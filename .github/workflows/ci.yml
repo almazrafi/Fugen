@@ -18,7 +18,8 @@ jobs:
     name: macOS
     runs-on: macOS-latest
     env:
-      DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
+      SWIFTLINT_VERSION: 0.39.2
+      DANGER_GITHUB_API_TOKEN: 5fe04e7ae28da44c318d442b3249fd5754bc9c7b
     steps:
       - uses: actions/checkout@v2
       - name: Ruby
