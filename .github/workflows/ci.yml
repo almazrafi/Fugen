@@ -84,6 +84,7 @@ jobs:
           gem install bundler
           bundle install --without=documentation
       - name: Spec Lint
+        continue-on-error: true
         run: bundle exec pod spec lint
       - name: Lib Lint
         run: bundle exec pod lib lint --skip-tests --allow-warnings
