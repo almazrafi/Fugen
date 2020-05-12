@@ -39,7 +39,7 @@ Currently, it supports generating the following entities:
 ### CocoaPods
 To install Fugen using [CocoaPods](http://cocoapods.org) dependency manager, add this line to your `Podfile`:
 ```ruby
-pod 'Fugen', '~> 1.0.2'
+pod 'Fugen', '~> 1.0.3'
 ```
 
 Then run this command:
