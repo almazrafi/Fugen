@@ -6,7 +6,7 @@ import PathKit
 Path.current = Path(#file).appending("../../../Demo")
 #endif
 
-let version = "1.0.2"
+let version = "1.0.3"
 
 let fugen = CLI(
     name: "fugen",
