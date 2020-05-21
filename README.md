@@ -12,6 +12,7 @@ completely written in [Swift](https://swift.org).
 Currently, it supports generating the following entities:
 - ✅ Color styles
 - ✅ Text styles
+- ✅ Shadow styles
 - ✅ Images
 
 #### Watch the video
@@ -30,6 +31,7 @@ Currently, it supports generating the following entities:
     - [Generation configuration](#generation-configuration)
 - [Color styles](#color-styles)
 - [Text styles](#text-styles)
+- [Shadow styles](#shadow-styles)
 - [Images](#images)
 - [Communication](#communication)
 - [License](#license)
@@ -351,7 +353,44 @@ Key  | Type | Default value | Description
 `fontTypeName` | String | UIFont | Font type name. If the target platform is macOS, specify `NSFont`.
 `publicAccess` | Boolean | false | Flag that adds `public` access modifier to the declarations in the generated file.
 
+## Shadow styles
+
+To generate shadow styles [standard configuration set](#generation-configuration) is used.
+
+Sample configuration:
+
+```yaml
+shadowStyles:
+  accessToken: 25961-4ac9fbc9-3bd8-4c43-bbe2-95e477f8a067
+  file: https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo
+  destination: Sources/ShadowStyle.swift
+  templateOptions:
+    publicAccess: true
+```
+
+#### Standard template
+
+Sample usage of the generated code:
+
+```swift
+@IBOutlet private weak var shadowWiew: FugenShadowView!
+
+shadowWiew.shadowStyle = .card16dpShadow
+```
+
+The template could be configured using additional options that specified in `templateOptions` parameter:
+
+| Key                  | Type    | Default value   | Description                                                  |
+| -------------------- | ------- | --------------- | ------------------------------------------------------------ |
+| `styleTypeName`      | String  | ShadowStyle     | Style type name                                              |
+| `shadowViewTypeName` | String  | FugenShadowView | Name of generated view to which the shadow style is applied. |
+| `colorTypeName`      | String  | UIColor         | Color type name. If the target platform is macOS, specify `NSColor`. |
+| `viewTypeName`       | String  | UIView          | View type name. If the target platform is macOS, specify `NSView`. |
+| `bezierPathTypeName` | String  | UIBezierPath    | Bezier path type name. If the target platform is macOS, specify `NSBezierPath`. |
+| `publicAccess`       | Boolean | false           | Flag that adds `public` access modifier to the declarations in the generated file. |
+
 ## Images
+
 To load and generate code for images, the [standard configuration set](#generation-configuration) is used with additional parameters:
 - `assets`: a path to Xcode-assets folder in which the images will be saved as Image Set.
 The parameter could be omitted if there is no need for assets.

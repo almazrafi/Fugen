@@ -26,18 +26,26 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "Fugen::Fugen"
+            BuildableName = "Fugen"
+            BlueprintName = "Fugen"
+            ReferencedContainer = "container:Fugen.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "Fugen::FugenTools"
+            BuildableName = "FugenTools.framework"
+            BlueprintName = "FugenTools"
+            ReferencedContainer = "container:Fugen.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Fugen::FugenTests"
-               BuildableName = "FugenTests.xctest"
-               BlueprintName = "FugenTests"
-               ReferencedContainer = "container:Fugen.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
@@ -45,6 +53,16 @@
                BlueprintIdentifier = "Fugen::FugenToolsTests"
                BuildableName = "FugenToolsTests.xctest"
                BlueprintName = "FugenToolsTests"
+               ReferencedContainer = "container:Fugen.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Fugen::FugenTests"
+               BuildableName = "FugenTests.xctest"
+               BlueprintName = "FugenTests"
                ReferencedContainer = "container:Fugen.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -70,6 +88,52 @@
             ReferencedContainer = "container:Fugen.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "shadowStyles"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--accessToken 25961-4ac9fbc9-3bd8-4c43-bbe2-95e477f8a067"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--fileKey gZ0sNyG5kflJGqa9JvO5lL"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-i 193%3A2"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-d FugenDemo/Generated/ShadowStyle.swift"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-o publicAccess:true"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-o styleTypeName:MyShadowStyle"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-o shadowViewTypeName:ShadowView"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-o colorTypeName:NSColor"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-o viewTypeName:NSView"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-o bezierPathTypeName:NSBezierPath"
+            isEnabled = "NO">
+         </CommandLineArgument>
+      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

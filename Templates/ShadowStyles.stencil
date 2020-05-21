@@ -1,0 +1,137 @@
+{% include "FileHeader.stencil" %}
+{% if shadowStyles %}
+{% set accessModifier %}{% if options.publicAccess %}public{% else %}internal{% endif %}{% endset %}
+{% set styleTypeName %}{{ options.styleTypeName|default:"ShadowStyle" }}{% endset %}
+{% set shadowViewTypeName %}{{ options.shadowViewTypeName|default:"FugenShadowView" }}{% endset %}
+{% set colorTypeName %}{{ options.colorTypeName|default:"UIColor" }}{% endset %}
+{% set viewTypeName %}{{ options.viewTypeName|default:"UIView" }}{% endset %}
+{% set bezierPathTypeName %}{{ options.bezierPathTypeName|default:"UIBezierPath" }}{% endset %}
+{% macro propertyName name %}{{ name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords }}{% endmacro %}
+
+#if canImport(UIKit)
+import UIKit
+#else
+import AppKit
+#endif
+
+{{ accessModifier }} struct {{ styleTypeName }}: Equatable {
+
+	// MARK: - Nested Types
+
+    {{ accessModifier }} struct Shadow: Equatable {
+
+        // MARK: - Instance Properties
+
+        {{ accessModifier }} let offset: CGSize
+        {{ accessModifier }} let radius: CGFloat
+        {{ accessModifier }} let color: {{ colorTypeName }}
+        {{ accessModifier }} let opacity: Float
+    }
+
+    // MARK: - Type Properties
+{% for style in shadowStyles %}
+
+	/// {{ style.name }}
+{% for shadow in style.shadows %}
+	///
+	/// Shadow {{ forloop.counter }}
+	/// Radius: {{ shadow.radius }} pt
+	/// Offset: {{ shadow.offset.x }} pt, {{ shadow.offset.y }} pt
+	/// Color: {{ shadow.color|colorInfo|lowerFirstWord }}
+{% endfor %}
+	{{ accessModifier }} static let {% call propertyName style.name %} = {{ styleTypeName }}(shadows: [
+{% for shadow in style.shadows %}
+		Shadow(
+			offset: CGSize(width: {{ shadow.offset.x }}, height: {{ shadow.offset.y }}),
+			radius: {{ shadow.radius }},
+			color: {{ colorTypeName }}(
+	            red: {{ shadow.color.red }},
+	            green: {{ shadow.color.green }},
+	            blue: {{ shadow.color.blue }},
+	            alpha: 1.0
+        	),
+        	opacity: {{ shadow.color.alpha }}
+		){% if not forloop.last %},{% endif %}
+{% endfor %}
+	])
+{% endfor %}
+
+	// MARK: - Instance Properties
+
+    {{ accessModifier }} let shadows: [Shadow]
+
+    // MARK: - Initializers
+
+    {{ accessModifier }} init(shadows: [Shadow] = []) {
+        self.shadows = shadows
+    }
+}
+
+{{ accessModifier }} class {{ shadowViewTypeName }}: {{ viewTypeName }} {
+
+    // MARK: - Instance Properties
+
+    private var backgroundLayer: CALayer?
+    private var shadowLayers: [CALayer]?
+
+    // MARK: -
+
+    {{ accessModifier }} var shadowStyle: ShadowStyle? {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+
+    // MARK: - {{ viewTypeName }}
+
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+
+        self.layer.masksToBounds = false
+
+        if let backgroundLayer = backgroundLayer, let shadowLayers = shadowLayers {
+            shadowLayers.forEach { shadowLayer in
+                shadowLayer.frame = self.layer.bounds
+                shadowLayer.shadowPath = {{ bezierPathTypeName }}(rect: bounds).cgPath
+            }
+
+            backgroundLayer.frame = layer.bounds
+        } else if let shadowStyle = shadowStyle {
+            let backgroundLayer = CALayer()
+
+            backgroundLayer.backgroundColor = self.backgroundColor?.cgColor
+            backgroundLayer.cornerRadius = self.layer.cornerRadius
+
+            let shadowLayers = shadowStyle.shadows.map { _ in CALayer() }
+            let layers = [backgroundLayer] + shadowLayers
+
+            layers.forEach { layer in
+                layer.masksToBounds = false
+                layer.frame = self.layer.bounds
+
+                self.layer.insertSublayer(layer, at: 0)
+            }
+
+            shadowLayers.enumerated().forEach { index, shadowLayer in
+                shadowLayer.apply(shadow: shadowStyle.shadows[index])
+            }
+
+            self.backgroundLayer = backgroundLayer
+            self.shadowLayers = shadowLayers
+        }
+    }
+}
+
+private extension CALayer {
+
+    // MARK: - Instance Methods
+
+    func apply(shadow: {{ styleTypeName }}.Shadow) {
+        shadowOffset = shadow.offset
+        shadowRadius = shadow.radius
+        shadowColor = shadow.color.cgColor
+        shadowOpacity = shadow.opacity
+        shadowPath = {{ bezierPathTypeName }}(rect: bounds).cgPath
+    }
+}
+{% endif %}

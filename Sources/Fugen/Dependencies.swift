@@ -51,6 +51,11 @@ enum Dependencies {
 
     static let configurationProvider: ConfigurationProvider = DefaultConfigurationProvider()
 
+    static let shadowStylesProvider: ShadowStylesProvider = DefaultShadowStylesProvider(
+        filesProvider: figmaFilesProvider,
+        nodesProvider: figmaNodesProvider
+    )
+
     // MARK: -
 
     static let templateContextCoder: TemplateContextCoder = DefaultTemplateContextCoder()
@@ -90,10 +95,16 @@ enum Dependencies {
         templateRenderer: templateRenderer
     )
 
+    static let shadowStylesGenerator: ShadowStylesGenerator = DefaultShadowStylesGenerator(
+        shadowStylesProvider: shadowStylesProvider,
+        templateRenderer: templateRenderer
+    )
+
     static let libraryGenerator: LibraryGenerator = DefaultLibraryGenerator(
         configurationProvider: configurationProvider,
         colorStylesGenerator: colorStylesGenerator,
         textStylesGenerator: textStylesGenerator,
-        imagesGenerator: imagesGenerator
+        imagesGenerator: imagesGenerator,
+        shadowStylesGenerator: shadowStylesGenerator
     )
 }
