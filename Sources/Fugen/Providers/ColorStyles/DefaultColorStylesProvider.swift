@@ -50,6 +50,7 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
             id: node.id,
             name: nodeStyleName,
             description: nodeStyle.description,
+            opacity: nodeFill.opacity,
             color: Color(
                 red: nodeFillColor.red,
                 green: nodeFillColor.green,

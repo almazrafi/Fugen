@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Fugen::Fugen"
-               BuildableName = "Fugen"
-               BlueprintName = "Fugen"
+               BlueprintIdentifier = "Fugen::FugenTools"
+               BuildableName = "FugenTools.framework"
+               BlueprintName = "FugenTools"
                ReferencedContainer = "container:Fugen.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Fugen::FugenTools"
-               BuildableName = "FugenTools.framework"
-               BlueprintName = "FugenTools"
+               BlueprintIdentifier = "Fugen::Fugen"
+               BuildableName = "Fugen"
+               BlueprintName = "Fugen"
                ReferencedContainer = "container:Fugen.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
