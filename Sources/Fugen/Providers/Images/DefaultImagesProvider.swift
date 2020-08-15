@@ -33,13 +33,16 @@ final class DefaultImagesProvider: ImagesProvider {
     private func extractImageNode(
         from node: FigmaNode,
         components: [String: FigmaComponent],
-        onlyExportables: Bool = false
+        onlyExportables: Bool
     ) throws -> ImageNode? {
-        guard case .component(let info) = node.type,
-            !(info.exportSettings?.isEmpty ?? true) || !onlyExportables
-            else {
+        guard case .component(let info) = node.type else {
             return nil
         }
+
+        guard !onlyExportables || !info.exportSettings.isEmptyOrNil else {
+            return nil
+        }
+
         guard let nodeComponent = components[node.id] else {
             throw ImagesProviderError(code: .componentNotFound, nodeID: node.id, nodeName: node.name)
         }
@@ -54,12 +57,18 @@ final class DefaultImagesProvider: ImagesProvider {
     private func extractImageNodes(
         from nodes: [FigmaNode],
         of file: FigmaFile,
-        onlyExportables: Bool = false
+        onlyExportables: Bool
     ) throws -> [ImageNode] {
         let components = file.components ?? [:]
         return try nodes
             .lazy
-            .compactMap { try extractImageNode(from: $0, components: components, onlyExportables: onlyExportables) }
+            .compactMap { node in
+                try extractImageNode(
+                    from: node,
+                    components: components,
+                    onlyExportables: onlyExportables
+                )
+            }
             .reduce(into: []) { result, node in
                 if !result.contains(node) {
                     result.append(node)
@@ -98,7 +107,11 @@ final class DefaultImagesProvider: ImagesProvider {
             self.filesProvider.fetchFile(file)
         }.then { figmaFile in
             self.nodesProvider.fetchNodes(nodes, from: figmaFile).map { figmaNodes in
-                try self.extractImageNodes(from: figmaNodes, of: figmaFile, onlyExportables: parameters.onlyExportables)
+                try self.extractImageNodes(
+                    from: figmaNodes,
+                    of: figmaFile,
+                    onlyExportables: parameters.onlyExportables
+                )
             }
         }.then { nodes in
            self.imageRenderProvider.renderImages(
