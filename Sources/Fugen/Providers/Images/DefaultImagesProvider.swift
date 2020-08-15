@@ -51,7 +51,11 @@ final class DefaultImagesProvider: ImagesProvider {
             throw ImagesProviderError(code: .invalidComponentName, nodeID: node.id, nodeName: node.name)
         }
 
-        return ImageNode(id: node.id, name: nodeComponentName, description: nodeComponent.description)
+        return ImageNode(
+            id: node.id,
+            name: nodeComponentName,
+            description: nodeComponent.description
+        )
     }
 
     private func extractImageNodes(
@@ -60,6 +64,7 @@ final class DefaultImagesProvider: ImagesProvider {
         onlyExportables: Bool
     ) throws -> [ImageNode] {
         let components = file.components ?? [:]
+
         return try nodes
             .lazy
             .compactMap { node in

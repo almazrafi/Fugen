@@ -47,7 +47,7 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
         }
 
         return ColorStyleNode(
-            id: node.id,
+            id: nodeStyleID,
             name: nodeStyleName,
             description: nodeStyle.description,
             opacity: nodeFill.opacity,
@@ -86,7 +86,11 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
 
     // MARK: -
 
-    func fetchColorStyles(from file: FileParameters, nodes: NodesParameters, assets: String?) -> Promise<[ColorStyle]> {
+    func fetchColorStyles(
+        from file: FileParameters,
+        nodes: NodesParameters,
+        assets: String?
+    ) -> Promise<[ColorStyle]> {
         return firstly {
             self.filesProvider.fetchFile(file)
         }.then { figmaFile in

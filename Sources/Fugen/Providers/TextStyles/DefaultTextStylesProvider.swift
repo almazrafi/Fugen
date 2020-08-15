@@ -101,7 +101,7 @@ final class DefaultTextStylesProvider: TextStylesProvider {
         }
 
         let textStyleNode = TextStyleNode(
-            id: node.id,
+            id: nodeStyleID,
             name: nodeStyleName,
             description: nodeStyle.description,
             font: try extractFont(from: nodeTypeStyle, of: node),
