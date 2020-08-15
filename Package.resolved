@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/almazrafi/DictionaryCoder.git",
         "state": {
           "branch": null,
-          "revision": "add9b142a1f715374aa118ea25306f3710cc4c31",
-          "version": "1.0.0"
+          "revision": "2d0308cc4c97d53175c92a04fa2644148b4ec81a",
+          "version": "1.0.2"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/mxcl/PromiseKit.git",
         "state": {
           "branch": null,
-          "revision": "f14f16cc2602afec1030e4f492100d6d43dca544",
-          "version": "6.13.1"
+          "revision": "f6b15b7626a4399864ffa1d5ec2ed9cf0cea5556",
+          "version": "6.13.2"
         }
       },
       {

@@ -23,11 +23,11 @@ final class DefaultShadowStylesProvider: ShadowStylesProvider {
         return try nodes
             .lazy
             .compactMap { try extractShadowStyle(from: $0, styles: styles) }
-            .reduce(into: [], { result, shadowStyle in
+            .reduce(into: []) { result, shadowStyle in
                 if !result.contains(shadowStyle) {
                     result.append(shadowStyle)
                 }
-            })
+            }
     }
 
     private func extractShadowStyle(from node: FigmaNode, styles: [String: FigmaStyle]) throws -> ShadowStyle? {
