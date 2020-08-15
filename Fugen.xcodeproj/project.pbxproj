@@ -1126,7 +1126,6 @@
 		OBJ_516 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		OBJ_517 /* Dangerfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Dangerfile; sourceTree = "<group>"; };
 		OBJ_518 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
-		OBJ_519 /* Gemfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
 		OBJ_52 /* GenerationConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationConfiguration.swift; sourceTree = "<group>"; };
 		OBJ_520 /* Brewfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Brewfile; sourceTree = "<group>"; };
 		OBJ_521 /* Fugen.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fugen.podspec; sourceTree = "<group>"; };
@@ -2197,7 +2196,6 @@
 				OBJ_516 /* README.md */,
 				OBJ_517 /* Dangerfile */,
 				OBJ_518 /* Gemfile */,
-				OBJ_519 /* Gemfile.lock */,
 				OBJ_520 /* Brewfile */,
 				OBJ_521 /* Fugen.podspec */,
 			);
