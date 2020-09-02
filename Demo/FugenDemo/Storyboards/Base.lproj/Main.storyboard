@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Fugen_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FugenDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,17 +29,28 @@
                                     <constraint firstAttribute="width" constant="44" id="uko-8E-k6V"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rel-nD-TX4" customClass="ShadowStyleView" customModule="FugenDemo" customModuleProvider="target">
+                                <rect key="frame" x="87" y="248" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="ELG-w1-MoL"/>
+                                    <constraint firstAttribute="height" constant="128" id="auG-dY-MHO"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Znc-Id-sBg" firstAttribute="top" secondItem="SoJ-Fm-ypy" secondAttribute="bottom" constant="64" id="1gH-5K-A74"/>
+                            <constraint firstItem="SoJ-Fm-ypy" firstAttribute="top" secondItem="rel-nD-TX4" secondAttribute="bottom" constant="66.5" id="Sku-Xm-Sao"/>
                             <constraint firstItem="Znc-Id-sBg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ldq-qJ-uyv"/>
+                            <constraint firstItem="rel-nD-TX4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nnF-eh-bBd"/>
                             <constraint firstItem="SoJ-Fm-ypy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tNg-xm-ZMo"/>
                             <constraint firstItem="SoJ-Fm-ypy" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="z1T-cr-Fl0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cardView" destination="rel-nD-TX4" id="BC2-g6-4QJ"/>
                         <outlet property="imageView" destination="Znc-Id-sBg" id="xOH-F2-JtG"/>
                         <outlet property="label" destination="SoJ-Fm-ypy" id="oEi-OQ-nsA"/>
                     </connections>

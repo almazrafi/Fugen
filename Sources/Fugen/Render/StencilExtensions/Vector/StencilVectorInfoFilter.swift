@@ -1,10 +1,14 @@
 import Foundation
 
-final class StencilFontInfoFilter: StencilFontFilter {
+final class StencilVectorInfoFilter: StencilVectorFilter {
+
+    // MARK: - Nested Types
+
+    typealias VectorFilterOutput = String
 
     // MARK: - Instance Properties
 
-    let name = "fontInfo"
+    let name = "vectorInfo"
 
     let contextCoder: TemplateContextCoder
 
@@ -16,7 +20,7 @@ final class StencilFontInfoFilter: StencilFontFilter {
 
     // MARK: - Instance Methods
 
-    func filter(font: Font) throws -> String {
-        return "\(font.family) (\(font.name)); weight \(font.weight); size \(font.size)"
+    func filter(vector: Vector) throws -> String {
+        return "x \(vector.x); y \(vector.y)"
     }
 }

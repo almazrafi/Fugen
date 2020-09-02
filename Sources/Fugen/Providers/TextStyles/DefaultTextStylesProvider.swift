@@ -38,9 +38,11 @@ final class DefaultTextStylesProvider: TextStylesProvider {
     }
 
     private func extractColor(from nodeInfo: FigmaVectorNodeInfo, of node: FigmaNode) throws -> Color {
-        let nodeFills = nodeInfo.fills
+        let nodeFills = nodeInfo.fills?.filter { nodeFill in
+            (nodeFill.isVisible ?? true) && (nodeFill.type == .solid)
+        } ?? []
 
-        guard nodeFills?.count == 1, let nodeFill = nodeFills?.first(where: { $0.type == .solid }) else {
+        guard let nodeFill = nodeFills.first, nodeFills.count == 1 else {
             throw TextStylesProviderError(code: .invalidColor, nodeID: node.id, nodeName: node.name)
         }
 
@@ -126,6 +128,7 @@ final class DefaultTextStylesProvider: TextStylesProvider {
 
         return try nodes
             .lazy
+            .filter { $0.isVisible ?? true }
             .compactMap { try extractTextStyle(from: $0, styles: styles) }
             .reduce(into: []) { result, textStyle in
                 if !result.contains(where: { $0.node == textStyle.node }) {

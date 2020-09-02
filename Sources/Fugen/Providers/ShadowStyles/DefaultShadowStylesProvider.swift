@@ -17,64 +17,12 @@ final class DefaultShadowStylesProvider: ShadowStylesProvider {
 
     // MARK: - Instance Methods
 
-    private func extractShadowStyles(from nodes: [FigmaNode], of file: FigmaFile) throws -> [ShadowStyle] {
-        let styles = file.styles ?? [:]
-
-        return try nodes
-            .lazy
-            .compactMap { try extractShadowStyle(from: $0, styles: styles) }
-            .reduce(into: []) { result, shadowStyle in
-                if !result.contains(shadowStyle) {
-                    result.append(shadowStyle)
-                }
-            }
-    }
-
-    private func extractShadowStyle(from node: FigmaNode, styles: [String: FigmaStyle]) throws -> ShadowStyle? {
-        guard case let .vector(info: nodeInfo) = node.type else {
-            return nil
+    private func extractVector(from figmaEffect: FigmaEffect, of node: FigmaNode) throws -> Vector {
+        guard let effectOffset = figmaEffect.offset else {
+            throw ShadowStylesProviderError(code: .offsetNotFound, nodeID: node.id, nodeName: node.name)
         }
 
-        guard let nodeStyleID = nodeInfo.styleID(of: .effect) else {
-            return nil
-        }
-
-        guard let nodeStyle = styles[nodeStyleID], nodeStyle.type == .effect else {
-            throw ShadowStylesProviderError(code: .styleNotFound, nodeID: node.id, nodeName: node.name)
-        }
-
-        guard let nodeStyleName = nodeStyle.name, !nodeStyleName.isEmpty else {
-            throw ShadowStylesProviderError(code: .invalidStyleName, nodeID: node.id, nodeName: node.name)
-        }
-
-        return ShadowStyle(
-            name: nodeStyleName,
-            description: nodeStyle.description,
-            nodes: try extractShadowStyleNodes(from: nodeInfo, of: node)
-        )
-    }
-
-    private func extractShadowStyleNodes(
-        from nodeInfo: FigmaVectorNodeInfo,
-        of node: FigmaNode
-    ) throws -> [ShadowStyleNode] {
-        let nodeEffects = nodeInfo.effects
-
-        guard let nodeShadowEffects = nodeEffects?.filter({ $0.type == .dropShadow || $0.type == .innerShadow }) else {
-            throw ShadowStylesProviderError(code: .shadowEffectsNotFound, nodeID: node.id, nodeName: node.name)
-        }
-
-        return try nodeShadowEffects.map {
-            ShadowStyleNode(
-                id: node.id,
-                type: $0.rawType,
-                visible: $0.isVisible,
-                radius: $0.radius ?? 0.0,
-                color: try extractColor(from: $0, of: node),
-                blendMode: $0.rawBlendMode,
-                offset: try extractVector(from: $0, of: node)
-            )
-        }
+        return Vector(x: effectOffset.x, y: effectOffset.y)
     }
 
     private func extractColor(from figmaEffect: FigmaEffect, of node: FigmaNode) throws -> Color {
@@ -90,12 +38,86 @@ final class DefaultShadowStylesProvider: ShadowStylesProvider {
         )
     }
 
-    private func extractVector(from figmaEffect: FigmaEffect, of node: FigmaNode) throws -> Vector {
-        guard let effectOffset = figmaEffect.offset else {
-            throw ShadowStylesProviderError(code: .offsetNotFound, nodeID: node.id, nodeName: node.name)
+    private func extractShadowType(from effect: FigmaEffect) -> ShadowType? {
+        switch effect.type {
+        case .dropShadow:
+            return .drop
+
+        case .innerShadow:
+            return .inner
+
+        case .backgroundBlur, .layerBlur, nil:
+            return nil
+        }
+    }
+
+    private func extractShadow(from effect: FigmaEffect, of node: FigmaNode) throws -> Shadow? {
+        guard let shadowType = extractShadowType(from: effect) else {
+            return nil
         }
 
-        return Vector(x: effectOffset.x, y: effectOffset.y)
+        return Shadow(
+            type: shadowType,
+            offset: try extractVector(from: effect, of: node),
+            radius: effect.radius ?? 0.0,
+            color: try extractColor(from: effect, of: node),
+            blendMode: effect.rawBlendMode
+        )
+    }
+
+    private func extractShadows(from nodeInfo: FigmaVectorNodeInfo, of node: FigmaNode) throws -> [Shadow] {
+        let nodeEffects = nodeInfo.effects?.filter { nodeEffect in
+            nodeEffect.isVisible ?? true
+        } ?? []
+
+        return try nodeEffects.compactMap { try extractShadow(from: $0, of: node) }
+    }
+
+    private func extractShadowStyleNode(
+        from node: FigmaNode,
+        styles: [String: FigmaStyle]
+    ) throws -> ShadowStyleNode? {
+        guard let nodeInfo = node.vectorInfo, let nodeStyleID = nodeInfo.styleID(of: .effect) else {
+            return nil
+        }
+
+        let shadows = try extractShadows(from: nodeInfo, of: node)
+
+        guard !shadows.isEmpty else {
+            return nil
+        }
+
+        guard let nodeStyle = styles[nodeStyleID], nodeStyle.type == .effect else {
+            throw ShadowStylesProviderError(code: .styleNotFound, nodeID: node.id, nodeName: node.name)
+        }
+
+        guard let nodeStyleName = nodeStyle.name, !nodeStyleName.isEmpty else {
+            throw ShadowStylesProviderError(code: .invalidStyleName, nodeID: node.id, nodeName: node.name)
+        }
+
+        return ShadowStyleNode(
+            id: nodeStyleID,
+            name: nodeStyleName,
+            description: nodeStyle.description,
+            shadows: shadows
+        )
+    }
+
+    private func extractShadowStyleNodes(
+        from nodes: [FigmaNode],
+        of file: FigmaFile
+    ) throws -> [ShadowStyleNode] {
+        let styles = file.styles ?? [:]
+
+        return try nodes
+            .lazy
+            .filter { $0.isVisible ?? true }
+            .compactMap { try extractShadowStyleNode(from: $0, styles: styles) }
+            .reduce(into: []) { result, node in
+                if !result.contains(node) {
+                    result.append(node)
+                }
+            }
     }
 
     // MARK: -
@@ -105,8 +127,10 @@ final class DefaultShadowStylesProvider: ShadowStylesProvider {
             self.filesProvider.fetchFile(file)
         }.then { figmaFile in
             self.nodesProvider.fetchNodes(nodes, from: figmaFile).map { figmaNodes in
-                try self.extractShadowStyles(from: figmaNodes, of: figmaFile)
+                try self.extractShadowStyleNodes(from: figmaNodes, of: figmaFile)
             }
+        }.mapValues { node in
+            ShadowStyle(node: node)
         }
     }
 }

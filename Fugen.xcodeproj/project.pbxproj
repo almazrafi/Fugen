@@ -33,6 +33,11 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		C01B801C24FFF7D00080227E /* ShadowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B801A24FFF78B0080227E /* ShadowType.swift */; };
+		C0BE783524E94735004EBBEF /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE783424E94735004EBBEF /* Shadow.swift */; };
+		C0BE783724E95650004EBBEF /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE783624E95650004EBBEF /* TextStyle.swift */; };
+		C0BE783C24E9B26E004EBBEF /* StencilVectorFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE783B24E9B26E004EBBEF /* StencilVectorFilter.swift */; };
+		C0BE783E24E9B2E8004EBBEF /* StencilVectorInfoFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE783D24E9B2E8004EBBEF /* StencilVectorInfoFilter.swift */; };
 		OBJ_1005 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_458 /* Package.swift */; };
 		OBJ_1010 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_404 /* Context.swift */; };
 		OBJ_1011 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_405 /* Environment.swift */; };
@@ -198,7 +203,6 @@
 		OBJ_629 /* RenderParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* RenderParameters.swift */; };
 		OBJ_630 /* ShadowStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* ShadowStyle.swift */; };
 		OBJ_631 /* ShadowStyleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* ShadowStyleNode.swift */; };
-		OBJ_632 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_75 /* TextStyle.swift */; };
 		OBJ_633 /* TextStyleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_76 /* TextStyleColor.swift */; };
 		OBJ_634 /* TextStyleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* TextStyleNode.swift */; };
 		OBJ_635 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_78 /* Vector.swift */; };
@@ -727,6 +731,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C01B801A24FFF78B0080227E /* ShadowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowType.swift; sourceTree = "<group>"; };
 		C042748824E84B3B00E1605C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		C042748924E84B3B00E1605C /* .ruby-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".ruby-version"; sourceTree = SOURCE_ROOT; };
 		C042748A24E84B3B00E1605C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
@@ -734,9 +739,13 @@
 		C042748C24E84B5600E1605C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C042748D24E84B6D00E1605C /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LinuxMain.swift; path = Tests/LinuxMain.swift; sourceTree = "<group>"; };
 		C042748E24E84B8800E1605C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = .swiftlint.yml; path = Tests/.swiftlint.yml; sourceTree = "<group>"; };
+		C0BE783424E94735004EBBEF /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
+		C0BE783624E95650004EBBEF /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
+		C0BE783B24E9B26E004EBBEF /* StencilVectorFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StencilVectorFilter.swift; sourceTree = "<group>"; };
+		C0BE783D24E9B2E8004EBBEF /* StencilVectorInfoFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StencilVectorInfoFilter.swift; sourceTree = "<group>"; };
 		"DictionaryCoder::DictionaryCoder::Product" /* DictionaryCoder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DictionaryCoder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Fugen::Fugen::Product" /* Fugen */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fugen; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Fugen::FugenTests::Product" /* FugenTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = FugenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Fugen::FugenTests::Product" /* FugenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FugenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Fugen::FugenTools::Product" /* FugenTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FugenTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Fugen::FugenToolsTests::Product" /* FugenToolsTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = FugenToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* AsyncExecutableCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncExecutableCommand.swift; sourceTree = "<group>"; };
@@ -1148,7 +1157,6 @@
 		OBJ_70 /* RenderParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderParameters.swift; sourceTree = "<group>"; };
 		OBJ_72 /* ShadowStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowStyle.swift; sourceTree = "<group>"; };
 		OBJ_73 /* ShadowStyleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowStyleNode.swift; sourceTree = "<group>"; };
-		OBJ_75 /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		OBJ_76 /* TextStyleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyleColor.swift; sourceTree = "<group>"; };
 		OBJ_77 /* TextStyleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyleNode.swift; sourceTree = "<group>"; };
 		OBJ_78 /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
@@ -1171,7 +1179,7 @@
 		"Stencil::Stencil::Product" /* Stencil.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Stencil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"StencilSwiftKit::StencilSwiftKit::Product" /* StencilSwiftKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StencilSwiftKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"SwiftCLI::SwiftCLI::Product" /* SwiftCLI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftCLI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Yams::CYaml::Product" /* CYaml.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CYaml.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Yams::CYaml::Product" /* CYaml.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CYaml.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Yams::Yams::Product" /* Yams.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Yams.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1301,6 +1309,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C0BE783A24E9B258004EBBEF /* Vector */ = {
+			isa = PBXGroup;
+			children = (
+				C0BE783B24E9B26E004EBBEF /* StencilVectorFilter.swift */,
+				C0BE783D24E9B2E8004EBBEF /* StencilVectorInfoFilter.swift */,
+			);
+			path = Vector;
+			sourceTree = "<group>";
+		};
 		OBJ_100 /* File */ = {
 			isa = PBXGroup;
 			children = (
@@ -1496,6 +1513,7 @@
 		OBJ_196 /* StencilExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				C0BE783A24E9B258004EBBEF /* Vector */,
 				OBJ_197 /* Color */,
 				OBJ_204 /* Font */,
 				OBJ_207 /* Number */,
@@ -2174,7 +2192,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_7 /* Sources */,
@@ -2199,7 +2217,6 @@
 				OBJ_520 /* Brewfile */,
 				OBJ_521 /* Fugen.podspec */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_57 /* Images */ = {
@@ -2240,8 +2257,10 @@
 		OBJ_71 /* ShadowStyle */ = {
 			isa = PBXGroup;
 			children = (
+				C0BE783424E94735004EBBEF /* Shadow.swift */,
 				OBJ_72 /* ShadowStyle.swift */,
 				OBJ_73 /* ShadowStyleNode.swift */,
+				C01B801A24FFF78B0080227E /* ShadowType.swift */,
 			);
 			path = ShadowStyle;
 			sourceTree = "<group>";
@@ -2249,9 +2268,9 @@
 		OBJ_74 /* TextStyle */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_75 /* TextStyle.swift */,
-				OBJ_76 /* TextStyleColor.swift */,
+				C0BE783624E95650004EBBEF /* TextStyle.swift */,
 				OBJ_77 /* TextStyleNode.swift */,
+				OBJ_76 /* TextStyleColor.swift */,
 			);
 			path = TextStyle;
 			sourceTree = "<group>";
@@ -2766,6 +2785,11 @@
 			attributes = {
 				LastSwiftMigration = 9999;
 				LastUpgradeCheck = 9999;
+				TargetAttributes = {
+					"Yams::CYaml" = {
+						LastSwiftMigration = 1150;
+					};
+				};
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Fugen" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2774,7 +2798,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_495 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -3034,8 +3058,10 @@
 				OBJ_587 /* Dependencies.swift in Sources */,
 				OBJ_588 /* ColorStylesContext.swift in Sources */,
 				OBJ_589 /* ColorStylesGenerator.swift in Sources */,
+				C0BE783724E95650004EBBEF /* TextStyle.swift in Sources */,
 				OBJ_590 /* DefaultColorStylesGenerator.swift in Sources */,
 				OBJ_591 /* GenerationParametersError.swift in Sources */,
+				C0BE783524E94735004EBBEF /* Shadow.swift in Sources */,
 				OBJ_592 /* GenerationParametersResolving.swift in Sources */,
 				OBJ_593 /* DefaultImagesGenerator.swift in Sources */,
 				OBJ_594 /* ImagesContext.swift in Sources */,
@@ -3049,11 +3075,13 @@
 				OBJ_602 /* TextStylesContext.swift in Sources */,
 				OBJ_603 /* TextStylesGenerator.swift in Sources */,
 				OBJ_604 /* Color.swift in Sources */,
+				C0BE783E24E9B2E8004EBBEF /* StencilVectorInfoFilter.swift in Sources */,
 				OBJ_605 /* ColorStyle.swift in Sources */,
 				OBJ_606 /* ColorStyleAsset.swift in Sources */,
 				OBJ_607 /* ColorStyleNode.swift in Sources */,
 				OBJ_608 /* AccessTokenConfiguration.swift in Sources */,
 				OBJ_609 /* BaseConfiguration.swift in Sources */,
+				C01B801C24FFF7D00080227E /* ShadowType.swift in Sources */,
 				OBJ_610 /* ColorStylesConfiguration.swift in Sources */,
 				OBJ_611 /* Configuration.swift in Sources */,
 				OBJ_612 /* FileConfiguration.swift in Sources */,
@@ -3076,7 +3104,6 @@
 				OBJ_629 /* RenderParameters.swift in Sources */,
 				OBJ_630 /* ShadowStyle.swift in Sources */,
 				OBJ_631 /* ShadowStyleNode.swift in Sources */,
-				OBJ_632 /* TextStyle.swift in Sources */,
 				OBJ_633 /* TextStyleColor.swift in Sources */,
 				OBJ_634 /* TextStyleNode.swift in Sources */,
 				OBJ_635 /* Vector.swift in Sources */,
@@ -3166,6 +3193,7 @@
 				OBJ_719 /* ImageRenderProviderError.swift in Sources */,
 				OBJ_720 /* DefaultImageResourcesProvider.swift in Sources */,
 				OBJ_721 /* ImageResourcesProvider.swift in Sources */,
+				C0BE783C24E9B26E004EBBEF /* StencilVectorFilter.swift in Sources */,
 				OBJ_722 /* DefaultShadowStylesProvider.swift in Sources */,
 				OBJ_723 /* ShadowStylesProvider.swift in Sources */,
 				OBJ_724 /* ShadowStylesProviderError.swift in Sources */,
@@ -3959,6 +3987,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = CYaml;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
@@ -3991,6 +4021,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = CYaml;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;

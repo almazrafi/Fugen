@@ -1,137 +1,304 @@
 {% include "FileHeader.stencil" %}
 {% if shadowStyles %}
 {% set accessModifier %}{% if options.publicAccess %}public{% else %}internal{% endif %}{% endset %}
+{% set classAccessModifier %}{% if options.publicAccess %}open{% else %}internal{% endif %}{% endset %}
 {% set styleTypeName %}{{ options.styleTypeName|default:"ShadowStyle" }}{% endset %}
-{% set shadowViewTypeName %}{{ options.shadowViewTypeName|default:"FugenShadowView" }}{% endset %}
+{% set shadowTypeName %}{{ options.shadowTypeName|default:"Shadow" }}{% endset %}
 {% set colorTypeName %}{{ options.colorTypeName|default:"UIColor" }}{% endset %}
 {% set viewTypeName %}{{ options.viewTypeName|default:"UIView" }}{% endset %}
 {% set bezierPathTypeName %}{{ options.bezierPathTypeName|default:"UIBezierPath" }}{% endset %}
+{% set shadowStyleLayerTypeName %}{{ options.shadowStyleLayerTypeName|default:"ShadowStyleLayer" }}{% endset %}
+{% set shadowStyleViewTypeName %}{{ options.shadowStyleViewTypeName|default:"ShadowStyleView" }}{% endset %}
+{% macro shadowName style index %}{{ style.name }} {% if style.shadows.count > 1 %}{{ index }}{% endif %}{% endmacro %}
 {% macro propertyName name %}{{ name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords }}{% endmacro %}
-
 #if canImport(UIKit)
 import UIKit
 #else
 import AppKit
 #endif
 
-{{ accessModifier }} struct {{ styleTypeName }}: Equatable {
-
-	// MARK: - Nested Types
-
-    {{ accessModifier }} struct Shadow: Equatable {
-
-        // MARK: - Instance Properties
-
-        {{ accessModifier }} let offset: CGSize
-        {{ accessModifier }} let radius: CGFloat
-        {{ accessModifier }} let color: {{ colorTypeName }}
-        {{ accessModifier }} let opacity: Float
-    }
+{{ accessModifier }} struct {{ shadowTypeName }}: Equatable {
 
     // MARK: - Type Properties
+
+    {{ accessModifier }} static let clear = {{ shadowTypeName }}()
 {% for style in shadowStyles %}
+{% for shadow in style.shadows where shadow.type == "drop" %}
 
-	/// {{ style.name }}
-{% for shadow in style.shadows %}
-	///
-	/// Shadow {{ forloop.counter }}
-	/// Radius: {{ shadow.radius }} pt
-	/// Offset: {{ shadow.offset.x }} pt, {{ shadow.offset.y }} pt
-	/// Color: {{ shadow.color|colorInfo|lowerFirstWord }}
+    {% set shadowName %}{% call shadowName style forloop.counter %}{% endset %}
+    /// {{shadowName}}
+    ///
+    /// Offset: {{ shadow.offset|vectorInfo }}
+    /// Radius: {{ shadow.radius }}
+    /// Color: {{ shadow.color|colorInfo|lowerFirstWord }}
+    /// Opacity: {{ shadow.color.alpha }}
+    {{ accessModifier }} static let {% call propertyName shadowName %} = {{ shadowTypeName }}(
+        offset: CGSize(width: {{shadow.offset.x}}, height: {{shadow.offset.y}}),
+        radius: {{shadow.radius}},
+        color: {{ colorTypeName }}(
+            red: {{ shadow.color.red }},
+            green: {{ shadow.color.green }},
+            blue: {{ shadow.color.blue }},
+            alpha: 1.0
+        ),
+        opacity: {{ shadow.color.alpha }}
+    )
 {% endfor %}
-	{{ accessModifier }} static let {% call propertyName style.name %} = {{ styleTypeName }}(shadows: [
-{% for shadow in style.shadows %}
-		Shadow(
-			offset: CGSize(width: {{ shadow.offset.x }}, height: {{ shadow.offset.y }}),
-			radius: {{ shadow.radius }},
-			color: {{ colorTypeName }}(
-	            red: {{ shadow.color.red }},
-	            green: {{ shadow.color.green }},
-	            blue: {{ shadow.color.blue }},
-	            alpha: 1.0
-        	),
-        	opacity: {{ shadow.color.alpha }}
-		){% if not forloop.last %},{% endif %}
-{% endfor %}
-	])
 {% endfor %}
 
-	// MARK: - Instance Properties
+    // MARK: - Instance Properties
 
-    {{ accessModifier }} let shadows: [Shadow]
+    {{ accessModifier }} let offset: CGSize
+    {{ accessModifier }} let radius: CGFloat
+    {{ accessModifier }} let color: {{ colorTypeName }}?
+    {{ accessModifier }} let opacity: Float
 
     // MARK: - Initializers
 
-    {{ accessModifier }} init(shadows: [Shadow] = []) {
+    {{ accessModifier }} init(
+        offset: CGSize = CGSize(width: 0, height: -3),
+        radius: CGFloat = 3.0,
+        color: {{ colorTypeName }}? = .black,
+        opacity: Float = 0.0
+    ) {
+        self.offset = offset
+        self.radius = radius
+        self.color = color
+        self.opacity = opacity
+    }
+}
+
+{{ accessModifier }} struct {{ styleTypeName }} {
+
+    // MARK: - Type Properties
+
+    {{ accessModifier }} static let clear = {{ styleTypeName }}()
+    {% for style in shadowStyles %}
+
+    /// {{ style.name }}
+    {{ accessModifier }} static let {% call propertyName style.name %} = {{ styleTypeName }}(
+        shadows: [
+        {% for shadow in style.shadows where shadow.type == "drop" %}
+        {% set shadowName %}{% call shadowName style forloop.counter %}{% endset %}
+        {% if forloop.last %}
+            .{% call propertyName shadowName %}
+        {% else %}
+            .{% call propertyName shadowName %},
+        {% endif %}
+        {% endfor %}
+        ]
+    )
+    {% endfor %}
+
+    // MARK: - Instance Properties
+
+    {{ accessModifier }} let shadows: [{{ shadowTypeName }}]
+
+    // MARK: - Initializers
+
+    {{ accessModifier }} init(shadows: [{{ shadowTypeName }}] = []) {
         self.shadows = shadows
     }
 }
 
-{{ accessModifier }} class {{ shadowViewTypeName }}: {{ viewTypeName }} {
+{{ accessModifier }} extension CALayer {
 
     // MARK: - Instance Properties
 
-    private var backgroundLayer: CALayer?
-    private var shadowLayers: [CALayer]?
+    var shadow: Shadow {
+        get {
+            Shadow(
+                offset: shadowOffset,
+                radius: shadowRadius,
+                color: shadowColor.map({{ colorTypeName }}.init(cgColor:)),
+                opacity: shadowOpacity
+            )
+        }
 
-    // MARK: -
-
-    {{ accessModifier }} var shadowStyle: ShadowStyle? {
-        didSet {
-            setNeedsLayout()
+        set {
+            shadowOffset = newValue.offset
+            shadowRadius = newValue.radius
+            shadowColor = newValue.color?.cgColor
+            shadowOpacity = newValue.opacity
         }
     }
 
-    // MARK: - {{ viewTypeName }}
+    // MARK: - Initializers
 
-    public override func layoutSubviews() {
-        super.layoutSubviews()
+    convenience init(shadow: Shadow) {
+        self.init()
 
-        self.layer.masksToBounds = false
-
-        if let backgroundLayer = backgroundLayer, let shadowLayers = shadowLayers {
-            shadowLayers.forEach { shadowLayer in
-                shadowLayer.frame = self.layer.bounds
-                shadowLayer.shadowPath = {{ bezierPathTypeName }}(rect: bounds).cgPath
-            }
-
-            backgroundLayer.frame = layer.bounds
-        } else if let shadowStyle = shadowStyle {
-            let backgroundLayer = CALayer()
-
-            backgroundLayer.backgroundColor = self.backgroundColor?.cgColor
-            backgroundLayer.cornerRadius = self.layer.cornerRadius
-
-            let shadowLayers = shadowStyle.shadows.map { _ in CALayer() }
-            let layers = [backgroundLayer] + shadowLayers
-
-            layers.forEach { layer in
-                layer.masksToBounds = false
-                layer.frame = self.layer.bounds
-
-                self.layer.insertSublayer(layer, at: 0)
-            }
-
-            shadowLayers.enumerated().forEach { index, shadowLayer in
-                shadowLayer.apply(shadow: shadowStyle.shadows[index])
-            }
-
-            self.backgroundLayer = backgroundLayer
-            self.shadowLayers = shadowLayers
-        }
+        self.shadow = shadow
     }
 }
 
-private extension CALayer {
+{{ accessModifier }} extension {{ viewTypeName }} {
+
+    // MARK: - Instance Properties
+
+    var shadow: {{ shadowTypeName }} {
+        get { layer.shadow }
+        set { layer.shadow = newValue }
+    }
+}
+
+private extension {{ bezierPathTypeName }} {
+
+    // MARK: - Initializers
+
+    convenience init(
+        roundedRect rect: CGRect,
+        byRoundingCorners layerCorners: CACornerMask,
+        cornerRadii: CGSize
+    ) {
+        #if canImport(UIKit)
+            let cornerMaskMap: KeyValuePairs<CACornerMask, UIRectCorner> = [
+                .layerMinXMinYCorner: .topLeft,
+                .layerMinXMaxYCorner: .bottomLeft,
+                .layerMaxXMinYCorner: .topRight,
+                .layerMaxXMaxYCorner: .bottomRight
+            ]
+
+            let rectCorners = cornerMaskMap
+                .lazy
+                .filter { layerCorners.contains($0.key) }
+                .reduce(into: UIRectCorner()) { result, corner in
+                    result.insert(corner.value)
+                }
+
+            self.init(
+                roundedRect: rect,
+                byRoundingCorners: rectCorners,
+                cornerRadii: cornerRadii
+            )
+        #else
+            self.init(
+                roundedRect: NSRectFromCGRect(rect),
+                xRadius: cornerRadii.width,
+                yRadius: cornerRadii.height
+            )
+        #endif
+    }
+}
+
+{{ classAccessModifier }} class {{ shadowStyleLayerTypeName }}: CALayer {
+
+    // MARK: - Instance Properties
+
+    private var shadowLayers: [CALayer] = []
+    private let backgroundLayer = CALayer()
+
+    {{ accessModifier }} var shadowStyle: {{ styleTypeName }} {
+        didSet { updateShadowLayers() }
+    }
+
+    {{ accessModifier }} override var backgroundColor: CGColor? {
+        get { backgroundLayer.backgroundColor }
+        set { backgroundLayer.backgroundColor = newValue }
+    }
+
+    {{ accessModifier }} override var cornerRadius: CGFloat {
+        didSet { backgroundLayer.cornerRadius = cornerRadius }
+    }
+
+    {{ accessModifier }} override var maskedCorners: CACornerMask {
+        didSet { backgroundLayer.maskedCorners = maskedCorners }
+    }
+
+    // MARK: - Initializers
+
+    {{ accessModifier }} init(shadowStyle: {{ styleTypeName }}) {
+        self.shadowStyle = shadowStyle
+
+        super.init()
+
+        configureShadowLayers()
+        configureBackgroundLayer()
+    }
+
+    {{ accessModifier }} override convenience init() {
+        self.init(shadowStyle: .clear)
+    }
+
+    {{ accessModifier }} required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Instance Methods
 
-    func apply(shadow: {{ styleTypeName }}.Shadow) {
-        shadowOffset = shadow.offset
-        shadowRadius = shadow.radius
-        shadowColor = shadow.color.cgColor
-        shadowOpacity = shadow.opacity
-        shadowPath = {{ bezierPathTypeName }}(rect: bounds).cgPath
+    private func configureShadowLayers() {
+        shadowLayers = shadowStyle
+            .shadows
+            .map { CALayer(shadow: $0) }
+
+        shadowLayers.reversed().forEach { shadowLayer in
+            insertSublayer(shadowLayer, at: 0)
+        }
+    }
+
+    private func configureBackgroundLayer() {
+        backgroundLayer.masksToBounds = true
+
+        addSublayer(backgroundLayer)
+    }
+
+    private func updateShadowLayers() {
+        shadowLayers.forEach { $0.removeFromSuperlayer() }
+
+        configureShadowLayers()
+    }
+
+    private func layoutShadowLayers() {
+        shadowLayers.forEach { shadowLayer in
+            shadowLayer.frame = bounds
+
+            shadowLayer.shadowPath = {{ bezierPathTypeName }}(
+                roundedRect: bounds,
+                byRoundingCorners: maskedCorners,
+                cornerRadii: CGSize(
+                    width: cornerRadius,
+                    height: cornerRadius
+                )
+            ).cgPath
+        }
+    }
+
+    private func layoutBackgroundLayer() {
+        backgroundLayer.frame = bounds
+    }
+
+    {{ classAccessModifier }} override func layoutSublayers() {
+        super.layoutSublayers()
+
+        layoutShadowLayers()
+        layoutBackgroundLayer()
     }
 }
+
+{{ classAccessModifier }} class {{ shadowStyleViewTypeName }}: {{ viewTypeName }} {
+
+    // MARK: - Type Properties
+
+    {{ accessModifier }} override class var layerClass: AnyClass {
+        {{ shadowStyleLayerTypeName }}.self
+    }
+
+    // MARK: - Instance Properties
+
+    {{ accessModifier }} var shadowStyleLayer: {{ shadowStyleLayerTypeName }} {
+        layer as! {{ shadowStyleLayerTypeName }}
+    }
+
+    {{ accessModifier }} var shadowStyle: {{ styleTypeName }} {
+        get { shadowStyleLayer.shadowStyle }
+        set { shadowStyleLayer.shadowStyle = newValue }
+    }
+
+    {{ accessModifier }} override var backgroundColor: {{ colorTypeName }}? {
+        get { shadowStyleLayer.backgroundColor.map({{ colorTypeName }}.init(cgColor:)) }
+        set { shadowStyleLayer.backgroundColor = newValue?.cgColor }
+    }
+}
+{% else %}
+// No shadow style found
 {% endif %}

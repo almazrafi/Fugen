@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet private weak var cardView: ShadowStyleView!
     @IBOutlet private weak var label: UILabel!
     @IBOutlet private weak var imageView: UIImageView!
 
@@ -29,5 +30,8 @@ class ViewController: UIViewController {
             .attributedString("Hello world")
 
         imageView.image = Images.cloud
+
+        cardView.shadowStyle = .cardShadow
+        label.shadow = .thinShadow
     }
 }

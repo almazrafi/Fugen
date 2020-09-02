@@ -67,6 +67,7 @@ final class DefaultImagesProvider: ImagesProvider {
 
         return try nodes
             .lazy
+            .filter { $0.isVisible ?? true }
             .compactMap { node in
                 try extractImageNode(
                     from: node,
