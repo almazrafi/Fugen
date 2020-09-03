@@ -73,12 +73,12 @@ public struct ColorStyle: Equatable {
 
     /// Daisy Bush
     ///
-    /// Hex #5B4296FF; rgba 91 66 150, 100%
+    /// Hex #5B4296BF; rgba 91 66 150, 75%
     public static let daisyBush = ColorStyle(
         red: 0.35686275362968445,
         green: 0.25882354378700256,
         blue: 0.5882353186607361,
-        alpha: 1.0
+        alpha: 0.75
     )
 
     /// Razzmatazz

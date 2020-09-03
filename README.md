@@ -312,10 +312,10 @@ view.backgroundColor = UIColor(style: .razzmatazz)
 The template could be configured using different options that are specified in `templateOptions` parameter:
 
 Key  | Type | Default value | Description
----- | -----| ------------- | -----------
-`styleTypeName` | String | ColorStyle | Style type name
+---- | ---- | ------------- | -----------
+`styleTypeName` | String | ColorStyle | Style type name.
 `colorTypeName` | String | UIColor | Color type name. If the target platform is macOS, specify `NSColor`.
-`publicAccess` | Boolean | false | Flag that adds `public` access modifier to the declarations in the generated file.
+`publicAccess` | Boolean | false | Adds `public` access modifier to the declarations in the generated file.
 
 ## Text styles
 To generate text styles [standard configuration set](#generation-configuration) is used.
@@ -347,11 +347,11 @@ label.attributedText = TextStyle
 The template could be configured using additional options that specified in `templateOptions` parameter:
 
 Key  | Type | Default value | Description
----- | -----| ------------- | -----------
-`styleTypeName` | String | TextStyle | Style type name
+---- | ---- | ------------- | -----------
+`styleTypeName` | String | TextStyle | Style type name.
 `colorTypeName` | String | UIColor | Color type name. If the target platform is macOS, specify `NSColor`.
 `fontTypeName` | String | UIFont | Font type name. If the target platform is macOS, specify `NSFont`.
-`publicAccess` | Boolean | false | Flag that adds `public` access modifier to the declarations in the generated file.
+`publicAccess` | Boolean | false | Adds `public` access modifier to the declarations in the generated file.
 
 ## Shadow styles
 
@@ -373,21 +373,28 @@ shadowStyles:
 Sample usage of the generated code:
 
 ```swift
-@IBOutlet private weak var shadowWiew: FugenShadowView!
+// If style contains only one shadow, you can set it to any view or layer
+label.shadow = .thinShadow
 
-shadowWiew.shadowStyle = .card16dpShadow
+// Styles with multiple shadows can only be set to an instance of ShadowStyleView
+let cardView = ShadowStyleView()
+
+cardView.backgroundColor = .white
+cardView.shadowStyle = .cardShadow
 ```
 
 The template could be configured using additional options that specified in `templateOptions` parameter:
 
-| Key                  | Type    | Default value   | Description                                                  |
-| -------------------- | ------- | --------------- | ------------------------------------------------------------ |
-| `styleTypeName`      | String  | ShadowStyle     | Style type name                                              |
-| `shadowViewTypeName` | String  | FugenShadowView | Name of generated view to which the shadow style is applied. |
-| `colorTypeName`      | String  | UIColor         | Color type name. If the target platform is macOS, specify `NSColor`. |
-| `viewTypeName`       | String  | UIView          | View type name. If the target platform is macOS, specify `NSView`. |
-| `bezierPathTypeName` | String  | UIBezierPath    | Bezier path type name. If the target platform is macOS, specify `NSBezierPath`. |
-| `publicAccess`       | Boolean | false           | Flag that adds `public` access modifier to the declarations in the generated file. |
+Key  | Type | Default value | Description
+---- | ---- | ------------- | -----------
+`styleTypeName` | String | ShadowStyle | Style type name.
+`shadowTypeName` | String | Shadow | Shadow type name.
+`shadowStyleLayerTypeName` | String  | ShadowStyleLayer | Name of generated layer that provides rendering of shadow style.
+`shadowStyleViewTypeName` | String  | ShadowStyleView | Name of generated view to which the shadow style can be set.
+`colorTypeName` | String  | UIColor | Color type name. If the target platform is macOS, specify `NSColor`.
+`viewTypeName` | String  | UIView | View type name. If the target platform is macOS, specify `NSView`.
+`bezierPathTypeName` | String | UIBezierPath | Bezier path type name. If the target platform is macOS, specify `NSBezierPath`.
+`publicAccess` | Boolean | false | Adds `public` access modifier to the declarations in the generated file.
 
 ## Images
 
@@ -400,8 +407,9 @@ The parameter can be skipped, if, for example, you only want to save assets.
 The default format is `pdf`.
 - `scales`: array with integer scaling factors from 1 to 3.
 The default scaling factor is 1, so the image will have the original size.
-- `onlyExportables`: Indicates if it will fetch only exportable components, `true` or `false`.
-The default value its `false`
+- `onlyExportables`: renders only exportable components.
+The default value is `false`.
+
 
 Sample configuration:
 ```yaml
@@ -420,8 +428,10 @@ Fugen only uses nodes that are [components](https://help.figma.com/article/66-co
 So, make sure that the chosen frame in the file URL (see [Figma file](#figma-file))
 allows to filter out the components that should not render images in Figma file.
 
-#### Only Exportables
-If this option is `true` only the component marked as exportable on Figma will be render in file and assets.
+#### Only exportables
+If you want to export only those components
+that have [export settings](https://help.figma.com/hc/en-us/articles/360040028114-Getting-Started-with-Exports) in Figma,
+set the `onlyExportables` flag to `true`.
 
 #### Xcode-assets
 It's recommended to specify the path to a subfolder inside the Xcode-assets folder in the `assets` parameter,
@@ -456,10 +466,10 @@ imageView.image = Images.menuIcon
 The template could be configured using additional options specified in `templateOptions` parameter:
 
 Key  | Type | Default value | Description
----- | -----| ------------- | -----------
+---- | ---- | ------------- | -----------
 `imagesEnumName` | String | Images | Name of a generated enum with static image fields
 `imageTypeName` | String | UIImage | Image type name. If the target platform is macOS, specify `NSImage`.
-`publicAccess` | Boolean | false | Flag that adds `public` access modifier to the declarations in the generated file.
+`publicAccess` | Boolean | false | Adds `public` access modifier to the declarations in the generated file.
 
 ---
 

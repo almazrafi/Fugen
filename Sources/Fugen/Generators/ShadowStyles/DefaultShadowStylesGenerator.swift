@@ -22,7 +22,7 @@ final class DefaultShadowStylesGenerator: ShadowStylesGenerator, GenerationParam
     // MARK: - Instance Methods
 
     private func generate(parameters: GenerationParameters) -> Promise<Void> {
-        firstly {
+        return firstly {
             self.shadowStylesProvider.fetchShadowStyles(from: parameters.file, nodes: parameters.nodes)
         }.map { shadowStyles in
             ShadowStylesContext(shadowStyles: shadowStyles)
@@ -38,7 +38,7 @@ final class DefaultShadowStylesGenerator: ShadowStylesGenerator, GenerationParam
     // MARK: - ShadowStylesGenerator
 
     func generate(configuration: ShadowStylesConfiguration) -> Promise<Void> {
-        perform(on: .global(qos: .userInitiated)) {
+        return perform(on: .global(qos: .userInitiated)) {
             try self.resolveGenerationParameters(from: configuration)
         }.then { parameters in
             self.generate(parameters: parameters)

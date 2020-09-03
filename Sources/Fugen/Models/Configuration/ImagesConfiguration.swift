@@ -45,9 +45,10 @@ struct ImagesConfiguration: Decodable {
         assets = try container.decodeIfPresent(forKey: .assets)
         resources = try container.decodeIfPresent(forKey: .resources)
 
-        format = try container.decodeIfPresent(ImageFormat.self, forKey: .format) ?? .pdf
-        scales = try container.decodeIfPresent([ImageScale].self, forKey: .scales) ?? [.none]
-        onlyExportables = try container.decodeIfPresent(Bool.self, forKey: .onlyExportables) ?? false
+        format = try container.decodeIfPresent(forKey: .format) ?? .pdf
+        scales = try container.decodeIfPresent(forKey: .scales) ?? [.none]
+        onlyExportables = try container.decodeIfPresent(forKey: .onlyExportables) ?? false
+
         generatation = try GenerationConfiguration(from: decoder)
     }
 

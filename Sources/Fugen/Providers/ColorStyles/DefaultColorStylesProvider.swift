@@ -28,9 +28,11 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
             return nil
         }
 
-        let nodeFills = nodeInfo.fills
+        let nodeFills = nodeInfo.fills?.filter { nodeFill in
+            (nodeFill.isVisible ?? true) && (nodeFill.type == .solid)
+        } ?? []
 
-        guard nodeFills?.count == 1, let nodeFill = nodeFills?.first(where: { $0.type == .solid }) else {
+        guard let nodeFill = nodeFills.first, nodeFills.count == 1 else {
             return nil
         }
 
@@ -47,24 +49,24 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
         }
 
         return ColorStyleNode(
-            id: node.id,
+            id: nodeStyleID,
             name: nodeStyleName,
             description: nodeStyle.description,
-            opacity: nodeFill.opacity,
             color: Color(
                 red: nodeFillColor.red,
                 green: nodeFillColor.green,
                 blue: nodeFillColor.blue,
-                alpha: nodeFillColor.alpha
+                alpha: nodeFill.opacity ?? nodeFillColor.alpha
             )
         )
     }
 
-    private func extractColorStylesNodes(from nodes: [FigmaNode], of file: FigmaFile) throws -> [ColorStyleNode] {
+    private func extractColorStyleNodes(from nodes: [FigmaNode], of file: FigmaFile) throws -> [ColorStyleNode] {
         let styles = file.styles ?? [:]
 
         return try nodes
             .lazy
+            .filter { $0.isVisible ?? true }
             .compactMap { try extractColorStyleNode(from: $0, styles: styles) }
             .reduce(into: []) { result, node in
                 if !result.contains(node) {
@@ -86,12 +88,16 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
 
     // MARK: -
 
-    func fetchColorStyles(from file: FileParameters, nodes: NodesParameters, assets: String?) -> Promise<[ColorStyle]> {
+    func fetchColorStyles(
+        from file: FileParameters,
+        nodes: NodesParameters,
+        assets: String?
+    ) -> Promise<[ColorStyle]> {
         return firstly {
             self.filesProvider.fetchFile(file)
         }.then { figmaFile in
             self.nodesProvider.fetchNodes(nodes, from: figmaFile).map { figmaNodes in
-                try self.extractColorStylesNodes(from: figmaNodes, of: figmaFile)
+                try self.extractColorStyleNodes(from: figmaNodes, of: figmaFile)
             }
         }.then { nodes in
             firstly {

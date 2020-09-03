@@ -31,7 +31,7 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
         "--includingNodes",
         "-i",
         description: #"""
-            A list of Figma nodes whose styles will be extracted.
+            A list of Figma nodes whose components will be rendered.
             Can be repeated multiple times and must be in the format: -i "1:23".
             If omitted, all nodes will be included.
             """#
@@ -41,7 +41,7 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
         "--excludingNodes",
         "-e",
         description: #"""
-            A list of Figma nodes whose styles will be ignored.
+            A list of Figma nodes whose components will be ignored.
             Can be repeated multiple times and must be in the format: -e "1:23".
             """#
     )
@@ -116,12 +116,13 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
             """
     )
 
-    let onlyExportables = Key<Bool>(
+    let onlyExportables = Flag(
         "--onlyExportables",
         description: """
-            Indicates if it will fetch only exportable components, true or false
-            By default false
-            """
+            Render only exportable components.
+            By default, all components will be rendered.
+            """,
+        defaultValue: false
     )
 
     // MARK: - Initializers
@@ -166,7 +167,7 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
             resources: resources.value,
             format: resolveImageFormat(),
             scales: resolveImageScales(),
-            onlyExportables: onlyExportables.value ?? false
+            onlyExportables: onlyExportables.value
         )
     }
 

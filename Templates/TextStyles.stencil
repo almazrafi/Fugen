@@ -54,7 +54,7 @@ import AppKit
 
     /// {{ style.name }}
     ///
-    /// {{ style.font|fontInfo }}
+    /// Font: {{ style.font|fontInfo }}
     /// Color: {% if style.color.styleName %}{{ style.color.styleName }}; {% endif %}{{ style.color.color|colorInfo|lowerFirstWord }}
     /// Strikethrough: {{ style.strikethrough }}
     /// Underline: {{ style.underline }}

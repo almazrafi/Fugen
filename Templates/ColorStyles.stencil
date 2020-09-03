@@ -34,7 +34,7 @@ import AppKit
         red: {{ style.color.red }},
         green: {{ style.color.green }},
         blue: {{ style.color.blue }},
-        alpha: {% if style.opacity %}{{ style.opacity }}{% else %}{{ style.color.alpha }}{% endif %}
+        alpha: {{ style.color.alpha }}
     )
 {% endfor %}
 
