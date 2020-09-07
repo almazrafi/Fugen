@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		C0F8CD4D239DA83F009EDF98 /* Fugen */ = {
+		C01B801E25060F6B0080227E /* Fugen */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = C0F8CD4E239DA83F009EDF98 /* Build configuration list for PBXAggregateTarget "Fugen" */;
+			buildConfigurationList = C01B801F25060F6B0080227E /* Build configuration list for PBXAggregateTarget "Fugen" */;
 			buildPhases = (
-				C0F8CD51239DA84A009EDF98 /* Fugen */,
+				C01B802225060F710080227E /* Fugen */,
 			);
 			dependencies = (
 			);
@@ -249,15 +249,15 @@
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Almaz Ibragimov";
 				TargetAttributes = {
+					C01B801E25060F6B0080227E = {
+						CreatedOnToolsVersion = 11.5;
+					};
 					C0D5EB5A23EEBE92000AB1B0 = {
 						CreatedOnToolsVersion = 11.3.1;
 						TestTargetID = C0E6B5F6238096C500083ADB;
 					};
 					C0E6B5F6238096C500083ADB = {
 						CreatedOnToolsVersion = 11.0;
-					};
-					C0F8CD4D239DA83F009EDF98 = {
-						CreatedOnToolsVersion = 11.2.1;
 					};
 				};
 			};
@@ -276,7 +276,7 @@
 			targets = (
 				C0E6B5F6238096C500083ADB /* FugenDemo */,
 				C0D5EB5A23EEBE92000AB1B0 /* FugenDemoTests */,
-				C0F8CD4D239DA83F009EDF98 /* Fugen */,
+				C01B801E25060F6B0080227E /* Fugen */,
 			);
 		};
 /* End PBXProject section */
@@ -330,7 +330,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C0F8CD51239DA84A009EDF98 /* Fugen */ = {
+		C01B802225060F710080227E /* Fugen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -402,6 +402,22 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C01B802025060F6B0080227E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C01B802125060F6B0080227E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		C0D5EB6223EEBE92000AB1B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -598,25 +614,18 @@
 			};
 			name = Release;
 		};
-		C0F8CD4F239DA83F009EDF98 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		C0F8CD50239DA83F009EDF98 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C01B801F25060F6B0080227E /* Build configuration list for PBXAggregateTarget "Fugen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01B802025060F6B0080227E /* Debug */,
+				C01B802125060F6B0080227E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C0D5EB6423EEBE92000AB1B0 /* Build configuration list for PBXNativeTarget "FugenDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -640,15 +649,6 @@
 			buildConfigurations = (
 				C0E6B60C238096C500083ADB /* Debug */,
 				C0E6B60D238096C500083ADB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C0F8CD4E239DA83F009EDF98 /* Build configuration list for PBXAggregateTarget "Fugen" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C0F8CD4F239DA83F009EDF98 /* Debug */,
-				C0F8CD50239DA83F009EDF98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

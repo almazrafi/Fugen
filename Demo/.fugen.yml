@@ -23,3 +23,9 @@ images:
   destination: FugenDemo/Generated/Images.swift
   templateOptions:
     publicAccess: true
+
+shadowStyles:
+  file: https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo?node-id=236%3A4
+  destination: FugenDemo/Generated/ShadowStyle.swift
+  templateOptions:
+    publicAccess: true
