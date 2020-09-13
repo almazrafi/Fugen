@@ -6,10 +6,9 @@
 [![Platforms](https://img.shields.io/badge/platforms-macOS%20%7C%20Linux-lightgrey)](https://swift.org/about/#platform-support)
 [![License](https://img.shields.io/github/license/almazrafi/Fugen.svg)](https://github.com/almazrafi/Fugen/blob/master/LICENSE)
 
-Fugen is a command line tool to auto-generate code and resources for your [Figma](http://figma.com/) files,
-completely written in [Swift](https://swift.org).
+Fugen is a command line tool for exporting resources and generating code from your [Figma](http://figma.com/) files.
 
-Currently, it supports generating the following entities:
+Currently, Fugen supports the following entities:
 - ✅ Color styles
 - ✅ Text styles
 - ✅ Shadow styles
