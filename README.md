@@ -298,7 +298,7 @@ The whole assets structure be created if it was missing.
 🚨 Folder specified in the `assets` parameter will be emptied before saving colors there.
 You shouldn't use the same path for different generation steps,
 but you can use different subfolders of the assets folder,
-for example `Sources/Assets.xcassets/Colors` and `Sources/Assets.xcassets/Colors`.
+for example `Sources/Assets.xcassets/Colors` and `Sources/Assets.xcassets/Images`.
 
 #### Standard template
 Examples of usage of the generated code:
