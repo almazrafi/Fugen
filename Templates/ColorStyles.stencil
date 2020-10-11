@@ -35,7 +35,7 @@ import AppKit
         green: {{ style.color.green }},
         blue: {{ style.color.blue }},
         alpha: {{ style.color.alpha }}
-    )
+    ).color
 {% endfor %}
 
     // MARK: - Instance Properties
