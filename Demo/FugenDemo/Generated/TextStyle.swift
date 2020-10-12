@@ -154,27 +154,37 @@ public struct TextStyle: Equatable {
         letterSpacing: 0.1
     )
 
+    /// Big Header
+    ///
+    /// Font: Roboto (Roboto-Bold); weight 700.0; size 48.0
+    /// Color: Eclipse; hex #393939FF; rgba 57 57 57, 100%
+    /// Strikethrough: false
+    /// Underline: false
+    /// Paragraph spacing: default
+    /// Paragraph indent: default
+    /// Line height: 60.0
+    /// Letter spacing: 0.0
+    public static let bigHeader = TextStyle(
+        font: UIFont(name: "Roboto-Bold", size: 48.0),
+        color: UIColor(
+            red: 0.2235294133424759,
+            green: 0.2235294133424759,
+            blue: 0.2235294133424759,
+            alpha: 1.0
+        ),
+        strikethrough: false,
+        underline: false,
+        paragraphSpacing: nil,
+        paragraphIndent: nil,
+        lineHeight: 60.0,
+        letterSpacing: 0.0
+    )
+
     // MARK: - Type Methods
 
     public static func validate() throws {
-        guard UIFont(name: "SFProDisplay-Light", size: 13.0) != nil else {
-            throw ValidationError.fontNotFound(name: "SFProDisplay-Light", size: 13.0)
-        }
-
-        guard UIFont(name: "SFProDisplay-Regular", size: 13.0) != nil else {
-            throw ValidationError.fontNotFound(name: "SFProDisplay-Regular", size: 13.0)
-        }
-
-        guard UIFont(name: "SFProDisplay-Regular", size: 15.0) != nil else {
-            throw ValidationError.fontNotFound(name: "SFProDisplay-Regular", size: 15.0)
-        }
-
-        guard UIFont(name: "SFProDisplay-Medium", size: 17.0) != nil else {
-            throw ValidationError.fontNotFound(name: "SFProDisplay-Medium", size: 17.0)
-        }
-
-        guard UIFont(name: "SFProDisplay-Bold", size: 34.0) != nil else {
-            throw ValidationError.fontNotFound(name: "SFProDisplay-Bold", size: 34.0)
+        guard UIFont(name: "Roboto-Bold", size: 48.0) != nil else {
+            throw ValidationError.fontNotFound(name: "Roboto-Bold", size: 48.0)
         }
 
         print("All text styles are valid")
