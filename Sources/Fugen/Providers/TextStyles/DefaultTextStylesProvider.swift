@@ -130,7 +130,7 @@ final class DefaultTextStylesProvider: TextStylesProvider {
             .filter { $0.isVisible ?? true }
             .compactMap { try extractTextStyle(from: $0, styles: styles) }
             .reduce(into: []) { result, textStyle in
-                if !result.contains(textStyle) {
+                if !result.contains(where: { $0.node == textStyle.node }) {
                     result.append(textStyle)
                 }
             }
