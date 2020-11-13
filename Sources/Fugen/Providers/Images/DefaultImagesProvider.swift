@@ -76,7 +76,7 @@ final class DefaultImagesProvider: ImagesProvider {
                 )
             }
             .reduce(into: []) { result, node in
-                if !result.contains(node) {
+                if !result.contains(where: { $0.id == node.id }) {
                     result.append(node)
                 }
             }

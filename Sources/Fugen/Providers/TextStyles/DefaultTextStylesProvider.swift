@@ -76,8 +76,8 @@ final class DefaultTextStylesProvider: TextStylesProvider {
         return Font(
             family: fontFamily,
             name: fontName,
-            weight: fontWeight,
-            size: fontSize
+            weight: fontWeight.rounded(precision: 1),
+            size: fontSize.rounded(precision: 1)
         )
     }
 
@@ -131,7 +131,7 @@ final class DefaultTextStylesProvider: TextStylesProvider {
             .filter { $0.isVisible ?? true }
             .compactMap { try extractTextStyle(from: $0, styles: styles) }
             .reduce(into: []) { result, textStyle in
-                if !result.contains(where: { $0.node == textStyle.node }) {
+                if !result.contains(where: { $0.node.id == textStyle.node.id }) {
                     result.append(textStyle)
                 }
             }

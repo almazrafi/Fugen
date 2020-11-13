@@ -69,7 +69,7 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
             .filter { $0.isVisible ?? true }
             .compactMap { try extractColorStyleNode(from: $0, styles: styles) }
             .reduce(into: []) { result, node in
-                if !result.contains(node) {
+                if !result.contains(where: { $0.id == node.id }) {
                     result.append(node)
                 }
             }
