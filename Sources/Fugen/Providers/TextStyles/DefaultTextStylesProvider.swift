@@ -103,7 +103,6 @@ final class DefaultTextStylesProvider: TextStylesProvider {
         }
 
         let textStyleNode = TextStyleNode(
-            id: nodeStyleID,
             name: nodeStyleName,
             description: nodeStyle.description,
             font: try extractFont(from: nodeTypeStyle, of: node),
@@ -131,7 +130,7 @@ final class DefaultTextStylesProvider: TextStylesProvider {
             .filter { $0.isVisible ?? true }
             .compactMap { try extractTextStyle(from: $0, styles: styles) }
             .reduce(into: []) { result, textStyle in
-                if !result.contains(where: { $0.node.id == textStyle.node.id }) {
+                if !result.contains(textStyle) {
                     result.append(textStyle)
                 }
             }

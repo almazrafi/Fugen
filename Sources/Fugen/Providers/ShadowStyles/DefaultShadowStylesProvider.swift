@@ -96,7 +96,6 @@ final class DefaultShadowStylesProvider: ShadowStylesProvider {
         }
 
         return ShadowStyleNode(
-            id: nodeStyleID,
             name: nodeStyleName,
             description: nodeStyle.description,
             shadows: shadows
@@ -114,7 +113,7 @@ final class DefaultShadowStylesProvider: ShadowStylesProvider {
             .filter { $0.isVisible ?? true }
             .compactMap { try extractShadowStyleNode(from: $0, styles: styles) }
             .reduce(into: []) { result, node in
-                if !result.contains(where: { $0.id == node.id }) {
+                if !result.contains(node) {
                     result.append(node)
                 }
             }
