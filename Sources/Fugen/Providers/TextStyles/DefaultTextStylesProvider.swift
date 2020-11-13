@@ -76,8 +76,8 @@ final class DefaultTextStylesProvider: TextStylesProvider {
         return Font(
             family: fontFamily,
             name: fontName,
-            weight: fontWeight,
-            size: fontSize
+            weight: fontWeight.rounded(precision: 1),
+            size: fontSize.rounded(precision: 1)
         )
     }
 
@@ -103,7 +103,6 @@ final class DefaultTextStylesProvider: TextStylesProvider {
         }
 
         let textStyleNode = TextStyleNode(
-            id: nodeStyleID,
             name: nodeStyleName,
             description: nodeStyle.description,
             font: try extractFont(from: nodeTypeStyle, of: node),
