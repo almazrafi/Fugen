@@ -34,25 +34,3 @@ extension StencilModificator {
         })
     }
 }
-
-extension StencilModificator {
-
-    // MARK: - Instance Methods
-
-    func parseBool(from arguments: [Any?], at index: Int = 0) throws -> Bool {
-        guard let rawArgument = arguments[safe: index] as? String else {
-            throw StencilModificatorError(code: .invalidArguments(arguments), filter: name)
-        }
-
-        switch rawArgument.lowercased() {
-        case "false", "no", "0":
-            return false
-
-        case "true", "yes", "1":
-            return true
-
-        default:
-            throw StencilModificatorError(code: .invalidArguments(arguments), filter: name)
-        }
-    }
-}

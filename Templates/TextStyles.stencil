@@ -6,7 +6,6 @@
 {% set colorTypeName %}{{ options.colorTypeName|default:"UIColor" }}{% endset %}
 {% set strikethroughStyle %}{{ options.strikethroughStyle|default:"single" }}{% endset %}
 {% set underlineStyle %}{{ options.underlineStyle|default:"single" }}{% endset %}
-{% set usingSystemFonts %}{{ options.usingSystemFonts|default:"false" }}{% endset %}
 {% macro propertyName name %}{{ name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords }}{% endmacro %}
 {% set optionalFontTypeName %}{{ fontTypeName }}?{% endset %}
 {% set optionalColorTypeName %}{{ colorTypeName }}?{% endset %}
@@ -64,7 +63,7 @@ import AppKit
     /// Line height: {{ style.lineHeight|default:"default" }}
     /// Letter spacing: {{ style.letterSpacing|default:"default" }}
     {{ accessModifier }} static let {% call propertyName style.name %} = {{ styleTypeName }}(
-        font: {{ fontTypeName }}{{ style.font|initializer:usingSystemFonts }},
+        font: {{ fontTypeName }}{{ style.font|initializer:options.usingSystemFonts }},
         color: {{ colorTypeName }}(
             red: {{ style.color.color.red }},
             green: {{ style.color.color.green }},
@@ -84,7 +83,7 @@ import AppKit
 
     {{ accessModifier }} static func validate() throws {
         {% for style in textStyles %}
-        {% if not ( usingSystemFonts and style.font|isSystemFont ) %}
+        {% if not ( options.usingSystemFonts and style.font|isSystemFont ) %}
         guard {{ fontTypeName }}(name: "{{ style.font.name }}", size: {{ style.font.size }}) != nil else {
             throw ValidationError.fontNotFound(name: "{{ style.font.name }}", size: {{ style.font.size }})
         }

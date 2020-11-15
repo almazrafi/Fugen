@@ -44,10 +44,18 @@ final class StencilFontInitializerModificator: StencilFontModificator {
         return Self.validWeights.first(where: { rawWeight == $0 })
     }
 
+    private func usingSystemFonts(from arguments: [Any?]) throws -> Bool {
+        guard let usingSystemFonts = arguments.first else {
+            throw StencilModificatorError(code: .invalidArguments(arguments), filter: name)
+        }
+
+        return usingSystemFonts as? Bool ?? false
+    }
+
     // MARK: -
 
     func modify(font: Font, withArguments arguments: [Any?]) throws -> String {
-        guard font.isSystemFont, try parseBool(from: arguments, at: .usingSystemFontArgument) else {
+        guard font.isSystemFont, try usingSystemFonts(from: arguments) else {
             return "(name: \"\(font.name)\", size: \(font.size))"
         }
 
@@ -62,11 +70,4 @@ private extension String {
     // MARK: - Type Properties
 
     static let defaultWeight = "regular"
-}
-
-private extension Int {
-
-    // MARK: - Type Properties
-
-    static let usingSystemFontArgument = 0
 }
