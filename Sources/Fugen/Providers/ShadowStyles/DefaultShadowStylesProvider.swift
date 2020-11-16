@@ -96,7 +96,6 @@ final class DefaultShadowStylesProvider: ShadowStylesProvider {
         }
 
         return ShadowStyleNode(
-            id: nodeStyleID,
             name: nodeStyleName,
             description: nodeStyle.description,
             shadows: shadows
