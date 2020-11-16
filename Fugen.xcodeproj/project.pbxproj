@@ -2178,7 +2178,7 @@
 			path = .build/checkouts/SwiftCLI/Sources/SwiftCLI;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -2200,7 +2200,6 @@
 				OBJ_525 /* Brewfile */,
 				OBJ_526 /* Fugen.podspec */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_500 /* Products */ = {
@@ -2449,6 +2448,7 @@
 			buildPhases = (
 				OBJ_584 /* Sources */,
 				OBJ_763 /* Frameworks */,
+				8EAF8CA325624F5B004F21D7 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -2796,7 +2796,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_500 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -2828,6 +2828,27 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8EAF8CA325624F5B004F21D7 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh Scripts/swiftlint.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		OBJ_1013 /* Sources */ = {

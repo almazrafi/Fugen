@@ -41,7 +41,7 @@ final class StencilFontInitializerModificator: StencilFontModificator {
             return nil
         }
 
-        return Self.validWeights.first(where: { rawWeight == $0 })
+        return Self.validWeights.first { rawWeight == $0 }
     }
 
     private func usingSystemFonts(from arguments: [Any?]) throws -> Bool {
