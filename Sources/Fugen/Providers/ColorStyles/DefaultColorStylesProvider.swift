@@ -49,7 +49,6 @@ final class DefaultColorStylesProvider: ColorStylesProvider {
         }
 
         return ColorStyleNode(
-            id: nodeStyleID,
             name: nodeStyleName,
             description: nodeStyle.description,
             color: Color(
