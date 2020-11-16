@@ -351,7 +351,7 @@ Key  | Type | Default value | Description
 `colorTypeName` | String | UIColor | Color type name. If the target platform is macOS, specify `NSColor`.
 `fontTypeName` | String | UIFont | Font type name. If the target platform is macOS, specify `NSFont`.
 `publicAccess` | Boolean | false | Adds `public` access modifier to the declarations in the generated file.
-usingSystemFonts | Boolean | false | If text style has system font (**SFProText** or **SFProDisplay**), then `font` property will be using `systemFont(ofSize:weight:)` method. 
+`usingSystemFonts` | Boolean | false | If text style has system font (**SFProText** or **SFProDisplay**), then `font` property will be using `systemFont(ofSize:weight:)` method. 
 
 ## Shadow styles
 
