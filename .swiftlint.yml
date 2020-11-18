@@ -7,7 +7,7 @@ excluded:
   - Tests/FugenToolsTests/XCTestManifests.swift
   - Tests/LinuxMain.swift
 
-whitelist_rules:
+only_rules:
   - anyobject_protocol
   - array_init
   - attributes
@@ -97,6 +97,7 @@ whitelist_rules:
   - override_in_extension
   - pattern_matching_keywords
   - prefer_self_type_over_type_of_self
+  - prefer_zero_over_explicit_init
   - private_action
   - private_outlet
   - private_over_fileprivate
@@ -126,6 +127,7 @@ whitelist_rules:
   - switch_case_alignment
   - switch_case_on_newline
   - syntactic_sugar
+  - test_case_accessibility
   - todo
   - toggle_bool
   - trailing_closure
