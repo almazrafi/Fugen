@@ -2,6 +2,7 @@
 {% if colorStyles %}
 {% set accessModifier %}{% if options.publicAccess %}public{% else %}internal{% endif %}{% endset %}
 {% set styleTypeName %}{{ options.styleTypeName|default:"ColorStyle" }}{% endset %}
+{% set colorTypeNameExtension %}{{ options.colorTypeNameExtension|default:"ColorStyleExtension" }}{% endset %}
 {% set colorTypeName %}{{ options.colorTypeName|default:"UIColor" }}{% endset %}
 {% macro propertyName name %}{{ name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords }}{% endmacro %}
 {% macro styleMutator propertyName propertyTypeName %}
@@ -16,11 +17,23 @@
     }
 {% endmacro %}
 
-#if canImport(UIKit)
-import UIKit
-#else
-import AppKit
+#if os(OSX)
+  import AppKit.NSColor
+  internal typealias {{ colorTypeNameExtension }} = NSColor
+#elseif os(iOS) || os(tvOS) || os(watchOS)
+  import UIKit.UIColor
+  internal typealias {{ colorTypeNameExtension }} = UIColor
 #endif
+
+extension {{ colorTypeNameExtension }}{
+    {% for style in colorStyles %}
+    static let {% call propertyName style.name %} = {{ colorTypeNameExtension }}(
+        red: {{ style.color.red }},
+        green: {{ style.color.green }},
+        blue: {{ style.color.blue }},
+        alpha: {{ style.color.alpha }})
+    {% endfor %}
+}
 
 {{ accessModifier }} struct {{ styleTypeName }}: Equatable {
 
@@ -35,7 +48,7 @@ import AppKit
         green: {{ style.color.green }},
         blue: {{ style.color.blue }},
         alpha: {{ style.color.alpha }}
-    ).color
+    )
 {% endfor %}
 
     // MARK: - Instance Properties

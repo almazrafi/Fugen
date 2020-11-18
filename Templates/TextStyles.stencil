@@ -255,7 +255,7 @@ import AppKit
 }
 
 {{ accessModifier }} extension String{
-    func style(as style: {{ styleTypeName }}) -> NSAttributedString {
+    func styled(as style: {{ styleTypeName }}) -> NSAttributedString {
         return NSAttributedString(string: self, style: style)
   }
 }
