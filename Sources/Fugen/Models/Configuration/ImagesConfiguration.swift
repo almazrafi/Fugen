@@ -10,6 +10,7 @@ struct ImagesConfiguration: Decodable {
         case format
         case scales
         case onlyExportables
+        case useAbsoluteBounds
     }
 
     // MARK: - Instance Properties
@@ -20,6 +21,7 @@ struct ImagesConfiguration: Decodable {
     let format: ImageFormat
     let scales: [ImageScale]
     let onlyExportables: Bool
+    let useAbsoluteBounds: Bool
 
     // MARK: - Initializers
 
@@ -29,7 +31,8 @@ struct ImagesConfiguration: Decodable {
         resources: String?,
         format: ImageFormat,
         scales: [ImageScale],
-        onlyExportables: Bool
+        onlyExportables: Bool,
+        useAbsoluteBounds: Bool
     ) {
         self.generatation = generatation
         self.assets = assets
@@ -37,6 +40,7 @@ struct ImagesConfiguration: Decodable {
         self.format = format
         self.scales = scales
         self.onlyExportables = onlyExportables
+        self.useAbsoluteBounds = useAbsoluteBounds
     }
 
     init(from decoder: Decoder) throws {
@@ -48,6 +52,7 @@ struct ImagesConfiguration: Decodable {
         format = try container.decodeIfPresent(forKey: .format) ?? .pdf
         scales = try container.decodeIfPresent(forKey: .scales) ?? [.none]
         onlyExportables = try container.decodeIfPresent(forKey: .onlyExportables) ?? false
+        useAbsoluteBounds = try container.decodeIfPresent(forKey: .useAbsoluteBounds) ?? false
 
         generatation = try GenerationConfiguration(from: decoder)
     }
@@ -61,7 +66,8 @@ struct ImagesConfiguration: Decodable {
             resources: resources,
             format: format,
             scales: scales,
-            onlyExportables: onlyExportables
+            onlyExportables: onlyExportables,
+            useAbsoluteBounds: useAbsoluteBounds
         )
     }
 }

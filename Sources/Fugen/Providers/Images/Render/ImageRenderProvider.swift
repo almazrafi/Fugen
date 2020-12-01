@@ -9,6 +9,7 @@ protocol ImageRenderProvider {
         of file: FileParameters,
         nodes: [ImageNode],
         format: ImageFormat,
-        scales: [ImageScale]
+        scales: [ImageScale],
+        useAbsoluteBounds: Bool
     ) -> Promise<[ImageRenderedNode]>
 }

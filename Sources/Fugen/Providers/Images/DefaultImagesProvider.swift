@@ -124,7 +124,8 @@ final class DefaultImagesProvider: ImagesProvider {
                 of: file,
                 nodes: nodes,
                 format: parameters.format,
-                scales: parameters.scales
+                scales: parameters.scales,
+                useAbsoluteBounds: parameters.useAbsoluteBounds
             )
         }.then { nodes in
             firstly {

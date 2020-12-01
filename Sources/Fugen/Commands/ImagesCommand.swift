@@ -125,6 +125,15 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
         defaultValue: false
     )
 
+    let useAbsoluteBounds = Flag(
+        "--useAbsoluteBounds",
+        description: """
+            Use the full dimensions of the node.
+            By default, images will omit empty space or crop.
+            """,
+        defaultValue: false
+    )
+
     // MARK: - Initializers
 
     init(generator: ImagesGenerator) {
@@ -167,7 +176,8 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
             resources: resources.value,
             format: resolveImageFormat(),
             scales: resolveImageScales(),
-            onlyExportables: onlyExportables.value
+            onlyExportables: onlyExportables.value,
+            useAbsoluteBounds: useAbsoluteBounds.value
         )
     }
 

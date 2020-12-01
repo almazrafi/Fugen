@@ -11,6 +11,7 @@ struct FigmaAPIImagesRouteQueryParameters: Encodable {
         case scale
         case svgIncludeID = "svg_include_id"
         case svgSimplifyStroke = "svg_simplify_stroke"
+        case useAbsolutBounds = "use_absolute_bounds"
     }
 
     // MARK: - Instance Properties
@@ -21,4 +22,5 @@ struct FigmaAPIImagesRouteQueryParameters: Encodable {
     let scale: Double?
     let svgIncludeID: Bool?
     let svgSimplifyStroke: Bool?
+    let useAbsolutBounds: Bool?
 }
