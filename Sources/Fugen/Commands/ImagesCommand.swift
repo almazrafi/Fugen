@@ -128,7 +128,7 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
     let useAbsoluteBounds = Flag(
         "--useAbsoluteBounds",
         description: """
-            Use the full dimensions of the node.
+            Use full dimensions of the node.
             By default, images will omit empty space or crop.
             """,
         defaultValue: false
