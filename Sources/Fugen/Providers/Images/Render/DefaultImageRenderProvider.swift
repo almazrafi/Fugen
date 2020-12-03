@@ -54,7 +54,8 @@ final class DefaultImageRenderProvider: ImageRenderProvider {
         of file: FileParameters,
         nodes: [ImageNode],
         format: ImageFormat,
-        scale: ImageScale
+        scale: ImageScale,
+        useAbsoluteBounds: Bool
     ) -> Promise<[ImageNode: URL]> {
         let route = FigmaAPIImagesRoute(
             accessToken: file.accessToken,
@@ -62,7 +63,8 @@ final class DefaultImageRenderProvider: ImageRenderProvider {
             fileVersion: file.version,
             nodeIDs: nodes.map { $0.id },
             format: format.figmaFormat,
-            scale: scale.figmaScale
+            scale: scale.figmaScale,
+            useAbsoluteBounds: useAbsoluteBounds
         )
 
         return firstly {
@@ -78,16 +80,18 @@ final class DefaultImageRenderProvider: ImageRenderProvider {
         of file: FileParameters,
         nodes: [ImageNode],
         format: ImageFormat,
-        scales: [ImageScale]
+        scales: [ImageScale],
+        useAbsoluteBounds: Bool
     ) -> Promise<[ImageRenderedNode]> {
         guard !nodes.isEmpty else {
             return .value([])
         }
 
         let promises = scales.map { scale in
-            renderImages(of: file, nodes: nodes, format: format, scale: scale).map { imageURLs in
-                (scale: scale, imageURLs: imageURLs)
-            }
+            renderImages(of: file, nodes: nodes, format: format, scale: scale, useAbsoluteBounds: useAbsoluteBounds)
+                .map { imageURLs in
+                    (scale: scale, imageURLs: imageURLs)
+                }
         }
 
         return firstly {
