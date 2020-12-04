@@ -40,7 +40,7 @@ Currently, Fugen supports the following entities:
 ### CocoaPods
 To install Fugen using [CocoaPods](http://cocoapods.org) dependency manager, add this line to your `Podfile`:
 ```ruby
-pod 'Fugen', '~> 1.1.1'
+pod 'Fugen', '~> 1.2.0'
 ```
 
 Then run this command:
@@ -420,7 +420,7 @@ images:
   assets: Sources/Assets.xcassets/Images
   destination: Sources/Images.swift
   onlyExportables: true
-  useAbsoluteBounds true
+  useAbsoluteBounds: true
   templateOptions:
     publicAccess: true
 ```
@@ -436,8 +436,8 @@ that have [export settings](https://help.figma.com/hc/en-us/articles/36004002811
 set the `onlyExportables` flag to `true`.
 
 #### Use absolute bounds
-By default Fugen exports the images using only space that is actually occupied by them, so if the node has extra space 
-around, it will be cropped. If you want to preserve this space set the `useAbsoluteBounds` to `true`. 
+By default Fugen exports the images using only space that is actually occupied by them, so if the node has extra space
+around, it will be cropped. If you want to preserve this space set the `useAbsoluteBounds` to `true`.
 See [Image Endpoint Description](https://www.figma.com/developers/api#get-images-endpoint) for details.
 
 #### Xcode-assets
