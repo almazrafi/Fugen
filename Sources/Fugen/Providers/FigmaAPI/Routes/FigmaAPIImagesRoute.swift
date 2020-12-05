@@ -28,7 +28,8 @@ struct FigmaAPIImagesRoute: FigmaAPIRoute {
         format: FigmaImageFormat? = nil,
         scale: Double? = nil,
         svgIncludeID: Bool? = nil,
-        svgSimplifyStroke: Bool? = nil
+        svgSimplifyStroke: Bool? = nil,
+        useAbsoluteBounds: Bool? = nil
     ) {
         self.accessToken = accessToken
         self.fileKey = fileKey
@@ -39,7 +40,8 @@ struct FigmaAPIImagesRoute: FigmaAPIRoute {
             format: format?.rawValue.lowercased(),
             scale: scale,
             svgIncludeID: svgIncludeID,
-            svgSimplifyStroke: svgSimplifyStroke
+            svgSimplifyStroke: svgSimplifyStroke,
+            useAbsolutBounds: useAbsoluteBounds
         )
     }
 }

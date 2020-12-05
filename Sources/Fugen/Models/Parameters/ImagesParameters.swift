@@ -9,4 +9,5 @@ struct ImagesParameters {
     let assets: String?
     let resources: String?
     let onlyExportables: Bool
+    let useAbsoluteBounds: Bool
 }

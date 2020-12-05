@@ -19,7 +19,7 @@ final class DefaultFigmaAPIProvider: FigmaAPIProvider {
     init(httpService: FigmaHTTPService) {
         self.httpService = httpService
 
-        let urlEncoder = URLEncoder()
+        let urlEncoder = URLEncoder(boolEncodingStrategy: .literal)
         let jsonEncoder = JSONEncoder()
         let jsonDecoder = JSONDecoder()
 
