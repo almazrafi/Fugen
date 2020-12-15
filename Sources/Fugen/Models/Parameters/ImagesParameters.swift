@@ -10,4 +10,5 @@ struct ImagesParameters {
     let resources: String?
     let onlyExportables: Bool
     let useAbsoluteBounds: Bool
+    let preserveVectorData: Bool
 }
