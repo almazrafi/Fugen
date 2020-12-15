@@ -61,7 +61,8 @@ private extension ImagesConfiguration {
             assets: assets,
             resources: resources,
             onlyExportables: onlyExportables,
-            useAbsoluteBounds: useAbsoluteBounds
+            useAbsoluteBounds: useAbsoluteBounds,
+            preserveVectorData: preserveVectorData
         )
     }
 }

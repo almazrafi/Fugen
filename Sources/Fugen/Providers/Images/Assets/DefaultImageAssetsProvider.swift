@@ -19,7 +19,12 @@ final class DefaultImageAssetsProvider: ImageAssetsProvider {
 
     // MARK: - Instance Methods
 
-    private func makeAsset(for node: ImageRenderedNode, format: ImageFormat, folderPath: Path) -> ImageAsset {
+    private func makeAsset(
+        for node: ImageRenderedNode,
+        format: ImageFormat,
+        preserveVectorData: Bool,
+        folderPath: Path
+    ) -> ImageAsset {
         let name = node.base.name.camelized
 
         let filePaths = node.urls.keys.reduce(into: [:]) { result, scale in
@@ -29,18 +34,24 @@ final class DefaultImageAssetsProvider: ImageAssetsProvider {
                 .string
         }
 
-        return ImageAsset(name: name, filePaths: filePaths)
+        return ImageAsset(name: name, filePaths: filePaths, preserveVectorData: preserveVectorData)
     }
 
     private func makeAssets(
         for nodes: [ImageRenderedNode],
         format: ImageFormat,
+        preserveVectorData: Bool,
         folderPath: Path
     ) -> [ImageRenderedNode: ImageAsset] {
         var assets: [ImageRenderedNode: ImageAsset] = [:]
 
         nodes.forEach { node in
-            assets[node] = makeAsset(for: node, format: format, folderPath: folderPath)
+            assets[node] = makeAsset(
+                for: node,
+                format: format,
+                preserveVectorData: preserveVectorData,
+                folderPath: folderPath
+            )
         }
 
         return assets
@@ -50,8 +61,12 @@ final class DefaultImageAssetsProvider: ImageAssetsProvider {
         let assetImages = asset.filePaths.map { scale, filePath in
             AssetImage(fileName: Path(filePath).lastComponent, scale: scale.assetImageScale)
         }
-
-        return AssetImageSet(contents: AssetImageSetContents(info: .defaultFugen, images: assetImages))
+        let contents = AssetImageSetContents(
+            info: .defaultFugen,
+            properties: AssetImageProperties(from: asset),
+            images: assetImages
+        )
+        return AssetImageSet(contents: contents)
     }
 
     private func makeAssetImageSets(for assets: [ImageRenderedNode: ImageAsset]) -> [String: AssetImageSet] {
@@ -81,12 +96,14 @@ final class DefaultImageAssetsProvider: ImageAssetsProvider {
     func saveImages(
         nodes: [ImageRenderedNode],
         format: ImageFormat,
+        preserveVectorData: Bool,
         in folderPath: String
     ) -> Promise<[ImageRenderedNode: ImageAsset]> {
         return perform(on: DispatchQueue.global(qos: .userInitiated)) {
             self.makeAssets(
                 for: nodes,
                 format: format,
+                preserveVectorData: preserveVectorData,
                 folderPath: Path(folderPath)
             )
         }.nest { assets in
@@ -122,5 +139,15 @@ private extension ImageScale {
         case .scale3x:
             return .scale3x
         }
+    }
+}
+
+private extension AssetImageProperties {
+
+    init?(from imageAsset: ImageAsset) {
+        guard imageAsset.preserveVectorData else {
+            return nil
+        }
+        self.init(preserveVectorRepresentation: imageAsset.preserveVectorData)
     }
 }
