@@ -410,6 +410,8 @@ The default scaling factor is 1, so the image will have the original size.
 The default value is `false`.
 - `useAbsoluteBounds`: uses full dimensions of the node.
 The default value is `false`.
+- `preserveVectorData`: sets `Preserve Vector Data` flag in Xcode assets.
+The default value is `false`.
 
 
 Sample configuration:
