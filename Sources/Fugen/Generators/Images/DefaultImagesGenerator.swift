@@ -60,7 +60,9 @@ private extension ImagesConfiguration {
             scales: scales,
             assets: assets,
             resources: resources,
-            onlyExportables: onlyExportables
+            onlyExportables: onlyExportables,
+            useAbsoluteBounds: useAbsoluteBounds,
+            preserveVectorData: preserveVectorData
         )
     }
 }

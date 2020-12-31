@@ -8,6 +8,7 @@ protocol ImageAssetsProvider {
     func saveImages(
         nodes: [ImageRenderedNode],
         format: ImageFormat,
+        preserveVectorData: Bool,
         in folderPath: String
     ) -> Promise<[ImageRenderedNode: ImageAsset]>
 }

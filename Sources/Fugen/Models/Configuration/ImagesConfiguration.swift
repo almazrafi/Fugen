@@ -10,6 +10,8 @@ struct ImagesConfiguration: Decodable {
         case format
         case scales
         case onlyExportables
+        case useAbsoluteBounds
+        case preserveVectorData
     }
 
     // MARK: - Instance Properties
@@ -20,6 +22,8 @@ struct ImagesConfiguration: Decodable {
     let format: ImageFormat
     let scales: [ImageScale]
     let onlyExportables: Bool
+    let useAbsoluteBounds: Bool
+    let preserveVectorData: Bool
 
     // MARK: - Initializers
 
@@ -29,7 +33,9 @@ struct ImagesConfiguration: Decodable {
         resources: String?,
         format: ImageFormat,
         scales: [ImageScale],
-        onlyExportables: Bool
+        onlyExportables: Bool,
+        useAbsoluteBounds: Bool,
+        preserveVectorData: Bool
     ) {
         self.generatation = generatation
         self.assets = assets
@@ -37,6 +43,8 @@ struct ImagesConfiguration: Decodable {
         self.format = format
         self.scales = scales
         self.onlyExportables = onlyExportables
+        self.useAbsoluteBounds = useAbsoluteBounds
+        self.preserveVectorData = preserveVectorData
     }
 
     init(from decoder: Decoder) throws {
@@ -48,6 +56,8 @@ struct ImagesConfiguration: Decodable {
         format = try container.decodeIfPresent(forKey: .format) ?? .pdf
         scales = try container.decodeIfPresent(forKey: .scales) ?? [.none]
         onlyExportables = try container.decodeIfPresent(forKey: .onlyExportables) ?? false
+        useAbsoluteBounds = try container.decodeIfPresent(forKey: .useAbsoluteBounds) ?? false
+        preserveVectorData = try container.decodeIfPresent(forKey: .preserveVectorData) ?? false
 
         generatation = try GenerationConfiguration(from: decoder)
     }
@@ -61,7 +71,9 @@ struct ImagesConfiguration: Decodable {
             resources: resources,
             format: format,
             scales: scales,
-            onlyExportables: onlyExportables
+            onlyExportables: onlyExportables,
+            useAbsoluteBounds: useAbsoluteBounds,
+            preserveVectorData: preserveVectorData
         )
     }
 }

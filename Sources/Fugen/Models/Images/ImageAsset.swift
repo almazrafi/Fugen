@@ -6,4 +6,5 @@ struct ImageAsset: Encodable, Hashable {
 
     let name: String
     let filePaths: [ImageScale: String]
+    let preserveVectorData: Bool
 }

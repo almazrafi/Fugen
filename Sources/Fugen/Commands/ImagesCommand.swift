@@ -125,6 +125,24 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
         defaultValue: false
     )
 
+    let useAbsoluteBounds = Flag(
+        "--useAbsoluteBounds",
+        description: """
+            Use full dimensions of the node.
+            By default, images will omit empty space or crop.
+            """,
+        defaultValue: false
+    )
+
+    let preserveVectorData = Flag(
+        "--preserveVectorData",
+        description: """
+        Set preserve vector data flag in Xcode assets.
+        By default, Xcode assets will be generated without vector data preserving.
+        """,
+        defaultValue: false
+    )
+
     // MARK: - Initializers
 
     init(generator: ImagesGenerator) {
@@ -167,7 +185,9 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
             resources: resources.value,
             format: resolveImageFormat(),
             scales: resolveImageScales(),
-            onlyExportables: onlyExportables.value
+            onlyExportables: onlyExportables.value,
+            useAbsoluteBounds: useAbsoluteBounds.value,
+            preserveVectorData: preserveVectorData.value
         )
     }
 

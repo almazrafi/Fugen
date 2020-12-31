@@ -40,7 +40,7 @@ Currently, Fugen supports the following entities:
 ### CocoaPods
 To install Fugen using [CocoaPods](http://cocoapods.org) dependency manager, add this line to your `Podfile`:
 ```ruby
-pod 'Fugen', '~> 1.1.1'
+pod 'Fugen', '~> 1.3.0'
 ```
 
 Then run this command:
@@ -409,6 +409,10 @@ The default format is `pdf`.
 The default scaling factor is 1, so the image will have the original size.
 - `onlyExportables`: renders only exportable components.
 The default value is `false`.
+- `useAbsoluteBounds`: uses full dimensions of the node.
+The default value is `false`.
+- `preserveVectorData`: sets `Preserve Vector Data` flag in Xcode assets.
+The default value is `false`.
 
 
 Sample configuration:
@@ -419,6 +423,7 @@ images:
   assets: Sources/Assets.xcassets/Images
   destination: Sources/Images.swift
   onlyExportables: true
+  useAbsoluteBounds: true
   templateOptions:
     publicAccess: true
 ```
@@ -432,6 +437,11 @@ allows to filter out the components that should not render images in Figma file.
 If you want to export only those components
 that have [export settings](https://help.figma.com/hc/en-us/articles/360040028114-Getting-Started-with-Exports) in Figma,
 set the `onlyExportables` flag to `true`.
+
+#### Use absolute bounds
+By default Fugen exports the images using only space that is actually occupied by them, so if the node has extra space
+around, it will be cropped. If you want to preserve this space set the `useAbsoluteBounds` to `true`.
+See [Image Endpoint Description](https://www.figma.com/developers/api#get-images-endpoint) for details.
 
 #### Xcode-assets
 It's recommended to specify the path to a subfolder inside the Xcode-assets folder in the `assets` parameter,
