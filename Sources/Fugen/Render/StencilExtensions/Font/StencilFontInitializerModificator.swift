@@ -1,11 +1,5 @@
 import Foundation
 
-#if canImport(UIKit)
-import UIKit
-#else
-import AppKit
-#endif
-
 final class StencilFontInitializerModificator: StencilFontModificator {
 
     // MARK: - Type Properties
