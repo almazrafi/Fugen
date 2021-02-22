@@ -21,6 +21,7 @@ Currently, Fugen supports the following entities:
 - [Installation](#installation)
     - [CocoaPods](#cocoapods)
     - [Homebrew](#homebrew)
+    - [Mint](#mint)
     - [ZIP archive](#zip-archive)
 - [Usage](#usage)
 - [Configuration](#configuration)
