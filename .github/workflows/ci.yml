@@ -58,6 +58,8 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
+        env:
+          ImageOS: ubuntu18
       - name: Bundler
         run: |
           gem install bundler
