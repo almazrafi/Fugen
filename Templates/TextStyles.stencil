@@ -63,7 +63,7 @@ import AppKit
     /// Line height: {{ style.lineHeight|default:"default" }}
     /// Letter spacing: {{ style.letterSpacing|default:"default" }}
     {{ accessModifier }} static let {% call propertyName style.name %} = {{ styleTypeName }}(
-        font: {{ fontTypeName }}(name: "{{ style.font.name }}", size: {{ style.font.size }}),
+        font: {{ fontTypeName }}(name: "{{ style.font.name }}", size: {{ style.font.size }}) ?? {{ fontTypeName }}.systemFont(ofSize: {{ style.font.size }}),
         color: {{ colorTypeName }}(
             red: {{ style.color.color.red }},
             green: {{ style.color.color.green }},
@@ -253,6 +253,13 @@ import AppKit
         self.init(string: string, attributes: style.attributes(includingParagraphStyle: includingParagraphStyle))
     }
 }
+
+{{ accessModifier }} extension String{
+    func styled(as style: {{ styleTypeName }}) -> NSAttributedString {
+        return NSAttributedString(string: self, style: style)
+  }
+}
+
 {% else %}
 // No text style found
 {% endif %}

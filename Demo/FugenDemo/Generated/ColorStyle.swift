@@ -1,11 +1,56 @@
 // swiftlint:disable all
 // Generated using Fugen - https://github.com/almazrafi/Fugen
 
-#if canImport(UIKit)
-import UIKit
-#else
-import AppKit
+#if os(OSX)
+  import AppKit.NSColor
+  internal typealias ColorStyleExtension = NSColor
+#elseif os(iOS) || os(tvOS) || os(watchOS)
+  import UIKit.UIColor
+  internal typealias ColorStyleExtension = UIColor
 #endif
+
+extension ColorStyleExtension{
+    static let whisper = ColorStyleExtension(
+        red: 0.9137254953384399,
+        green: 0.9137254953384399,
+        blue: 0.9137254953384399,
+        alpha: 1.0)
+    static let snowDrift = ColorStyleExtension(
+        red: 0.8549019694328308,
+        green: 0.8549019694328308,
+        blue: 0.8509804010391235,
+        alpha: 1.0)
+    static let submarine = ColorStyleExtension(
+        red: 0.5803921818733215,
+        green: 0.5921568870544434,
+        blue: 0.5960784554481506,
+        alpha: 1.0)
+    static let eclipse = ColorStyleExtension(
+        red: 0.2235294133424759,
+        green: 0.2235294133424759,
+        blue: 0.2235294133424759,
+        alpha: 1.0)
+    static let lochinvar = ColorStyleExtension(
+        red: 0.25882354378700256,
+        green: 0.5882353186607361,
+        blue: 0.4901960790157318,
+        alpha: 1.0)
+    static let jellyBean = ColorStyleExtension(
+        red: 0.25882354378700256,
+        green: 0.4901960790157318,
+        blue: 0.5882353186607361,
+        alpha: 1.0)
+    static let daisyBush = ColorStyleExtension(
+        red: 0.35686275362968445,
+        green: 0.25882354378700256,
+        blue: 0.5882353186607361,
+        alpha: 0.75)
+    static let razzmatazz = ColorStyleExtension(
+        red: 0.8901960849761963,
+        green: 0.04313725605607033,
+        blue: 0.3607843220233917,
+        alpha: 1.0)
+}
 
 public struct ColorStyle: Equatable {
 
