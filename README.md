@@ -21,6 +21,7 @@ Currently, Fugen supports the following entities:
 - [Installation](#installation)
     - [CocoaPods](#cocoapods)
     - [Homebrew](#homebrew)
+    - [Mint](#mint)
     - [ZIP archive](#zip-archive)
 - [Usage](#usage)
 - [Configuration](#configuration)
@@ -65,7 +66,16 @@ $ brew install almazrafi/tap/fugen
 > It's impossible to set a specific package version via Homebrew.
 > If you chose this method, make sure all team members use the same version of Fugen.
 
+### Mint
+
+For [Mint](https://github.com/yonaskolb/mint) package manager installation, run:
+
+```sh
+$ mint install almazrafi/Fugen@1.3.0
+```
+
 ### ZIP archive
+
 Every release in the repo has a ZIP archive which can be used to integrate Fugen into a project.
 To use that method, the following steps should be taken:
 - Open [repository release page](https://github.com/almazrafi/Fugen/releases).
