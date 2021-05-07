@@ -16,6 +16,7 @@ textStyles:
   destination: FugenDemo/Generated/TextStyle.swift
   templateOptions:
     publicAccess: true
+    usingSystemFonts: false
 
 images:
   file: https://www.figma.com/file/61xw2FQn61Xr7VVFYwiHHy/Fugen-Demo?node-id=91%3A63

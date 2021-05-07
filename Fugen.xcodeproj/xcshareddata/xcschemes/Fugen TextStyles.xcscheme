@@ -94,6 +94,10 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
+            argument = "-o usingSystemFonts:false"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "--accessToken 25961-4ac9fbc9-3bd8-4c43-bbe2-95e477f8a067"
             isEnabled = "YES">
          </CommandLineArgument>
@@ -111,10 +115,6 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-d FugenDemo/Generated/TextStyle.swift"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-o publicAccess:true"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
