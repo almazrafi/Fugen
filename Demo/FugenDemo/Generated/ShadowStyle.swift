@@ -274,6 +274,15 @@ open class ShadowStyleLayer: CALayer {
         fatalError("init(coder:) has not been implemented")
     }
 
+    public override init(layer: Any) {
+        if let layer = layer as? ShadowStyleLayer {
+            self.shadowStyle = layer.shadowStyle
+        } else {
+            self.shadowStyle = .clear
+        }
+        super.init(layer: layer)
+    }
+
     // MARK: - Instance Methods
 
     private func configureShadowLayers() {
