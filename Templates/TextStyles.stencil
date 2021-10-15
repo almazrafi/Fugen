@@ -63,7 +63,7 @@ import AppKit
     /// Line height: {{ style.lineHeight|default:"default" }}
     /// Letter spacing: {{ style.letterSpacing|default:"default" }}
     {{ accessModifier }} static let {% call propertyName style.name %} = {{ styleTypeName }}(
-        font: {{ fontTypeName }}(name: "{{ style.font.name }}", size: {{ style.font.size }}),
+        font: {{ fontTypeName }}{{ style.font|initializer:options.usingSystemFonts }},
         color: {{ colorTypeName }}(
             red: {{ style.color.color.red }},
             green: {{ style.color.color.green }},
@@ -83,10 +83,12 @@ import AppKit
 
     {{ accessModifier }} static func validate() throws {
         {% for style in textStyles %}
+        {% if not ( options.usingSystemFonts and style.font|isSystemFont ) %}
         guard {{ fontTypeName }}(name: "{{ style.font.name }}", size: {{ style.font.size }}) != nil else {
             throw ValidationError.fontNotFound(name: "{{ style.font.name }}", size: {{ style.font.size }})
         }
 
+        {% endif %}
         {% endfor %}
         print("All text styles are valid")
     }
