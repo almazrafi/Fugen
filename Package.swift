@@ -11,10 +11,10 @@ let package = Package(
         .library(name: "FugenTools", targets: ["FugenTools"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/jakeheis/SwiftCLI", from: "5.0.0"),
+        .package(url: "https://github.com/jakeheis/SwiftCLI", from: "6.0.3"),
         .package(url: "https://github.com/onevcat/Rainbow.git", from: "3.0.0"),
         .package(url: "https://github.com/jpsim/Yams.git", from: "2.0.0"),
-        .package(url: "https://github.com/kylef/PathKit.git", from: "0.9.2"),
+        .package(url: "https://github.com/kylef/PathKit.git", from: "1.0.1"),
         .package(url: "https://github.com/kylef/Stencil.git", from: "0.13.0"),
         .package(url: "https://github.com/SwiftGen/StencilSwiftKit.git", from: "2.7.2"),
         .package(url: "https://github.com/mxcl/PromiseKit.git", from: "6.8.0"),

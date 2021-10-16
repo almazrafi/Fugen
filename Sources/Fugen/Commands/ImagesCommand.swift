@@ -121,8 +121,7 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
         description: """
             Render only exportable components.
             By default, all components will be rendered.
-            """,
-        defaultValue: false
+            """
     )
 
     let useAbsoluteBounds = Flag(
@@ -130,8 +129,7 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
         description: """
             Use full dimensions of the node.
             By default, images will omit empty space or crop.
-            """,
-        defaultValue: false
+            """
     )
 
     let preserveVectorData = Flag(
@@ -139,8 +137,7 @@ final class ImagesCommand: AsyncExecutableCommand, GenerationConfigurableCommand
         description: """
         Set preserve vector data flag in Xcode assets.
         By default, Xcode assets will be generated without vector data preserving.
-        """,
-        defaultValue: false
+        """
     )
 
     // MARK: - Initializers
