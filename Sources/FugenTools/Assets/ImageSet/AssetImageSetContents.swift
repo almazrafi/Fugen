@@ -17,8 +17,6 @@ public struct AssetImageSetContents: Codable, Hashable {
     ) {
         self.info = info
         self.properties = properties
-        self.images = images?.sorted(by: { left, right in
-            left.scale?.rawValue ?? "" <= right.scale?.rawValue ?? ""
-        })
+        self.images = images?.sorted { $0.scale?.rawValue ?? .empty <= $1.scale?.rawValue ?? .empty }
     }
 }

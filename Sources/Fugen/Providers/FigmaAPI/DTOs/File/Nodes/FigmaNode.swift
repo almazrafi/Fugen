@@ -191,7 +191,8 @@ struct FigmaNode: Decodable, Hashable {
         case CodingValues.instanceType:
             type = .instance(
                 info: try FigmaFrameNodeInfo(from: decoder),
-                payload: try FigmaInstanceNodePayload(from: decoder))
+                payload: try FigmaInstanceNodePayload(from: decoder)
+            )
 
         default:
             type = .unknown
