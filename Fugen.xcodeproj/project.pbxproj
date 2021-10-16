@@ -33,6 +33,18 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		8E7AF29A26EB2B1100E3D818 /* GradientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7AF29926EB2B1100E3D818 /* GradientType.swift */; };
+		8E7AF2A126EBCC8200E3D818 /* GradientStylesContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7AF2A026EBCC8200E3D818 /* GradientStylesContext.swift */; };
+		8EDFBFC226E523EC006AB9FD /* GradientStylesCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDFBFC126E523EC006AB9FD /* GradientStylesCommand.swift */; };
+		8EDFBFC526E5246A006AB9FD /* GradientStylesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDFBFC426E52469006AB9FD /* GradientStylesGenerator.swift */; };
+		8EDFBFC726E524A5006AB9FD /* GradientStylesConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDFBFC626E524A5006AB9FD /* GradientStylesConfiguration.swift */; };
+		8EDFBFC926E524EE006AB9FD /* DefaultGradientStylesGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDFBFC826E524EE006AB9FD /* DefaultGradientStylesGenerator.swift */; };
+		8EDFBFCC26E52553006AB9FD /* GradientStylesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDFBFCB26E52553006AB9FD /* GradientStylesProvider.swift */; };
+		8EDFBFCF26E525CA006AB9FD /* GradientStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDFBFCE26E525CA006AB9FD /* GradientStyle.swift */; };
+		8EDFBFD126E525FA006AB9FD /* GradientStyleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDFBFD026E525FA006AB9FD /* GradientStyleNode.swift */; };
+		8EDFBFD326E527C1006AB9FD /* ColorStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDFBFD226E527C1006AB9FD /* ColorStop.swift */; };
+		8EDFBFF426E52AC3006AB9FD /* DefaultGradientStylesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDFBFF326E52AC3006AB9FD /* DefaultGradientStylesProvider.swift */; };
+		8EDFC02026E68E32006AB9FD /* GradientStylesProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDFC01F26E68E32006AB9FD /* GradientStylesProviderError.swift */; };
 		C01B801C24FFF7D00080227E /* ShadowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B801A24FFF78B0080227E /* ShadowType.swift */; };
 		C0BE783524E94735004EBBEF /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE783424E94735004EBBEF /* Shadow.swift */; };
 		C0BE783724E95650004EBBEF /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE783624E95650004EBBEF /* TextStyle.swift */; };
@@ -731,6 +743,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E7AF29926EB2B1100E3D818 /* GradientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientType.swift; sourceTree = "<group>"; };
+		8E7AF2A026EBCC8200E3D818 /* GradientStylesContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientStylesContext.swift; sourceTree = "<group>"; };
+		8EDFBFC126E523EC006AB9FD /* GradientStylesCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientStylesCommand.swift; sourceTree = "<group>"; };
+		8EDFBFC426E52469006AB9FD /* GradientStylesGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientStylesGenerator.swift; sourceTree = "<group>"; };
+		8EDFBFC626E524A5006AB9FD /* GradientStylesConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientStylesConfiguration.swift; sourceTree = "<group>"; };
+		8EDFBFC826E524EE006AB9FD /* DefaultGradientStylesGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultGradientStylesGenerator.swift; sourceTree = "<group>"; };
+		8EDFBFCB26E52553006AB9FD /* GradientStylesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientStylesProvider.swift; sourceTree = "<group>"; };
+		8EDFBFCE26E525CA006AB9FD /* GradientStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientStyle.swift; sourceTree = "<group>"; };
+		8EDFBFD026E525FA006AB9FD /* GradientStyleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientStyleNode.swift; sourceTree = "<group>"; };
+		8EDFBFD226E527C1006AB9FD /* ColorStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStop.swift; sourceTree = "<group>"; };
+		8EDFBFF326E52AC3006AB9FD /* DefaultGradientStylesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultGradientStylesProvider.swift; sourceTree = "<group>"; };
+		8EDFC01F26E68E32006AB9FD /* GradientStylesProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientStylesProviderError.swift; sourceTree = "<group>"; };
 		C01B801A24FFF78B0080227E /* ShadowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowType.swift; sourceTree = "<group>"; };
 		C042748824E84B3B00E1605C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		C042748924E84B3B00E1605C /* .ruby-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".ruby-version"; sourceTree = SOURCE_ROOT; };
@@ -1309,6 +1333,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8EDFBFC326E5244F006AB9FD /* GradientStyles */ = {
+			isa = PBXGroup;
+			children = (
+				8EDFBFC826E524EE006AB9FD /* DefaultGradientStylesGenerator.swift */,
+				8E7AF2A026EBCC8200E3D818 /* GradientStylesContext.swift */,
+				8EDFBFC426E52469006AB9FD /* GradientStylesGenerator.swift */,
+			);
+			path = GradientStyles;
+			sourceTree = "<group>";
+		};
+		8EDFBFCA26E5253D006AB9FD /* GradientStyles */ = {
+			isa = PBXGroup;
+			children = (
+				8EDFBFF326E52AC3006AB9FD /* DefaultGradientStylesProvider.swift */,
+				8EDFBFCB26E52553006AB9FD /* GradientStylesProvider.swift */,
+				8EDFC01F26E68E32006AB9FD /* GradientStylesProviderError.swift */,
+			);
+			path = GradientStyles;
+			sourceTree = "<group>";
+		};
+		8EDFBFCD26E525BC006AB9FD /* GradientStyle */ = {
+			isa = PBXGroup;
+			children = (
+				8EDFBFD226E527C1006AB9FD /* ColorStop.swift */,
+				8EDFBFCE26E525CA006AB9FD /* GradientStyle.swift */,
+				8EDFBFD026E525FA006AB9FD /* GradientStyleNode.swift */,
+				8E7AF29926EB2B1100E3D818 /* GradientType.swift */,
+			);
+			path = GradientStyle;
+			sourceTree = "<group>";
+		};
 		C0BE783A24E9B258004EBBEF /* Vector */ = {
 			isa = PBXGroup;
 			children = (
@@ -1455,6 +1510,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_19 /* ColorStyles */,
+				8EDFBFC326E5244F006AB9FD /* GradientStyles */,
 				OBJ_25 /* Images */,
 				OBJ_29 /* Library */,
 				OBJ_32 /* ShadowStyles */,
@@ -1971,6 +2027,7 @@
 			children = (
 				OBJ_42 /* ColorStyle */,
 				OBJ_46 /* Configuration */,
+				8EDFBFCD26E525BC006AB9FD /* GradientStyle */,
 				OBJ_57 /* Images */,
 				OBJ_65 /* Parameters */,
 				OBJ_71 /* ShadowStyle */,
@@ -2126,6 +2183,7 @@
 				OBJ_50 /* Configuration.swift */,
 				OBJ_51 /* FileConfiguration.swift */,
 				OBJ_52 /* GenerationConfiguration.swift */,
+				8EDFBFC626E524A5006AB9FD /* GradientStylesConfiguration.swift */,
 				OBJ_53 /* ImagesConfiguration.swift */,
 				OBJ_54 /* ShadowStylesConfiguration.swift */,
 				OBJ_55 /* TextStylesConfiguration.swift */,
@@ -2285,6 +2343,7 @@
 				OBJ_96 /* FigmaAPI */,
 				OBJ_161 /* FigmaFiles */,
 				OBJ_164 /* FigmaNodes */,
+				8EDFBFCA26E5253D006AB9FD /* GradientStyles */,
 				OBJ_168 /* Images */,
 				OBJ_182 /* ShadowStyles */,
 				OBJ_186 /* TextStyles */,
@@ -2343,6 +2402,7 @@
 				OBJ_11 /* ColorStylesCommand.swift */,
 				OBJ_12 /* GenerateCommand.swift */,
 				OBJ_13 /* GenerationConfigurableCommand.swift */,
+				8EDFBFC126E523EC006AB9FD /* GradientStylesCommand.swift */,
 				OBJ_14 /* ImagesCommand.swift */,
 				OBJ_15 /* ShadowStylesCommand.swift */,
 				OBJ_16 /* TextStylesCommand.swift */,
@@ -3062,8 +3122,10 @@
 				OBJ_590 /* DefaultColorStylesGenerator.swift in Sources */,
 				OBJ_591 /* GenerationParametersError.swift in Sources */,
 				C0BE783524E94735004EBBEF /* Shadow.swift in Sources */,
+				8EDFBFC726E524A5006AB9FD /* GradientStylesConfiguration.swift in Sources */,
 				OBJ_592 /* GenerationParametersResolving.swift in Sources */,
 				OBJ_593 /* DefaultImagesGenerator.swift in Sources */,
+				8E7AF2A126EBCC8200E3D818 /* GradientStylesContext.swift in Sources */,
 				OBJ_594 /* ImagesContext.swift in Sources */,
 				OBJ_595 /* ImagesGenerator.swift in Sources */,
 				OBJ_596 /* DefaultLibraryGenerator.swift in Sources */,
@@ -3091,6 +3153,7 @@
 				OBJ_616 /* TextStylesConfiguration.swift in Sources */,
 				OBJ_617 /* Font.swift in Sources */,
 				OBJ_618 /* Image.swift in Sources */,
+				8E7AF29A26EB2B1100E3D818 /* GradientType.swift in Sources */,
 				OBJ_619 /* ImageAsset.swift in Sources */,
 				OBJ_620 /* ImageFormat.swift in Sources */,
 				OBJ_621 /* ImageNode.swift in Sources */,
@@ -3113,14 +3176,18 @@
 				OBJ_639 /* DefaultColorStyleAssetsProvider.swift in Sources */,
 				OBJ_640 /* ColorStylesProvider.swift in Sources */,
 				OBJ_641 /* ColorStylesProviderError.swift in Sources */,
+				8EDFBFC226E523EC006AB9FD /* GradientStylesCommand.swift in Sources */,
+				8EDFBFF426E52AC3006AB9FD /* DefaultGradientStylesProvider.swift in Sources */,
 				OBJ_642 /* DefaultColorStylesProvider.swift in Sources */,
 				OBJ_643 /* ConfigurationProvider.swift in Sources */,
 				OBJ_644 /* DefaultConfigurationProvider.swift in Sources */,
 				OBJ_645 /* DataProvider.swift in Sources */,
+				8EDFBFD326E527C1006AB9FD /* ColorStop.swift in Sources */,
 				OBJ_646 /* DefaultDataProvider.swift in Sources */,
 				OBJ_647 /* FigmaError.swift in Sources */,
 				OBJ_648 /* FigmaImages.swift in Sources */,
 				OBJ_649 /* FigmaBlendMode.swift in Sources */,
+				8EDFBFCC26E52553006AB9FD /* GradientStylesProvider.swift in Sources */,
 				OBJ_650 /* FigmaBooleanOperationType.swift in Sources */,
 				OBJ_651 /* FigmaColor.swift in Sources */,
 				OBJ_652 /* FigmaColorStop.swift in Sources */,
@@ -3151,11 +3218,13 @@
 				OBJ_677 /* FigmaStyleType.swift in Sources */,
 				OBJ_678 /* FigmaTextCase.swift in Sources */,
 				OBJ_679 /* FigmaTextDecoration.swift in Sources */,
+				8EDFBFD126E525FA006AB9FD /* GradientStyleNode.swift in Sources */,
 				OBJ_680 /* FigmaTextHorizontalAlignment.swift in Sources */,
 				OBJ_681 /* FigmaTextVerticalAlignment.swift in Sources */,
 				OBJ_682 /* FigmaTypeStyle.swift in Sources */,
 				OBJ_683 /* FigmaVector.swift in Sources */,
 				OBJ_684 /* FigmaBooleanOperationNodePayload.swift in Sources */,
+				8EDFBFC526E5246A006AB9FD /* GradientStylesGenerator.swift in Sources */,
 				OBJ_685 /* FigmaCanvasNodeInfo.swift in Sources */,
 				OBJ_686 /* FigmaDocumentNodeInfo.swift in Sources */,
 				OBJ_687 /* FigmaFile.swift in Sources */,
@@ -3193,10 +3262,12 @@
 				OBJ_719 /* ImageRenderProviderError.swift in Sources */,
 				OBJ_720 /* DefaultImageResourcesProvider.swift in Sources */,
 				OBJ_721 /* ImageResourcesProvider.swift in Sources */,
+				8EDFBFCF26E525CA006AB9FD /* GradientStyle.swift in Sources */,
 				C0BE783C24E9B26E004EBBEF /* StencilVectorFilter.swift in Sources */,
 				OBJ_722 /* DefaultShadowStylesProvider.swift in Sources */,
 				OBJ_723 /* ShadowStylesProvider.swift in Sources */,
 				OBJ_724 /* ShadowStylesProviderError.swift in Sources */,
+				8EDFC02026E68E32006AB9FD /* GradientStylesProviderError.swift in Sources */,
 				OBJ_725 /* DefaultTextStylesProvider.swift in Sources */,
 				OBJ_726 /* TextStylesProvider.swift in Sources */,
 				OBJ_727 /* TextStylesProviderError.swift in Sources */,
@@ -3218,6 +3289,7 @@
 				OBJ_743 /* StencilFloatToByteFilter.swift in Sources */,
 				OBJ_744 /* StencilHexToByteFilter.swift in Sources */,
 				OBJ_745 /* StencilExtension.swift in Sources */,
+				8EDFBFC926E524EE006AB9FD /* DefaultGradientStylesGenerator.swift in Sources */,
 				OBJ_746 /* StencilFilter.swift in Sources */,
 				OBJ_747 /* StencilFilterError.swift in Sources */,
 				OBJ_748 /* StencilTag.swift in Sources */,
