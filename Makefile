@@ -70,6 +70,7 @@ uninstall:
 update_version:
 	sed -i '' 's|\(let version = "\)\(.*\)\("\)|\1$(PRODUCT_VERSION)\3|' $(SOURCES_MAIN_PATH)
 	sed -i '' 's|\(pod '\''Fugen'\'', '\''~> \)\(.*\)\('\''\)|\1$(PRODUCT_VERSION)\3|' $(README_PATH)
+	sed -i '' 's|\($ mint install almazrafi/Fugen@\)\(.*\)|\1$(PRODUCT_VERSION)|' $(README_PATH)
 
 release: update_version build
 	mkdir -p $(RELEASE_PATH)
