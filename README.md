@@ -41,7 +41,7 @@ Currently, Fugen supports the following entities:
 ### CocoaPods
 To install Fugen using [CocoaPods](http://cocoapods.org) dependency manager, add this line to your `Podfile`:
 ```ruby
-pod 'Fugen', '~> 1.3.0'
+pod 'Fugen', '~> 1.4.0'
 ```
 
 Then run this command:
@@ -71,7 +71,7 @@ $ brew install almazrafi/tap/fugen
 For [Mint](https://github.com/yonaskolb/mint) package manager installation, run:
 
 ```sh
-$ mint install almazrafi/Fugen@1.3.0
+$ mint install almazrafi/Fugen@1.4.0
 ```
 
 ### ZIP archive
