@@ -65,6 +65,7 @@ enum Dependencies {
         StencilHexToByteFilter(),
         StencilByteToFloatFilter(),
         StencilFloatToByteFilter(),
+        StencilStyleNameFilter(),
         StencilVectorInfoFilter(contextCoder: templateContextCoder),
         StencilColorRGBHexInfoFilter(contextCoder: templateContextCoder),
         StencilColorRGBAHexInfoFilter(contextCoder: templateContextCoder),
