@@ -63,11 +63,13 @@ final class DefaultTextStylesProvider: TextStylesProvider {
             throw TextStylesProviderError(code: .invalidFontFamily, nodeID: node.id, nodeName: node.name)
         }
 
-        let fontName = typeStyle.fontPostScriptName ?? .regularFontName(family: fontFamily)
-
         guard let fontWeight = typeStyle.fontWeight else {
             throw TextStylesProviderError(code: .invalidFontWeight, nodeID: node.id, nodeName: node.name)
         }
+
+        let fontName = typeStyle.fontPostScriptName
+            ?? .fontName(family: fontFamily, weight: fontWeight)
+            ?? .regularFontName(family: fontFamily)
 
         guard let fontSize = typeStyle.fontSize else {
             throw TextStylesProviderError(code: .invalidFontSize, nodeID: node.id, nodeName: node.name)
@@ -155,5 +157,42 @@ private extension String {
 
     static func regularFontName(family fontFamily: String) -> String {
         return "\(fontFamily)-Regular"
+    }
+
+    static func fontName(family fontFamily: String, weight: Double) -> String? {
+        switch weight {
+        case 100:
+            return "\(fontFamily)-Thin"
+
+        case 200:
+            return "\(fontFamily)-ExtraLight"
+
+        case 300:
+            return "\(fontFamily)-Light"
+
+        case 400:
+            return .regularFontName(family: fontFamily)
+
+        case 500:
+            return "\(fontFamily)-Medium"
+
+        case 600:
+            return "\(fontFamily)-SemiBold"
+
+        case 700:
+            return "\(fontFamily)-Bold"
+
+        case 800:
+            return "\(fontFamily)-ExtraBold"
+
+        case 900:
+            return "\(fontFamily)-Black"
+
+        case 950:
+            return "\(fontFamily)-ExtraBlack"
+
+        default:
+            return nil
+        }
     }
 }
