@@ -61,7 +61,7 @@ extension URLSessionConfiguration {
         let rawHeaders = Dictionary(uniqueKeysWithValues: headers.map { ($0.name, $0.value) })
 
         configuration.httpAdditionalHeaders = rawHeaders
-        configuration.timeoutIntervalForRequest = 45
+        configuration.timeoutIntervalForRequest = 90
 
         return configuration
     }
